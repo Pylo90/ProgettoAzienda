@@ -177,7 +177,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="461" pref="461" max="-2" attributes="0"/>
-                                  <Component id="ConfirmButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ConfirmButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="502" max="32767" attributes="0"/>
@@ -272,7 +272,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="63" max="32767" attributes="0"/>
-                          <Component id="ConfirmButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="ConfirmButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1074,7 +1074,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="ConfirmButton1">
+        <Component class="javax.swing.JButton" name="ConfirmButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="32" style="0"/>
@@ -1099,7 +1099,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConfirmButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConfirmButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Level2Button">

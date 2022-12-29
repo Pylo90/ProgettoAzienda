@@ -72,7 +72,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         MotivazioneSciopero = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
-        ConfirmButton1 = new javax.swing.JButton();
+        ConfirmButton = new javax.swing.JButton();
         Level2Button = new javax.swing.JButton();
         Level1Button = new javax.swing.JButton();
         Level3Button = new javax.swing.JButton();
@@ -557,20 +557,20 @@ public class ScioperoForm extends javax.swing.JFrame {
         jTextArea3.setBorder(null);
         jScrollPane3.setViewportView(jTextArea3);
 
-        ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        ConfirmButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
-        ConfirmButton1.setText("Conferma");
-        ConfirmButton1.setAlignmentY(0.0F);
-        ConfirmButton1.setBorder(null);
-        ConfirmButton1.setBorderPainted(false);
-        ConfirmButton1.setContentAreaFilled(false);
-        ConfirmButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        ConfirmButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ConfirmButton1.setIconTextGap(0);
-        ConfirmButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        ConfirmButton1.addActionListener(new java.awt.event.ActionListener() {
+        ConfirmButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        ConfirmButton.setText("Conferma");
+        ConfirmButton.setAlignmentY(0.0F);
+        ConfirmButton.setBorder(null);
+        ConfirmButton.setBorderPainted(false);
+        ConfirmButton.setContentAreaFilled(false);
+        ConfirmButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ConfirmButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ConfirmButton.setIconTextGap(0);
+        ConfirmButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        ConfirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmButton1ActionPerformed(evt);
+                ConfirmButtonActionPerformed(evt);
             }
         });
 
@@ -754,7 +754,7 @@ public class ScioperoForm extends javax.swing.JFrame {
                                 .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(461, 461, 461)
-                                .addComponent(ConfirmButton1)))
+                                .addComponent(ConfirmButton)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -830,7 +830,7 @@ public class ScioperoForm extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(ConfirmButton1)
+                        .addComponent(ConfirmButton)
                         .addGap(40, 40, 40))))
         );
 
@@ -1048,11 +1048,11 @@ public class ScioperoForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton32ActionPerformed
 
-    private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
+    private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
         System.out.println(MotivazioneSciopero.getText());
         this.dispose();
-    }//GEN-LAST:event_ConfirmButton1ActionPerformed
+    }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1095,7 +1095,7 @@ public class ScioperoForm extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ConfirmButton1;
+    private javax.swing.JButton ConfirmButton;
     private javax.swing.JButton Level1Button;
     private javax.swing.JButton Level2Button;
     private javax.swing.JButton Level3Button;
