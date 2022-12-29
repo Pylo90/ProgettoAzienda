@@ -8,6 +8,7 @@ package controller;
  *
  * @author dario
  */
+
 public class AperturaChiusuraControl {
     
 }
