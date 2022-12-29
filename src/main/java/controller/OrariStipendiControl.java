@@ -4,10 +4,17 @@
  */
 package controller;
 
+import javax.swing.JFrame;
+import view.OrarioImpiegato;
+
 /**
  *
  * @author dario
  */
 public class OrariStipendiControl {
+    public void ConsultaOrarioButtonPressed(){
+        JFrame OrarioImpiegati = new OrarioImpiegato();
+        OrarioImpiegati.setVisible(true);
+    }
     
 }

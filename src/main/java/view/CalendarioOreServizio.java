@@ -361,7 +361,7 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setLocation(new java.awt.Point(660, 50));
+        setBounds(660, 50, 606, 800);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed

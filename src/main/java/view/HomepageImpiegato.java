@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.*;
+
 /**
  *
  * @author dario
@@ -15,6 +17,10 @@ public class HomepageImpiegato extends javax.swing.JFrame {
      */
     public HomepageImpiegato() {
         initComponents();
+        jLabel4.setVisible(false);
+        Permesso.setVisible(false);
+        Ferie.setVisible(false);
+        CongedoParentale.setVisible(false);
     }
 
     /**
@@ -32,9 +38,9 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         PasswordButton = new javax.swing.JButton();
         NotificationButton = new javax.swing.JButton();
         RequestButton = new javax.swing.JButton();
-        RequestButton2 = new javax.swing.JButton();
+        Permesso = new javax.swing.JButton();
         Ferie = new javax.swing.JButton();
-        Ferie1 = new javax.swing.JButton();
+        CongedoParentale = new javax.swing.JButton();
         RequestButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -145,26 +151,26 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         getContentPane().add(RequestButton);
         RequestButton.setBounds(50, 730, 100, 100);
 
-        RequestButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        RequestButton2.setForeground(new java.awt.Color(255, 255, 255));
-        RequestButton2.setText("Permesso");
-        RequestButton2.setAlignmentY(0.0F);
-        RequestButton2.setBorderPainted(false);
-        RequestButton2.setContentAreaFilled(false);
-        RequestButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        RequestButton2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        RequestButton2.setIconTextGap(0);
-        RequestButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        RequestButton2.setMaximumSize(new java.awt.Dimension(177, 55));
-        RequestButton2.setMinimumSize(new java.awt.Dimension(177, 55));
-        RequestButton2.setPreferredSize(new java.awt.Dimension(177, 55));
-        RequestButton2.addActionListener(new java.awt.event.ActionListener() {
+        Permesso.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        Permesso.setForeground(new java.awt.Color(255, 255, 255));
+        Permesso.setText("Permesso");
+        Permesso.setAlignmentY(0.0F);
+        Permesso.setBorderPainted(false);
+        Permesso.setContentAreaFilled(false);
+        Permesso.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Permesso.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        Permesso.setIconTextGap(0);
+        Permesso.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        Permesso.setMaximumSize(new java.awt.Dimension(177, 55));
+        Permesso.setMinimumSize(new java.awt.Dimension(177, 55));
+        Permesso.setPreferredSize(new java.awt.Dimension(177, 55));
+        Permesso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RequestButton2ActionPerformed(evt);
+                PermessoActionPerformed(evt);
             }
         });
-        getContentPane().add(RequestButton2);
-        RequestButton2.setBounds(223, 19, 177, 60);
+        getContentPane().add(Permesso);
+        Permesso.setBounds(223, 19, 177, 60);
 
         Ferie.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         Ferie.setForeground(new java.awt.Color(255, 255, 255));
@@ -187,26 +193,26 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         getContentPane().add(Ferie);
         Ferie.setBounds(223, 72, 177, 60);
 
-        Ferie1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        Ferie1.setForeground(new java.awt.Color(255, 255, 255));
-        Ferie1.setText("Congedo Paerntale");
-        Ferie1.setAlignmentY(0.0F);
-        Ferie1.setBorderPainted(false);
-        Ferie1.setContentAreaFilled(false);
-        Ferie1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Ferie1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Ferie1.setIconTextGap(0);
-        Ferie1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        Ferie1.setMaximumSize(new java.awt.Dimension(177, 55));
-        Ferie1.setMinimumSize(new java.awt.Dimension(177, 55));
-        Ferie1.setPreferredSize(new java.awt.Dimension(177, 55));
-        Ferie1.addActionListener(new java.awt.event.ActionListener() {
+        CongedoParentale.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        CongedoParentale.setForeground(new java.awt.Color(255, 255, 255));
+        CongedoParentale.setText("Congedo Parentale");
+        CongedoParentale.setAlignmentY(0.0F);
+        CongedoParentale.setBorderPainted(false);
+        CongedoParentale.setContentAreaFilled(false);
+        CongedoParentale.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        CongedoParentale.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        CongedoParentale.setIconTextGap(0);
+        CongedoParentale.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        CongedoParentale.setMaximumSize(new java.awt.Dimension(177, 55));
+        CongedoParentale.setMinimumSize(new java.awt.Dimension(177, 55));
+        CongedoParentale.setPreferredSize(new java.awt.Dimension(177, 55));
+        CongedoParentale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ferie1ActionPerformed(evt);
+                CongedoParentaleActionPerformed(evt);
             }
         });
-        getContentPane().add(Ferie1);
-        Ferie1.setBounds(223, 125, 290, 60);
+        getContentPane().add(CongedoParentale);
+        CongedoParentale.setBounds(223, 125, 340, 60);
 
         RequestButton3.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         RequestButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -295,14 +301,11 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(653, 653, 653)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(MailLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PhoneLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(PersonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(MailLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(PhoneLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(PersonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(NomeText)
                                     .addComponent(MatricolaText)
@@ -351,12 +354,12 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
 
-        pack();
+        setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_HomeButtonActionPerformed
 
     private void BankButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BankButtonActionPerformed
@@ -365,6 +368,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void ScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleButtonActionPerformed
         // TODO add your handling code here:
+        OSC.ConsultaOrarioButtonPressed();
     }//GEN-LAST:event_ScheduleButtonActionPerformed
 
     private void PasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordButtonActionPerformed
@@ -377,23 +381,34 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void RequestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButtonActionPerformed
         // TODO add your handling code here:
+        if (!jLabel4.isVisible()) {
+            jLabel4.setVisible(true);
+            Permesso.setVisible(true);
+            Ferie.setVisible(true);
+            CongedoParentale.setVisible(true);
+        } else {
+            jLabel4.setVisible(false);
+            Permesso.setVisible(false);
+            Ferie.setVisible(false);
+            CongedoParentale.setVisible(false);
+        }
     }//GEN-LAST:event_RequestButtonActionPerformed
 
     private void RequestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RequestButton1ActionPerformed
 
-    private void RequestButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton2ActionPerformed
+    private void PermessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PermessoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RequestButton2ActionPerformed
+    }//GEN-LAST:event_PermessoActionPerformed
 
     private void FerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FerieActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FerieActionPerformed
 
-    private void Ferie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ferie1ActionPerformed
+    private void CongedoParentaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CongedoParentaleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Ferie1ActionPerformed
+    }//GEN-LAST:event_CongedoParentaleActionPerformed
 
     private void RequestButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton3ActionPerformed
         // TODO add your handling code here:
@@ -437,8 +452,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BankButton;
+    private javax.swing.JButton CongedoParentale;
     private javax.swing.JButton Ferie;
-    private javax.swing.JButton Ferie1;
     private javax.swing.JButton HomeButton;
     private javax.swing.JLabel MailLabel;
     private javax.swing.JLabel MailText;
@@ -446,12 +461,12 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private javax.swing.JLabel NomeText;
     private javax.swing.JButton NotificationButton;
     private javax.swing.JButton PasswordButton;
+    private javax.swing.JButton Permesso;
     private javax.swing.JLabel PersonLabel;
     private javax.swing.JLabel PhoneLabel;
     private javax.swing.JLabel PhoneText;
     private javax.swing.JButton RequestButton;
     private javax.swing.JButton RequestButton1;
-    private javax.swing.JButton RequestButton2;
     private javax.swing.JButton RequestButton3;
     private javax.swing.JButton ScheduleButton;
     private javax.swing.JLabel jLabel1;
@@ -460,4 +475,11 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    private CambiaPasswordControl CPC = new CambiaPasswordControl();
+    private AutenticazioneControl AutC = new AutenticazioneControl();
+    private FirmaControl FirC = new FirmaControl();
+    private RichiesteControl RicC = new RichiesteControl();
+    private OrariStipendiControl OSC = new OrariStipendiControl();
+
 }

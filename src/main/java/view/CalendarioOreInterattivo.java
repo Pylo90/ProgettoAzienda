@@ -336,7 +336,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setLocation(new java.awt.Point(546, 50));
+        setBounds(546, 50, 612, 645);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
