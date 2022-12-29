@@ -9,7 +9,6 @@ package controller;
  * @author dario
  */
 
-//test
 public class AperturaChiusuraControl {
     
 }
