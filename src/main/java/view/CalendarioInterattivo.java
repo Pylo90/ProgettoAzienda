@@ -67,7 +67,7 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
         MonthLabel = new javax.swing.JLabel();
         nextMonthButton = new javax.swing.JButton();
         prevMonthButton = new javax.swing.JButton();
-        ConfirmButton1 = new javax.swing.JButton();
+        ConfirmButton = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -510,20 +510,20 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
             }
         });
 
-        ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        ConfirmButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
-        ConfirmButton1.setText("Conferma");
-        ConfirmButton1.setAlignmentY(0.0F);
-        ConfirmButton1.setBorder(null);
-        ConfirmButton1.setBorderPainted(false);
-        ConfirmButton1.setContentAreaFilled(false);
-        ConfirmButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        ConfirmButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ConfirmButton1.setIconTextGap(0);
-        ConfirmButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        ConfirmButton1.addActionListener(new java.awt.event.ActionListener() {
+        ConfirmButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        ConfirmButton.setText("Conferma");
+        ConfirmButton.setAlignmentY(0.0F);
+        ConfirmButton.setBorder(null);
+        ConfirmButton.setBorderPainted(false);
+        ConfirmButton.setContentAreaFilled(false);
+        ConfirmButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ConfirmButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ConfirmButton.setIconTextGap(0);
+        ConfirmButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        ConfirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmButton1ActionPerformed(evt);
+                ConfirmButtonActionPerformed(evt);
             }
         });
 
@@ -596,7 +596,7 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
                                 .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ConfirmButton1)
+                                    .addComponent(ConfirmButton)
                                     .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -688,7 +688,7 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
                     .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(ConfirmButton1)
+                .addComponent(ConfirmButton)
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
@@ -709,7 +709,7 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        setLocation(new java.awt.Point(660, 50));
+        setBounds(660, 50, 600, 700);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -878,10 +878,10 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
         MonthLabel.setText(mesi[meseIndex]);
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
-    private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
+    private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_ConfirmButton1ActionPerformed
+    }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
@@ -924,7 +924,7 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ConfirmButton1;
+    private javax.swing.JButton ConfirmButton;
     private javax.swing.JLabel MonthLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
