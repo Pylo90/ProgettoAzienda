@@ -1,6 +1,7 @@
 package controller;
 
 import view.Login;
+import view.HomePageAmministratore;
 
 /**
  *
@@ -8,10 +9,10 @@ import view.Login;
  */
 public class LoginControl {
     Login loginFrame;
+    HomePageAmministratore adminPage;
     
     public LoginControl() {
-        loginFrame = new Login(this);
-        loginFrame.setVisible(true);
+        
     }
     
     /* TODO */
@@ -29,5 +30,15 @@ public class LoginControl {
     /* Debug main */
     public static void main(String[] args) {
         new LoginControl();
+    }
+    
+    public void createLogin() {
+        loginFrame = new Login(this);
+        loginFrame.setVisible(true);
+    }
+    
+    public void createAdminPage() {
+        adminPage = new HomePageAmministratore(this);
+        adminPage.setVisible(true);
     }
 }
