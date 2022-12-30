@@ -4,7 +4,7 @@ import view.Login;
 
 /**
  *
- * @author dario
+ * @author davide
  */
 public class LoginControl {
     Login loginFrame;
