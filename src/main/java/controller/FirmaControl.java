@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
-/**
- *
- * @author dario
- */
+import view.FirmaForm;
+
 public class FirmaControl {
+    FirmaForm firmaForm;
     
+    public FirmaControl() {}
+    
+    public void showFirmaForm() {
+        firmaForm = new FirmaForm(this);
+        firmaForm.setVisible(true);
+    }
+    
+    public void submitBadgeIn() {
+        //TODO
+    }
 }
