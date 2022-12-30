@@ -9,6 +9,10 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import controller.LoginControl;
+import java.awt.Font;
+import java.awt.font.TextAttribute;
+import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author Davide
@@ -20,6 +24,10 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.lc = lc;
         this.getContentPane().setBackground(this.getBackground());
+        Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
+        fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        Font underline = new Font("Segoe UI",Font.PLAIN, 18).deriveFont(fontAttributes);
+        this.forgotButton.setFont(underline);
     }
 
     /** This method is called from within the constructor to
@@ -164,8 +172,10 @@ public class Login extends javax.swing.JFrame {
         confermaButton.setText("Conferma");
         confermaButton.setBorderPainted(false);
         confermaButton.setContentAreaFilled(false);
+        confermaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         confermaButton.setFocusable(false);
         confermaButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        confermaButton.setPreferredSize(new java.awt.Dimension(140, 57));
         confermaButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/LivRed-selected.png"))); // NOI18N
         confermaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +193,7 @@ public class Login extends javax.swing.JFrame {
         forgotButton.setForeground(new java.awt.Color(0, 0, 0));
         forgotButton.setText("Hai dimenticato la password?");
         forgotButton.setBorder(null);
+        forgotButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         forgotButton.setFocusPainted(false);
         forgotButton.setFocusable(false);
         forgotButton.addActionListener(new java.awt.event.ActionListener() {

@@ -8,6 +8,7 @@ import view.Login;
  */
 public class LoginControl {
     Login loginFrame;
+    
     public LoginControl() {
         loginFrame = new Login(this);
         loginFrame.setVisible(true);
