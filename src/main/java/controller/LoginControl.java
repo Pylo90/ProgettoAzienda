@@ -13,12 +13,16 @@ public class LoginControl {
         loginFrame.setVisible(true);
     }
     
+    /* TODO */
     public void dataSubmit(){
-        System.out.println("dataSubmit()"); //TODO
+        System.out.println(loginFrame.getEmailField().getText()); //DEBUG
+        System.out.println(loginFrame.getMatricolaField().getText()); //DEBUG
+        System.out.println(loginFrame.getPasswordField().getPassword()); //DEBUG
     }
     
+    /* TODO */
     public void RPButtonPressed() {
-        System.out.println("RPButtonPressed()"); //TODO
+        System.out.println("RPButtonPressed()"); //DEBUG
     }
     
     /* Debug main */
