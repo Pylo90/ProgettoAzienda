@@ -220,7 +220,7 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });*/
-        new Login(new LoginControl()).setVisible(true);
+        new LoginControl();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
