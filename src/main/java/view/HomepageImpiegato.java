@@ -477,7 +477,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private CambiaPasswordControl CPC = new CambiaPasswordControl();
-    private AutenticazioneControl AutC = new AutenticazioneControl();
+    private LoginControl AutC = new LoginControl();
     private FirmaControl FirC = new FirmaControl();
     private RichiesteControl RicC = new RichiesteControl();
     private OrariStipendiControl OSC = new OrariStipendiControl();
