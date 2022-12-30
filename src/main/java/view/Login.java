@@ -59,7 +59,7 @@ public class Login extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 248, 238));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(java.awt.Color.orange);
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(1920, 1080));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -231,7 +231,7 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });*/
-        new LoginControl();
+        new LoginControl().createLogin();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -24,7 +24,8 @@ public class LoginControl {
     
     /* TODO */
     public void RPButtonPressed() {
-        System.out.println("RPButtonPressed()"); //DEBUG
+        new RecuperaPasswordControl().showRecuperaPassowrd();
+        loginFrame.dispose();
     }
     
     /* Debug main */
