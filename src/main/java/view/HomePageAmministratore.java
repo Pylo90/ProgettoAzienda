@@ -1,6 +1,7 @@
 package view;
 
 import controller.LoginControl;
+import java.awt.Dimension;
 /**
  *
  * @author Davide
@@ -22,7 +23,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -33,7 +33,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         requestButton = new javax.swing.JButton();
         scheduleButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        requestPanel = new javax.swing.JPanel();
         congedoButton = new javax.swing.JButton();
         permessoButton = new javax.swing.JButton();
         ferieButton = new javax.swing.JButton();
@@ -65,10 +65,11 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         phoneText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1280, 1050));
 
         mainPanel.setBackground(new java.awt.Color(255, 248, 238));
         mainPanel.setFocusable(false);
-        mainPanel.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        mainPanel.setMinimumSize(new java.awt.Dimension(1024, 768));
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setFocusable(false);
@@ -159,10 +160,11 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 200, 875);
 
-        jPanel2.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel2.setMaximumSize(new java.awt.Dimension(450, 220));
-        jPanel2.setMinimumSize(new java.awt.Dimension(450, 220));
-        jPanel2.setLayout(null);
+        requestPanel.setBackground(new java.awt.Color(255, 248, 238));
+        requestPanel.setMaximumSize(new java.awt.Dimension(450, 220));
+        requestPanel.setMinimumSize(new java.awt.Dimension(0, 0));
+        requestPanel.setPreferredSize(new java.awt.Dimension(450, 220));
+        requestPanel.setLayout(null);
 
         congedoButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         congedoButton.setForeground(new java.awt.Color(255, 248, 238));
@@ -179,7 +181,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
                 congedoButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(congedoButton);
+        requestPanel.add(congedoButton);
         congedoButton.setBounds(30, 150, 310, 50);
 
         permessoButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -197,7 +199,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
                 permessoButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(permessoButton);
+        requestPanel.add(permessoButton);
         permessoButton.setBounds(30, 10, 170, 50);
 
         ferieButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -214,11 +216,11 @@ public class HomePageAmministratore extends javax.swing.JFrame {
                 ferieButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(ferieButton);
+        requestPanel.add(ferieButton);
         ferieButton.setBounds(30, 80, 180, 48);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
-        jPanel2.add(jLabel3);
+        requestPanel.add(jLabel3);
         jLabel3.setBounds(0, 0, 450, 220);
 
         ritardoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -459,9 +461,9 @@ public class HomePageAmministratore extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -513,11 +515,11 @@ public class HomePageAmministratore extends javax.swing.JFrame {
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(requestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                        .addContainerGap(520, Short.MAX_VALUE)
+                        .addContainerGap(383, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -532,13 +534,13 @@ public class HomePageAmministratore extends javax.swing.JFrame {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ritardoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(scioperoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(70, 70, 70))
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(requestPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -592,7 +594,10 @@ public class HomePageAmministratore extends javax.swing.JFrame {
     }//GEN-LAST:event_notificationButtonActionPerformed
 
     private void requestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButtonActionPerformed
-        // TODO add your handling code here:
+        if (requestPanel.getSize().getWidth() > 0)
+            requestPanel.setSize(new Dimension(0, 220));
+        else
+            requestPanel.setSize(new Dimension(450, 220));
     }//GEN-LAST:event_requestButtonActionPerformed
 
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
@@ -667,7 +672,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -680,6 +684,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
     private javax.swing.JButton permessoButton;
     private javax.swing.JTextField phoneText;
     private javax.swing.JButton requestButton;
+    private javax.swing.JPanel requestPanel;
     private javax.swing.JLabel ritardoLabel;
     private javax.swing.JButton salaryButton;
     private javax.swing.JButton scheduleButton;
