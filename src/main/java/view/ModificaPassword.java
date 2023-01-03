@@ -41,9 +41,7 @@ public class ModificaPassword extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
-        setUndecorated(true);
         setResizable(false);
-        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setMinimumSize(new java.awt.Dimension(1920, 1080));
@@ -66,12 +64,12 @@ public class ModificaPassword extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 65)); // NOI18N
         jLabel1.setText("Modifica Password");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(280, 6, 538, 88);
+        jLabel1.setBounds(280, 6, 535, 88);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setText("Vecchia Password :");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(419, 421, 397, 64);
+        jLabel2.setBounds(419, 421, 398, 64);
 
         jPasswordField1.setBackground(new java.awt.Color(219, 213, 205));
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -88,7 +86,7 @@ public class ModificaPassword extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setText("Nuova Password :");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(419, 526, 373, 64);
+        jLabel3.setBounds(419, 526, 374, 64);
 
         jTextField1.setBackground(new java.awt.Color(219, 213, 205));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -105,7 +103,7 @@ public class ModificaPassword extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel4.setText("Conferma Nuova Password :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(419, 632, 593, 64);
+        jLabel4.setBounds(419, 632, 595, 64);
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
@@ -131,19 +129,27 @@ public class ModificaPassword extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(0, 0, 200, 195);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1920, 1080);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
-        setBounds(0, 0, 1920, 1080);
+        setBounds(0, 0, 1934, 1087);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
