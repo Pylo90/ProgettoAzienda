@@ -2,6 +2,7 @@ package view;
 
 import view.style.InfoBoxCard;
 import controller.RecuperaPasswordControl;
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 import view.style.ScrollBarCustom;
@@ -11,23 +12,32 @@ import view.style.ScrollBarCustom;
 * VERRANNO AGGIUNTE DELLE CARD IMPIEGATO ALLA LISTA
 */
 
+/*
+* TODO - IMPLEMENTARE LA RICERCA
+*
+*/
+
 /**
  *
  * @author Davide
  */
 public class ListaImpiegati extends javax.swing.JFrame {
     int cardCount;
+    boolean searchFieldPlaceholder;
+    
     public ListaImpiegati() {
         initComponents();
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
+        searchFieldPlaceholder = true;
+        mainPanel.requestFocus();
     }
 
     private void addInfoPane() {
         listPanel.add(new InfoBoxCard());
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
-        listPanel.setPreferredSize(new Dimension(1201, cardCount*123));
+        listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount*123));
         //System.out.println("Dopo: " + jPanel5.getSize().height);
         listPanel.revalidate();
     }
@@ -115,8 +125,17 @@ public class ListaImpiegati extends javax.swing.JFrame {
 
         searchField.setBackground(new java.awt.Color(219, 213, 205));
         searchField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        searchField.setForeground(java.awt.Color.lightGray);
         searchField.setText("Cerca");
         searchField.setBorder(null);
+        searchField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchFieldFocusLost(evt);
+            }
+        });
         searchField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 searchFieldKeyTyped(evt);
@@ -194,6 +213,22 @@ public class ListaImpiegati extends javax.swing.JFrame {
     private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
         System.out.println("Test");
     }//GEN-LAST:event_searchFieldKeyTyped
+
+    private void searchFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFieldFocusGained
+        if (searchFieldPlaceholder) {
+            searchField.setText("");
+            searchField.setForeground(Color.BLACK);
+            searchFieldPlaceholder = false;
+        }
+    }//GEN-LAST:event_searchFieldFocusGained
+
+    private void searchFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFieldFocusLost
+        if (!searchFieldPlaceholder && searchField.getText().equals("")) {
+            searchField.setText("Matricola");
+            searchField.setForeground(Color.GRAY);
+            searchFieldPlaceholder = true;
+        }
+    }//GEN-LAST:event_searchFieldFocusLost
 
     /**
      * @param args the command line arguments
