@@ -182,7 +182,7 @@
                           <EmptySpace pref="849" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane3" alignment="0" pref="1235" max="32767" attributes="0"/>
+                          <Component id="listScrollPane" alignment="0" pref="1235" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -196,7 +196,7 @@
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="117" max="32767" attributes="0"/>
-                              <Component id="jScrollPane3" min="-2" pref="709" max="-2" attributes="0"/>
+                              <Component id="listScrollPane" min="-2" pref="709" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -263,7 +263,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                <Container class="javax.swing.JScrollPane" name="listScrollPane">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>

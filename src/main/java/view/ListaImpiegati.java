@@ -1,8 +1,10 @@
 package view;
 
+import view.style.InfoBoxCard;
 import controller.RecuperaPasswordControl;
 import java.awt.Dimension;
 import javax.swing.JPanel;
+import view.style.ScrollBarCustom;
 
 /*
 * PER VERIFICARE IL FUNZIONAMENTO DELLA PAGINA PREMERE IL TASTO HOME
@@ -18,10 +20,11 @@ public class ListaImpiegati extends javax.swing.JFrame {
     public ListaImpiegati() {
         initComponents();
         cardCount = 0;
+        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
     }
 
     private void addInfoPane() {
-        listPanel.add(new infoBoxCard());
+        listPanel.add(new InfoBoxCard());
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
         listPanel.setPreferredSize(new Dimension(1201, cardCount*123));
@@ -50,7 +53,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        listScrollPane = new javax.swing.JScrollPane();
         listPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,15 +129,15 @@ public class ListaImpiegati extends javax.swing.JFrame {
         jPanel3.add(jLabel2);
         jLabel2.setBounds(0, 0, 370, 100);
 
-        jScrollPane3.setBorder(null);
-        jScrollPane3.setHorizontalScrollBar(null);
-        jScrollPane3.setPreferredSize(new java.awt.Dimension(1225, 100));
+        listScrollPane.setBorder(null);
+        listScrollPane.setHorizontalScrollBar(null);
+        listScrollPane.setPreferredSize(new java.awt.Dimension(1225, 100));
 
         listPanel.setBackground(new java.awt.Color(255, 248, 238));
         listPanel.setPreferredSize(new java.awt.Dimension(1201, 0));
         listPanel.setRequestFocusEnabled(false);
         listPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 10));
-        jScrollPane3.setViewportView(listPanel);
+        listScrollPane.setViewportView(listPanel);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -145,7 +148,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(849, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1235, Short.MAX_VALUE))
+                .addComponent(listScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1235, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +159,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addGap(0, 117, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(listScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel4.add(jPanel2, new java.awt.GridBagConstraints());
@@ -209,9 +212,9 @@ public class ListaImpiegati extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JPanel listPanel;
+    private javax.swing.JScrollPane listScrollPane;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
