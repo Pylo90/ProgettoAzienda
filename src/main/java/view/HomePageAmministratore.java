@@ -548,7 +548,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
 
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ferieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferieButtonActionPerformed
