@@ -52,7 +52,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         MailLabel = new javax.swing.JLabel();
         PhoneLabel = new javax.swing.JLabel();
         MailText = new javax.swing.JLabel();
-        NomeText = new javax.swing.JLabel();
         MatricolaText = new javax.swing.JLabel();
         PhoneText = new javax.swing.JLabel();
 
@@ -272,9 +271,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         MailText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         MailText.setText(": mail");
 
-        NomeText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
-        NomeText.setText(": Nome e Cognome");
-
         MatricolaText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         MatricolaText.setText(": Matricola");
 
@@ -305,13 +301,12 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                                         .addComponent(MailLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(PhoneLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(PersonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(NomeText)
                                     .addComponent(MatricolaText)
                                     .addComponent(MailText)
                                     .addComponent(PhoneText))
-                                .addGap(317, 317, 317)))))
+                                .addGap(476, 476, 476)))))
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -322,10 +317,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(164, 164, 164)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PersonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NomeText))
+                .addGap(59, 59, 59)
+                .addComponent(PersonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -464,7 +457,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private javax.swing.JLabel MailLabel;
     private javax.swing.JLabel MailText;
     private javax.swing.JLabel MatricolaText;
-    private javax.swing.JLabel NomeText;
     private javax.swing.JButton NotificationButton;
     private javax.swing.JButton PasswordButton;
     private javax.swing.JButton Permesso;
