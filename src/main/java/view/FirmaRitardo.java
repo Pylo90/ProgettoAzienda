@@ -47,9 +47,11 @@ public class FirmaRitardo extends javax.swing.JFrame {
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homedilato.png"))); // NOI18N
         jButton3.setBorder(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FirmaRitardo.png"))); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 65)); // NOI18N
+        jLabel1.setText("Firma Ritardo");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Nome.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel2.setText("Nome :");
 
         jTextField1.setBackground(new java.awt.Color(219, 213, 205));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -60,7 +62,8 @@ public class FirmaRitardo extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cognome.png"))); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel3.setText("Cognome :");
 
         jTextField2.setBackground(new java.awt.Color(219, 213, 205));
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -72,7 +75,8 @@ public class FirmaRitardo extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/matricola.png"))); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel4.setText("Matricola :");
 
         jTextField3.setBackground(new java.awt.Color(219, 213, 205));
         jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -80,7 +84,7 @@ public class FirmaRitardo extends javax.swing.JFrame {
 
         jTextArea1.setBackground(new java.awt.Color(219, 213, 205));
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setText("Scrivere Motivazione");
         jTextArea1.setBorder(null);
