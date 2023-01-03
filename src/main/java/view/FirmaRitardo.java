@@ -90,7 +90,6 @@ public class FirmaRitardo extends javax.swing.JFrame {
         jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         jButton1.setText("Conferma");
         jButton1.setAlignmentY(0.0F);
