@@ -59,16 +59,32 @@ public class RichiestaFrom extends javax.swing.JFrame {
         jTextPane1.setToolTipText("");
         jScrollPane1.setViewportView(jTextPane1);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/conferma.png"))); // NOI18N
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        jButton2.setText("Conferma");
+        jButton2.setAlignmentY(0.0F);
         jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setIconTextGap(0);
+        jButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rifiuta.png"))); // NOI18N
+        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        jButton4.setText("Rifiuta");
+        jButton4.setAlignmentY(0.0F);
         jButton4.setBorder(null);
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton4.setIconTextGap(0);
+        jButton4.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
         jLabel2.setText("Tipo di richiesta : Tipo");
@@ -85,7 +101,7 @@ public class RichiestaFrom extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(266, 266, 266)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 471, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 472, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(312, 312, 312))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -114,7 +130,7 @@ public class RichiestaFrom extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 592, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 594, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
