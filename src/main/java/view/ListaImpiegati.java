@@ -1,21 +1,32 @@
 package view;
 
 import controller.RecuperaPasswordControl;
+import java.awt.Dimension;
 import javax.swing.JPanel;
+
+/*
+* PER VERIFICARE IL FUNZIONAMENTO DELLA PAGINA PREMERE IL TASTO HOME
+* VERRANNO AGGIUNTE DELLE CARD IMPIEGATO ALLA LISTA
+*/
 
 /**
  *
  * @author Davide
  */
 public class ListaImpiegati extends javax.swing.JFrame {
-    
+    int cardCount;
     public ListaImpiegati() {
         initComponents();
+        cardCount = 0;
     }
 
     private void addInfoPane() {
-        //JPanel newInfoPane = new JPanel();
-        /* TROVARE UN MODO PER CREARE OGGETTI INFOBOX */
+        listPanel.add(new infoBoxCard());
+        cardCount++;
+        //System.out.println("Prima: " + jPanel5.getSize().height);
+        listPanel.setPreferredSize(new Dimension(1201, cardCount*123));
+        //System.out.println("Dopo: " + jPanel5.getSize().height);
+        listPanel.revalidate();
     }
     
     /**
@@ -26,7 +37,6 @@ public class ListaImpiegati extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -38,74 +48,10 @@ public class ListaImpiegati extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        searchField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jPanel5 = new javax.swing.JPanel();
-        infoPane = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jPanel15 = new javax.swing.JPanel();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jPanel16 = new javax.swing.JPanel();
-        jPanel17 = new javax.swing.JPanel();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jTextField24 = new javax.swing.JTextField();
-        jTextField25 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
-        jPanel19 = new javax.swing.JPanel();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jPanel20 = new javax.swing.JPanel();
-        jPanel21 = new javax.swing.JPanel();
-        jTextField30 = new javax.swing.JTextField();
-        jTextField31 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField32 = new javax.swing.JTextField();
-        jTextField33 = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
+        listPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -136,6 +82,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
         jLabel1.setBounds(0, 0, 200, 195);
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setHorizontalScrollBar(null);
 
         jTextPane1.setEditable(false);
         jTextPane1.setBackground(new java.awt.Color(255, 248, 238));
@@ -163,17 +110,17 @@ public class ListaImpiegati extends javax.swing.JFrame {
         jPanel3.add(jLabel3);
         jLabel3.setBounds(20, 20, 70, 60);
 
-        jTextField1.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField1.setText("Cerca");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        searchField.setBackground(new java.awt.Color(219, 213, 205));
+        searchField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        searchField.setText("Cerca");
+        searchField.setBorder(null);
+        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                searchFieldKeyTyped(evt);
             }
         });
-        jPanel3.add(jTextField1);
-        jTextField1.setBounds(100, 10, 230, 80);
+        jPanel3.add(searchField);
+        searchField.setBounds(100, 10, 230, 80);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cercaBox.png"))); // NOI18N
         jPanel3.add(jLabel2);
@@ -183,700 +130,11 @@ public class ListaImpiegati extends javax.swing.JFrame {
         jScrollPane3.setHorizontalScrollBar(null);
         jScrollPane3.setPreferredSize(new java.awt.Dimension(1225, 100));
 
-        jPanel5.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel5.setPreferredSize(new java.awt.Dimension(1201, 984));
-        jPanel5.setRequestFocusEnabled(false);
-        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 10));
-
-        infoPane.setPreferredSize(new java.awt.Dimension(1201, 113));
-
-        jPanel7.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel7.setLayout(null);
-
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("1");
-        jTextField2.setBorder(null);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jTextField2);
-        jTextField2.setBounds(750, 30, 30, 60);
-
-        jTextField3.setEditable(false);
-        jTextField3.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setText("Nome");
-        jTextField3.setBorder(null);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jTextField3);
-        jTextField3.setBounds(60, 0, 120, 40);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
-        jPanel7.add(jLabel5);
-        jLabel5.setBounds(1090, 0, 105, 110);
-
-        jTextField4.setEditable(false);
-        jTextField4.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField4.setText("Cognome");
-        jTextField4.setBorder(null);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jTextField4);
-        jTextField4.setBounds(60, 50, 170, 60);
-
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField5.setText("Livello:");
-        jTextField5.setBorder(null);
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jTextField5);
-        jTextField5.setBounds(630, 30, 110, 60);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
-        jPanel7.add(jLabel4);
-        jLabel4.setBounds(0, 0, 1200, 110);
-
-        javax.swing.GroupLayout infoPaneLayout = new javax.swing.GroupLayout(infoPane);
-        infoPane.setLayout(infoPaneLayout);
-        infoPaneLayout.setHorizontalGroup(
-            infoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
-            .addGroup(infoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1201, Short.MAX_VALUE))
-        );
-        infoPaneLayout.setVerticalGroup(
-            infoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 113, Short.MAX_VALUE)
-            .addGroup(infoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(infoPane);
-
-        jPanel8.setPreferredSize(new java.awt.Dimension(1201, 113));
-
-        jPanel9.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel9.setLayout(null);
-
-        jTextField6.setEditable(false);
-        jTextField6.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField6.setText("1");
-        jTextField6.setBorder(null);
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(jTextField6);
-        jTextField6.setBounds(750, 30, 30, 60);
-
-        jTextField7.setEditable(false);
-        jTextField7.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField7.setText("Nome");
-        jTextField7.setBorder(null);
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(jTextField7);
-        jTextField7.setBounds(60, 0, 120, 40);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
-        jPanel9.add(jLabel6);
-        jLabel6.setBounds(1090, 0, 105, 110);
-
-        jTextField8.setEditable(false);
-        jTextField8.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField8.setText("Cognome");
-        jTextField8.setBorder(null);
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(jTextField8);
-        jTextField8.setBounds(60, 50, 170, 60);
-
-        jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField9.setText("Livello:");
-        jTextField9.setBorder(null);
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(jTextField9);
-        jTextField9.setBounds(630, 30, 110, 60);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
-        jPanel9.add(jLabel7);
-        jLabel7.setBounds(0, 0, 1200, 110);
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 1201, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 113, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(jPanel8);
-
-        jPanel10.setPreferredSize(new java.awt.Dimension(1201, 113));
-
-        jPanel11.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel11.setLayout(null);
-
-        jTextField10.setEditable(false);
-        jTextField10.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField10.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField10.setText("1");
-        jTextField10.setBorder(null);
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(jTextField10);
-        jTextField10.setBounds(750, 30, 30, 60);
-
-        jTextField11.setEditable(false);
-        jTextField11.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField11.setText("Nome");
-        jTextField11.setBorder(null);
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(jTextField11);
-        jTextField11.setBounds(60, 0, 120, 40);
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
-        jPanel11.add(jLabel8);
-        jLabel8.setBounds(1090, 0, 105, 110);
-
-        jTextField12.setEditable(false);
-        jTextField12.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField12.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField12.setText("Cognome");
-        jTextField12.setBorder(null);
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(jTextField12);
-        jTextField12.setBounds(60, 50, 170, 60);
-
-        jTextField13.setEditable(false);
-        jTextField13.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField13.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField13.setText("Livello:");
-        jTextField13.setBorder(null);
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(jTextField13);
-        jTextField13.setBounds(630, 30, 110, 60);
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
-        jPanel11.add(jLabel9);
-        jLabel9.setBounds(0, 0, 1200, 110);
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 1201, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 113, Short.MAX_VALUE)
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(jPanel10);
-
-        jPanel12.setPreferredSize(new java.awt.Dimension(1201, 113));
-
-        jPanel13.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel13.setLayout(null);
-
-        jTextField14.setEditable(false);
-        jTextField14.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField14.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField14.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField14.setText("1");
-        jTextField14.setBorder(null);
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
-            }
-        });
-        jPanel13.add(jTextField14);
-        jTextField14.setBounds(750, 30, 30, 60);
-
-        jTextField15.setEditable(false);
-        jTextField15.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField15.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField15.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField15.setText("Nome");
-        jTextField15.setBorder(null);
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
-            }
-        });
-        jPanel13.add(jTextField15);
-        jTextField15.setBounds(60, 0, 120, 40);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
-        jPanel13.add(jLabel10);
-        jLabel10.setBounds(1090, 0, 105, 110);
-
-        jTextField16.setEditable(false);
-        jTextField16.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField16.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField16.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField16.setText("Cognome");
-        jTextField16.setBorder(null);
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
-            }
-        });
-        jPanel13.add(jTextField16);
-        jTextField16.setBounds(60, 50, 170, 60);
-
-        jTextField17.setEditable(false);
-        jTextField17.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField17.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField17.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField17.setText("Livello:");
-        jTextField17.setBorder(null);
-        jTextField17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField17ActionPerformed(evt);
-            }
-        });
-        jPanel13.add(jTextField17);
-        jTextField17.setBounds(630, 30, 110, 60);
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
-        jPanel13.add(jLabel11);
-        jLabel11.setBounds(0, 0, 1200, 110);
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
-            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 1201, Short.MAX_VALUE))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 113, Short.MAX_VALUE)
-            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(jPanel12);
-
-        jPanel14.setPreferredSize(new java.awt.Dimension(1201, 113));
-
-        jPanel15.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel15.setLayout(null);
-
-        jTextField18.setEditable(false);
-        jTextField18.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField18.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField18.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField18.setText("1");
-        jTextField18.setBorder(null);
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jTextField18);
-        jTextField18.setBounds(750, 30, 30, 60);
-
-        jTextField19.setEditable(false);
-        jTextField19.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField19.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField19.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField19.setText("Nome");
-        jTextField19.setBorder(null);
-        jTextField19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField19ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jTextField19);
-        jTextField19.setBounds(60, 0, 120, 40);
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
-        jPanel15.add(jLabel12);
-        jLabel12.setBounds(1090, 0, 105, 110);
-
-        jTextField20.setEditable(false);
-        jTextField20.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField20.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField20.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField20.setText("Cognome");
-        jTextField20.setBorder(null);
-        jTextField20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField20ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jTextField20);
-        jTextField20.setBounds(60, 50, 170, 60);
-
-        jTextField21.setEditable(false);
-        jTextField21.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField21.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField21.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField21.setText("Livello:");
-        jTextField21.setBorder(null);
-        jTextField21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField21ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jTextField21);
-        jTextField21.setBounds(630, 30, 110, 60);
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
-        jPanel15.add(jLabel13);
-        jLabel13.setBounds(0, 0, 1200, 110);
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
-            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 1201, Short.MAX_VALUE))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 113, Short.MAX_VALUE)
-            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(jPanel14);
-
-        jPanel16.setPreferredSize(new java.awt.Dimension(1201, 113));
-
-        jPanel17.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel17.setLayout(null);
-
-        jTextField22.setEditable(false);
-        jTextField22.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField22.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField22.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField22.setText("1");
-        jTextField22.setBorder(null);
-        jTextField22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField22ActionPerformed(evt);
-            }
-        });
-        jPanel17.add(jTextField22);
-        jTextField22.setBounds(750, 30, 30, 60);
-
-        jTextField23.setEditable(false);
-        jTextField23.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField23.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField23.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField23.setText("Nome");
-        jTextField23.setBorder(null);
-        jTextField23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField23ActionPerformed(evt);
-            }
-        });
-        jPanel17.add(jTextField23);
-        jTextField23.setBounds(60, 0, 120, 40);
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
-        jPanel17.add(jLabel14);
-        jLabel14.setBounds(1090, 0, 105, 110);
-
-        jTextField24.setEditable(false);
-        jTextField24.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField24.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField24.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField24.setText("Cognome");
-        jTextField24.setBorder(null);
-        jTextField24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField24ActionPerformed(evt);
-            }
-        });
-        jPanel17.add(jTextField24);
-        jTextField24.setBounds(60, 50, 170, 60);
-
-        jTextField25.setEditable(false);
-        jTextField25.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField25.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField25.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField25.setText("Livello:");
-        jTextField25.setBorder(null);
-        jTextField25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField25ActionPerformed(evt);
-            }
-        });
-        jPanel17.add(jTextField25);
-        jTextField25.setBounds(630, 30, 110, 60);
-
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
-        jPanel17.add(jLabel15);
-        jLabel15.setBounds(0, 0, 1200, 110);
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 1201, Short.MAX_VALUE))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 113, Short.MAX_VALUE)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(jPanel16);
-
-        jPanel18.setPreferredSize(new java.awt.Dimension(1201, 113));
-
-        jPanel19.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel19.setLayout(null);
-
-        jTextField26.setEditable(false);
-        jTextField26.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField26.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField26.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField26.setText("1");
-        jTextField26.setBorder(null);
-        jTextField26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField26ActionPerformed(evt);
-            }
-        });
-        jPanel19.add(jTextField26);
-        jTextField26.setBounds(750, 30, 30, 60);
-
-        jTextField27.setEditable(false);
-        jTextField27.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField27.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField27.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField27.setText("Nome");
-        jTextField27.setBorder(null);
-        jTextField27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField27ActionPerformed(evt);
-            }
-        });
-        jPanel19.add(jTextField27);
-        jTextField27.setBounds(60, 0, 120, 40);
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
-        jPanel19.add(jLabel16);
-        jLabel16.setBounds(1090, 0, 105, 110);
-
-        jTextField28.setEditable(false);
-        jTextField28.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField28.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField28.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField28.setText("Cognome");
-        jTextField28.setBorder(null);
-        jTextField28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField28ActionPerformed(evt);
-            }
-        });
-        jPanel19.add(jTextField28);
-        jTextField28.setBounds(60, 50, 170, 60);
-
-        jTextField29.setEditable(false);
-        jTextField29.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField29.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField29.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField29.setText("Livello:");
-        jTextField29.setBorder(null);
-        jTextField29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField29ActionPerformed(evt);
-            }
-        });
-        jPanel19.add(jTextField29);
-        jTextField29.setBounds(630, 30, 110, 60);
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
-        jPanel19.add(jLabel17);
-        jLabel17.setBounds(0, 0, 1200, 110);
-
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
-            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, 1201, Short.MAX_VALUE))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 113, Short.MAX_VALUE)
-            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(jPanel18);
-
-        jPanel20.setPreferredSize(new java.awt.Dimension(1201, 113));
-
-        jPanel21.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel21.setLayout(null);
-
-        jTextField30.setEditable(false);
-        jTextField30.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField30.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField30.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField30.setText("1");
-        jTextField30.setBorder(null);
-        jTextField30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField30ActionPerformed(evt);
-            }
-        });
-        jPanel21.add(jTextField30);
-        jTextField30.setBounds(750, 30, 30, 60);
-
-        jTextField31.setEditable(false);
-        jTextField31.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField31.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField31.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField31.setText("Nome");
-        jTextField31.setBorder(null);
-        jTextField31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField31ActionPerformed(evt);
-            }
-        });
-        jPanel21.add(jTextField31);
-        jTextField31.setBounds(60, 0, 120, 40);
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
-        jPanel21.add(jLabel18);
-        jLabel18.setBounds(1090, 0, 105, 110);
-
-        jTextField32.setEditable(false);
-        jTextField32.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField32.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField32.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField32.setText("Cognome");
-        jTextField32.setBorder(null);
-        jTextField32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField32ActionPerformed(evt);
-            }
-        });
-        jPanel21.add(jTextField32);
-        jTextField32.setBounds(60, 50, 170, 60);
-
-        jTextField33.setEditable(false);
-        jTextField33.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField33.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField33.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField33.setText("Livello:");
-        jTextField33.setBorder(null);
-        jTextField33.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField33ActionPerformed(evt);
-            }
-        });
-        jPanel21.add(jTextField33);
-        jTextField33.setBounds(630, 30, 110, 60);
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
-        jPanel21.add(jLabel19);
-        jLabel19.setBounds(0, 0, 1200, 110);
-
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
-            .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 1201, Short.MAX_VALUE))
-        );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 113, Short.MAX_VALUE)
-            .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(jPanel20);
-
-        jScrollPane3.setViewportView(jPanel5);
+        listPanel.setBackground(new java.awt.Color(255, 248, 238));
+        listPanel.setPreferredSize(new java.awt.Dimension(1201, 0));
+        listPanel.setRequestFocusEnabled(false);
+        listPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 10));
+        jScrollPane3.setViewportView(listPanel);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -927,140 +185,12 @@ public class ListaImpiegati extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        
+        addInfoPane(); //DEBUG - DA SOSTITUIRE CON L'INVOCAZIONE DELLA CONTROLLER PER CREARE PAGINA HOME
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
-
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
-
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
-
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
-
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
-
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
-
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
-
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
-
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
-
-    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField22ActionPerformed
-
-    private void jTextField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField23ActionPerformed
-
-    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField24ActionPerformed
-
-    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25ActionPerformed
-
-    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField26ActionPerformed
-
-    private void jTextField27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField27ActionPerformed
-
-    private void jTextField28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField28ActionPerformed
-
-    private void jTextField29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField29ActionPerformed
-
-    private void jTextField30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField30ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField30ActionPerformed
-
-    private void jTextField31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField31ActionPerformed
-
-    private void jTextField32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField32ActionPerformed
-
-    private void jTextField33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField33ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField33ActionPerformed
+    private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
+        System.out.println("Test");
+    }//GEN-LAST:event_searchFieldKeyTyped
 
     /**
      * @param args the command line arguments
@@ -1071,82 +201,23 @@ public class ListaImpiegati extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton homeButton;
-    private javax.swing.JPanel infoPane;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
-    private javax.swing.JTextField jTextField32;
-    private javax.swing.JTextField jTextField33;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JPanel listPanel;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
+}
+
+
+class InfoBox extends JPanel {
+    
 }
