@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.FirmaControl;
+
 /**
  *
  * @author dario
@@ -126,11 +128,11 @@ public class FirmaBoundary extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void FirmaEntrataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirmaEntrataActionPerformed
-        // TODO add your handling code here:
+        FC.badgeINButtonPressed();
     }//GEN-LAST:event_FirmaEntrataActionPerformed
 
     private void FirmaUscitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirmaUscitaActionPerformed
-        // TODO add your handling code here:
+        FC.firmaOUTButtonPressed();
     }//GEN-LAST:event_FirmaUscitaActionPerformed
 
     /**
@@ -174,4 +176,5 @@ public class FirmaBoundary extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+    FirmaControl FC = new FirmaControl();
 }

@@ -6,6 +6,7 @@ package controller;
 
 import javax.swing.JFrame;
 import view.OrarioImpiegato;
+import view.StipendioImpiegato;
 
 /**
  *
@@ -15,6 +16,10 @@ public class OrariStipendiControl {
     public void ConsultaOrarioButtonPressed(){
         JFrame OrarioImpiegati = new OrarioImpiegato();
         OrarioImpiegati.setVisible(true);
+    }
+    public void ConsultaStipendioButtonPressed(){
+        JFrame StipendioImpiegato = new StipendioImpiegato();
+        StipendioImpiegato.setVisible(true);
     }
     
 }

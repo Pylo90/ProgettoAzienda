@@ -4,10 +4,16 @@
  */
 package controller;
 
+import javax.swing.JFrame;
+import view.ModificaPassword;
+
 /**
  *
  * @author dario
  */
 public class CambiaPasswordControl {
-    
+    public void CPButtonPressed(){
+        JFrame CambiaPasswordBoundary = new ModificaPassword();
+        CambiaPasswordBoundary.setVisible(true);
+    }
 }

@@ -7,12 +7,14 @@ public class FirmaControl {
     
     public FirmaControl() {}
     
-    public void showFirmaForm() {
-        firmaForm = new FirmaForm(this);
+
+    
+    public void badgeINButtonPressed() {
+        firmaForm = new FirmaForm();
         firmaForm.setVisible(true);
     }
-    
-    public void submitBadgeIn() {
-        //TODO
+    public void firmaOUTButtonPressed(){
+        firmaForm = new FirmaForm();
+        firmaForm.setVisible(true);
     }
 }

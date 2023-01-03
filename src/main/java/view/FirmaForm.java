@@ -1,25 +1,21 @@
 package view;
 
 import java.awt.Color;
-import controller.FirmaControl;
-
 
 /**
  *
  * @author Davide
  */
 public class FirmaForm extends javax.swing.JFrame {
-    
+
     boolean nameFieldPlaceHolder;
     boolean surnameFieldPlaceHolder;
     boolean matFieldPlaceHolder;
-    FirmaControl fc;
-    
-    public FirmaForm(FirmaControl fc) {
+
+    public FirmaForm() {
         initComponents();
         nameFieldPlaceHolder = surnameFieldPlaceHolder = matFieldPlaceHolder = true;
         mainPanel.requestFocus();
-        this.fc = fc;
     }
 
     /**
@@ -41,7 +37,8 @@ public class FirmaForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         mainPanel.setBackground(new java.awt.Color(255, 248, 238));
@@ -149,11 +146,11 @@ public class FirmaForm extends javax.swing.JFrame {
 
         getContentPane().add(mainPanel);
 
-        pack();
+        setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        fc.submitBadgeIn();
+        //fc.submitBadgeIn();
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void nameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFieldFocusGained
@@ -205,7 +202,7 @@ public class FirmaForm extends javax.swing.JFrame {
     }//GEN-LAST:event_matFieldFocusLost
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        //SHOW FIRMABOUNDARY
+        this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
@@ -216,7 +213,11 @@ public class FirmaForm extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new FirmaControl().showFirmaForm();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FirmaForm().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
