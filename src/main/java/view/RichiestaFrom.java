@@ -47,7 +47,8 @@ public class RichiestaFrom extends javax.swing.JFrame {
         jLabel1.setText("Mittente : Nome Cognome");
         jLabel1.setPreferredSize(new java.awt.Dimension(413, 48));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/x.png"))); // NOI18N
+        jButton1.setBackground(new java.awt.Color(255, 248, 238));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
         jButton1.setBorder(null);
 
         jTextPane1.setEditable(false);
