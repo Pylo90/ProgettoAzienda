@@ -411,14 +411,14 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         RicC.RichiestaFerieButtonPressed();
     }//GEN-LAST:event_FerieActionPerformed
 
+    private void RequestButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestButton3ActionPerformed
+
     private void CongedoParentaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CongedoParentaleActionPerformed
         // TODO add your handling code here:
         RicC.RichiestaCongedoParentaleButtonPressed();
     }//GEN-LAST:event_CongedoParentaleActionPerformed
-
-    private void RequestButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestButton3ActionPerformed
 
     /**
      * @param args the command line arguments
