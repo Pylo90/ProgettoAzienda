@@ -42,17 +42,22 @@ public class FirmaForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setPreferredSize(new java.awt.Dimension(1920, 1080));
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         mainPanel.setBackground(new java.awt.Color(255, 248, 238));
+        mainPanel.setPreferredSize(new java.awt.Dimension(1920, 1080));
         mainPanel.setLayout(new java.awt.GridBagLayout());
 
         nameField.setBackground(new java.awt.Color(219, 213, 205));
-        nameField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        nameField.setFont(new java.awt.Font("Segoe UI", 0, 64)); // NOI18N
         nameField.setForeground(java.awt.Color.gray);
         nameField.setText("Nome");
+        nameField.setActionCommand("<Not Set>");
+        nameField.setAlignmentX(30.0F);
         nameField.setBorder(null);
-        nameField.setPreferredSize(new java.awt.Dimension(700, 70));
+        nameField.setCaretPosition(0);
+        nameField.setMargin(new java.awt.Insets(20, 20, 20, 6));
+        nameField.setPreferredSize(new java.awt.Dimension(750, 100));
         nameField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 nameFieldFocusGained(evt);
@@ -61,16 +66,21 @@ public class FirmaForm extends javax.swing.JFrame {
                 nameFieldFocusLost(evt);
             }
         });
+        nameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFieldActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(20, 0, 20, 0);
         mainPanel.add(nameField, gridBagConstraints);
 
         surnameField.setBackground(new java.awt.Color(219, 213, 205));
-        surnameField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        surnameField.setFont(new java.awt.Font("Segoe UI", 0, 64)); // NOI18N
         surnameField.setForeground(java.awt.Color.gray);
         surnameField.setText("Cognome");
         surnameField.setBorder(null);
-        surnameField.setPreferredSize(new java.awt.Dimension(700, 70));
+        surnameField.setPreferredSize(new java.awt.Dimension(750, 100));
         surnameField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 surnameFieldFocusGained(evt);
@@ -86,11 +96,11 @@ public class FirmaForm extends javax.swing.JFrame {
         mainPanel.add(surnameField, gridBagConstraints);
 
         matField.setBackground(new java.awt.Color(219, 213, 205));
-        matField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        matField.setFont(new java.awt.Font("Segoe UI", 0, 64)); // NOI18N
         matField.setForeground(java.awt.Color.gray);
         matField.setText("Matricola");
         matField.setBorder(null);
-        matField.setPreferredSize(new java.awt.Dimension(700, 70));
+        matField.setPreferredSize(new java.awt.Dimension(750, 100));
         matField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 matFieldFocusGained(evt);
@@ -197,6 +207,10 @@ public class FirmaForm extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         //SHOW FIRMABOUNDARY
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameFieldActionPerformed
 
     /**
      * @param args the command line arguments
