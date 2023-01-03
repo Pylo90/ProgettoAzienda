@@ -70,6 +70,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         mainPanel.setBackground(new java.awt.Color(255, 248, 238));
         mainPanel.setFocusable(false);
         mainPanel.setMinimumSize(new java.awt.Dimension(1024, 768));
+        mainPanel.setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setFocusable(false);
@@ -224,7 +225,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         jLabel3.setBounds(0, 0, 450, 220);
 
         ritardoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        ritardoLabel.setForeground(new java.awt.Color(0, 0, 0));
         ritardoLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         ritardoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina.png"))); // NOI18N
         ritardoLabel.setText("Firma ritardo");
@@ -239,7 +239,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/costinaDestra.png"))); // NOI18N
         jLabel4.setText("Nome Azienda");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -324,7 +323,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         jLabel5.setBounds(0, -60, 200, 880);
 
         scioperoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        scioperoLabel.setForeground(new java.awt.Color(0, 0, 0));
         scioperoLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         scioperoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina-flipped.png"))); // NOI18N
         scioperoLabel.setText("Indici sciopero");
@@ -378,28 +376,23 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         jPanel5.setFocusable(false);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonIcon.png"))); // NOI18N
         jLabel8.setText(":");
         jLabel8.setToolTipText("");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("ID :");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MailIcon.png"))); // NOI18N
         jLabel10.setText(":");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhoneIcon.png"))); // NOI18N
         jLabel11.setText(":");
 
         nameText.setBackground(new java.awt.Color(255, 248, 238));
         nameText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        nameText.setForeground(new java.awt.Color(0, 0, 0));
         nameText.setText(" Lorem ipsum dolor sit gravida.");
         nameText.setBorder(null);
         nameText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -407,7 +400,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
 
         idText.setBackground(new java.awt.Color(255, 248, 238));
         idText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        idText.setForeground(new java.awt.Color(0, 0, 0));
         idText.setText(" Lorem ipsum dolor sit gravida.");
         idText.setBorder(null);
         idText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -415,7 +407,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
 
         mailText.setBackground(new java.awt.Color(255, 248, 238));
         mailText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        mailText.setForeground(new java.awt.Color(0, 0, 0));
         mailText.setText(" Lorem ipsum dolor sit gravida.");
         mailText.setBorder(null);
         mailText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -423,7 +414,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
 
         phoneText.setBackground(new java.awt.Color(255, 248, 238));
         phoneText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        phoneText.setForeground(new java.awt.Color(0, 0, 0));
         phoneText.setText(" Lorem ipsum dolor sit gravida.");
         phoneText.setBorder(null);
         phoneText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -441,7 +431,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(17, 17, 17)
-                                .addComponent(mailText, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE))
+                                .addComponent(mailText))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addGap(17, 17, 17)
@@ -517,9 +507,9 @@ public class HomePageAmministratore extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(requestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                        .addContainerGap(383, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
