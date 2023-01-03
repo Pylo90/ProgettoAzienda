@@ -26,182 +26,184 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        HomeButton = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        ConfirmButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jLabel6.setText("Mail");
+        jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setLayout(null);
 
-        jTextField5.setText("jTextField5");
-
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("CF");
-
-        jLabel3.setText("Livello");
-
-        jTextField6.setText("jTextField6");
-
-        jLabel8.setText("N. Telefonico");
-
-        jTextField3.setText("jTextField3");
+        jTextField3.setAlignmentX(1346.0F);
+        jTextField3.setAlignmentY(195.0F);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jTextField3);
+        jTextField3.setBounds(1346, 110, 400, 400);
 
-        jTextField7.setText("jTextField7");
-
-        jLabel4.setText("Cognome");
-
-        jButton1.setText("Assumi");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Nome");
-
-        jTextField4.setText("jTextField4");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setText("Assumi Impiegato");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(280, 60, 517, 87);
 
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(1040, 440, 150, 70);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel3.setText("Livello");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(881, 432, 135, 64);
+
+        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jPanel1.add(jCheckBox1);
+        jCheckBox1.setBounds(1000, 530, 50, 50);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel5.setText("104");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(881, 523, 78, 64);
 
-        jCheckBox1.setText("jCheckBox1");
+        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextField6.setText("jTextField6");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField6);
+        jTextField6.setBounds(960, 620, 571, 65);
 
-        jLabel9.setText("Password");
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel7.setText("CF");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(881, 614, 53, 64);
 
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField2.setText("jTextField2");
+        jPanel1.add(jTextField2);
+        jTextField2.setBounds(1100, 710, 430, 65);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jTextField1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(48, 48, 48)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField2)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(185, 185, 185))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(93, 93, 93))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jCheckBox1))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addComponent(jButton1)
-                .addGap(35, 35, 35))
-        );
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel9.setText("Password");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(881, 705, 199, 70);
+
+        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextField7.setText("jTextField7");
+        jPanel1.add(jTextField7);
+        jTextField7.setBounds(470, 710, 350, 65);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel8.setText("N. Telefonico");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(174, 705, 278, 64);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel6.setText("Mail");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(174, 614, 91, 64);
+
+        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextField5.setText("jTextField5");
+        jPanel1.add(jTextField5);
+        jTextField5.setBounds(280, 620, 540, 65);
+
+        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextField4.setText("jTextField4");
+        jPanel1.add(jTextField4);
+        jTextField4.setBounds(400, 540, 420, 65);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel4.setText("Cognome");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(174, 523, 207, 90);
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(320, 450, 500, 65);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setText("Nome");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(174, 432, 140, 80);
+
+        HomeButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        HomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        HomeButton.setIconTextGap(0);
+        HomeButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        HomeButton.setPreferredSize(new java.awt.Dimension(100, 100));
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(HomeButton);
+        HomeButton.setBounds(62, 62, 100, 100);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(-230, -10, 450, 220);
+
+        ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        ConfirmButton1.setText("Conferma");
+        ConfirmButton1.setAlignmentY(0.0F);
+        ConfirmButton1.setBorder(null);
+        ConfirmButton1.setBorderPainted(false);
+        ConfirmButton1.setContentAreaFilled(false);
+        ConfirmButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ConfirmButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ConfirmButton1.setIconTextGap(0);
+        ConfirmButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        ConfirmButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ConfirmButton1);
+        ConfirmButton1.setBounds(1330, 810, 195, 50);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1920, 1080);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -214,27 +216,37 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         // foto
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(jTextField1.getText().invalidName() || jTextField5.getText().invalidMail() || jTextField6.getText().invalidCF() || jTextField7.getText().invalidPhone()){
-            Errore(true); //il corpo è da modificare a seconda di come mandiamo l'errore visto che è una classe e non un metodo
-            //Creare una classe per gestire gli errori con metodi come invalidName, invalidMail eccetera
-        }
-        String name = jTextField1.getText().trim();
-        String surname = jTextField4.getText();
-        String mail = jTextField4.getText().trim();
-        String cf = jTextField6.getText().trim();
-        // foto?
-        Double numero = jTextField7.getText().trim(); //controllare se getText va bene per i double
-        int livello = jComboBox1.getSelectedIndex();
-        boolean disability = jCheckBox1.isSelected();
-        String password = jTextField2.getText().trim();
-        //manda al database le informazioni
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_HomeButtonActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
+        // TODO add your handling code here:
+        int hour =0;
+        if(selectedTurn==Turno1Button) hour+=0;
+        if(selectedTurn==Turno2Button) hour+=8;
+        if(selectedTurn==Turno3Button) hour+=16;
+
+        if(selectedHour==Hour1) hour+=1;
+        if(selectedHour==Hour2) hour+=2;
+        if(selectedHour==Hour3) hour+=3;
+        if(selectedHour==Hour4) hour+=4;
+        if(selectedHour==Hour5) hour+=5;
+        if(selectedHour==Hour6) hour+=6;
+        if(selectedHour==Hour7) hour+=7;
+        if(selectedHour==Hour8) hour+=8;
+
+        this.dispose();
+    }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,10 +284,12 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ConfirmButton1;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -284,6 +298,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
