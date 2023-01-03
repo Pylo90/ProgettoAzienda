@@ -364,6 +364,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void BankButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BankButtonActionPerformed
         // TODO add your handling code here:
+        
+        OSC.ConsultaStipendioButtonPressed();
     }//GEN-LAST:event_BankButtonActionPerformed
 
     private void ScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleButtonActionPerformed
@@ -373,6 +375,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void PasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordButtonActionPerformed
         // TODO add your handling code here:
+        CPC.CPButtonPressed();
     }//GEN-LAST:event_PasswordButtonActionPerformed
 
     private void NotificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotificationButtonActionPerformed
@@ -400,14 +403,17 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void PermessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PermessoActionPerformed
         // TODO add your handling code here:
+        RicC.RichiestaPermessoButtonPressed();
     }//GEN-LAST:event_PermessoActionPerformed
 
     private void FerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FerieActionPerformed
         // TODO add your handling code here:
+        RicC.RichiestaFerieButtonPressed();
     }//GEN-LAST:event_FerieActionPerformed
 
     private void CongedoParentaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CongedoParentaleActionPerformed
         // TODO add your handling code here:
+        RicC.RichiestaCongedoParentaleButtonPressed();
     }//GEN-LAST:event_CongedoParentaleActionPerformed
 
     private void RequestButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton3ActionPerformed
