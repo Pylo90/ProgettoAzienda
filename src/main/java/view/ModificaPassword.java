@@ -46,9 +46,11 @@ public class ModificaPassword extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homedilato.png"))); // NOI18N
         jButton1.setBorder(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ModificaPassword.png"))); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 65)); // NOI18N
+        jLabel1.setText("Modifica Password");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vecchia.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel2.setText("Vecchia Password :");
 
         jPasswordField1.setBackground(new java.awt.Color(219, 213, 205));
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -60,7 +62,8 @@ public class ModificaPassword extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nuovapassword.png"))); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel3.setText("Nuova Password :");
 
         jTextField1.setBackground(new java.awt.Color(219, 213, 205));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -72,7 +75,8 @@ public class ModificaPassword extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/confermanp.png"))); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel4.setText("Conferma Nuova Password :");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/conferma.png"))); // NOI18N
         jButton2.setBorder(null);
@@ -111,7 +115,7 @@ public class ModificaPassword extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(775, 775, 775)
                         .addComponent(jButton2)))
-                .addContainerGap(425, Short.MAX_VALUE))
+                .addContainerGap(430, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,9 +138,9 @@ public class ModificaPassword extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addComponent(jLabel4))
                     .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(142, 142, 142)
+                .addGap(130, 130, 130)
                 .addComponent(jButton2)
-                .addContainerGap(394, Short.MAX_VALUE))
+                .addContainerGap(399, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
