@@ -42,7 +42,8 @@ public class SIDatore extends javax.swing.JFrame {
         jLabel1.setText("Impiegato Selezionato : Nome Cognome");
         jLabel1.setPreferredSize(new java.awt.Dimension(637, 48));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/x.png"))); // NOI18N
+        jButton1.setBackground(new java.awt.Color(255, 248, 238));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setMinimumSize(new java.awt.Dimension(59, 59));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
