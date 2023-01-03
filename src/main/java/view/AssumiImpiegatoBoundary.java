@@ -45,6 +45,9 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        ConfirmButton = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -161,6 +164,42 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(174, 432, 140, 80);
 
+        ConfirmButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        ConfirmButton.setText("Conferma");
+        ConfirmButton.setAlignmentY(0.0F);
+        ConfirmButton.setBorder(null);
+        ConfirmButton.setBorderPainted(false);
+        ConfirmButton.setContentAreaFilled(false);
+        ConfirmButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ConfirmButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ConfirmButton.setIconTextGap(0);
+        ConfirmButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        ConfirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ConfirmButton);
+        ConfirmButton.setBounds(1330, 800, 195, 50);
+
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
+        homeButton.setBorderPainted(false);
+        homeButton.setContentAreaFilled(false);
+        homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeButton.setFocusable(false);
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(homeButton);
+        homeButton.setBounds(50, 60, 100, 107);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(-250, -10, 450, 220);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
 
@@ -182,6 +221,16 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
+        // TODO add your handling code here:
+        System.out.println(MotivazioneSciopero.getText());
+        this.dispose();
+    }//GEN-LAST:event_ConfirmButtonActionPerformed
+
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,9 +268,12 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ConfirmButton;
+    private javax.swing.JButton homeButton;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
