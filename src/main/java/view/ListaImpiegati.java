@@ -4,6 +4,7 @@ import view.style.InfoBoxCard;
 import controller.RecuperaPasswordControl;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import view.style.ScrollBarCustom;
 
@@ -24,6 +25,7 @@ import view.style.ScrollBarCustom;
 public class ListaImpiegati extends javax.swing.JFrame {
     int cardCount;
     boolean searchFieldPlaceholder;
+    ArrayList<InfoBoxCard> infoBoxList = new ArrayList<InfoBoxCard>(); //DA IMPLEMENTARE
     
     public ListaImpiegati() {
         initComponents();
