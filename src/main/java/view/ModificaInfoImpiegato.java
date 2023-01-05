@@ -28,6 +28,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jTextField3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -48,7 +49,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         ConfirmButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -57,6 +57,16 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 248, 238));
         jPanel2.setLayout(null);
+
+        jTextField3.setAlignmentX(1346.0F);
+        jTextField3.setAlignmentY(195.0F);
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTextField3);
+        jTextField3.setBounds(1346, 110, 400, 400);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setText("Modifica Info Impiegato");
@@ -80,7 +90,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jPanel2.add(jCheckBox1);
-        jCheckBox1.setBounds(1000, 550, 20, 20);
+        jCheckBox1.setBounds(1000, 530, 50, 50);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel5.setText("104");
@@ -195,11 +205,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         jPanel2.add(jLabel11);
         jLabel11.setBounds(0, 0, 200, 195);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fabrizio400x400.png"))); // NOI18N
-        jPanel2.add(jLabel10);
-        jLabel10.setBounds(1346, 195, 400, 400);
-        jLabel10.getAccessibleContext().setAccessibleName("");
-
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 1920, 1080);
 
@@ -242,6 +247,10 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         rc.showLoginForm();
     }//GEN-LAST:event_homeButtonActionPerformed
 
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // foto
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -283,7 +292,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -297,6 +305,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
