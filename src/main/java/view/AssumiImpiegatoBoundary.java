@@ -47,7 +47,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         ConfirmButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -65,7 +65,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(jTextField3);
         jTextField3.setBounds(1346, 110, 400, 400);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setText("Assumi Impiegato");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(280, 60, 517, 87);
@@ -184,9 +184,11 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         ConfirmButton.setBounds(1330, 800, 195, 50);
 
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
+        homeButton.setBorder(null);
         homeButton.setBorderPainted(false);
         homeButton.setContentAreaFilled(false);
         homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeButton.setFocusPainted(false);
         homeButton.setFocusable(false);
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,11 +196,11 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(homeButton);
-        homeButton.setBounds(50, 60, 100, 107);
+        homeButton.setBounds(40, 40, 100, 100);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(-250, -10, 450, 220);
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(0, 0, 200, 195);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
@@ -229,7 +231,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
+        rc.showLoginForm();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     /**
@@ -273,7 +275,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

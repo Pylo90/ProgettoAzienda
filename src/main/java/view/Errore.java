@@ -27,72 +27,117 @@ public class Errore extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ConfirmButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        ConfirmButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ERRORE!");
-
-        jButton1.setBackground(new java.awt.Color(255, 0, 51));
-        jButton1.setText("Conferma");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        ConfirmButton1.setText("Conferma");
+        ConfirmButton1.setAlignmentY(0.0F);
+        ConfirmButton1.setBorder(null);
+        ConfirmButton1.setBorderPainted(false);
+        ConfirmButton1.setContentAreaFilled(false);
+        ConfirmButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ConfirmButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ConfirmButton1.setIconTextGap(0);
+        ConfirmButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        ConfirmButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ConfirmButton1ActionPerformed(evt);
             }
         });
 
-        jTextField1.setText("jTextField1");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setLayout(null);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setText("ERRORE!");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(225, 24, 139, 48);
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jTextField1.setText("testo errore");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(230, 180, 130, 33);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 290, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
-                        .addGap(306, 306, 306))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(89, 89, 89))
-        );
+        ConfirmButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        ConfirmButton2.setText("Conferma");
+        ConfirmButton2.setAlignmentY(0.0F);
+        ConfirmButton2.setBorder(null);
+        ConfirmButton2.setBorderPainted(false);
+        ConfirmButton2.setContentAreaFilled(false);
+        ConfirmButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ConfirmButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ConfirmButton2.setIconTextGap(0);
+        ConfirmButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        ConfirmButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ConfirmButton2);
+        ConfirmButton2.setBounds(202, 320, 195, 50);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 600, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // capire a seconda dell'implementazione delle altre interfacce come avviene il richiamo dell'errore (booleano, codice errore eccetera)
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
+        // TODO add your handling code here:
+        int hour =0;
+        if(selectedTurn==Turno1Button) hour+=0;
+        if(selectedTurn==Turno2Button) hour+=8;
+        if(selectedTurn==Turno3Button) hour+=16;
+
+        if(selectedHour==Hour1) hour+=1;
+        if(selectedHour==Hour2) hour+=2;
+        if(selectedHour==Hour3) hour+=3;
+        if(selectedHour==Hour4) hour+=4;
+        if(selectedHour==Hour5) hour+=5;
+        if(selectedHour==Hour6) hour+=6;
+        if(selectedHour==Hour7) hour+=7;
+        if(selectedHour==Hour8) hour+=8;
+
+        this.dispose();
+    }//GEN-LAST:event_ConfirmButton1ActionPerformed
+
+    private void ConfirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton2ActionPerformed
+        // TODO add your handling code here:
+        int hour =0;
+        if(selectedTurn==Turno1Button) hour+=0;
+        if(selectedTurn==Turno2Button) hour+=8;
+        if(selectedTurn==Turno3Button) hour+=16;
+
+        if(selectedHour==Hour1) hour+=1;
+        if(selectedHour==Hour2) hour+=2;
+        if(selectedHour==Hour3) hour+=3;
+        if(selectedHour==Hour4) hour+=4;
+        if(selectedHour==Hour5) hour+=5;
+        if(selectedHour==Hour6) hour+=6;
+        if(selectedHour==Hour7) hour+=7;
+        if(selectedHour==Hour8) hour+=8;
+
+        this.dispose();
+    }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,8 +175,10 @@ public class Errore extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ConfirmButton1;
+    private javax.swing.JButton ConfirmButton2;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
