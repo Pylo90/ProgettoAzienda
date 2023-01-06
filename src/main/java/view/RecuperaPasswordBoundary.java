@@ -50,6 +50,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setUndecorated(true);
         setResizable(false);
+        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         mainPanel.setBackground(new java.awt.Color(255, 248, 238));
@@ -250,6 +251,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+        this.dispose();
         rc.showLoginForm();
     }//GEN-LAST:event_homeButtonActionPerformed
 

@@ -1,7 +1,7 @@
 package controller;
 
 import view.LoginForm;
-import view.HomepageAmministratore;
+import view.HomePageAmministratore;
 
 /**
  *
@@ -9,7 +9,7 @@ import view.HomepageAmministratore;
  */
 public class LoginControl {
     LoginForm loginFrame;
-    HomepageAmministratore adminPage;
+    HomePageAmministratore adminPage;
     
     public LoginControl() {
         
@@ -25,12 +25,12 @@ public class LoginControl {
     /* TODO */
     public void RPButtonPressed() {
         new RecuperaPasswordControl().showRecuperaPassowrd();
-        loginFrame.dispose();
+        //loginFrame.dispose();
     }
     
     /* Debug main */
     public static void main(String[] args) {
-        new LoginControl();
+        new LoginControl().createLogin();
     }
     
     public void createLogin() {
@@ -39,7 +39,7 @@ public class LoginControl {
     }
     
     public void createAdminPage() {
-        adminPage = new HomepageAmministratore(this);
+        adminPage = new HomePageAmministratore(this);
         adminPage.setVisible(true);
     }
 }

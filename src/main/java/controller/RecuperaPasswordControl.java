@@ -7,12 +7,13 @@ public class RecuperaPasswordControl {
     RecuperaPasswordBoundary recuperaForm;
     
     public RecuperaPasswordControl() {
-        
+        super();
     }
     
     public void showRecuperaPassowrd() {
         recuperaForm = new RecuperaPasswordBoundary(this);
         recuperaForm.setVisible(true);
+        recuperaForm.setAlwaysOnTop(true);
     }
     
     public void submitForm() {
@@ -20,7 +21,6 @@ public class RecuperaPasswordControl {
     }
     
     public void showLoginForm() {
-        new LoginControl().createLogin();
         recuperaForm.dispose();
     }
 }
