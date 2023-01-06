@@ -1,20 +1,24 @@
 package view;
 
+import controller.FirmaControl;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Monica Salluzzo
  */
 public class RitardoBoundary extends javax.swing.JFrame {
 
+    FirmaControl FC;
+
     /**
      * Creates new form FirmaRitardo
      */
-    public RitardoBoundary() {
+    public RitardoBoundary(FirmaControl FC) {
+        this.FC = FC;
         initComponents();
     }
 
@@ -48,19 +52,23 @@ public class RitardoBoundary extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1920, 1080));
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setAlignmentX(0.0F);
+        jPanel1.setAlignmentY(0.0F);
         jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
         jPanel1.setLayout(null);
 
         jButton2.setBackground(new java.awt.Color(38, 38, 38));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
         jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(40, 50, 100, 100);
+        jButton2.setBounds(50, 50, 100, 100);
 
         jButton3.setBorder(null);
         jPanel1.add(jButton3);
@@ -69,12 +77,12 @@ public class RitardoBoundary extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 65)); // NOI18N
         jLabel1.setText("Firma Ritardo");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(350, 20, 399, 110);
+        jLabel1.setBounds(247, 56, 490, 110);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setText("Nome :");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(411, 202, 160, 64);
+        jLabel2.setBounds(465, 195, 160, 64);
 
         jTextField1.setBackground(new java.awt.Color(219, 213, 205));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -85,12 +93,12 @@ public class RitardoBoundary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(571, 201, 819, 65);
+        jTextField1.setBounds(619, 195, 836, 65);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setText("Cognome :");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(411, 290, 230, 64);
+        jLabel3.setBounds(465, 285, 230, 64);
 
         jTextField2.setBackground(new java.awt.Color(219, 213, 205));
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -102,12 +110,12 @@ public class RitardoBoundary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextField2);
-        jTextField2.setBounds(647, 290, 743, 63);
+        jTextField2.setBounds(696, 285, 759, 65);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel4.setText("Matricola :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(411, 378, 230, 64);
+        jLabel4.setBounds(465, 375, 230, 64);
 
         jTextField3.setBackground(new java.awt.Color(219, 213, 205));
         jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -118,7 +126,11 @@ public class RitardoBoundary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextField3);
-        jTextField3.setBounds(640, 378, 750, 64);
+        jTextField3.setBounds(690, 375, 765, 65);
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(992, 257));
 
         jTextArea1.setBackground(new java.awt.Color(219, 213, 205));
         jTextArea1.setColumns(20);
@@ -126,10 +138,12 @@ public class RitardoBoundary extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jTextArea1.setText("Scrivere Motivazione");
         jTextArea1.setBorder(null);
+        jTextArea1.setMargin(new java.awt.Insets(20, 60, 20, 60));
+        jTextArea1.setPreferredSize(new java.awt.Dimension(992, 257));
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(411, 466, 979, 260);
+        jScrollPane1.setBounds(464, 465, 992, 257);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
@@ -147,7 +161,7 @@ public class RitardoBoundary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(801, 750, 195, 50);
+        jButton1.setBounds(810, 750, 195, 50);
 
         jLabel5.setBackground(new java.awt.Color(255, 248, 238));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
@@ -182,6 +196,8 @@ public class RitardoBoundary extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        FC.DisposeWindow(this);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
@@ -190,43 +206,21 @@ public class RitardoBoundary extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        FC.DisposeWindow(this);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RitardoBoundary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RitardoBoundary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RitardoBoundary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RitardoBoundary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    /*public static void main(String args[]) {
 
-        /* Create and display the form */
+        /* Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RitardoBoundary().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -244,4 +238,5 @@ public class RitardoBoundary extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
 }

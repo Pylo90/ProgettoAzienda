@@ -5,6 +5,7 @@
 package controller;
 
 import javax.swing.JFrame;
+import view.HomepageImpiegato;
 import view.OrarioImpiegato;
 import view.StipendioImpiegato;
 
@@ -13,13 +14,28 @@ import view.StipendioImpiegato;
  * @author dario
  */
 public class OrariStipendiControl {
-    public void ConsultaOrarioButtonPressed(){
-        JFrame OrarioImpiegati = new OrarioImpiegato();
-        OrarioImpiegati.setVisible(true);
-    }
-    public void ConsultaStipendioButtonPressed(){
-        JFrame StipendioImpiegato = new StipendioImpiegato();
-        StipendioImpiegato.setVisible(true);
-    }
+
+    HomepageImpiegato HPI;
     
+    public void ConsultaOrarioButtonPressed(HomepageImpiegato HP) {
+        HPI = HP;
+        JFrame OrarioImpiegati = new OrarioImpiegato(this);
+        HPI.setClickable(false);
+        OrarioImpiegati.setVisible(true);
+        OrarioImpiegati.setAlwaysOnTop(true);
+    }
+
+    public void ConsultaStipendioButtonPressed(HomepageImpiegato HP) {
+        HPI = HP;
+        JFrame StipendioImpiegato = new StipendioImpiegato(this);
+        HPI.setClickable(false);
+        StipendioImpiegato.setVisible(true);
+        StipendioImpiegato.setAlwaysOnTop(true);
+    }
+
+    public void DisposeWindow(JFrame finestra) {
+        finestra.dispose();
+        HPI.setClickable(true);
+    }
+
 }

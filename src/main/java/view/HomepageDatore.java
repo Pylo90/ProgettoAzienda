@@ -55,8 +55,6 @@ public class HomepageDatore extends javax.swing.JFrame {
         idText = new javax.swing.JTextField();
         mailText = new javax.swing.JTextField();
         phoneText = new javax.swing.JTextField();
-        homeButton = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -354,25 +352,6 @@ public class HomepageDatore extends javax.swing.JFrame {
         mainPanel.add(jPanel4);
         jPanel4.setBounds(647, 225, 460, 730);
 
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
-        homeButton.setBorder(null);
-        homeButton.setBorderPainted(false);
-        homeButton.setContentAreaFilled(false);
-        homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        homeButton.setFocusPainted(false);
-        homeButton.setFocusable(false);
-        homeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButtonActionPerformed(evt);
-            }
-        });
-        mainPanel.add(homeButton);
-        homeButton.setBounds(40, 40, 100, 100);
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
-        mainPanel.add(jLabel14);
-        jLabel14.setBounds(0, 0, 200, 195);
-
         jPanel1.add(mainPanel);
         mainPanel.setBounds(0, 0, 1920, 1080);
 
@@ -422,10 +401,6 @@ public class HomepageDatore extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton18ActionPerformed
 
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        rc.showLoginForm();
-    }//GEN-LAST:event_homeButtonActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -465,7 +440,6 @@ public class HomepageDatore extends javax.swing.JFrame {
     private javax.swing.JButton assumiButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton healthButton;
-    private javax.swing.JButton homeButton;
     private javax.swing.JTextField idText;
     private javax.swing.JButton impSalaryButton;
     private javax.swing.JButton impScheduleButton;
@@ -474,7 +448,6 @@ public class HomepageDatore extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

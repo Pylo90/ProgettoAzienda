@@ -1,10 +1,11 @@
 package view;
 
+import controller.CambiaPasswordControl;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Monica Salluzzo
@@ -14,7 +15,8 @@ public class ModificaPassword extends javax.swing.JFrame {
     /**
      * Creates new form ModificaPassword
      */
-    public ModificaPassword() {
+    public ModificaPassword(CambiaPasswordControl CPC) {
+        this.CPC = CPC;
         initComponents();
     }
 
@@ -159,10 +161,13 @@ public class ModificaPassword extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
+        CPC.DisposeWindow(this);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        CPC.DisposeWindow(this);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -193,11 +198,11 @@ public class ModificaPassword extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ModificaPassword().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -213,4 +218,7 @@ public class ModificaPassword extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    CambiaPasswordControl CPC;
+
 }

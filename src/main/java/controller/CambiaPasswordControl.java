@@ -5,6 +5,7 @@
 package controller;
 
 import javax.swing.JFrame;
+import view.HomepageImpiegato;
 import view.ModificaPassword;
 
 /**
@@ -12,8 +13,19 @@ import view.ModificaPassword;
  * @author dario
  */
 public class CambiaPasswordControl {
-    public void CPButtonPressed(){
-        JFrame CambiaPasswordBoundary = new ModificaPassword();
-        CambiaPasswordBoundary.setVisible(true);
+
+    HomepageImpiegato HPI;
+
+    public void CPButtonPressed(HomepageImpiegato HPI) {
+        this.HPI = HPI;
+        JFrame ModificaPassword = new ModificaPassword(this);
+        HPI.setClickable (false);
+        ModificaPassword.setVisible(true);
+        ModificaPassword.setAlwaysOnTop(true);
+    }
+    
+      public void DisposeWindow(JFrame finestra) {
+        finestra.dispose();
+        HPI.setClickable(true);
     }
 }

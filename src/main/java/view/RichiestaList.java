@@ -2,6 +2,7 @@ package view;
 
 import view.style.InfoReqBoxCard;
 import controller.RecuperaPasswordControl;
+import controller.RichiesteControl;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 import view.style.ScrollBarCustom;
@@ -9,15 +10,19 @@ import view.style.ScrollBarCustom;
 /*
 * PER VERIFICARE IL FUNZIONAMENTO DELLA PAGINA PREMERE IL TASTO HOME
 * VERRANNO AGGIUNTE DELLE CARD RICHIESTA ALLA LISTA
-*/
-
+ */
 /**
  *
  * @author Davide
  */
 public class RichiestaList extends javax.swing.JFrame {
+
     int cardCount;
-    public RichiestaList() {
+
+    public RichiestaList(RichiesteControl RC) {
+
+        this.RC=RC;
+        
         initComponents();
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -27,11 +32,11 @@ public class RichiestaList extends javax.swing.JFrame {
         listPanel.add(new InfoReqBoxCard("NomeProva", "Straordinario", "12/12/22"));
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
-        listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount*123));
+        listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
         //System.out.println("Dopo: " + jPanel5.getSize().height);
         listPanel.revalidate();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -149,14 +154,14 @@ public class RichiestaList extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        addInfoPane(); //DEBUG - DA SOSTITUIRE CON L'INVOCAZIONE DELLA CONTROLLER PER CREARE PAGINA HOME
+        RC.DisposeWindow(this);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new RichiestaList().setVisible(true);
+        new RichiestaList(null).setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -171,9 +176,12 @@ public class RichiestaList extends javax.swing.JFrame {
     private javax.swing.JScrollPane listScrollPane;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
+
+    RichiesteControl RC;
+
 }
 
 
 class InfoBox extends JPanel {
-    
+
 }

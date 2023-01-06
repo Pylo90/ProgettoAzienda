@@ -7,23 +7,54 @@ package controller;
 import javax.swing.JFrame;
 import view.CalendarioInterattivo;
 import view.CongedoForm;
+import view.HomepageImpiegato;
+import view.RichiestaList;
 
 /**
  *
  * @author dario
  */
 public class RichiesteControl {
-    public void RichiestaPermessoButtonPressed(){
-        JFrame CalendarioInterattivo = new CalendarioInterattivo();
+
+    HomepageImpiegato HPI;
+
+    public void RichiestaPermessoButtonPressed(HomepageImpiegato HPI) {
+        this.HPI = HPI;
+        HPI.setClickable(false);
+        JFrame CalendarioInterattivo = new CalendarioInterattivo(this);
         CalendarioInterattivo.setVisible(true);
+        CalendarioInterattivo.setAlwaysOnTop(true);
     }
-    public void RichiestaFerieButtonPressed(){
-        JFrame CalendarioInterattivo = new CalendarioInterattivo();
+
+    public void RichiestaFerieButtonPressed(HomepageImpiegato HPI) {
+        this.HPI = HPI;
+        HPI.setClickable(false);
+        JFrame CalendarioInterattivo = new CalendarioInterattivo(this);
         CalendarioInterattivo.setVisible(true);
+        CalendarioInterattivo.setAlwaysOnTop(true);
     }
-    public void RichiestaCongedoParentaleButtonPressed(){
-        JFrame CongedoForm = new CongedoForm();
+
+    public void RichiestaCongedoParentaleButtonPressed(HomepageImpiegato HPI) {
+        this.HPI = HPI;
+        HPI.setClickable(false);
+        JFrame CongedoForm = new CongedoForm(this);
         CongedoForm.setVisible(true);
+        CongedoForm.setAlwaysOnTop(true);
     }
-    
+
+    public void RichiesteButtonPressed(HomepageImpiegato HPI) {
+        this.HPI = HPI;
+        JFrame RichiestaList = new RichiestaList(this);
+        HPI.setClickable(false);
+        RichiestaList.setVisible(true);
+        RichiestaList.setAlwaysOnTop(true);
+    }
+
+    public void DisposeWindow(JFrame finestra) {
+
+        finestra.dispose();
+        HPI.setClickable(true);
+
+    }
+
 }

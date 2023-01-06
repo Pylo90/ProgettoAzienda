@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.RichiesteControl;
 import javax.swing.JButton;
 
 /**
@@ -15,7 +16,8 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
     /**
      * Creates new form CalendarioInterattivo
      */
-    public CalendarioInterattivo() {
+    public CalendarioInterattivo(RichiesteControl RC) {
+        this.RC = RC;
         initComponents();
         meseIndex = 0;
         MonthLabel.setText(mesi[meseIndex]);
@@ -75,6 +77,7 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setMinimumSize(new java.awt.Dimension(600, 700));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 700));
 
@@ -627,7 +630,7 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                                 .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33))))))
         );
@@ -689,7 +692,7 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
                     .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(ConfirmButton)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -880,12 +883,12 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        RC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        RC.DisposeWindow(this);
     }//GEN-LAST:event_jButton32ActionPerformed
 
     /**
@@ -916,11 +919,11 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CalendarioInterattivo().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -985,5 +988,7 @@ private javax.swing.JButton selectedButton;
 
     public String[] mesi = new String[]{"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
     int meseIndex;
+
+    RichiesteControl RC;
 
 }

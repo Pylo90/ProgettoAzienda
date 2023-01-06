@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.OrariStipendiControl;
+
 /**
  *
  * @author dario
@@ -13,7 +15,8 @@ public class OrarioImpiegato extends javax.swing.JFrame {
     /**
      * Creates new form OrarioImpiegatoDatore
      */
-    public OrarioImpiegato() {
+    public OrarioImpiegato(OrariStipendiControl OSC) {
+        this.OSC = OSC; 
         initComponents();
     }
 
@@ -35,6 +38,7 @@ public class OrarioImpiegato extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setPreferredSize(new java.awt.Dimension(1440, 810));
 
         jButton32.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -105,7 +109,7 @@ public class OrarioImpiegato extends javax.swing.JFrame {
                 .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(98, 98, 98)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,7 +134,7 @@ public class OrarioImpiegato extends javax.swing.JFrame {
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        OSC.DisposeWindow(this);
     }//GEN-LAST:event_jButton32ActionPerformed
 
     /**
@@ -162,11 +166,11 @@ public class OrarioImpiegato extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new OrarioImpiegato().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -175,4 +179,7 @@ public class OrarioImpiegato extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private OrariStipendiControl OSC = new OrariStipendiControl();
+
 }

@@ -1,5 +1,6 @@
 package view;
 
+import controller.FirmaControl;
 import java.awt.Color;
 
 /**
@@ -12,7 +13,8 @@ public class FirmaForm extends javax.swing.JFrame {
     boolean surnameFieldPlaceHolder;
     boolean matFieldPlaceHolder;
 
-    public FirmaForm() {
+    public FirmaForm(FirmaControl FC) {
+        this.FC = FC;
         initComponents();
         nameFieldPlaceHolder = surnameFieldPlaceHolder = matFieldPlaceHolder = true;
         mainPanel.requestFocus();
@@ -212,13 +214,13 @@ public class FirmaForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    /*public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FirmaForm().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -228,4 +230,7 @@ public class FirmaForm extends javax.swing.JFrame {
     private javax.swing.JTextField nameField;
     private javax.swing.JTextField surnameField;
     // End of variables declaration//GEN-END:variables
+
+    FirmaControl FC;
+
 }
