@@ -59,6 +59,8 @@ public class HomepageDatore extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/progetto/PersonIcon.png"))); // NOI18N
@@ -377,7 +379,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
 
-        pack();
+        setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void impSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impSalaryButtonActionPerformed

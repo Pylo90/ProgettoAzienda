@@ -61,6 +61,7 @@ public class LoginForm extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(java.awt.Color.orange);
         setMinimumSize(new java.awt.Dimension(800, 600));
+        setUndecorated(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
@@ -228,7 +229,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new java.awt.GridBagConstraints());
 
-        pack();
+        setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void confermaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confermaButton1ActionPerformed

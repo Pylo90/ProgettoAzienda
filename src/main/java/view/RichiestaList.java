@@ -54,6 +54,8 @@ public class RichiestaList extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         mainPanel.setBackground(new java.awt.Color(255, 248, 238));
@@ -143,7 +145,7 @@ public class RichiestaList extends javax.swing.JFrame {
 
         getContentPane().add(mainPanel);
 
-        pack();
+        setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed

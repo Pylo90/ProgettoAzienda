@@ -70,6 +70,8 @@ public class ListaImpiegati extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         mainPanel.setBackground(new java.awt.Color(255, 248, 238));
@@ -103,7 +105,6 @@ public class ListaImpiegati extends javax.swing.JFrame {
         jTextPane1.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane1.setBorder(null);
         jTextPane1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextPane1.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane1.setText("Lista Impiegati");
         jTextPane1.setFocusable(false);
         jScrollPane1.setViewportView(jTextPane1);
@@ -205,7 +206,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
 
         getContentPane().add(mainPanel);
 
-        pack();
+        setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed

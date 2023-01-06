@@ -52,7 +52,7 @@ public class Errore extends javax.swing.JFrame{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().setLayout(null);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setLayout(null);
@@ -91,10 +91,18 @@ public class Errore extends javax.swing.JFrame{
         jPanel1.add(ConfirmButton2);
         ConfirmButton2.setBounds(202, 320, 195, 50);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 600, 400);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
-        pack();
+        setBounds(660, 50, 600, 400);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

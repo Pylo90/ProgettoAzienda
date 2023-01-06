@@ -36,6 +36,8 @@ public class OrarioImpiegatoDatore extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setPreferredSize(new java.awt.Dimension(1440, 810));
@@ -163,7 +165,7 @@ public class OrarioImpiegatoDatore extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(240, 50, 1440, 810);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
