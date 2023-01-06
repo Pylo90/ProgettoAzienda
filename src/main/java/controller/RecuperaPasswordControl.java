@@ -1,17 +1,17 @@
 package controller;
 
-import view.RecuperaPassword;
+import view.RecuperaPasswordBoundary;
 
 public class RecuperaPasswordControl {
     
-    RecuperaPassword recuperaForm;
+    RecuperaPasswordBoundary recuperaForm;
     
     public RecuperaPasswordControl() {
         
     }
     
     public void showRecuperaPassowrd() {
-        recuperaForm = new RecuperaPassword(this);
+        recuperaForm = new RecuperaPasswordBoundary(this);
         recuperaForm.setVisible(true);
     }
     

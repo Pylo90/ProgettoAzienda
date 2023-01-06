@@ -15,9 +15,9 @@ import view.style.ScrollBarCustom;
  *
  * @author Davide
  */
-public class ListaRichieste extends javax.swing.JFrame {
+public class RichiestaList extends javax.swing.JFrame {
     int cardCount;
-    public ListaRichieste() {
+    public RichiestaList() {
         initComponents();
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -87,7 +87,6 @@ public class ListaRichieste extends javax.swing.JFrame {
         jTextPane1.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane1.setBorder(null);
         jTextPane1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextPane1.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane1.setText("Lista Richieste");
         jTextPane1.setFocusable(false);
         jScrollPane1.setViewportView(jTextPane1);
@@ -155,7 +154,7 @@ public class ListaRichieste extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new ListaRichieste().setVisible(true);
+        new RichiestaList().setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

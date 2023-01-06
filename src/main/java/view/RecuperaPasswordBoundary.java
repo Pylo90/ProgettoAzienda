@@ -6,10 +6,10 @@ import controller.RecuperaPasswordControl;
  *
  * @author Davide
  */
-public class RecuperaPassword extends javax.swing.JFrame {
+public class RecuperaPasswordBoundary extends javax.swing.JFrame {
     RecuperaPasswordControl rc;
     
-    public RecuperaPassword(RecuperaPasswordControl rc) {
+    public RecuperaPasswordBoundary(RecuperaPasswordControl rc) {
         initComponents();
         this.rc = rc;
     }
@@ -48,7 +48,6 @@ public class RecuperaPassword extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         mainPanel.setBackground(new java.awt.Color(255, 248, 238));

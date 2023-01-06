@@ -17,10 +17,10 @@ import java.util.Map;
  *
  * @author Davide
  */
-public class Login extends javax.swing.JFrame {
+public class LoginForm extends javax.swing.JFrame {
     LoginControl lc;
     
-    public Login(LoginControl lc) {
+    public LoginForm(LoginControl lc) {
         initComponents();
         this.lc = lc;
         this.getContentPane().setBackground(this.getBackground());
@@ -61,7 +61,6 @@ public class Login extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(java.awt.Color.orange);
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
@@ -251,7 +250,7 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new LoginForm().setVisible(true);
             }
         });*/
         new LoginControl().createLogin();

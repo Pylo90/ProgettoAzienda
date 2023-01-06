@@ -1,15 +1,15 @@
 package controller;
 
-import view.Login;
-import view.HomePageAmministratore;
+import view.LoginForm;
+import view.HomepageAmministratore;
 
 /**
  *
  * @author davide
  */
 public class LoginControl {
-    Login loginFrame;
-    HomePageAmministratore adminPage;
+    LoginForm loginFrame;
+    HomepageAmministratore adminPage;
     
     public LoginControl() {
         
@@ -34,12 +34,12 @@ public class LoginControl {
     }
     
     public void createLogin() {
-        loginFrame = new Login(this);
+        loginFrame = new LoginForm(this);
         loginFrame.setVisible(true);
     }
     
     public void createAdminPage() {
-        adminPage = new HomePageAmministratore(this);
+        adminPage = new HomepageAmministratore(this);
         adminPage.setVisible(true);
     }
 }
