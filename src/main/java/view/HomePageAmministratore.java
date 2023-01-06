@@ -28,7 +28,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         passwordButton = new javax.swing.JButton();
         salaryButton = new javax.swing.JButton();
-        homeButton = new javax.swing.JButton();
         notificationButton = new javax.swing.JButton();
         requestButton = new javax.swing.JButton();
         scheduleButton = new javax.swing.JButton();
@@ -90,7 +89,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel1.add(passwordButton);
-        passwordButton.setBounds(50, 490, 100, 107);
+        passwordButton.setBounds(50, 290, 100, 107);
 
         salaryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BankButton.png"))); // NOI18N
         salaryButton.setBorderPainted(false);
@@ -103,20 +102,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel1.add(salaryButton);
-        salaryButton.setBounds(50, 250, 100, 107);
-
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
-        homeButton.setBorderPainted(false);
-        homeButton.setContentAreaFilled(false);
-        homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        homeButton.setFocusable(false);
-        homeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(homeButton);
-        homeButton.setBounds(50, 33, 100, 107);
+        salaryButton.setBounds(50, 50, 100, 107);
 
         notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/NotificationButton.png"))); // NOI18N
         notificationButton.setBorderPainted(false);
@@ -129,7 +115,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel1.add(notificationButton);
-        notificationButton.setBounds(50, 610, 100, 107);
+        notificationButton.setBounds(50, 410, 100, 107);
 
         requestButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RequestIcon.png"))); // NOI18N
         requestButton.setBorderPainted(false);
@@ -142,7 +128,7 @@ public class HomePageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel1.add(requestButton);
-        requestButton.setBounds(50, 730, 100, 107);
+        requestButton.setBounds(50, 530, 100, 107);
 
         scheduleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ScheduleButton.png"))); // NOI18N
         scheduleButton.setBorderPainted(false);
@@ -155,11 +141,11 @@ public class HomePageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel1.add(scheduleButton);
-        scheduleButton.setBounds(50, 370, 100, 107);
+        scheduleButton.setBounds(50, 170, 100, 107);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/costinaHomepageImpiegato.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 200, 875);
+        jLabel1.setBounds(0, 0, 200, 678);
 
         requestPanel.setBackground(new java.awt.Color(255, 248, 238));
         requestPanel.setMaximumSize(new java.awt.Dimension(450, 220));
@@ -563,10 +549,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_editButtonActionPerformed
 
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homeButtonActionPerformed
-
     private void salaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_salaryButtonActionPerformed
@@ -647,7 +629,6 @@ public class HomePageAmministratore extends javax.swing.JFrame {
     private javax.swing.JButton editButton;
     private javax.swing.JButton ferieButton;
     private javax.swing.JButton healthButton;
-    private javax.swing.JButton homeButton;
     private javax.swing.JTextField idText;
     private javax.swing.JButton impSalaryButton;
     private javax.swing.JButton impScheduleButton;
