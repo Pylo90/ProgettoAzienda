@@ -412,6 +412,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void RequestButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton3ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_RequestButton3ActionPerformed
 
     private void CongedoParentaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CongedoParentaleActionPerformed

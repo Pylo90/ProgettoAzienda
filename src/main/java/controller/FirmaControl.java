@@ -9,18 +9,14 @@ public class FirmaControl {
 
     HomepageImpiegato HPI;
 
-    public void badgeINButtonPressed(HomepageImpiegato HPI) {
-        this.HPI = HPI;
-        HPI.setClickable(false);
+    public void badgeINButtonPressed() {
         JFrame firmaForm = new FirmaForm(this);
         firmaForm.setVisible(true);
         firmaForm.setAlwaysOnTop(true);
 
     }
 
-    public void firmaOUTButtonPressed(HomepageImpiegato HPI) {
-        this.HPI = HPI;
-        HPI.setClickable(false);
+    public void firmaOUTButtonPressed() {
         JFrame firmaForm = new FirmaForm(this);
         firmaForm.setVisible(true);
         firmaForm.setAlwaysOnTop(true);
