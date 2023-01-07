@@ -29,6 +29,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
     
     public ListaImpiegati() {
         initComponents();
+        // setClickable(true);
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         searchFieldPlaceholder = true;
@@ -258,7 +259,16 @@ public class ListaImpiegati extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
+/* private boolean clickable;
 
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
+*/
 class InfoBox extends JPanel {
     
 }

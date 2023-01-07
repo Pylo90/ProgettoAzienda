@@ -21,6 +21,7 @@ public class HomepageDatore extends javax.swing.JFrame {
      */
     public HomepageDatore() {
         initComponents();
+        setClickable(true);
     }
 
     /**

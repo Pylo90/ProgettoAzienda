@@ -4,6 +4,9 @@
  */
 package controller;
 
+import javax.swing.JFrame;
+import view.HomepageDatore;
+
 /**
  *
  * @author dario

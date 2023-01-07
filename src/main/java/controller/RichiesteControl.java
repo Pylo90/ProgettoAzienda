@@ -62,10 +62,11 @@ public class RichiesteControl {
     
     public void ScambiaOrariButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
+        //prendi la lista dal dbms
         JFrame ListaImpiegati = new ListaImpiegati(this);
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
-
+    
 }

@@ -8,6 +8,10 @@ import javax.swing.JFrame;
 import view.HomepageImpiegato;
 import view.OrarioImpiegato;
 import view.StipendioImpiegato;
+import view.HomepageDatore;
+import view.ListaImpiegati;
+import view.StipendioImpiegatoDatore;
+import view.OrarioImpiegatoDatore;
 
 /**
  *
@@ -16,6 +20,8 @@ import view.StipendioImpiegato;
 public class OrariStipendiControl {
 
     HomepageImpiegato HPI;
+    HomepageDatore HPD;
+    ListaImpiegati LI;
     
     public void ConsultaOrarioButtonPressed(HomepageImpiegato HP) {
         HPI = HP;
@@ -36,6 +42,42 @@ public class OrariStipendiControl {
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
         HPI.setClickable(true);
+    }
+    
+    public void ConsultaStipendiImpiegatiButtonPressed(HomepageDatore HPD){
+        this.HPD = HPD;
+        //consulta il dbms per la lista degli impiegati
+        JFrame ListaImpiegati = new ListaImpiegati(this);
+        HPD.setClickable(false);
+        ListaImpiegati.setVisible(true);
+        ListaImpiegati.setAlwaysOnTop(true);
+    }
+    
+    public void ConsultaOrariImpiegatiButtonPressed(HomepageDatore HPD){
+        this.HPD = HPD;
+        //consulta il dbms per la lista degli impiegati
+        JFrame ListaImpiegati = new ListaImpiegati(this);
+        HPD.setClickable(false);
+        ListaImpiegati.setVisible(true);
+        ListaImpiegati.setAlwaysOnTop(true);
+    }
+    
+    public void sendSelectionSalary(ListaImpiegati LI){
+        this.LI = LI;
+        //chiedi il salario al dbms
+        JFrame StipendioImpiegatoDatore = new StipendioImpiegatoDatore(this);
+        LI.setClickable(false);
+        StipendioImpiegatoDatore.setVisible(true);
+        StipendioImpiegatoDatore.setAlwaysOnTop(true);
+    }
+    
+    public void sendSelectionTimeTables(ListaImpiegati LI){
+        this.LI = LI;
+        //chiedi l'orario al dbms
+        JFrame OrarioImpiegatoDatore = new OrarioImpiegatoDatore(this);
+        LI.setClickable(false);
+        OrarioImpiegatoDatore.setVisible(true);
+        OrarioImpiegatoDatore.setAlwaysOnTop(true);
     }
 
 }
