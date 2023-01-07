@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import view.CalendarioInterattivo;
 import view.CongedoForm;
 import view.HomepageImpiegato;
+import view.HomepageDatore;
+import view.ListaImpiegati;
 import view.RichiestaList;
 
 /**
@@ -17,6 +19,7 @@ import view.RichiestaList;
 public class RichiesteControl {
 
     HomepageImpiegato HPI;
+    HomepageDatore HPD;
 
     public void RichiestaPermessoButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
@@ -55,6 +58,14 @@ public class RichiesteControl {
         finestra.dispose();
         HPI.setClickable(true);
 
+    }
+    
+    public void ScambiaOrariButtonPressed(HomepageDatore HPD) {
+        this.HPD = HPD;
+        JFrame ListaImpiegati = new ListaImpiegati(this);
+        HPD.setClickable(false);
+        ListaImpiegati.setVisible(true);
+        ListaImpiegati.setAlwaysOnTop(true);
     }
 
 }

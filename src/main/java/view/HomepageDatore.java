@@ -4,6 +4,12 @@
  */
 package view;
 
+import controller.CambiaPasswordControl;
+import controller.FirmaControl;
+import controller.LoginControl;
+import controller.OrariStipendiControl;
+import controller.RichiesteControl;
+
 /**
  *
  * @author Utente
@@ -40,7 +46,6 @@ public class HomepageDatore extends javax.swing.JFrame {
         editButton = new javax.swing.JButton();
         straordButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        scioperoLabel = new javax.swing.JLabel();
         assumiButton = new javax.swing.JButton();
         licenziaButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -169,22 +174,6 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         mainPanel.add(jPanel3);
         jPanel3.setBounds(1720, 55, 200, 819);
-
-        scioperoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        scioperoLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        scioperoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina-flipped.png"))); // NOI18N
-        scioperoLabel.setText("Indici sciopero");
-        scioperoLabel.setToolTipText("");
-        scioperoLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        scioperoLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        scioperoLabel.setIconTextGap(0);
-        scioperoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                scioperoLabelMouseClicked(evt);
-            }
-        });
-        mainPanel.add(scioperoLabel);
-        scioperoLabel.setBounds(1570, 920, 350, 90);
 
         assumiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AssumiButton.png"))); // NOI18N
         assumiButton.setBorder(null);
@@ -363,42 +352,55 @@ public class HomepageDatore extends javax.swing.JFrame {
 
     private void impSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impSalaryButtonActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
+            OSC.ConsultaStipendiImpiegatiButtonPressed(this);
     }//GEN-LAST:event_impSalaryButtonActionPerformed
 
     private void impScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impScheduleButtonActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
+            OSC.ConsultaOrariImpiegatiButtonPressed(this);
     }//GEN-LAST:event_impScheduleButtonActionPerformed
 
     private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
+            MC.InserimentoMalattiaButtonPressed(this);
     }//GEN-LAST:event_healthButtonActionPerformed
 
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
+            RicC.ScambiaOrariButtonPressed(this);
     }//GEN-LAST:event_switchButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
+            ALC.ModificaInfoImpiegatoButtonPressed(this);
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
+            SC.AffidaStraordinariButtonPressed(this);
     }//GEN-LAST:event_straordButtonActionPerformed
-
-    private void scioperoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scioperoLabelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_scioperoLabelMouseClicked
 
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
+            ALC.assumiButtonPressed(this);
     }//GEN-LAST:event_assumiButtonActionPerformed
 
     private void licenziaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licenziaButtonActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
+            ALC.LicenziaButtonPressed(this);
     }//GEN-LAST:event_licenziaButtonActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButton18ActionPerformed
 
     /**
@@ -463,8 +465,22 @@ public class HomepageDatore extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField nameText;
     private javax.swing.JTextField phoneText;
-    private javax.swing.JLabel scioperoLabel;
     private javax.swing.JButton straordButton;
     private javax.swing.JButton switchButton;
     // End of variables declaration//GEN-END:variables
+
+    private AssumiLicenziaControl ALC = new AssumiLicenziaControl();
+    private StraordinariControl SC = new StraordinariControl();
+    private OrariStipendiControl OSC = new OrariStipendiControl();
+    private RichiesteControl RicC = new RichiesteControl();
+    private MalattiaControl MC = new MalattiaControl();
+    private boolean clickable;
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
 }
