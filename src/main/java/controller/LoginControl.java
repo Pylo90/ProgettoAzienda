@@ -1,7 +1,7 @@
 package controller;
 
 import view.LoginForm;
-import view.HomepageAmministratore;
+import view.HomePageAmministratore;
 
 /**
  *
@@ -9,10 +9,10 @@ import view.HomepageAmministratore;
  */
 public class LoginControl {
     LoginForm loginFrame;
-    HomepageAmministratore adminPage;
+    HomePageAmministratore adminPage;
     
     public LoginControl() {
-        
+        super();
     }
     
     /* TODO */
@@ -39,7 +39,7 @@ public class LoginControl {
     }
     
     public void createAdminPage() {
-        adminPage = new HomepageAmministratore(this);
+        adminPage = new HomePageAmministratore(this);
         adminPage.setVisible(true);
     }
 }

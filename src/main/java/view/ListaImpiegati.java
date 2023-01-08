@@ -245,7 +245,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
             RC.DisposeWindow(this);
         }
         if (isClickable() && (this.ALC != null)) {
-            ALC.DisposeWindow(this);
+            //ALC.DisposeWindow(this);
         }
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -306,6 +306,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
     public void setClickable(boolean clickable) {
         this.clickable = clickable;
     }
+    
 
 }
 
