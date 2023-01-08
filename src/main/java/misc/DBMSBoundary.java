@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -41,7 +39,7 @@ public class DBMSBoundary {
             Connection con = DBMSBoundary.getConnection();
             rs = con.createStatement().executeQuery(query);
         } catch (SQLException ex) {
-            Logger.getLogger(DBMSBoundary.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         return rs;
     }
@@ -52,7 +50,7 @@ public class DBMSBoundary {
             Connection con = DBMSBoundary.getConnection();
             con.createStatement().executeQuery(query);
         } catch (SQLException ex) {
-            Logger.getLogger(DBMSBoundary.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
     
@@ -64,7 +62,7 @@ public class DBMSBoundary {
                 System.out.println(rs.getDouble("paga_oraria"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DBMSBoundary.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
 
     }
