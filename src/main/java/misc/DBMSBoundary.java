@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,6 +34,7 @@ public class DBMSBoundary {
         return con;
     }
     
+    /*      METODO DA ESEGUIRE PER QUERY CON RITORNO        */
     public static ResultSet getQuery(String query) {
         ResultSet rs = null;
         try {
@@ -44,6 +44,16 @@ public class DBMSBoundary {
             Logger.getLogger(DBMSBoundary.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
+    }
+    
+    /*      METODO DA ESEGUIRE PER QUERY SENZA RITORNO        */
+    public static void updateQuery(String query) {
+        try {
+            Connection con = DBMSBoundary.getConnection();
+            con.createStatement().executeQuery(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBMSBoundary.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /*      TEST       */
