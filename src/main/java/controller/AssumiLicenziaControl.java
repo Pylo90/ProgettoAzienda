@@ -6,6 +6,7 @@ package controller;
 
 import javax.swing.JFrame;
 import view.HomepageDatore;
+import view.HomepageAmministratore;
 import view.ListaImpiegati;
 import view.ModificaInfoImpiegato;
 import view.AssumiImpiegatoBoundary;
@@ -19,6 +20,7 @@ import view.DBMSBoundary; //se esiste
 public class AssumiLicenziaControl {
 
     HomepageDatore HPD;
+    HomepageAmministratore HPA;
     ListaImpiegati LI;
     ModificaInfoImpiegato MII;
     AssumiImpiegatoBoundary AIB;
@@ -32,10 +34,18 @@ public class AssumiLicenziaControl {
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
+    public void ModificaInfoImpiegatoButtonPressed(HomepageAmministratore HPA) {
+        this.HPA = HPA;
+        //prendi la lista dal dbms
+        JFrame ListaImpiegati = new ListaImpiegati(this);
+        HPD.setClickable(false);
+        ListaImpiegati.setVisible(true);
+        ListaImpiegati.setAlwaysOnTop(true);
+    }
 
     public void workerSelected(ListaImpiegati LI) {  //inserire nella parentesi l'impiegato di tipo boh e al posto di void l'impiegato di tipo boh
         this.LI = LI;
-        JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(); //nella parentesi mettere impiegato di tipo boh
+        JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(this); //nella parentesi mettere impiegato di tipo boh
         LI.setClickable(false);
         ModificaInfoImpiegato.setVisible(true);
         ModificaInfoImpiegato.setAlwaysOnTop(true);

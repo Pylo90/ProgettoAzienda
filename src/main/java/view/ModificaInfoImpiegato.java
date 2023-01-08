@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.AssumiLicenziaControl;
+
 /**
  *
  * @author Utente
@@ -13,7 +15,8 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     /**
      * Creates new form ModificaInfoImpiegato
      */
-    public ModificaInfoImpiegato() {
+    public ModificaInfoImpiegato(AssumiLicenziaControl ALC) {
+        this.ALC = ALC;
         initComponents();
     }
 
@@ -237,12 +240,12 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         Double numero = jTextField7.getText().trim(); //controllare se getText va bene per i double
         int livello = jComboBox1.getSelectedIndex();
         boolean disability = jCheckBox1.isSelected();
-        //manda al database le informazioni
-        this.dispose();
+        ALC.submitForm(this);
+        ALC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        rc.showLoginForm();
+        ALC.DisposeWindow(this);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
@@ -277,11 +280,11 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ModificaInfoImpiegato().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -309,4 +312,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
+
+    AssumiLicenziaControl ALC;
+
 }
