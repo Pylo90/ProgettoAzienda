@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.OrariStipendiControl;
+
 /**
  *
  * @author dario
@@ -13,7 +15,8 @@ public class OrarioImpiegatoDatore extends javax.swing.JFrame {
     /**
      * Creates new form OrarioImpiegatoDatore
      */
-    public OrarioImpiegatoDatore() {
+    public OrarioImpiegatoDatore(OrariStipendiControl OSC) {
+        this.OSC = OSC;
         initComponents();
     }
 
@@ -170,7 +173,7 @@ public class OrarioImpiegatoDatore extends javax.swing.JFrame {
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        OSC.DisposeWindow(this);
     }//GEN-LAST:event_jButton32ActionPerformed
 
     /**
@@ -201,11 +204,11 @@ public class OrarioImpiegatoDatore extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new OrarioImpiegatoDatore().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -218,4 +221,7 @@ public class OrarioImpiegatoDatore extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    OrariStipendiControl OSC;
+
 }

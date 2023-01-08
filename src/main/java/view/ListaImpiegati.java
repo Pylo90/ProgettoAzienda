@@ -1,7 +1,10 @@
 package view;
 
+import controller.AssumiLicenziaControl;
+import controller.OrariStipendiControl;
 import view.style.InfoBoxCard;
 import controller.RecuperaPasswordControl;
+import controller.RichiesteControl;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -11,23 +14,47 @@ import view.style.ScrollBarCustom;
 /*
 * PER VERIFICARE IL FUNZIONAMENTO DELLA PAGINA PREMERE IL TASTO HOME
 * VERRANNO AGGIUNTE DELLE CARD IMPIEGATO ALLA LISTA
-*/
+ */
 
-/*
+ /*
 * TODO - IMPLEMENTARE LA RICERCA
 *
-*/
-
+ */
 /**
  *
  * @author Davide
  */
 public class ListaImpiegati extends javax.swing.JFrame {
+
     int cardCount;
     boolean searchFieldPlaceholder;
     ArrayList<InfoBoxCard> infoBoxList = new ArrayList<InfoBoxCard>(); //DA IMPLEMENTARE
-    
-    public ListaImpiegati() {
+
+    public ListaImpiegati(OrariStipendiControl OSC) {
+
+        this.OSC = OSC;
+        initComponents();
+        // setClickable(true);
+        cardCount = 0;
+        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
+        searchFieldPlaceholder = true;
+        mainPanel.requestFocus();
+    }
+
+    public ListaImpiegati(RichiesteControl RC) {
+
+        this.OSC = OSC;
+        initComponents();
+        // setClickable(true);
+        cardCount = 0;
+        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
+        searchFieldPlaceholder = true;
+        mainPanel.requestFocus();
+    }
+
+    public ListaImpiegati(AssumiLicenziaControl ALC) {
+
+        this.ALC = ALC;
         initComponents();
         // setClickable(true);
         cardCount = 0;
@@ -40,11 +67,11 @@ public class ListaImpiegati extends javax.swing.JFrame {
         listPanel.add(new InfoBoxCard());
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
-        listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount*123));
+        listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
         //System.out.println("Dopo: " + jPanel5.getSize().height);
         listPanel.revalidate();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -211,7 +238,15 @@ public class ListaImpiegati extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        addInfoPane(); //DEBUG - DA SOSTITUIRE CON L'INVOCAZIONE DELLA CONTROLLER PER CREARE PAGINA HOME
+        if (isClickable() && (this.OSC != null)) {
+            OSC.DisposeWindow(this);
+        }
+        if (isClickable() && (this.RC != null)) {
+            RC.DisposeWindow(this);
+        }
+        if (isClickable() && (this.ALC != null)) {
+            ALC.DisposeWindow(this);
+        }
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
@@ -237,9 +272,9 @@ public class ListaImpiegati extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    /* public static void main(String args[]) {
         new ListaImpiegati().setVisible(true);
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton homeButton;
@@ -257,9 +292,12 @@ public class ListaImpiegati extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
-}
 
-/* private boolean clickable;
+    OrariStipendiControl OSC;
+    RichiesteControl RC;
+    AssumiLicenziaControl ALC;
+
+    private boolean clickable;
 
     public boolean isClickable() {
         return clickable;
@@ -268,7 +306,9 @@ public class ListaImpiegati extends javax.swing.JFrame {
     public void setClickable(boolean clickable) {
         this.clickable = clickable;
     }
-*/
+
+}
+
 class InfoBox extends JPanel {
-    
+
 }

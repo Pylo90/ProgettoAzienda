@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.AssumiLicenziaControl;
+
 /**
  *
  * @author Utente
@@ -13,7 +15,8 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     /**
      * Creates new form AssumiImpiegatoBoundary
      */
-    public AssumiImpiegatoBoundary() {
+    public AssumiImpiegatoBoundary(AssumiLicenziaControl ALC) {
+        this.ALC = ALC;
         initComponents();
     }
 
@@ -228,12 +231,11 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
-        System.out.println(MotivazioneSciopero.getText());
-        this.dispose();
+        ALC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        rc.showLoginForm();
+        ALC.DisposeWindow(this);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     /**
@@ -264,11 +266,11 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AssumiImpiegatoBoundary().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -295,4 +297,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
+
+    AssumiLicenziaControl ALC;
+
 }

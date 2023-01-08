@@ -228,10 +228,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
-        if(jTextField1.getText().invalidName() || jTextField5.getText().invalidMail() || jTextField6.getText().invalidCF() || jTextField7.getText().invalidPhone()){
-            Errore(true); //il corpo è da modificare a seconda di come mandiamo l'errore visto che è una classe e non un metodo
-            //Creare una classe per gestire gli errori con metodi come invalidName, invalidMail eccetera
-        }
+
         String name = jTextField1.getText().trim();
         String surname = jTextField4.getText();
         String mail = jTextField4.getText().trim();

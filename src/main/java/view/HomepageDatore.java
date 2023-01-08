@@ -4,11 +4,14 @@
  */
 package view;
 
+import controller.AssumiLicenziaControl;
 import controller.CambiaPasswordControl;
 import controller.FirmaControl;
 import controller.LoginControl;
+import controller.MalattiaControl;
 import controller.OrariStipendiControl;
 import controller.RichiesteControl;
+import controller.StraordinariControl;
 
 /**
  *
@@ -353,52 +356,52 @@ public class HomepageDatore extends javax.swing.JFrame {
 
     private void impSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impSalaryButtonActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
             OSC.ConsultaStipendiImpiegatiButtonPressed(this);
     }//GEN-LAST:event_impSalaryButtonActionPerformed
-
+    }
     private void impScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impScheduleButtonActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
             OSC.ConsultaOrariImpiegatiButtonPressed(this);
     }//GEN-LAST:event_impScheduleButtonActionPerformed
-
+    }
     private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
             MC.InserimentoMalattiaButtonPressed(this);
     }//GEN-LAST:event_healthButtonActionPerformed
-
+    }
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
             RicC.ScambiaOrariButtonPressed(this);
     }//GEN-LAST:event_switchButtonActionPerformed
-
+    }
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
             ALC.ModificaInfoImpiegatoButtonPressed(this);
     }//GEN-LAST:event_editButtonActionPerformed
-
+    }
     private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
             SC.AffidaStraordinariButtonPressed(this);
     }//GEN-LAST:event_straordButtonActionPerformed
-
+    }
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
             ALC.assumiButtonPressed(this);
     }//GEN-LAST:event_assumiButtonActionPerformed
-
+    }
     private void licenziaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licenziaButtonActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
             ALC.LicenziaButtonPressed(this);
     }//GEN-LAST:event_licenziaButtonActionPerformed
-
+    }
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
         this.dispose();

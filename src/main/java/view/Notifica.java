@@ -103,19 +103,6 @@ public class Notifica extends javax.swing.JFrame {
 
     private void ConfirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton2ActionPerformed
         // TODO add your handling code here:
-        int hour =0;
-        if(selectedTurn==Turno1Button) hour+=0;
-        if(selectedTurn==Turno2Button) hour+=8;
-        if(selectedTurn==Turno3Button) hour+=16;
-
-        if(selectedHour==Hour1) hour+=1;
-        if(selectedHour==Hour2) hour+=2;
-        if(selectedHour==Hour3) hour+=3;
-        if(selectedHour==Hour4) hour+=4;
-        if(selectedHour==Hour5) hour+=5;
-        if(selectedHour==Hour6) hour+=6;
-        if(selectedHour==Hour7) hour+=7;
-        if(selectedHour==Hour8) hour+=8;
 
         this.dispose();
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
