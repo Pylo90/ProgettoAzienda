@@ -16,6 +16,9 @@ public class CambiaPasswordControl {
 
     HomepageImpiegato HPI;
 
+    public CambiaPasswordControl() {
+    }
+
     public void CPButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
         JFrame ModificaPassword = new ModificaPassword(this);

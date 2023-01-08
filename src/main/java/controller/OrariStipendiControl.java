@@ -22,6 +22,9 @@ public class OrariStipendiControl {
     HomepageImpiegato HPI;
     HomepageDatore HPD;
     ListaImpiegati LI;
+
+    public OrariStipendiControl() {
+    }
     
     public void ConsultaOrarioButtonPressed(HomepageImpiegato HP) {
         HPI = HP;

@@ -26,6 +26,9 @@ public class AssumiLicenziaControl {
     AssumiImpiegatoBoundary AIB;
     DBMSBoundary DBMS;
 
+    public AssumiLicenziaControl() {
+    }
+
     public void ModificaInfoImpiegatoButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
         //prendi la lista dal dbms
@@ -53,7 +56,7 @@ public class AssumiLicenziaControl {
 
     public void submitForm(ModificaInfoImpiegato MII) {  //inserire nella parentesi l'impiegato di tipo boh e al posto di void l'impiegato di tipo boh
         //Manda i cazzi nel dbms
-        this.dispose();
+        ;
     }
 
     public void assumiButtonPressed(HomepageDatore HPD) {

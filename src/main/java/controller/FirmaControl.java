@@ -9,6 +9,9 @@ public class FirmaControl {
 
     HomepageImpiegato HPI;
 
+    public FirmaControl() {
+    }
+
     public void badgeINButtonPressed() {
         JFrame firmaForm = new FirmaForm(this);
         firmaForm.setVisible(true);

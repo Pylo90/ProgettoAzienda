@@ -9,5 +9,8 @@ package controller;
  * @author dario
  */
 public class CalcoloStipendiControl {
+
+    public CalcoloStipendiControl() {
+    }
     
 }

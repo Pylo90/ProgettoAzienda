@@ -21,6 +21,9 @@ public class RichiesteControl {
     HomepageImpiegato HPI;
     HomepageDatore HPD;
 
+    public RichiesteControl() {
+    }
+
     public void RichiestaPermessoButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
         HPI.setClickable(false);

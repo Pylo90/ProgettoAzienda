@@ -8,7 +8,10 @@ package controller;
  *
  * @author dario
  */
-public class RCControl {
+public class RistabilisciConnessioneControl {
+
+    public RistabilisciConnessioneControl() {
+    }
 
 //commento bello bello
     //un altro commento bello bello

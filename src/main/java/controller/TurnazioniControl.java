@@ -9,5 +9,8 @@ package controller;
  * @author dario
  */
 public class TurnazioniControl {
+
+    public TurnazioniControl() {
+    }
     
 }

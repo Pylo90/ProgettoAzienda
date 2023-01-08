@@ -12,5 +12,8 @@ import view.HomepageDatore;
  * @author dario
  */
 public class StraordinariControl {
+
+    public StraordinariControl() {
+    }
     
 }

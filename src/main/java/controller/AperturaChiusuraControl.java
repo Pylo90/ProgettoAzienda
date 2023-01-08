@@ -10,5 +10,8 @@ package controller;
  */
 
 public class AperturaChiusuraControl {
+
+    public AperturaChiusuraControl() {
+    }
     
 }
