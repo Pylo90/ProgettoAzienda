@@ -117,7 +117,7 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(0, 0, 1200, 110);
+        jLabel1.setBounds(0, 0, 1200, 113);
     }// </editor-fold>//GEN-END:initComponents
 
 
