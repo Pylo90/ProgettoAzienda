@@ -118,13 +118,11 @@ public class Errore extends javax.swing.JFrame{
 
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
     }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
     private void ConfirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton2ActionPerformed
         // TODO add your handling code here:
-
-        this.dispose();
+        CPC.DisposeWindow2(this);
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
     /**

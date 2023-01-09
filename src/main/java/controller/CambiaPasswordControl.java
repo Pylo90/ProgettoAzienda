@@ -40,4 +40,9 @@ public class CambiaPasswordControl {
         error.setVisible(true);
         error.setAlwaysOnTop(true);
     }
+    
+    public void DisposeWindow2(JFrame finestra) {
+        finestra.dispose();
+        MP.setClickable(true);
+    }
 }
