@@ -1,10 +1,8 @@
 package view;
 
 import view.style.InfoReqBoxCard;
-import controller.RecuperaPasswordControl;
 import controller.RichiesteControl;
 import java.awt.Dimension;
-import javax.swing.JPanel;
 import view.style.ScrollBarCustom;
 
 /*
@@ -27,9 +25,20 @@ public class RichiestaList extends javax.swing.JFrame {
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
     }
-
-    private void addInfoPane() {
-        listPanel.add(new InfoReqBoxCard("NomeProva", "Straordinario", "12/12/22"));
+    
+    /*******TEST - DA ELIMINARE*******/
+    public void addInfoPane() {
+        listPanel.add(new InfoReqBoxCard("NomeProvaLungo CognomeProvaLungo", "NomeTipoLungo", "12/12/22"));
+        cardCount++;
+        //System.out.println("Prima: " + jPanel5.getSize().height);
+        listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
+        //System.out.println("Dopo: " + jPanel5.getSize().height);
+        listPanel.revalidate();
+    }
+    /*********************************/
+    
+    public void addInfoPane(String name, String type, String date) {
+        listPanel.add(new InfoReqBoxCard(name, type, date));
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
         listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
@@ -178,10 +187,5 @@ public class RichiestaList extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     RichiesteControl RC;
-
-}
-
-
-class InfoBox extends JPanel {
 
 }

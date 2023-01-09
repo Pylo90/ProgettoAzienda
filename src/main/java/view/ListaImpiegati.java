@@ -272,8 +272,8 @@ public class ListaImpiegati extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    /* public static void main(String args[]) {
-        new ListaImpiegati().setVisible(true);
+    /*public static void main(String args[]) {
+        new ListaImpiegati(new RichiesteControl()).setVisible(true);
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

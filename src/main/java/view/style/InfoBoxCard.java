@@ -1,5 +1,11 @@
 package view.style;
 
+import java.awt.Image;
+import java.io.FileInputStream;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Davide
@@ -12,6 +18,15 @@ public class InfoBoxCard extends javax.swing.JPanel {
     public InfoBoxCard() {
         initComponents();
     }
+    
+    public InfoBoxCard(String name, String surname, Image propic, String level) {
+        initComponents();
+        nameField.setText(name);
+        surnameField.setText(surname);
+        levelField.setText(level);
+        propic = propic.getScaledInstance(105, 105, Image.SCALE_DEFAULT);
+        this.propic.setIcon(new ImageIcon(propic));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -22,71 +37,107 @@ public class InfoBoxCard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        useThisToHandleClick = new javax.swing.JLabel();
+        surnameField = new javax.swing.JTextField();
+        levelField = new javax.swing.JTextField();
+        nameField = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        propic = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 248, 238));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setMinimumSize(new java.awt.Dimension(1201, 113));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1201, 113));
         setLayout(null);
 
-        jTextField1.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("Cognome");
-        jTextField1.setBorder(null);
-        jTextField1.setFocusable(false);
-        add(jTextField1);
-        jTextField1.setBounds(50, 50, 170, 50);
+        useThisToHandleClick.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                useThisToHandleClick(evt);
+            }
+        });
+        add(useThisToHandleClick);
+        useThisToHandleClick.setBounds(0, 0, 1201, 113);
 
-        jTextField2.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("1");
-        jTextField2.setBorder(null);
-        jTextField2.setFocusable(false);
-        add(jTextField2);
-        jTextField2.setBounds(730, 40, 20, 40);
+        surnameField.setBackground(new java.awt.Color(219, 213, 205));
+        surnameField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        surnameField.setForeground(new java.awt.Color(0, 0, 0));
+        surnameField.setText("Cognome");
+        surnameField.setBorder(null);
+        surnameField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        surnameField.setFocusable(false);
+        add(surnameField);
+        surnameField.setBounds(50, 50, 170, 50);
 
-        jTextField3.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setText("Nome");
-        jTextField3.setBorder(null);
-        jTextField3.setFocusable(false);
-        add(jTextField3);
-        jTextField3.setBounds(50, 10, 120, 40);
+        levelField.setBackground(new java.awt.Color(219, 213, 205));
+        levelField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        levelField.setForeground(new java.awt.Color(0, 0, 0));
+        levelField.setText("1");
+        levelField.setBorder(null);
+        levelField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        levelField.setFocusable(false);
+        add(levelField);
+        levelField.setBounds(730, 40, 30, 40);
+
+        nameField.setBackground(new java.awt.Color(219, 213, 205));
+        nameField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        nameField.setForeground(new java.awt.Color(0, 0, 0));
+        nameField.setText("Nome");
+        nameField.setBorder(null);
+        nameField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        nameField.setFocusable(false);
+        add(nameField);
+        nameField.setBounds(50, 10, 120, 40);
 
         jTextField4.setBackground(new java.awt.Color(219, 213, 205));
         jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(0, 0, 0));
         jTextField4.setText("Livello:");
         jTextField4.setBorder(null);
+        jTextField4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextField4.setFocusable(false);
         add(jTextField4);
         jTextField4.setBounds(610, 40, 120, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
-        add(jLabel2);
-        jLabel2.setBounds(1090, 0, 105, 110);
+        propic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
+        add(propic);
+        propic.setBounds(1090, 0, 105, 110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(0, 0, 1200, 110);
+        jLabel1.setBounds(0, 0, 1200, 113);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void useThisToHandleClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_useThisToHandleClick
+        // ROBA DA IMPLEMENTARE QUANDO SI PREME LA CARD
+    }//GEN-LAST:event_useThisToHandleClick
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField levelField;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JLabel propic;
+    private javax.swing.JTextField surnameField;
+    private javax.swing.JLabel useThisToHandleClick;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getLevelField() {
+        return levelField;
+    }
+
+    public JTextField getNameField() {
+        return nameField;
+    }
+
+    public JLabel getPropic() {
+        return propic;
+    }
+
+    public JTextField getSurnameField() {
+        return surnameField;
+    }
+    
 }
