@@ -1,6 +1,6 @@
 package view;
 
-import javax.swing.JTextField;
+import controller.CambiaPasswordControl;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,17 +13,18 @@ import javax.swing.JTextField;
  */
 public class Errore extends javax.swing.JFrame{
 
-    public static Errore errorInstance;
-    public JTextField tx;
     /**
      * Creates new form Errore
      */
-    public Errore() {
+    public Errore(String messaggio, CambiaPasswordControl CPC) {
+        this.CPC = CPC;
         initComponents();
-        errorInstance = this; //istanza di Errore
-        tx = jTextField1;     //jTextField1 pubblica
+        setMessaggio(messaggio);
     }
-
+    
+    public void setMessaggio(String messaggio){
+        jTextField1.setText(messaggio);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -153,12 +154,12 @@ public class Errore extends javax.swing.JFrame{
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Errore().setVisible(true);
-            }
-        });
+            } 
+        }); */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -168,4 +169,7 @@ public class Errore extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private CambiaPasswordControl CPC = new CambiaPasswordControl();
+    
 }
