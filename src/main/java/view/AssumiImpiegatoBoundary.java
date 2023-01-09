@@ -5,6 +5,7 @@
 package view;
 
 import controller.AssumiLicenziaControl;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -126,6 +127,16 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
 
         jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField7.setText("jTextField7");
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField7KeyPressed(evt);
+            }
+        });
         jPanel1.add(jTextField7);
         jTextField7.setBounds(470, 710, 350, 65);
 
@@ -235,8 +246,43 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+        String name = jTextField1.getText().trim();
+        String surname = jTextField4.getText().trim();
+        String mail = jTextField5.getText().trim();
+        String cf = jTextField6.getText().trim();
+        String passw = jTextField2.getText().trim();
+        // foto?
+        String numero = jTextField7.getText().trim();
+        int livello = jComboBox1.getSelectedIndex();
+        boolean disability = jCheckBox1.isSelected();
+        ALC.sendData(this);                                 
         ALC.disposeWindow(this);
     }//GEN-LAST:event_homeButtonActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyPressed
+        // TODO add your handling code here:
+        String numero = jTextField7.getText();
+        int length = numero.length();
+        char c = evt.getKeyChar();
+        //controllo i numeri da 0 a 9
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9') {
+            if(length<10){                                        //il numero non deve essere più lungo di 10 righe
+                jTextField7.setEditable(true);
+            }else{
+                jTextField7.setEditable(false);
+            }
+        }else{
+            if(evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() ==KeyEvent.VK_DELETE){ //non conta spazi e cancella nei 10 char
+                jTextField7.setEditable(true);
+            }else{
+                jTextField7.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_jTextField7KeyPressed
 
     /**
      * @param args the command line arguments

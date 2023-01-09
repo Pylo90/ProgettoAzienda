@@ -11,7 +11,7 @@ import view.ListaImpiegati;
 import view.ModificaInfoImpiegato;
 import view.AssumiImpiegatoBoundary;
 import view.ProfiloPopup;
-import view.DBMSBoundary; //se esiste
+import misc.DBMSBoundary; //se esiste
 
 /**
  *

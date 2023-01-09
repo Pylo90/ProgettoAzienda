@@ -369,7 +369,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            MC.InserimentoMalattiaButtonPressed(this);
+            MC.InserimentoMalattiaButtonPressed(this); //fare mc
     }//GEN-LAST:event_healthButtonActionPerformed
     }
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
@@ -387,7 +387,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            SC.AffidaStraordinariButtonPressed(this);
+            SC.AffidaStraordinariButtonPressed(this); //fare sc
     }//GEN-LAST:event_straordButtonActionPerformed
     }
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
