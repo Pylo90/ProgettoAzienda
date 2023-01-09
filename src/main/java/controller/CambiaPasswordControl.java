@@ -34,11 +34,15 @@ public class CambiaPasswordControl {
         HPI.setClickable(true);
     }
       
-    public void MostraErroreCambiaPassword(){
-        Errore error = new Errore();
+    public void MostraErrore(String messaggio){
+        Errore error = new Errore(messaggio, this);
         MP.setClickable(false);
-        Errore.errorInstance.tx.setText("Credenziali errate");
         error.setVisible(true);
         error.setAlwaysOnTop(true);
+    }
+    
+    public void DisposeWindow2(JFrame finestra) {
+        finestra.dispose();
+        MP.setClickable(true);
     }
 }
