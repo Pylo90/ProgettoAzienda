@@ -6,6 +6,7 @@ package view;
 
 import controller.AssumiLicenziaControl;
 import java.awt.event.KeyEvent;
+import misc.Utente;
 
 /**
  *
@@ -16,8 +17,9 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     /**
      * Creates new form ModificaInfoImpiegato
      */
-    public ModificaInfoImpiegato(AssumiLicenziaControl ALC) {
+    public ModificaInfoImpiegato(AssumiLicenziaControl ALC, Utente UT) {
         this.ALC = ALC;
+        this.UT = UT;
         initComponents();
     }
 
@@ -94,6 +96,11 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         jLabel3.setBounds(881, 432, 135, 64);
 
         jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jCheckBox1);
         jCheckBox1.setBounds(1000, 530, 50, 50);
 
@@ -119,6 +126,11 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField2.setText("jTextField2");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jTextField2);
         jTextField2.setBounds(1100, 710, 430, 65);
 
@@ -129,6 +141,11 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField7.setText("jTextField7");
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
         jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField7KeyPressed(evt);
@@ -149,11 +166,21 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField5.setText("jTextField5");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jTextField5);
         jTextField5.setBounds(280, 620, 540, 65);
 
         jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField4.setText("jTextField4");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jTextField4);
         jTextField4.setBounds(400, 540, 420, 65);
 
@@ -226,14 +253,17 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
+        jComboBox1.setSelectedIndex(UT.livello);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
+        jTextField6.setText(UT.cf);
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+        jTextField1.setText(UT.name);
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
@@ -242,11 +272,13 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         String surname = jTextField4.getText().trim();
         String mail = jTextField5.getText().trim();
         String cf = jTextField6.getText().trim();
+        String passw = jTextField2.getText().trim();
         // foto?
         String numero = jTextField7.getText().trim();
         int livello = jComboBox1.getSelectedIndex();
         boolean disability = jCheckBox1.isSelected();
-        ALC.submitForm(this);
+        Utente UT = new Utente(name, surname, mail, cf, passw, foto, numero, livello, disability);
+        ALC.submitForm(UT);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
@@ -278,6 +310,31 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextField7KeyPressed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+        jTextField4.setText(UT.surname);
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        jCheckBox1.setSelected(UT.disability);
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+        jTextField5.setText(UT.mail);
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+        jTextField4.setText(UT.numero);
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+        jTextField2.setText(UT.passw);
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -340,6 +397,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 
-    AssumiLicenziaControl ALC;
+    AssumiLicenziaControl ALC = new AssumiLicenziaControl();
 
 }

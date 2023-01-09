@@ -5,6 +5,8 @@ import controller.OrariStipendiControl;
 import view.style.InfoBoxCard;
 import controller.RecuperaPasswordControl;
 import controller.RichiesteControl;
+import controller.MalattiaControl;
+import controller.StraordinariControl;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -55,6 +57,28 @@ public class ListaImpiegati extends javax.swing.JFrame {
     public ListaImpiegati(AssumiLicenziaControl ALC) {
 
         this.ALC = ALC;
+        initComponents();
+        // setClickable(true);
+        cardCount = 0;
+        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
+        searchFieldPlaceholder = true;
+        mainPanel.requestFocus();
+    }
+    
+    public ListaImpiegati(MalattiaControl MC) {
+
+        this.MC = MC;
+        initComponents();
+        // setClickable(true);
+        cardCount = 0;
+        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
+        searchFieldPlaceholder = true;
+        mainPanel.requestFocus();
+    }
+    
+    public ListaImpiegati(StraordinariControl SC) {
+
+        this.SC = SC;
         initComponents();
         // setClickable(true);
         cardCount = 0;
@@ -247,6 +271,12 @@ public class ListaImpiegati extends javax.swing.JFrame {
         if (isClickable() && (this.ALC != null)) {
             //ALC.DisposeWindow(this);
         }
+        if (isClickable() && (this.MC != null)) {
+            //MC.DisposeWindow(this);
+        }
+        if (isClickable() && (this.SC != null)) {
+            //SC.DisposeWindow(this);
+        }
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
@@ -296,6 +326,8 @@ public class ListaImpiegati extends javax.swing.JFrame {
     OrariStipendiControl OSC;
     RichiesteControl RC;
     AssumiLicenziaControl ALC;
+    MalattiaControl MC;
+    StraordinariControl SC;
 
     private boolean clickable;
 
