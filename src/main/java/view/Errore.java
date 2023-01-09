@@ -122,7 +122,7 @@ public class Errore extends javax.swing.JFrame{
 
     private void ConfirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton2ActionPerformed
         // TODO add your handling code here:
-        CPC.DisposeWindow2(this);
+        CPC.SubmitError(this);
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
     /**

@@ -41,7 +41,7 @@ public class CambiaPasswordControl {
         error.setAlwaysOnTop(true);
     }
     
-    public void DisposeWindow2(JFrame finestra) {
+    public void SubmitError(JFrame finestra) {
         finestra.dispose();
         MP.setClickable(true);
     }
