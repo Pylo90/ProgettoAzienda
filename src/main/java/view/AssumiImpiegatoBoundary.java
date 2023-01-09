@@ -231,11 +231,11 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
-        ALC.DisposeWindow(this);
+        ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        ALC.DisposeWindow(this);
+        ALC.disposeWindow(this);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     /**
