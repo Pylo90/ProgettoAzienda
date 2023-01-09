@@ -309,7 +309,3 @@ public class ListaImpiegati extends javax.swing.JFrame {
     
 
 }
-
-class InfoBox extends JPanel {
-
-}

@@ -12,6 +12,11 @@ package controller;
 public class AperturaChiusuraControl {
 
     public AperturaChiusuraControl() {
+        super();
+    }
+    
+    public static void checkEmployees() {
+        
     }
     
 }

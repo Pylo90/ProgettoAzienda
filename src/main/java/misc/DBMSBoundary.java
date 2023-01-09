@@ -16,8 +16,8 @@ public class DBMSBoundary {
     /*  DEFINIZIONE PARAMETRI DATABASE - MODIFICA QUESTI  */
     /******************************************************/
     public static String IP = "localhost:3306";
-    public static String UNAME = "admin";
-    public static String PSW = "password";
+    public static String UNAME = "admin"; //DA IMPOSTARE A NULL
+    public static String PSW = "password"; //DA IMPOSTARE A NULL
     public static String NAME = "azienda";
     /******************************************************/
     /*  FINE DEFINIZIONE PARAMETRI   */
