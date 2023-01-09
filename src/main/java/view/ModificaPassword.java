@@ -220,5 +220,11 @@ public class ModificaPassword extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     CambiaPasswordControl CPC;
+    
+    private boolean clickable;
+    
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
 
 }

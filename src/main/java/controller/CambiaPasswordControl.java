@@ -7,6 +7,7 @@ package controller;
 import javax.swing.JFrame;
 import view.HomepageImpiegato;
 import view.ModificaPassword;
+import view.Errore;
 
 /**
  *
@@ -15,6 +16,7 @@ import view.ModificaPassword;
 public class CambiaPasswordControl {
 
     HomepageImpiegato HPI;
+    ModificaPassword MP;
 
     public CambiaPasswordControl() {
     }
@@ -30,5 +32,13 @@ public class CambiaPasswordControl {
       public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
         HPI.setClickable(true);
+    }
+      
+    public void MostraErroreCambiaPassword(){
+        Errore error = new Errore();
+        MP.setClickable(false);
+        Errore.errorInstance.tx.setText("Credenziali errate");
+        error.setVisible(true);
+        error.setAlwaysOnTop(true);
     }
 }

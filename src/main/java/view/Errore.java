@@ -1,5 +1,7 @@
 package view;
 
+import javax.swing.JTextField;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -11,11 +13,15 @@ package view;
  */
 public class Errore extends javax.swing.JFrame{
 
+    public static Errore errorInstance;
+    public JTextField tx;
     /**
      * Creates new form Errore
      */
     public Errore() {
         initComponents();
+        errorInstance = this; //istanza di Errore
+        tx = jTextField1;     //jTextField1 pubblica
     }
 
     /**
@@ -111,7 +117,6 @@ public class Errore extends javax.swing.JFrame{
 
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
         // TODO add your handling code here:
-
         this.dispose();
     }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
