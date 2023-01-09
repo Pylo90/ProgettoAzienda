@@ -25,6 +25,7 @@ public class AssumiLicenziaControl {
     ModificaInfoImpiegato MII;
     AssumiImpiegatoBoundary AIB;
     DBMSBoundary DBMS;
+    Utente UT;
 
     public AssumiLicenziaControl() {
     }
@@ -70,14 +71,14 @@ public class AssumiLicenziaControl {
     public void sendData(AssumiImpiegatoBoundary AIB) { //non void ma devo mandare un tipo di dato utente o impiegato al dbms
         this.AIB = AIB;
         //prendi in qualche modo i dati dalla boundary e inseriscili in un utente fantoccio
-        int number = DMBS.getEmployeesNumber();
-        this.generateMatricola(); //come attributo andrebbe messo il livello del fantoccio e il numero degli impiegati
-        this.generatePIN(); //deve essere di 6 cifre e randomico
+        int number = DMBS.getQuery(numero_impiegati); //metti in input il numero degli impiegati nell'azienda
+        UT.matricola = this.generateMatricola(UT.livello, number); //come attributo andrebbe messo il livello del fantoccio e il numero degli impiegati
+        UT.pin = this.generatePIN(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
-        while (DBMS.checkPin()) {        //come attributo di checkPin va messo quello generato da generatePin
-            this.generatePIN(); //deve essere riassegnato al fantoccio (User.pin = this.generatePIN();
+        while (DBMS.getQuery(PIN)) {        //come attributo di checkPin va messo quello generato da generatePin
+            UT.pin = this.generatePIN(); //deve essere riassegnato al fantoccio (User.pin = this.generatePIN();
             this.sendPinToMail();
-            DBMS.insertEmployee();
+            DBMS.updateQuery(UT); // inserisci impiegato
             //distruggi assumiImpiegatoBoundary
         }
     }
