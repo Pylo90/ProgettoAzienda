@@ -20,6 +20,7 @@ public class RichiesteControl {
 
     HomepageImpiegato HPI;
     HomepageDatore HPD;
+    CongedoForm CF;
 
     public RichiesteControl() {
     }
@@ -47,7 +48,7 @@ public class RichiesteControl {
         CongedoForm.setVisible(true);
         CongedoForm.setAlwaysOnTop(true);
     }
-
+    
     public void RichiesteButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
         JFrame RichiestaList = new RichiestaList(this);
