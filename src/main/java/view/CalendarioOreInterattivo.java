@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.StraordinariControl;
 import javax.swing.JButton;
 
 /**
@@ -23,6 +24,19 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         setSelectedTurn(Turno1Button);
         setSelectedHour(Hour1);
 
+    }
+    
+    public CalendarioOreInterattivo(StraordinariControl SC, Utente UT, int giorno, boolean ora) {
+        this.ora = ora;
+        this.giorno = giorno;
+        this.SC = SC;
+        this.UT = UT; //Utente serve a prendere il suo orario e annerire le ore del giorno in cui non lavora
+        initComponents();
+        setSelectedTurn(Turno1Button);
+        setSelectedHour(Hour1);
+        if(ora == false){
+            ConfirmButton2.setVisible(false);
+        }
     }
 
     /**
@@ -50,6 +64,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         Hour6 = new javax.swing.JButton();
         Hour7 = new javax.swing.JButton();
         Hour8 = new javax.swing.JButton();
+        ConfirmButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -237,6 +252,23 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
             }
         });
 
+        ConfirmButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        ConfirmButton2.setText("Annulla");
+        ConfirmButton2.setAlignmentY(0.0F);
+        ConfirmButton2.setBorder(null);
+        ConfirmButton2.setBorderPainted(false);
+        ConfirmButton2.setContentAreaFilled(false);
+        ConfirmButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ConfirmButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ConfirmButton2.setIconTextGap(0);
+        ConfirmButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        ConfirmButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -258,7 +290,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
                                     .addComponent(Hour1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Hour2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Hour3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Hour4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Hour4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConfirmButton1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Hour5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -272,10 +305,10 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(ConfirmButton1)
-                .addGap(203, 203, 203))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(333, 333, 333)
+                .addComponent(ConfirmButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,7 +348,9 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(Hour4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
-                .addComponent(ConfirmButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConfirmButton1)
+                    .addComponent(ConfirmButton2))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -341,7 +376,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        SC.disposeWindow(this);
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
@@ -360,7 +395,11 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         if(selectedHour==Hour7) hour+=7;
         if(selectedHour==Hour8) hour+=8;
         
-        this.dispose();
+        if(ora == false){
+            SC.startingHourSelected(this, UT, giorno, ora, inizioStraordinario);
+        } else SC.endingHourSelected(this, UT, giorno, fineStraordinario);
+        
+        SC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
     private void Turno1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Turno1ButtonActionPerformed
@@ -450,6 +489,12 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Hour8ActionPerformed
 
+    private void ConfirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton2ActionPerformed
+        // TODO add your handling code here:
+        SC.daySelected(this, UT, giorno);
+        SC.disposeWindow(this);
+    }//GEN-LAST:event_ConfirmButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -488,6 +533,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConfirmButton1;
+    private javax.swing.JButton ConfirmButton2;
     private javax.swing.JButton Hour1;
     private javax.swing.JButton Hour2;
     private javax.swing.JButton Hour3;
@@ -538,5 +584,10 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
         }
     }
+    
+    boolean ora;
+    int giorno;
+    StraordinariControl SC;
+    Utente UT;
 
 }

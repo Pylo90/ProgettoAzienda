@@ -5,6 +5,8 @@
 package view;
 
 import controller.RichiesteControl;
+import controller.StraordinariControl;
+import misc.Utente;
 import javax.swing.JButton;
 
 /**
@@ -18,6 +20,14 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
      */
     public CalendarioInterattivo(RichiesteControl RC) {
         this.RC = RC;
+        initComponents();
+        meseIndex = 0;
+        MonthLabel.setText(mesi[meseIndex]);
+    }
+    
+    public CalendarioInterattivo(StraordinariControl SC, Utente UT) {
+        this.SC = SC;
+        this.UT = UT; //Utente serve a prendere il suo orario e annerire i giorni in cui non lavora
         initComponents();
         meseIndex = 0;
         MonthLabel.setText(mesi[meseIndex]);
@@ -990,5 +1000,17 @@ private javax.swing.JButton selectedButton;
     int meseIndex;
 
     RichiesteControl RC;
+    StraordinariControl SC;
+    Utente UT;
+    
+    private boolean clickable;
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
 
 }
