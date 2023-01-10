@@ -3,41 +3,44 @@ package view;
 import controller.AssumiLicenziaControl;
 import controller.OrariStipendiControl;
 import view.style.InfoBoxCard;
-import controller.RecuperaPasswordControl;
 import controller.RichiesteControl;
 import controller.MalattiaControl;
 import controller.StraordinariControl;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.util.ArrayList;
-import javax.swing.JPanel;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import view.style.ScrollBarCustom;
 
-/*
-* PER VERIFICARE IL FUNZIONAMENTO DELLA PAGINA PREMERE IL TASTO HOME
-* VERRANNO AGGIUNTE DELLE CARD IMPIEGATO ALLA LISTA
- */
-
- /*
-* TODO - IMPLEMENTARE LA RICERCA
-*
- */
 /**
  *
  * @author Davide
  */
-public class ListaImpiegati extends javax.swing.JFrame {
+public class ListaImpiegati extends javax.swing.JFrame implements DocumentListener {
 
     int cardCount;
     boolean searchFieldPlaceholder;
-    ArrayList<InfoBoxCard> infoBoxList = new ArrayList<InfoBoxCard>(); //DA IMPLEMENTARE
+    ArrayList<InfoBoxCard> infoBoxList;
 
     public ListaImpiegati(OrariStipendiControl OSC) {
 
         this.OSC = OSC;
         initComponents();
+        searchField.getDocument().addDocumentListener(this);
         // setClickable(true);
         cardCount = 0;
+        infoBoxList = new ArrayList<>();
+        /**********TEST************
+        addInfoPane("Alberto", "Cocco", null, "1");
+        addInfoPane("Giovanni", "Pron", null, "3");
+        addInfoPane("Piero", "Sis", null, "1");
+        addInfoPane("Federico", "Amblubalub", null, "1");
+        addInfoPane("Alberto", "Coccolunghissimo", null, "2");
+        addInfoPane("Alessia", "Peppino", null, "3");
+        addInfoPane("Giuseppe", "Pisciazza", null, "2");
+        **************************/
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         searchFieldPlaceholder = true;
         mainPanel.requestFocus();
@@ -45,10 +48,11 @@ public class ListaImpiegati extends javax.swing.JFrame {
 
     public ListaImpiegati(RichiesteControl RC) {
 
-        this.OSC = OSC;
+        this.RC = RC;
         initComponents();
         // setClickable(true);
         cardCount = 0;
+        infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         searchFieldPlaceholder = true;
         mainPanel.requestFocus();
@@ -60,6 +64,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
         initComponents();
         // setClickable(true);
         cardCount = 0;
+        infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         searchFieldPlaceholder = true;
         mainPanel.requestFocus();
@@ -71,6 +76,7 @@ public class ListaImpiegati extends javax.swing.JFrame {
         initComponents();
         // setClickable(true);
         cardCount = 0;
+        infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         searchFieldPlaceholder = true;
         mainPanel.requestFocus();
@@ -82,13 +88,16 @@ public class ListaImpiegati extends javax.swing.JFrame {
         initComponents();
         // setClickable(true);
         cardCount = 0;
+        infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         searchFieldPlaceholder = true;
         mainPanel.requestFocus();
     }
 
-    private void addInfoPane() {
-        listPanel.add(new InfoBoxCard());
+    public void addInfoPane(String name, String surname, Image propic, String level) {
+        InfoBoxCard infoBox = new InfoBoxCard(name, surname, propic, level);
+        infoBoxList.add(infoBox);
+        listPanel.add(infoBox);
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
         listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
@@ -96,6 +105,15 @@ public class ListaImpiegati extends javax.swing.JFrame {
         listPanel.revalidate();
     }
 
+    private void adaptListPanel(){
+        int count = 0;
+        for(int i = 0; i < infoBoxList.size(); i++) {
+            if(infoBoxList.get(i).isVisible())
+                count++;
+        }
+        listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, count * 123));
+        listPanel.revalidate();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -137,7 +155,6 @@ public class ListaImpiegati extends javax.swing.JFrame {
         homeButton.setContentAreaFilled(false);
         homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         homeButton.setFocusPainted(false);
-        homeButton.setFocusable(false);
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
@@ -191,11 +208,6 @@ public class ListaImpiegati extends javax.swing.JFrame {
                 searchFieldFocusLost(evt);
             }
         });
-        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                searchFieldKeyTyped(evt);
-            }
-        });
         jPanel3.add(searchField);
         searchField.setBounds(100, 10, 230, 80);
 
@@ -205,12 +217,12 @@ public class ListaImpiegati extends javax.swing.JFrame {
 
         listScrollPane.setBorder(null);
         listScrollPane.setHorizontalScrollBar(null);
-        listScrollPane.setPreferredSize(new java.awt.Dimension(1225, 100));
+        listScrollPane.setPreferredSize(new java.awt.Dimension(1235, 100));
 
         listPanel.setBackground(new java.awt.Color(255, 248, 238));
-        listPanel.setPreferredSize(new java.awt.Dimension(1201, 0));
+        listPanel.setPreferredSize(new java.awt.Dimension(1235, 0));
         listPanel.setRequestFocusEnabled(false);
-        listPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 10));
+        listPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 10));
         listScrollPane.setViewportView(listPanel);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -218,11 +230,11 @@ public class ListaImpiegati extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(849, Short.MAX_VALUE))
+                .addContainerGap(869, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(listScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1235, Short.MAX_VALUE))
+                .addComponent(listScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,10 +291,6 @@ public class ListaImpiegati extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void searchFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyTyped
-        System.out.println("Test");
-    }//GEN-LAST:event_searchFieldKeyTyped
-
     private void searchFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFieldFocusGained
         if (searchFieldPlaceholder) {
             searchField.setText("");
@@ -293,18 +301,42 @@ public class ListaImpiegati extends javax.swing.JFrame {
 
     private void searchFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFieldFocusLost
         if (!searchFieldPlaceholder && searchField.getText().equals("")) {
-            searchField.setText("Matricola");
-            searchField.setForeground(Color.GRAY);
             searchFieldPlaceholder = true;
+            searchField.setText("Cerca");
+            searchField.setForeground(Color.LIGHT_GRAY);
         }
     }//GEN-LAST:event_searchFieldFocusLost
 
-    /**
-     * @param args the command line arguments
-     */
-    /*public static void main(String args[]) {
-        new ListaImpiegati(new RichiesteControl()).setVisible(true);
-    }*/
+    
+    @Override
+    public void changedUpdate(DocumentEvent e) {}
+    
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+        String comName;
+        String comNameRev;
+        String searchText;
+        for (int i = 0; i < infoBoxList.size(); i++) {
+            comName = infoBoxList.get(i).getNameField().getText().toLowerCase() + " " + infoBoxList.get(i).getSurnameField().getText().toLowerCase(); //Nome Cognome
+            comNameRev = infoBoxList.get(i).getSurnameField().getText().toLowerCase() + " " + infoBoxList.get(i).getNameField().getText().toLowerCase(); //Cognome Nome
+            searchText = searchField.getText().toLowerCase();
+            if(!searchText.equals("") && !searchFieldPlaceholder && !(comName.startsWith(searchText)) && !(comNameRev.startsWith(searchText)))
+                infoBoxList.get(i).setVisible(false);
+            else
+                infoBoxList.get(i).setVisible(true);
+        }
+        adaptListPanel();
+    }
+    
+    @Override
+    public void insertUpdate(DocumentEvent e) {
+        removeUpdate(e);
+    }
+    
+    /**TEST MAIN**/
+    public static void main(String args[]) {
+        new ListaImpiegati(new OrariStipendiControl()).setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton homeButton;
