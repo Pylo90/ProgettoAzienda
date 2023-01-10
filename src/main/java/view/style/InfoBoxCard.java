@@ -24,8 +24,10 @@ public class InfoBoxCard extends javax.swing.JPanel {
         nameField.setText(name);
         surnameField.setText(surname);
         levelField.setText(level);
-        propic = propic.getScaledInstance(105, 105, Image.SCALE_DEFAULT);
-        this.propic.setIcon(new ImageIcon(propic));
+        /*******GESTIONE IMMAGINE - DA ATTIVARE*******/
+        //propic = propic.getScaledInstance(105, 105, Image.SCALE_DEFAULT);
+        //this.propic.setIcon(new ImageIcon(propic));
+        /*********************************************/
     }
 
     /**
@@ -46,12 +48,13 @@ public class InfoBoxCard extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 248, 238));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(1201, 113));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1201, 113));
         setLayout(null);
 
+        useThisToHandleClick.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         useThisToHandleClick.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 useThisToHandleClick(evt);
@@ -68,7 +71,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
         surnameField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         surnameField.setFocusable(false);
         add(surnameField);
-        surnameField.setBounds(50, 50, 170, 50);
+        surnameField.setBounds(50, 50, 560, 50);
 
         levelField.setBackground(new java.awt.Color(219, 213, 205));
         levelField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -88,7 +91,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
         nameField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nameField.setFocusable(false);
         add(nameField);
-        nameField.setBounds(50, 10, 120, 40);
+        nameField.setBounds(50, 10, 540, 40);
 
         jTextField4.setBackground(new java.awt.Color(219, 213, 205));
         jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -108,7 +111,8 @@ public class InfoBoxCard extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(0, 0, 1200, 113);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /*UTILIZZARE QUESTO METODO PER GESTIRE IL CLICK SULL'IMPIEGATO DALLA LISTA*/
     private void useThisToHandleClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_useThisToHandleClick
         // ROBA DA IMPLEMENTARE QUANDO SI PREME LA CARD
     }//GEN-LAST:event_useThisToHandleClick
