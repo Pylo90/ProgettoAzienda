@@ -5,6 +5,7 @@
 package view;
 
 import controller.OrariStipendiControl;
+import javax.swing.JTable;
 
 /**
  *
@@ -181,5 +182,15 @@ public class OrarioImpiegato extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private OrariStipendiControl OSC = new OrariStipendiControl();
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
+    
+    
 
 }
