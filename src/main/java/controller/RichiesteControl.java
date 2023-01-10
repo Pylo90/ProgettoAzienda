@@ -48,6 +48,7 @@ public class RichiesteControl {
         CongedoForm.setVisible(true);
         CongedoForm.setAlwaysOnTop(true);
     }
+    
 
 
     public void ConsultaListaButtonPressed(HomepageImpiegato HPI) {
