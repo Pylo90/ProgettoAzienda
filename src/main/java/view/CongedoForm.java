@@ -47,6 +47,7 @@ public class CongedoForm extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(600, 365));
 
         jTextField1.setBackground(new java.awt.Color(219, 213, 205));
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -224,5 +225,4 @@ public class CongedoForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     RichiesteControl RC;
-
 }
