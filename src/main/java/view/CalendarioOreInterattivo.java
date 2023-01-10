@@ -38,6 +38,22 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
             ConfirmButton2.setVisible(false);
         }
     }
+    
+    public CalendarioOreInterattivo(StraordinariControl SC, Utente UT, int giorno, boolean ora, int inizioStraordinario) {
+        this.inizioStraordinario = inizioStraordinario;
+        this.ora = ora;
+        this.giorno = giorno;
+        this.SC = SC;
+        this.UT = UT; //Utente serve a prendere il suo orario e annerire le ore del giorno in cui non lavora
+        initComponents();
+        setSelectedTurn(Turno1Button);
+        setSelectedHour(Hour1);
+        if(ora == false){
+            ConfirmButton2.setVisible(false);
+        }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -396,8 +412,13 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         if(selectedHour==Hour8) hour+=8;
         
         if(ora == false){
-            SC.startingHourSelected(this, UT, giorno, ora, inizioStraordinario);
-        } else SC.endingHourSelected(this, UT, giorno, fineStraordinario);
+            inizio = hour;
+            SC.startingHourSelected(UT, giorno, ora, inizio);
+        } else {
+            inizio = inizioStraordinario;
+            fineStraordinario = hour;
+            SC.endingHourSelected(UT, giorno, inizio, fineStraordinario);
+        }
         
         SC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButton1ActionPerformed
@@ -585,6 +606,9 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         }
     }
     
+    int inizio;
+    int inizioStraordinario;
+    int fineStraordinario;
     boolean ora;
     int giorno;
     StraordinariControl SC;

@@ -50,12 +50,14 @@ public class StraordinariControl {
         c.setAlwaysOnTop(true);
     }
     
-    public void startingHourSelected(CalendarioOreInterattivo COI, Utente UT, int giorno, boolean ora) {
-        this.COI = COI;
-        CalendarioOreInterattivo c = new CalendarioOreInterattivo(this, UT, giorno, ora); //appare un calendarioOreInterattivo senza l'ora selezionata e rendendo incliccabili tutte le ore precedenti 
-        COI.dispose();
+    public void startingHourSelected(Utente UT, int giorno, boolean ora, int inizioStraordinario) {
+        CalendarioOreInterattivo c = new CalendarioOreInterattivo(this, UT, giorno, true, inizioStraordinario); //appare un calendarioOreInterattivo senza l'ora selezionata e rendendo incliccabili tutte le ore precedenti 
         c.setVisible(true);
         c.setAlwaysOnTop(true);
+    }
+    
+    public void endingHourSelected(Utente UT, int giorno, int inizioStraordinario, int fineStraordinario) {
+        // manda inizio e fine straordinario nel dbms
     }
     
     public void disposeWindow(JFrame finestra) {
