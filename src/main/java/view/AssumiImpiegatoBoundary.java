@@ -242,11 +242,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
-        // TODO add your handling code here:
-        ALC.disposeWindow(this);
-    }//GEN-LAST:event_ConfirmButtonActionPerformed
-
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         String name = jTextField1.getText().trim();
         String surname = jTextField4.getText().trim();
         String mail = jTextField5.getText().trim();
@@ -257,7 +252,12 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         int livello = jComboBox1.getSelectedIndex();
         boolean disability = jCheckBox1.isSelected();
         Utente UT = new Utente(name, surname, mail, cf, passw, foto, numero, livello, disability, 0); //lo zero sta per le ore lavorate
-        ALC.sendData(UT);                                 
+        ALC.sendData(UT);
+        ALC.disposeWindow(this);
+    }//GEN-LAST:event_ConfirmButtonActionPerformed
+
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+
         ALC.disposeWindow(this);
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -271,16 +271,16 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         int length = numero.length();
         char c = evt.getKeyChar();
         //controllo i numeri da 0 a 9
-        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9') {
-            if(length<10){                                        //il numero non deve essere più lungo di 10 righe
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            if (length < 10) {                                        //il numero non deve essere più lungo di 10 righe
                 jTextField7.setEditable(true);
-            }else{
+            } else {
                 jTextField7.setEditable(false);
             }
-        }else{
-            if(evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() ==KeyEvent.VK_DELETE){ //non conta spazi e cancella nei 10 char
+        } else {
+            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) { //non conta spazi e cancella nei 10 char
                 jTextField7.setEditable(true);
-            }else{
+            } else {
                 jTextField7.setEditable(false);
             }
         }
@@ -314,7 +314,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AssumiImpiegatoBoundary().setVisible(true);
             }
