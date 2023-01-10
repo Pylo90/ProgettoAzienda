@@ -38,6 +38,7 @@ public class DBMSBoundary {
         try {
             Connection con = DBMSBoundary.getConnection();
             rs = con.createStatement().executeQuery(query);
+            con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -49,6 +50,7 @@ public class DBMSBoundary {
         try {
             Connection con = DBMSBoundary.getConnection();
             con.createStatement().executeUpdate(query);
+            con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
