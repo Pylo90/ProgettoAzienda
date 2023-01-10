@@ -4,7 +4,12 @@
  */
 package controller;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import misc.DBMSBoundary;
 import view.HomepageImpiegato;
 import view.OrarioImpiegato;
 import view.StipendioImpiegato;
@@ -28,10 +33,21 @@ public class OrariStipendiControl {
     
     public void ConsultaOrarioButtonPressed(HomepageImpiegato HP) {
         HPI = HP;
-        JFrame OrarioImpiegati = new OrarioImpiegato(this);
+        OrarioImpiegato OrarioImpiegati = new OrarioImpiegato(this);
         HPI.setClickable(false);
         OrarioImpiegati.setVisible(true);
         OrarioImpiegati.setAlwaysOnTop(true);
+        
+        ResultSet OI = DBMSBoundary.getQuery("select num "
+                + "from impiegato, turno "
+                + "where impiegato.matricola=turno.IMPIEGATO_matricola;");
+        
+        try {if(OI.next()){
+            OrarioImpiegati.getjTable1().;
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrariStipendiControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void ConsultaStipendioButtonPressed(HomepageImpiegato HP) {
