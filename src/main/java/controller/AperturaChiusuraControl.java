@@ -45,7 +45,7 @@ public class AperturaChiusuraControl {
             ex.printStackTrace();
         }
     }
-    /*******TEST*******/
+    /********TEST********/
     public static void main(String[] args) {
         AperturaChiusuraControl.checkEmployees();
     }
