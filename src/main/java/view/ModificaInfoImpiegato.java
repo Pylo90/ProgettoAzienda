@@ -5,8 +5,12 @@
 package view;
 
 import controller.AssumiLicenziaControl;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import misc.Utente;
 
 /**
@@ -24,6 +28,8 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         initComponents();
     }
 
+    ImageIcon foto;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +61,8 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         ConfirmButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
+        image = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -253,10 +260,16 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         });
         jPanel2.add(homeButton);
         homeButton.setBounds(40, 40, 100, 100);
+        jPanel2.add(image);
+        image.setBounds(1350, 110, 390, 390);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
-        jPanel2.add(jLabel11);
-        jLabel11.setBounds(0, 0, 200, 195);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(1350, 113, 390, 390);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 1920, 1080);
@@ -290,7 +303,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         ALC.verifyMail(mail, this);
         String cf = jTextField6.getText().trim();
         String passw = jTextField2.getText().trim();
-        ImageIcon foto = null;
         String numero = jTextField7.getText().trim();
         int livello = jComboBox1.getSelectedIndex();
         boolean disability = jCheckBox1.isSelected();
@@ -380,6 +392,20 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         }else jTextField5.setEditable(false);
     }//GEN-LAST:event_jTextField5KeyPressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File file = chooser.getSelectedFile();
+        String path = file.getAbsolutePath();
+
+        Image im = Toolkit.getDefaultToolkit().createImage(path);
+        im = im.getScaledInstance(image.getWidth(), image.getHeight(), Image.SCALE_SMOOTH);
+        foto = new ImageIcon(im);
+        image.setIcon(foto);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -418,10 +444,11 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConfirmButton;
     private javax.swing.JButton homeButton;
+    private javax.swing.JLabel image;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

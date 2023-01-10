@@ -248,7 +248,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jButton1.setBounds(1350, 113, 390, 390);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1920, 1080);
+        jPanel1.setBounds(20, 10, 1920, 1080);
 
         setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
