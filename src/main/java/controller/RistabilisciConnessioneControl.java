@@ -4,6 +4,8 @@
  */
 package controller;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author dario
@@ -15,6 +17,9 @@ public class RistabilisciConnessioneControl {
 
 //commento bello bello
     //un altro commento bello bello
-    
+    public void SubmitError(JFrame finestra) {
+        finestra.dispose();
+        //TB.setClickable(true); tempo boundary cliccabile?
+    }
 
 }

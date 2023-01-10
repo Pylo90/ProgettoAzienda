@@ -1,6 +1,10 @@
 package view;
 
 import controller.CambiaPasswordControl;
+import controller.FirmaControl;
+import controller.LoginControl;
+import controller.RecuperaPasswordControl;
+import controller.RistabilisciConnessioneControl;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,6 +22,30 @@ public class Errore extends javax.swing.JFrame{
      */
     public Errore(String messaggio, CambiaPasswordControl CPC) {
         this.CPC = CPC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Errore(String messaggio, FirmaControl FC) {
+        this.FC = FC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Errore(String messaggio, LoginControl LC) {
+        this.LC = LC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Errore(String messaggio, RecuperaPasswordControl RPC) {
+        this.RPC = RPC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Errore(String messaggio, RistabilisciConnessioneControl RCC) {
+        this.RCC = RCC;
         initComponents();
         setMessaggio(messaggio);
     }
@@ -122,7 +150,21 @@ public class Errore extends javax.swing.JFrame{
 
     private void ConfirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton2ActionPerformed
         // TODO add your handling code here:
-        CPC.SubmitError(this);
+        if (this.CPC != null) {
+            CPC.SubmitError(this);
+        }
+        if (this.FC != null) {
+            FC.SubmitError(this);
+        }
+        if (this.LC != null) {
+            LC.SubmitError(this);
+        }
+        if (this.RPC != null) {
+            RPC.SubmitError(this);
+        }
+        if (this.RCC != null) {
+            RCC.SubmitError(this);
+        }
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
     /**
@@ -169,5 +211,18 @@ public class Errore extends javax.swing.JFrame{
     // End of variables declaration//GEN-END:variables
 
     private CambiaPasswordControl CPC = new CambiaPasswordControl();
+    private FirmaControl FC;
+    private LoginControl LC;
+    private RecuperaPasswordControl RPC;
+    private RistabilisciConnessioneControl RCC;
     
+    private boolean clickable;
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
 }

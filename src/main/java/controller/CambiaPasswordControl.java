@@ -45,4 +45,9 @@ public class CambiaPasswordControl {
         finestra.dispose();
         MP.setClickable(true);
     }
+    
+    public void SubmitNotice(JFrame finestra) {
+        finestra.dispose();
+        MP.setClickable(true);
+    }
 }

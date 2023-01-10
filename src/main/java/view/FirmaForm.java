@@ -232,5 +232,15 @@ public class FirmaForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     FirmaControl FC;
+    
+    private boolean clickable;
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
 
 }

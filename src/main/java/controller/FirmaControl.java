@@ -8,6 +8,7 @@ import view.RitardoBoundary;
 public class FirmaControl {
 
     HomepageImpiegato HPI;
+    FirmaForm FF;
 
     public FirmaControl() {
     }
@@ -35,9 +36,12 @@ public class FirmaControl {
     }
 
     public void DisposeWindow(JFrame finestra) {
-
         finestra.dispose();
         HPI.setClickable(true);
-
+    }
+    
+    public void SubmitError(JFrame finestra) {
+        finestra.dispose();
+        FF.setClickable(true);
     }
 }

@@ -1,10 +1,13 @@
 package controller;
 
+import javax.swing.JFrame;
+import view.LoginForm;
 import view.RecuperaPasswordBoundary;
 
 public class RecuperaPasswordControl {
     
     RecuperaPasswordBoundary recuperaForm;
+    LoginForm LF;
     
     public RecuperaPasswordControl() {
         super();
@@ -22,5 +25,10 @@ public class RecuperaPasswordControl {
     
     public void showLoginForm() {
         recuperaForm.dispose();
+    }
+    
+    public void SubmitError(JFrame finestra) {
+        finestra.dispose();
+        LF.setClickable(true);
     }
 }
