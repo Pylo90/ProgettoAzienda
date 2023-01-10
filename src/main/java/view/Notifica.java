@@ -1,5 +1,11 @@
 package view;
 
+import controller.CambiaPasswordControl;
+import controller.FirmaControl;
+import controller.LoginControl;
+import controller.RecuperaPasswordControl;
+import controller.RistabilisciConnessioneControl;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,8 +20,14 @@ public class Notifica extends javax.swing.JFrame {
     /**
      * Creates new form NotificaBoundary
      */
-    public Notifica() {
+    public Notifica(String messaggio, CambiaPasswordControl CPC) {
+        this.CPC = CPC;
         initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public void setMessaggio(String messaggio){
+        jTextField1.setText(messaggio);
     }
 
     /**
@@ -102,9 +114,22 @@ public class Notifica extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void ConfirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton2ActionPerformed
-        // TODO add your handling code here:
-
-        this.dispose();
+        // TODO add your handling code here: 
+        if (this.CPC != null) {
+            CPC.SubmitNotice(this);
+        }
+        if (this.FC != null) {
+            FC.SubmitNotice(this);
+        }
+        if (this.LC != null) {
+            LC.SubmitNotice(this);
+        }
+        if (this.RPC != null) {
+            RPC.SubmitNotice(this);
+        }
+        if (this.RCC != null) {
+            RCC.SubmitNotice(this);
+        }
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
     /**
@@ -135,12 +160,12 @@ public class Notifica extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Notifica().setVisible(true);
             }
-        });
+        }); */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -149,4 +174,11 @@ public class Notifica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private CambiaPasswordControl CPC = new CambiaPasswordControl();
+    private FirmaControl FC;
+    private LoginControl LC;
+    private RecuperaPasswordControl RPC;
+    private RistabilisciConnessioneControl RCC;
+
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import javax.swing.JFrame;
 import view.HomepageAmministratore;
 import view.LoginForm;
 
@@ -45,5 +46,10 @@ public class LoginControl {
     public void createAdminPage() {
         adminPage = new HomepageAmministratore(this);
         adminPage.setVisible(true);
+    }
+    
+    public void SubmitError(JFrame finestra) {
+        finestra.dispose();
+        loginFrame.setClickable(true);
     }
 }

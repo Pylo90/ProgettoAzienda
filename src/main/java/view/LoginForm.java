@@ -343,6 +343,15 @@ public class LoginForm extends javax.swing.JFrame {
     public JPasswordField getPasswordField() {
         return passwordField;
     }
+    
+    private boolean clickable;
 
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
     
 }
