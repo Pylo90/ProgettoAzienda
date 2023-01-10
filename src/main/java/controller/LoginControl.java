@@ -1,7 +1,7 @@
 package controller;
 
 import javax.swing.JFrame;
-import view.HomePageAmministratore;
+import view.HomepageAmministratore;
 import view.LoginForm;
 
 /**
@@ -10,7 +10,7 @@ import view.LoginForm;
  */
 public class LoginControl {
     LoginForm loginFrame;
-    HomePageAmministratore adminPage;
+    HomepageAmministratore adminPage;
     
     public LoginControl() {
         super();
@@ -44,7 +44,7 @@ public class LoginControl {
     }
     
     public void createAdminPage() {
-        adminPage = new HomePageAmministratore(this);
+        adminPage = new HomepageAmministratore(this);
         adminPage.setVisible(true);
     }
     
