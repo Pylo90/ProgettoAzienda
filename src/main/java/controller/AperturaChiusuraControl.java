@@ -11,7 +11,14 @@ import misc.DBMSBoundary;
 
 public class AperturaChiusuraControl {
     
-    public static final int num_livelli = 5;
+    /*******MODIFICARE A SECONDA DEL NUMERO DI LIVELLI NEL DATABASE*******/
+    private static int num_livelli = 5;
+    /*********************************************************************/
+    
+    public static void setNumLivelli(int num_livelli) {
+        if(num_livelli > 0)
+            AperturaChiusuraControl.num_livelli = num_livelli;
+    }
     
     public AperturaChiusuraControl() {
         super();
