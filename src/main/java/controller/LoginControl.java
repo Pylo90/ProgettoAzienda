@@ -1,7 +1,7 @@
 package controller;
 
+import view.HomePageAmministratore;
 import view.LoginForm;
-import view.HomepageAmministratore;
 
 /**
  *
@@ -9,7 +9,7 @@ import view.HomepageAmministratore;
  */
 public class LoginControl {
     LoginForm loginFrame;
-    HomepageAmministratore adminPage;
+    HomePageAmministratore adminPage;
     
     public LoginControl() {
         super();
@@ -17,9 +17,13 @@ public class LoginControl {
     
     /* TODO */
     public void dataSubmit(){
+        String email = loginFrame.getEmailField().getText();
+        String mat = loginFrame.getMatricolaField().getText();
+        char[] psw = loginFrame.getPasswordField().getPassword();
         System.out.println(loginFrame.getEmailField().getText()); //DEBUG
         System.out.println(loginFrame.getMatricolaField().getText()); //DEBUG
         System.out.println(loginFrame.getPasswordField().getPassword()); //DEBUG
+        //implementazione Hashing password
     }
     
     /* TODO */
@@ -39,7 +43,7 @@ public class LoginControl {
     }
     
     public void createAdminPage() {
-        adminPage = new HomepageAmministratore(this);
+        adminPage = new HomePageAmministratore(this);
         adminPage.setVisible(true);
     }
 }

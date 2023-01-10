@@ -4,15 +4,16 @@
  */
 package controller;
 
+import java.security.SecureRandom;
 import javax.swing.JFrame;
 import java.util.Random;
 import view.HomepageDatore;
-import view.HomepageAmministratore;
+import view.HomePageAmministratore;
 import view.ListaImpiegati;
 import view.ModificaInfoImpiegato;
 import view.AssumiImpiegatoBoundary;
 import view.ProfiloPopup;
-import misc.DBMSBoundary; //se esiste
+import misc.DBMSBoundary;
 import misc.Utente;
 
 /**
@@ -22,7 +23,7 @@ import misc.Utente;
 public class AssumiLicenziaControl {
 
     HomepageDatore HPD;
-    HomepageAmministratore HPA;
+    HomePageAmministratore HPA;
     ListaImpiegati LI;
     ModificaInfoImpiegato MII;
     AssumiImpiegatoBoundary AIB;
@@ -40,7 +41,7 @@ public class AssumiLicenziaControl {
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
-    public void ModificaInfoImpiegatoButtonPressed(HomepageAmministratore HPA) {
+    public void ModificaInfoImpiegatoButtonPressed(HomePageAmministratore HPA) {
         this.HPA = HPA;
         //prendi la lista dal dbms
         JFrame ListaImpiegati = new ListaImpiegati(this);
@@ -92,7 +93,7 @@ public class AssumiLicenziaControl {
     }
 
     public long generatePIN() {
-        Random r = new Random();
+        SecureRandom r = new SecureRandom();
             long low = 100000;
             long high = 999999;
             return r.nextLong(high-low) + low;
