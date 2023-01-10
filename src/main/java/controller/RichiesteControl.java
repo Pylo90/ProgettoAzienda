@@ -48,12 +48,26 @@ public class RichiesteControl {
         CongedoForm.setAlwaysOnTop(true);
     }
 
-    public void RichiesteButtonPressed(HomepageImpiegato HPI) {
+    public void ConsultaListaButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
         JFrame RichiestaList = new RichiestaList(this);
         HPI.setClickable(false);
         RichiestaList.setVisible(true);
         RichiestaList.setAlwaysOnTop(true);
+    }
+    
+    public void RichiesteButtonPressed(HomepageImpiegato HPI) {
+        if (!HPI.getjLabel4().isVisible()) {
+                HPI.getjLabel4().setVisible(true);
+                HPI.getPermesso().setVisible(true);
+                HPI.getFerie().setVisible(true);
+                HPI.getCongedoParentale().setVisible(true);
+            } else {
+                HPI.getjLabel4().setVisible(false);
+                HPI.getPermesso().setVisible(false);
+                HPI.getFerie().setVisible(false);
+                HPI.getCongedoParentale().setVisible(false);
+            }
     }
 
     public void DisposeWindow(JFrame finestra) {
