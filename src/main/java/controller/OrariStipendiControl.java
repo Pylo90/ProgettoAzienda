@@ -47,7 +47,7 @@ public class OrariStipendiControl {
 
         try {
             if (OI.next()) {
-                switch (OI.getInt(1)*10+OI.getInt(2)) {
+                switch (OI.getInt(1)*10+(((OI.getInt(2)-2)% 7) + 7) % 7) {
                     case 10:
                         OrarioImpiegati.getLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButtonSelezionato.png")));
                         break;
