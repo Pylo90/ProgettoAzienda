@@ -6,6 +6,7 @@ package view;
 
 import controller.StraordinariControl;
 import javax.swing.JButton;
+import misc.Utente;
 
 /**
  *

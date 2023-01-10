@@ -21,5 +21,10 @@ public class RistabilisciConnessioneControl {
         finestra.dispose();
         //TB.setClickable(true); tempo boundary cliccabile?
     }
+    
+    public void SubmitNotice(JFrame finestra) {
+        finestra.dispose();
+        //TB.setClickable(true); tempo boundary cliccabile?
+    }
 
 }

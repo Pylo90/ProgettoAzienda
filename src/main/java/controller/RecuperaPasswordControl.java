@@ -31,4 +31,9 @@ public class RecuperaPasswordControl {
         finestra.dispose();
         LF.setClickable(true);
     }
+    
+    public void SubmitNotice(JFrame finestra) {
+        finestra.dispose();
+        LF.setClickable(true);
+    }
 }

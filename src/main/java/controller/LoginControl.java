@@ -52,4 +52,9 @@ public class LoginControl {
         finestra.dispose();
         loginFrame.setClickable(true);
     }
+    
+    public void SubmitNotice(JFrame finestra) {
+        finestra.dispose();
+        loginFrame.setClickable(true);
+    }
 }
