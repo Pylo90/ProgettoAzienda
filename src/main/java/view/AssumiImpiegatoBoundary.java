@@ -6,6 +6,7 @@ package view;
 
 import controller.AssumiLicenziaControl;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import misc.Utente;
 
 /**
@@ -247,11 +248,11 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         String mail = jTextField5.getText().trim();
         String cf = jTextField6.getText().trim();
         String passw = jTextField2.getText().trim();
-        // foto?
+        ImageIcon foto = null;
         String numero = jTextField7.getText().trim();
         int livello = jComboBox1.getSelectedIndex();
         boolean disability = jCheckBox1.isSelected();
-        Utente UT = new Utente(name, surname, mail, cf, passw, foto, numero, livello, disability, 0); //lo zero sta per le ore lavorate
+        Utente UT = new Utente(null,name, surname, mail, passw, cf, foto, numero, livello, disability, 0,0); //lo zero sta per le ore lavorate
         ALC.sendData(UT);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed

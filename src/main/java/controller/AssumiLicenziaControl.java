@@ -5,10 +5,14 @@
 package controller;
 
 import java.security.SecureRandom;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JFrame;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import view.HomepageDatore;
-import view.HomePageAmministratore;
+import view.HomepageAmministratore;
 import view.ListaImpiegati;
 import view.ModificaInfoImpiegato;
 import view.AssumiImpiegatoBoundary;
@@ -23,7 +27,7 @@ import misc.Utente;
 public class AssumiLicenziaControl {
 
     HomepageDatore HPD;
-    HomePageAmministratore HPA;
+    HomepageAmministratore HPA;
     ListaImpiegati LI;
     ModificaInfoImpiegato MII;
     AssumiImpiegatoBoundary AIB;
@@ -41,7 +45,8 @@ public class AssumiLicenziaControl {
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
-    public void ModificaInfoImpiegatoButtonPressed(HomePageAmministratore HPA) {
+
+    public void ModificaInfoImpiegatoButtonPressed(HomepageAmministratore HPA) {
         this.HPA = HPA;
         //prendi la lista dal dbms
         JFrame ListaImpiegati = new ListaImpiegati(this);
@@ -52,7 +57,7 @@ public class AssumiLicenziaControl {
 
     public void workerSelected(ListaImpiegati LI, Utente UT) {
         this.LI = LI;
-        JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(this, UT); 
+        JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(this, UT);
         LI.setClickable(false);
         ModificaInfoImpiegato.setVisible(true);
         ModificaInfoImpiegato.setAlwaysOnTop(true);
@@ -72,15 +77,31 @@ public class AssumiLicenziaControl {
     }
 
     public void sendData(Utente UT) {
-        int number = DMBS.getQuery(numero_impiegati); //metti in input il numero degli impiegati nell'azienda
-        UT.matricola = this.generateMatricola(UT.livello, number);
-        UT.pin = this.generatePIN(); //deve essere di 6 cifre e randomico
-        //entrambi i metodi diventano campi del fantoccio
-        while (DBMS.getQuery(PIN)) {        //come attributo di checkPin va messo quello generato da generatePin
-            UT.pin = this.generatePIN(); //deve essere riassegnato al fantoccio (User.pin = this.generatePIN();
-            this.sendPinToMail(UT.pin, UT.mail);
-            DBMS.updateQuery(UT); // inserisci impiegato
+        int number = 0;
+        try {
+            number = DBMSBoundary.getQuery("select count(matricola) from impiegato;").getInt(1); //metti in input il numero degli impiegati nell'azienda
+        } catch (SQLException ex) {
+            Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        UT.setMatricola(this.generateMatricola(UT.getLivello(), number));
+
+        long PINtemporaneo = this.generatePIN(); //deve essere di 6 cifre e randomico
+        //entrambi i metodi diventano campi del fantoccio
+
+        this.sendPinToMail(PINtemporaneo, UT.getMail());
+        DBMS.updateQuery("insert into impiegato values("
+                + UT.getMatricola()+ ","
+                + UT.getCognome()+ ","
+                + UT.getPin()+","
+                + UT.getPW()+","
+                + UT.getNome()+","
+                + UT.getLivello()+","
+                + UT.getMail()+","
+                + UT.getNumero()+","
+                + UT.isDisability()+","
+                + UT.getFoto()+","
+                + UT.getLivello()+","
+                + ");"); // inserisci impiegato
     }
 
     public void disposeWindow(JFrame finestra) {
@@ -88,18 +109,29 @@ public class AssumiLicenziaControl {
         HPD.setClickable(true);
     }
 
-    public double generateMatricola(int UT.livello, int numero_impiegati) {
-        return UT.livello * 100000 + numero_impiegati;
+    public String generateMatricola(int livello, int numero_impiegati) {
+        return "" + livello * 100000 + numero_impiegati;
     }
 
     public long generatePIN() {
         SecureRandom r = new SecureRandom();
-            long low = 100000;
-            long high = 999999;
-            return r.nextLong(high-low) + low;
+        long low = 100000;
+        long high = 999999;
+        long PINtemp = r.nextLong(high - low) + low;
+        ResultSet controllo = DBMSBoundary.getQuery("select count (pin) from impiegato where impiegato.pin =" + PINtemp + ";");
+        try {
+            if (controllo.getInt(1) > 0) {
+                generatePIN();
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AssumiLicenziaControl.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return PINtemp;
     }
 
-    public void sendPinToMail(int UT.pin, String UT.mail) {
+    public void sendPinToMail(long pin, String mail) {
         //capire come mandare una mail
     }
 
@@ -120,7 +152,7 @@ public class AssumiLicenziaControl {
     }
 
     public void decisionTaken() { //ha l'impiegato fantoccio
-        DBMS.updateQuery(matricola);       //licenzia l'impiegato
+        DBMS.updateQuery(null);       //licenzia l'impiegato
         //distruggere profilopopup e listaimpiegati
     }
 

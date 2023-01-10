@@ -44,7 +44,7 @@ public class LoginControl {
     }
     
     public void createAdminPage() {
-        adminPage = new HomePageAmministratore(this);
+        adminPage = new HomepageAmministratore(this);
         adminPage.setVisible(true);
     }
     
