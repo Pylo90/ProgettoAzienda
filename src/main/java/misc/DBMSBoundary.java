@@ -48,7 +48,7 @@ public class DBMSBoundary {
     public static void updateQuery(String query) {
         try {
             Connection con = DBMSBoundary.getConnection();
-            con.createStatement().executeQuery(query);
+            con.createStatement().executeUpdate(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
