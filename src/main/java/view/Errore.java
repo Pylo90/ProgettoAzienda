@@ -1,5 +1,6 @@
 package view;
 
+import controller.AssumiLicenziaControl;
 import controller.CambiaPasswordControl;
 import controller.FirmaControl;
 import controller.LoginControl;
@@ -46,6 +47,12 @@ public class Errore extends javax.swing.JFrame{
     
     public Errore(String messaggio, RistabilisciConnessioneControl RCC) {
         this.RCC = RCC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Errore(String messaggio, AssumiLicenziaControl ALC) {
+        this.ALC = ALC;
         initComponents();
         setMessaggio(messaggio);
     }
@@ -165,6 +172,9 @@ public class Errore extends javax.swing.JFrame{
         if (this.RCC != null) {
             RCC.SubmitError(this);
         }
+        if (this.ALC != null) {
+            ALC.SubmitError(this);
+        }
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
     /**
@@ -215,6 +225,7 @@ public class Errore extends javax.swing.JFrame{
     private LoginControl LC;
     private RecuperaPasswordControl RPC;
     private RistabilisciConnessioneControl RCC;
+    private AssumiLicenziaControl ALC;
     
     private boolean clickable;
 

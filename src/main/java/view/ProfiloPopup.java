@@ -268,7 +268,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
 
     private void idText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idText1ActionPerformed
         // TODO add your handling code here:
-        idText1.setText(UT.ore_lavorate);
+        idText1.setText(Integer.toString(UT.getOre_lavorate()));
         idText1.setEditable(false);
     }//GEN-LAST:event_idText1ActionPerformed
 
@@ -279,19 +279,19 @@ public class ProfiloPopup extends javax.swing.JFrame {
 
     private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
         // TODO add your handling code here:
-        nameText.setText(UT.name + " " + UT.surname);
+        nameText.setText(UT.getNome() + " " + UT.getCognome());
         nameText.setEditable(false);
     }//GEN-LAST:event_nameTextActionPerformed
 
     private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
         // TODO add your handling code here:
-        idText.setText(UT.matricola);
+        idText.setText(UT.getMatricola());
         idText.setEditable(false);
     }//GEN-LAST:event_idTextActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-        if(UT.disability){
+        if(UT.isDisability()){
             jTextField2.setText("Si");
         }else jTextField2.setText("No");
         jTextField2.setEditable(false);
@@ -299,7 +299,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText(UT.livello);
+        jTextField1.setText(Integer.toString(UT.getLivello()));
         jTextField1.setEditable(false);
     }//GEN-LAST:event_jTextField1ActionPerformed
 
@@ -359,7 +359,8 @@ public class ProfiloPopup extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField nameText;
     // End of variables declaration//GEN-END:variables
-
+    
+    Utente UT;
     AssumiLicenziaControl ALC = new AssumiLicenziaControl();
 
 }

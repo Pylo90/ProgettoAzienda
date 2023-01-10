@@ -6,6 +6,7 @@ package view;
 
 import controller.AssumiLicenziaControl;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import misc.Utente;
 
 /**
@@ -171,6 +172,11 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
                 jTextField5ActionPerformed(evt);
             }
         });
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField5KeyPressed(evt);
+            }
+        });
         jPanel2.add(jTextField5);
         jTextField5.setBounds(280, 620, 540, 65);
 
@@ -179,6 +185,11 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
+            }
+        });
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField4KeyPressed(evt);
             }
         });
         jPanel2.add(jTextField4);
@@ -194,6 +205,11 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
             }
         });
         jPanel2.add(jTextField1);
@@ -253,17 +269,17 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-        jComboBox1.setSelectedIndex(UT.livello);
+        jComboBox1.setSelectedIndex(UT.getLivello());
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
-        jTextField6.setText(UT.cf);
+        jTextField6.setText(UT.getCF());
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText(UT.name);
+        jTextField1.setText(UT.getNome());
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
@@ -271,13 +287,14 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         String name = jTextField1.getText().trim();
         String surname = jTextField4.getText().trim();
         String mail = jTextField5.getText().trim();
+        ALC.verifyMail(mail, this);
         String cf = jTextField6.getText().trim();
         String passw = jTextField2.getText().trim();
-        // foto?
+        ImageIcon foto = null;
         String numero = jTextField7.getText().trim();
         int livello = jComboBox1.getSelectedIndex();
         boolean disability = jCheckBox1.isSelected();
-        Utente UT = new Utente(name, surname, mail, cf, passw, foto, numero, livello, disability);
+        Utente UT = new Utente(null,name, surname, mail, passw, cf, foto, numero, livello, disability, 0,0);
         ALC.submitForm(UT);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
@@ -313,28 +330,55 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
-        jTextField4.setText(UT.surname);
+        jTextField4.setText(UT.getCognome());
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-        jCheckBox1.setSelected(UT.disability);
+        jCheckBox1.setSelected(UT.isDisability());
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
-        jTextField5.setText(UT.mail);
+        jTextField5.setText(UT.getMail());
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
-        jTextField4.setText(UT.numero);
+        jTextField4.setText(UT.getNumero());
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-        jTextField2.setText(UT.passw);
+        jTextField2.setText(UT.getPW());
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c) || Character.isWhitespace(c)){
+            jTextField1.setEditable(true);
+        }else jTextField1.setEditable(false);
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c) || Character.isWhitespace(c)){
+            jTextField4.setEditable(true);
+        }else jTextField4.setEditable(false);
+    }//GEN-LAST:event_jTextField4KeyPressed
+
+    private void jTextField5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(Character.isWhitespace(c)){
+            jTextField5.setEditable(true);
+        }else jTextField5.setEditable(false);
+    }//GEN-LAST:event_jTextField5KeyPressed
 
     /**
      * @param args the command line arguments
@@ -397,6 +441,17 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 
+    Utente UT;
     AssumiLicenziaControl ALC = new AssumiLicenziaControl();
+    
+    private boolean clickable;
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
 
 }

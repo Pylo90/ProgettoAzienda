@@ -19,6 +19,7 @@ import view.AssumiImpiegatoBoundary;
 import view.ProfiloPopup;
 import misc.DBMSBoundary;
 import misc.Utente;
+import view.Errore;
 
 /**
  *
@@ -169,6 +170,29 @@ public class AssumiLicenziaControl {
     public void decisionTaken() { //ha l'impiegato fantoccio
         DBMS.updateQuery(null);       //licenzia l'impiegato
         //distruggere profilopopup e listaimpiegati
+    }
+    
+    public void verifyMail(String mail, AssumiImpiegatoBoundary AIB){
+        if((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com")){
+            Errore e = new Errore("mail errata", this);
+            AIB.setClickable(false);
+            e.setVisible(true);
+            e.setAlwaysOnTop(true);
+        }
+    }
+    
+    public void verifyMail(String mail, ModificaInfoImpiegato MII){
+        if((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com")){
+            Errore e = new Errore("mail errata", this);
+            MII.setClickable(false);
+            e.setVisible(true);
+            e.setAlwaysOnTop(true);
+        }
+    }
+    
+    public void SubmitError(JFrame finestra) {
+        finestra.dispose();
+        AIB.setClickable(true);
     }
 
 }

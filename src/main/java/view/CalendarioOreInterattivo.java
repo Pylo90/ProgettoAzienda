@@ -6,6 +6,7 @@ package view;
 
 import controller.StraordinariControl;
 import javax.swing.JButton;
+import view.CalendarioInterattivo;
 import misc.Utente;
 
 /**
@@ -513,7 +514,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     private void ConfirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton2ActionPerformed
         // TODO add your handling code here:
-        SC.daySelected(this, UT, giorno);
+        CI = new CalendarioInterattivo(SC, UT);
+        SC.daySelected(CI, UT, giorno);
         SC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
@@ -613,6 +615,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
     boolean ora;
     int giorno;
     StraordinariControl SC;
+    CalendarioInterattivo CI;
     Utente UT;
 
 }

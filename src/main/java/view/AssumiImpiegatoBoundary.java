@@ -5,8 +5,12 @@
 package view;
 
 import controller.AssumiLicenziaControl;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import misc.Utente;
 
 /**
@@ -22,6 +26,8 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         this.ALC = ALC;
         initComponents();
     }
+    
+    ImageIcon foto;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +39,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -54,6 +59,8 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         ConfirmButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        image = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -62,16 +69,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setLayout(null);
-
-        jTextField3.setAlignmentX(1346.0F);
-        jTextField3.setAlignmentY(195.0F);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(1346, 110, 400, 400);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setText("Assumi Impiegato");
@@ -154,11 +151,26 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
 
         jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField5.setText("jTextField5");
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField5KeyPressed(evt);
+            }
+        });
         jPanel1.add(jTextField5);
         jTextField5.setBounds(280, 620, 540, 65);
 
         jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField4.setText("jTextField4");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField4KeyPressed(evt);
+            }
+        });
         jPanel1.add(jTextField4);
         jTextField4.setBounds(400, 540, 420, 65);
 
@@ -172,6 +184,11 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
             }
         });
         jPanel1.add(jTextField1);
@@ -219,6 +236,16 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
         jPanel1.add(jLabel11);
         jLabel11.setBounds(0, 0, 200, 195);
+        jPanel1.add(image);
+        image.setBounds(1350, 110, 390, 390);
+
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(1350, 113, 390, 390);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
@@ -229,10 +256,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // foto
-    }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -245,10 +268,10 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         String name = jTextField1.getText().trim();
         String surname = jTextField4.getText().trim();
-        String mail = jTextField5.getText().trim();
+        String mail = jTextField5.getText().trim();       //aggiungere verifica mail
+        ALC.verifyMail(mail, this);
         String cf = jTextField6.getText().trim();
         String passw = jTextField2.getText().trim();
-        ImageIcon foto = null;
         String numero = jTextField7.getText().trim();
         int livello = jComboBox1.getSelectedIndex()+1;
         boolean disability = jCheckBox1.isSelected();
@@ -286,6 +309,51 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTextField7KeyPressed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c) || Character.isWhitespace(c)){
+            jTextField1.setEditable(true);
+        }else jTextField1.setEditable(false);
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c) || Character.isWhitespace(c)){
+            jTextField4.setEditable(true);
+        }else jTextField4.setEditable(false);
+    }//GEN-LAST:event_jTextField4KeyPressed
+
+    private void jTextField5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(Character.isWhitespace(c)){
+            jTextField5.setEditable(true);
+        }else jTextField5.setEditable(false);
+    }//GEN-LAST:event_jTextField5KeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File file = chooser.getSelectedFile();
+        String path = file.getAbsolutePath();
+        
+        Image im = Toolkit.getDefaultToolkit().createImage(path);
+        im = im.getScaledInstance(image.getWidth(), image.getHeight(), Image.SCALE_SMOOTH);
+        foto = new ImageIcon(im);
+        image.setIcon(foto);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,6 +393,8 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConfirmButton;
     private javax.swing.JButton homeButton;
+    private javax.swing.JLabel image;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -340,7 +410,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
@@ -348,5 +417,15 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     AssumiLicenziaControl ALC;
+    
+    private boolean clickable;
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
 
 }

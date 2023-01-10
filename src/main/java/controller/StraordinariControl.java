@@ -44,7 +44,7 @@ public class StraordinariControl {
     
     public void daySelected(CalendarioInterattivo CI, Utente UT, int giorno) {
         this.CI = CI;
-        CalendarioOreInterattivo c = new CalendarioOreInterattivo(this, UT, giorno); 
+        CalendarioOreInterattivo c = new CalendarioOreInterattivo(this, UT, giorno, false); 
         CI.setClickable(false);
         c.setVisible(true);
         c.setAlwaysOnTop(true);
