@@ -9,6 +9,7 @@ public class FirmaControl {
 
     HomepageImpiegato HPI;
     FirmaForm FF;
+    RitardoBoundary RB;
 
     public FirmaControl() {
     }
@@ -43,5 +44,12 @@ public class FirmaControl {
     public void SubmitError(JFrame finestra) {
         finestra.dispose();
         FF.setClickable(true);
+        RB.setClickable(true);
+    }
+    
+    public void SubmitNotice(JFrame finestra) {
+        finestra.dispose();
+        FF.setClickable(true);
+        RB.setClickable(true);
     }
 }

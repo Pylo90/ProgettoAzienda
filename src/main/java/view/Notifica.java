@@ -3,6 +3,7 @@ package view;
 import controller.CambiaPasswordControl;
 import controller.FirmaControl;
 import controller.LoginControl;
+import controller.MalattiaControl;
 import controller.RecuperaPasswordControl;
 import controller.RistabilisciConnessioneControl;
 
@@ -22,6 +23,36 @@ public class Notifica extends javax.swing.JFrame {
      */
     public Notifica(String messaggio, CambiaPasswordControl CPC) {
         this.CPC = CPC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Notifica(String messaggio, FirmaControl FC) {
+        this.FC = FC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Notifica(String messaggio, LoginControl LC) {
+        this.LC = LC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Notifica(String messaggio, RecuperaPasswordControl RPC) {
+        this.RPC = RPC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Notifica(String messaggio, RistabilisciConnessioneControl RCC) {
+        this.RCC = RCC;
+        initComponents();
+        setMessaggio(messaggio);
+    }
+    
+    public Notifica(String messaggio, MalattiaControl MC) {
+        this.MC = MC;
         initComponents();
         setMessaggio(messaggio);
     }
@@ -121,6 +152,9 @@ public class Notifica extends javax.swing.JFrame {
         if (this.FC != null) {
             FC.SubmitNotice(this);
         }
+        if (this.MC != null) {
+            MC.SubmitNotice(this);
+        }
         if (this.LC != null) {
             LC.SubmitNotice(this);
         }
@@ -180,5 +214,6 @@ public class Notifica extends javax.swing.JFrame {
     private LoginControl LC;
     private RecuperaPasswordControl RPC;
     private RistabilisciConnessioneControl RCC;
+    private MalattiaControl MC;
 
 }
