@@ -76,41 +76,56 @@ public class AssumiLicenziaControl {
         AssumiImpiegatoBoundary.setAlwaysOnTop(true);
     }
 
+    public void assumiButtonPressed(HomepageAmministratore HPA) {
+        this.HPA = HPA;
+        JFrame AssumiImpiegatoBoundary = new AssumiImpiegatoBoundary(this);
+        HPA.setClickable(false);
+        AssumiImpiegatoBoundary.setVisible(true);
+        AssumiImpiegatoBoundary.setAlwaysOnTop(true);
+    }
+
     public void sendData(Utente UT) {
         int number = 0;
+
+        ResultSet r = DBMSBoundary.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
         try {
-            number = DBMSBoundary.getQuery("select count(matricola) from impiegato;").getInt(1); //metti in input il numero degli impiegati nell'azienda
+            if(r.next()){
+                number = r.getInt(1);
+            }
+            else number = 0;
         } catch (SQLException ex) {
             Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         UT.setMatricola(this.generateMatricola(UT.getLivello(), number));
 
         long PINtemporaneo = this.generatePIN(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
 
         this.sendPinToMail(PINtemporaneo, UT.getMail());
-        DBMS.updateQuery("insert into impiegato values("
-                + UT.getMatricola()+ ","
-                + UT.getCognome()+ ","
-                + UT.getPin()+","
-                + UT.getPW()+","
-                + UT.getNome()+","
-                + UT.getLivello()+","
-                + UT.getMail()+","
-                + UT.getNumero()+","
-                + UT.isDisability()+","
-                + UT.getFoto()+","
-                + UT.getLivello()+","
+        DBMS.updateQuery("insert into impiegato values('"
+                + UT.getMatricola() + "','"
+                + UT.getCognome() + "',"
+                + PINtemporaneo+ ",'"
+                + UT.getPW() + "','"
+                + UT.getNome() + "',"
+                + UT.getLivello() + ",'"
+                + UT.getMail() + "','"
+                + UT.getNumero() + "',"
+                + UT.isDisability() + ","
+                + UT.getFoto() + ","
+                + UT.getLivello() 
                 + ");"); // inserisci impiegato
     }
 
     public void disposeWindow(JFrame finestra) {
         finestra.dispose();
-        HPD.setClickable(true);
+         if (HPD != null) HPD.setClickable(true);
+         if (HPA != null) HPA.setClickable(true);
     }
 
     public String generateMatricola(int livello, int numero_impiegati) {
-        return "" + livello * 100000 + numero_impiegati;
+        return String.valueOf(livello * 100000 + numero_impiegati);
     }
 
     public long generatePIN() {
@@ -118,9 +133,9 @@ public class AssumiLicenziaControl {
         long low = 100000;
         long high = 999999;
         long PINtemp = r.nextLong(high - low) + low;
-        ResultSet controllo = DBMSBoundary.getQuery("select count (pin) from impiegato where impiegato.pin =" + PINtemp + ";");
+        ResultSet controllo = DBMSBoundary.getQuery("select pin from impiegato where impiegato.pin =" + PINtemp + ";");
         try {
-            if (controllo.getInt(1) > 0) {
+            if (controllo.next()) {
                 generatePIN();
 
             }

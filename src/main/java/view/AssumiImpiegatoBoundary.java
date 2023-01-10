@@ -250,7 +250,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         String passw = jTextField2.getText().trim();
         ImageIcon foto = null;
         String numero = jTextField7.getText().trim();
-        int livello = jComboBox1.getSelectedIndex();
+        int livello = jComboBox1.getSelectedIndex()+1;
         boolean disability = jCheckBox1.isSelected();
         Utente UT = new Utente(null,name, surname, mail, passw, cf, foto, numero, livello, disability, 0,0); //lo zero sta per le ore lavorate
         ALC.sendData(UT);
