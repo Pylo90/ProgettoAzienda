@@ -197,7 +197,7 @@ public class AssumiLicenziaControl {
     }
     
     public void verifyMail(String mail, ModificaInfoImpiegato MII){
-        if((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com")){
+        if(!(mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com")){
             Errore e = new Errore("mail errata", this);
             MII.setClickable(false);
             e.setVisible(true);
