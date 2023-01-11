@@ -55,7 +55,6 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(600, 800));
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 800));
@@ -74,12 +73,14 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         jTextArea2.setBackground(new java.awt.Color(255, 248, 238));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea2.setRows(5);
         jTextArea2.setText("Quale ora vuoi \nselezionare?");
         jTextArea2.setBorder(null);
         jScrollPane2.setViewportView(jTextArea2);
 
         ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton1.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         ConfirmButton1.setText("Conferma");
         ConfirmButton1.setAlignmentY(0.0F);
@@ -108,7 +109,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Turno1Button.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Turno1Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turnBeige.png"))); // NOI18N
+        Turno1Button.setForeground(new java.awt.Color(0, 0, 0));
+        Turno1Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButton.png"))); // NOI18N
         Turno1Button.setText("Turno I");
         Turno1Button.setContentAreaFilled(false);
         Turno1Button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -120,7 +122,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Turno2Button.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Turno2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turnBeige.png"))); // NOI18N
+        Turno2Button.setForeground(new java.awt.Color(0, 0, 0));
+        Turno2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButton.png"))); // NOI18N
         Turno2Button.setText("Turno II");
         Turno2Button.setContentAreaFilled(false);
         Turno2Button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -132,7 +135,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Turno3Button.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Turno3Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turnBeige.png"))); // NOI18N
+        Turno3Button.setForeground(new java.awt.Color(0, 0, 0));
+        Turno3Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButton.png"))); // NOI18N
         Turno3Button.setText("Turno III");
         Turno3Button.setContentAreaFilled(false);
         Turno3Button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -144,7 +148,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Hour1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour1.setForeground(new java.awt.Color(0, 0, 0));
+        Hour1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour1.setText("0:00-1:00");
         Hour1.setContentAreaFilled(false);
         Hour1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -156,7 +161,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Hour2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour2.setForeground(new java.awt.Color(0, 0, 0));
+        Hour2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour2.setContentAreaFilled(false);
         Hour2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Hour2.setLabel("1:00-2:00");
@@ -168,7 +174,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Hour3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour3.setForeground(new java.awt.Color(0, 0, 0));
+        Hour3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour3.setContentAreaFilled(false);
         Hour3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Hour3.setLabel("2:00-3:00");
@@ -180,7 +187,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Hour4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour4.setForeground(new java.awt.Color(0, 0, 0));
+        Hour4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour4.setContentAreaFilled(false);
         Hour4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Hour4.setLabel("3:00-4:00");
@@ -192,7 +200,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Hour5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour5.setForeground(new java.awt.Color(0, 0, 0));
+        Hour5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour5.setText("4:00-5:00");
         Hour5.setContentAreaFilled(false);
         Hour5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -204,7 +213,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Hour6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour6.setForeground(new java.awt.Color(0, 0, 0));
+        Hour6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour6.setText("5:00-6:00");
         Hour6.setContentAreaFilled(false);
         Hour6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -216,7 +226,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Hour7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour7.setForeground(new java.awt.Color(0, 0, 0));
+        Hour7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour7.setText("6:00-7:00");
         Hour7.setContentAreaFilled(false);
         Hour7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -228,7 +239,8 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         });
 
         Hour8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour8.setForeground(new java.awt.Color(0, 0, 0));
+        Hour8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour8.setText("7:00-8:00");
         Hour8.setContentAreaFilled(false);
         Hour8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -364,11 +376,6 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         setBounds(660, 50, 600, 800);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_jButton32ActionPerformed
-
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
         // TODO add your handling code here:
         int hour =0;
@@ -388,32 +395,50 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
-    private void Turno1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Turno1ButtonActionPerformed
+    private void Hour5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour5ActionPerformed
         // TODO add your handling code here:
-        setSelectedTurn(Turno1Button);
-        Hour1.setText("0:00-1:00");
-        Hour2.setText("1:00-2:00");
-        Hour3.setText("2:00-3:00");
-        Hour4.setText("3:00-4:00");
-        Hour5.setText("4:00-5:00");
-        Hour6.setText("5:00-6:00");
-        Hour7.setText("6:00-7:00");
-        Hour8.setText("7:00-8:00");
-    }//GEN-LAST:event_Turno1ButtonActionPerformed
+        setSelectedHour(Hour5);
+    }//GEN-LAST:event_Hour5ActionPerformed
 
-    private void Turno2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Turno2ButtonActionPerformed
+    private void Hour6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour6ActionPerformed
         // TODO add your handling code here:
-        setSelectedTurn(Turno2Button);
-        Hour1.setText("8:00-9:00");
-        Hour2.setText("9:00-10:00");
-        Hour3.setText("10:00-11:00");
-        Hour4.setText("11:00-12:00");
-        Hour5.setText("12:00-13:00");
-        Hour6.setText("13:00-14:00");
-        Hour7.setText("14:00-15:00");
-        Hour8.setText("15:00-16:00");
+        setSelectedHour(Hour6);
+    }//GEN-LAST:event_Hour6ActionPerformed
 
-    }//GEN-LAST:event_Turno2ButtonActionPerformed
+    private void Hour7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour7ActionPerformed
+        // TODO add your handling code here:
+        setSelectedHour(Hour7);
+    }//GEN-LAST:event_Hour7ActionPerformed
+
+    private void Hour8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour8ActionPerformed
+        // TODO add your handling code here:
+        setSelectedHour(Hour8);
+    }//GEN-LAST:event_Hour8ActionPerformed
+
+    private void Hour4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour4ActionPerformed
+        // TODO add your handling code here:
+        setSelectedHour(Hour4);
+    }//GEN-LAST:event_Hour4ActionPerformed
+
+    private void Hour3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour3ActionPerformed
+        // TODO add your handling code here:
+        setSelectedHour(Hour3);
+    }//GEN-LAST:event_Hour3ActionPerformed
+
+    private void Hour2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour2ActionPerformed
+        // TODO add your handling code here:
+        setSelectedHour(Hour2);
+    }//GEN-LAST:event_Hour2ActionPerformed
+
+    private void Hour1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour1ActionPerformed
+        // TODO add your handling code here:
+        setSelectedHour(Hour1);
+    }//GEN-LAST:event_Hour1ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton32ActionPerformed
 
     private void Turno3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Turno3ButtonActionPerformed
         // TODO add your handling code here:
@@ -428,52 +453,31 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
         Hour8.setText("23:00-24:00");
     }//GEN-LAST:event_Turno3ButtonActionPerformed
 
-    private void Hour1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour1ActionPerformed
+    private void Turno2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Turno2ButtonActionPerformed
         // TODO add your handling code here:
-        setSelectedHour(Hour1);
-    }//GEN-LAST:event_Hour1ActionPerformed
+        setSelectedTurn(Turno2Button);
+        Hour1.setText("8:00-9:00");
+        Hour2.setText("9:00-10:00");
+        Hour3.setText("10:00-11:00");
+        Hour4.setText("11:00-12:00");
+        Hour5.setText("12:00-13:00");
+        Hour6.setText("13:00-14:00");
+        Hour7.setText("14:00-15:00");
+        Hour8.setText("15:00-16:00");
+    }//GEN-LAST:event_Turno2ButtonActionPerformed
 
-    private void Hour2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour2ActionPerformed
+    private void Turno1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Turno1ButtonActionPerformed
         // TODO add your handling code here:
-        setSelectedHour(Hour2);
-
-    }//GEN-LAST:event_Hour2ActionPerformed
-
-    private void Hour3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour3ActionPerformed
-        // TODO add your handling code here:
-        setSelectedHour(Hour3);
-
-    }//GEN-LAST:event_Hour3ActionPerformed
-
-    private void Hour4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour4ActionPerformed
-        // TODO add your handling code here:
-        setSelectedHour(Hour4);
-
-    }//GEN-LAST:event_Hour4ActionPerformed
-
-    private void Hour5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour5ActionPerformed
-        // TODO add your handling code here:
-        setSelectedHour(Hour5);
-
-    }//GEN-LAST:event_Hour5ActionPerformed
-
-    private void Hour6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour6ActionPerformed
-        // TODO add your handling code here:
-        setSelectedHour(Hour6);
-
-    }//GEN-LAST:event_Hour6ActionPerformed
-
-    private void Hour7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour7ActionPerformed
-        // TODO add your handling code here:
-        setSelectedHour(Hour7);
-
-    }//GEN-LAST:event_Hour7ActionPerformed
-
-    private void Hour8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Hour8ActionPerformed
-        // TODO add your handling code here:
-        setSelectedHour(Hour8);
-
-    }//GEN-LAST:event_Hour8ActionPerformed
+        setSelectedTurn(Turno1Button);
+        Hour1.setText("0:00-1:00");
+        Hour2.setText("1:00-2:00");
+        Hour3.setText("2:00-3:00");
+        Hour4.setText("3:00-4:00");
+        Hour5.setText("4:00-5:00");
+        Hour6.setText("5:00-6:00");
+        Hour7.setText("6:00-7:00");
+        Hour8.setText("7:00-8:00");
+    }//GEN-LAST:event_Turno1ButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -537,13 +541,13 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
 
     public void setSelectedHour(JButton selectedHour) {
         if (this.selectedHour != null) {
-            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HourBeige.png")));
+            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png")));
             this.selectedHour = selectedHour;
-            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HourRed.png")));
+            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButtonSelezionato.png")));
 
         } else {
             this.selectedHour = selectedHour;
-            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HourRed.png")));
+            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButtonSelezionato.png")));
 
         }
     }
@@ -554,13 +558,13 @@ public class CalendarioOreServizio extends javax.swing.JFrame {
 
     public void setSelectedTurn(JButton selectedTurn) {
         if (this.selectedTurn != null) {
-            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnBeige.png")));
+            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButton.png")));
             this.selectedTurn = selectedTurn;
-            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnRed.png")));
+            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButtonSelezionato.png")));
 
         } else {
             this.selectedTurn = selectedTurn;
-            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnRed.png")));
+            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButtonSelezionato.png")));
 
         }
     }

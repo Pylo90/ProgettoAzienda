@@ -100,11 +100,14 @@ public class Errore extends javax.swing.JFrame{
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ERRORE!");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(225, 24, 139, 48);
 
+        jTextField1.setBackground(new java.awt.Color(187, 187, 187));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setText("testo errore");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +118,7 @@ public class Errore extends javax.swing.JFrame{
         jTextField1.setBounds(230, 180, 130, 33);
 
         ConfirmButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton2.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         ConfirmButton2.setText("Conferma");
         ConfirmButton2.setAlignmentY(0.0F);

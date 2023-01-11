@@ -75,11 +75,13 @@ public class RitardoBoundary extends javax.swing.JFrame {
         jButton3.setBounds(0, 0, 0, 195);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 65)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Firma Ritardo");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(247, 56, 490, 110);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nome :");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(465, 195, 160, 64);
@@ -96,6 +98,7 @@ public class RitardoBoundary extends javax.swing.JFrame {
         jTextField1.setBounds(619, 195, 836, 65);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Cognome :");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(465, 285, 230, 64);
@@ -113,6 +116,7 @@ public class RitardoBoundary extends javax.swing.JFrame {
         jTextField2.setBounds(696, 285, 759, 65);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Matricola :");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(465, 375, 230, 64);
@@ -146,6 +150,7 @@ public class RitardoBoundary extends javax.swing.JFrame {
         jScrollPane1.setBounds(464, 465, 992, 257);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         jButton1.setText("Conferma");
         jButton1.setAlignmentY(0.0F);

@@ -57,6 +57,7 @@ public class CongedoForm extends javax.swing.JFrame {
         jButton2.setBorder(null);
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         jButton3.setText("Conferma");
         jButton3.setAlignmentY(0.0F);
@@ -97,6 +98,7 @@ public class CongedoForm extends javax.swing.JFrame {
         jTextArea2.setBackground(new java.awt.Color(255, 248, 238));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea2.setRows(5);
         jTextArea2.setText("Per quanti mesi vuoi\nrichiedere il congedo\nparentale?");
         jTextArea2.setBorder(null);

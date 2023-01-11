@@ -90,6 +90,7 @@ public class LoginForm extends javax.swing.JFrame {
         jTextPane6.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane6.setBorder(null);
         jTextPane6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextPane6.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane6.setText("E-Mail:");
         jTextPane6.setDoubleBuffered(true);
         jTextPane6.setFocusable(false);
@@ -102,6 +103,7 @@ public class LoginForm extends javax.swing.JFrame {
         jTextPane7.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane7.setBorder(null);
         jTextPane7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextPane7.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane7.setText("Password:");
         jTextPane7.setFocusable(false);
         jScrollPane7.setViewportView(jTextPane7);
@@ -113,6 +115,7 @@ public class LoginForm extends javax.swing.JFrame {
         jTextPane8.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane8.setBorder(null);
         jTextPane8.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextPane8.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane8.setText("Matricola:");
         jTextPane8.setFocusable(false);
         jScrollPane8.setViewportView(jTextPane8);
@@ -172,6 +175,7 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel1.add(jPanel3, gridBagConstraints);
 
         confermaButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        confermaButton.setForeground(new java.awt.Color(255, 255, 255));
         confermaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         confermaButton.setText("Conferma");
         confermaButton.setBorder(null);
@@ -181,7 +185,6 @@ public class LoginForm extends javax.swing.JFrame {
         confermaButton.setFocusable(false);
         confermaButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         confermaButton.setMaximumSize(new java.awt.Dimension(3, 161));
-        confermaButton.setPreferredSize(new java.awt.Dimension(195, 50));
         confermaButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton-selected.png"))); // NOI18N
         confermaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +200,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         forgotButton.setBackground(new java.awt.Color(255, 248, 238));
         forgotButton.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        forgotButton.setForeground(new java.awt.Color(0, 0, 0));
         forgotButton.setText("Hai dimenticato la password?");
         forgotButton.setBorder(null);
         forgotButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -223,6 +227,7 @@ public class LoginForm extends javax.swing.JFrame {
         jTextPane5.setEditable(false);
         jTextPane5.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextPane5.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane5.setText("Benvenuto!");
         jTextPane5.setFocusable(false);
         jScrollPane5.setViewportView(jTextPane5);

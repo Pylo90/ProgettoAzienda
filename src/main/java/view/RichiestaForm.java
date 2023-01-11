@@ -46,6 +46,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1440, 810));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Mittente : Nome Cognome");
         jLabel1.setPreferredSize(new java.awt.Dimension(413, 48));
 
@@ -64,6 +65,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextPane1);
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         jButton2.setText("Conferma");
         jButton2.setAlignmentY(0.0F);
@@ -80,6 +82,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         });
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         jButton4.setText("Rifiuta");
         jButton4.setAlignmentY(0.0F);
@@ -91,10 +94,12 @@ public class RichiestaForm extends javax.swing.JFrame {
         jButton4.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Tipo di richiesta : Tipo");
         jLabel2.setPreferredSize(new java.awt.Dimension(413, 48));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Scadenza : Data");
         jLabel3.setPreferredSize(new java.awt.Dimension(413, 48));
 
@@ -156,7 +161,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1424, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
