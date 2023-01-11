@@ -8,7 +8,6 @@ import java.security.SecureRandom;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import view.HomepageDatore;
@@ -19,6 +18,7 @@ import view.AssumiImpiegatoBoundary;
 import view.ProfiloPopup;
 import misc.DBMSBoundary;
 import misc.Utente;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import view.Errore;
 
 /**
@@ -147,6 +147,15 @@ public class AssumiLicenziaControl {
         return PINtemp;
     }
 
+    private String generatePassword() {
+        byte[] psw = new byte[16];
+        new SecureRandom().nextBytes(psw);
+        
+        String hash = BCrypt.hashpw(psw, BCrypt.gensalt());
+        
+        return hash;
+    }
+    
     public void sendPinToMail(long pin, String mail) {
         //capire come mandare una mail
     }
