@@ -15,20 +15,20 @@ public class DBMSBoundary {
     
     /*  DEFINIZIONE PARAMETRI DATABASE - MODIFICA QUESTI  */
     /******************************************************/
-    public static String IP = "localhost:3306";
-    public static String UNAME = "root"; //DA IMPOSTARE A NULL
-    public static String PSW = "root"; //DA IMPOSTARE A NULL
-    public static String NAME = "azienda";
+    private static String IP = "localhost:3306";
+    private static String UNAME = "root"; //DA IMPOSTARE A NULL
+    private static String PSW = "root"; //DA IMPOSTARE A NULL
+    private static String NAME = "azienda";
     /******************************************************/
     /*  FINE DEFINIZIONE PARAMETRI   */
     
+    private static Connection con = null;
     
-    /*
-     * @throws java.sql.SQLException
-    */
     private static Connection getConnection() throws SQLException {
-        String connectionString = "jdbc:mysql://" + DBMSBoundary.IP + "/" + DBMSBoundary.NAME;
-        Connection con = DriverManager.getConnection(connectionString, DBMSBoundary.UNAME, DBMSBoundary.PSW);
+        if (con == null) {
+            String connectionString = "jdbc:mysql://" + DBMSBoundary.IP + "/" + DBMSBoundary.NAME;
+            Connection con = DriverManager.getConnection(connectionString, DBMSBoundary.UNAME, DBMSBoundary.PSW);
+        }
         return con;
     }
     
@@ -69,4 +69,37 @@ public class DBMSBoundary {
         }
 
     }
+
+    public static String getIP() {
+        return IP;
+    }
+
+    public static void setIP(String IP) {
+        DBMSBoundary.IP = IP;
+    }
+
+    public static String getUNAME() {
+        return UNAME;
+    }
+
+    public static void setUNAME(String UNAME) {
+        DBMSBoundary.UNAME = UNAME;
+    }
+
+    public static String getPSW() {
+        return PSW;
+    }
+
+    public static void setPSW(String PSW) {
+        DBMSBoundary.PSW = PSW;
+    }
+
+    public static String getNAME() {
+        return NAME;
+    }
+
+    public static void setNAME(String NAME) {
+        DBMSBoundary.NAME = NAME;
+    }
+    
 }
