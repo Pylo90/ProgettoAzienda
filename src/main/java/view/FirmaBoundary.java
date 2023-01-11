@@ -39,9 +39,12 @@ public class FirmaBoundary extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 64)); // NOI18N
-        jLabel1.setText("NOME AZIENDA");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoFIrma.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(410, 100, 1300, 400);
 
         FirmaEntrata.setFont(new java.awt.Font("Segoe UI", 0, 64)); // NOI18N
         FirmaEntrata.setForeground(new java.awt.Color(255, 255, 255));
@@ -55,12 +58,13 @@ public class FirmaBoundary extends javax.swing.JFrame {
         FirmaEntrata.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         FirmaEntrata.setIconTextGap(0);
         FirmaEntrata.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        FirmaEntrata.setPreferredSize(new java.awt.Dimension(700, 300));
         FirmaEntrata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FirmaEntrataActionPerformed(evt);
             }
         });
+        jPanel1.add(FirmaEntrata);
+        FirmaEntrata.setBounds(200, 540, 700, 300);
 
         FirmaUscita.setFont(new java.awt.Font("Segoe UI", 0, 64)); // NOI18N
         FirmaUscita.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,33 +83,8 @@ public class FirmaBoundary extends javax.swing.JFrame {
                 FirmaUscitaActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(718, 718, 718)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(FirmaEntrata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(FirmaUscita)
-                .addGap(250, 250, 250))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FirmaEntrata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FirmaUscita))
-                .addGap(240, 240, 240))
-        );
+        jPanel1.add(FirmaUscita);
+        FirmaUscita.setBounds(1020, 540, 700, 300);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
