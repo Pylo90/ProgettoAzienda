@@ -57,16 +57,17 @@ public class RichiesteControl {
     }
     
     public void RichiesteButtonPressed(HomepageImpiegato HPI) {
-        if (!HPI.getjLabel4().isVisible()) {
-                HPI.getjLabel4().setVisible(true);
-                HPI.getPermesso().setVisible(true);
-                HPI.getFerie().setVisible(true);
-                HPI.getCongedoParentale().setVisible(true);
+        this.HPI=HPI;
+        if (!this.HPI.getjLabel4().isVisible()) {
+                this.HPI.getjLabel4().setVisible(true);
+                this.HPI.getPermesso().setVisible(true);
+                this.HPI.getFerie().setVisible(true);
+                this.HPI.getCongedoParentale().setVisible(true);
             } else {
-                HPI.getjLabel4().setVisible(false);
-                HPI.getPermesso().setVisible(false);
-                HPI.getFerie().setVisible(false);
-                HPI.getCongedoParentale().setVisible(false);
+                this.HPI.getjLabel4().setVisible(false);
+                this.HPI.getPermesso().setVisible(false);
+                this.HPI.getFerie().setVisible(false);
+                this.HPI.getCongedoParentale().setVisible(false);
             }
     }
 
