@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import misc.DBMSBoundary;
 import view.CalendarioInterattivo;
 import view.CongedoForm;
+import view.HomepageAmministratore;
 import view.HomepageImpiegato;
 import view.HomepageDatore;
 import view.ListaImpiegati;
@@ -23,6 +24,7 @@ import view.RichiestaList;
  */
 public class RichiesteControl {
     HomepageImpiegato HPI;
+    HomepageAmministratore HPA;
     HomepageDatore HPD;
     CongedoForm CF;
     RichiestaList RL;
@@ -79,6 +81,13 @@ public class RichiesteControl {
         RL.setVisible(true);
         RL.setAlwaysOnTop(true);
     }
+    public void ConsultaListaButtonPressed(HomepageAmministratore HPA) {
+        this.HPA = HPA;
+        RL = new RichiestaList(this);
+        HPA.setClickable(false);
+        RL.setVisible(true);
+        RL.setAlwaysOnTop(true);
+    }
     
     public void RichiesteButtonPressed(HomepageImpiegato HPI) {
         this.HPI=HPI;
@@ -94,6 +103,20 @@ public class RichiesteControl {
                 this.HPI.getCongedoParentale().setVisible(false);
             }
     }
+    public void RichiesteButtonPressed(HomepageAmministratore HPA) {
+        this.HPA=HPA;
+        if (!this.HPA.getjLabel3().isVisible()) {
+                this.HPA.getjLabel3().setVisible(true);
+                this.HPA.getPermesso().setVisible(true);
+                this.HPA.getFerie().setVisible(true);
+                this.HPA.getCongedoParentale().setVisible(true);
+            } else {
+                this.HPA.getjLabel3().setVisible(false);
+                this.HPA.getPermesso().setVisible(false);
+                this.HPA.getFerie().setVisible(false);
+                this.HPA.getCongedoParentale().setVisible(false);
+            }
+    }
 
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
@@ -106,6 +129,14 @@ public class RichiesteControl {
         //prendi la lista dal dbms
         LI = new ListaImpiegati(this);
         HPD.setClickable(false);
+        LI.setVisible(true);
+        LI.setAlwaysOnTop(true);
+    }
+    public void ScambiaOrariButtonPressed(HomepageAmministratore HPA) {
+        this.HPA = HPA;
+        //prendi la lista dal dbms
+        LI = new ListaImpiegati(this);
+        HPA.setClickable(false);
         LI.setVisible(true);
         LI.setAlwaysOnTop(true);
     }

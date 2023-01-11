@@ -27,9 +27,10 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     public ListaImpiegati(OrariStipendiControl OSC) {
 
         this.OSC = OSC;
+        setClickable(true);
         initComponents();
         searchField.getDocument().addDocumentListener(this);
-        // setClickable(true);
+       
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         /**********TEST************
@@ -50,7 +51,8 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
         this.RC = RC;
         initComponents();
-        // setClickable(true);
+        
+        setClickable(true);
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -62,7 +64,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
         this.ALC = ALC;
         initComponents();
-        // setClickable(true);
+        setClickable(true);
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -74,7 +76,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
         this.MC = MC;
         initComponents();
-        // setClickable(true);
+        setClickable(true);
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -86,7 +88,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
         this.SC = SC;
         initComponents();
-        // setClickable(true);
+        setClickable(true);
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -280,13 +282,13 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
             RC.DisposeWindow(this);
         }
         if (isClickable() && (this.ALC != null)) {
-            //ALC.DisposeWindow(this);
+            ALC.DisposeWindow(this);
         }
         if (isClickable() && (this.MC != null)) {
-            //MC.DisposeWindow(this);
+            MC.DisposeWindow(this);
         }
         if (isClickable() && (this.SC != null)) {
-            //SC.DisposeWindow(this);
+            SC.DisposeWindow(this);
         }
     }//GEN-LAST:event_homeButtonActionPerformed
 

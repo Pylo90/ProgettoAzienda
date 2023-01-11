@@ -4,7 +4,10 @@
  */
 package view;
 
-import controller.*;
+import controller.FirmaControl;
+import controller.LoginControl;
+import controller.OrariStipendiControl;
+import controller.RichiesteControl;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -14,7 +17,10 @@ import javax.swing.JLabel;
  */
 public class HomepageImpiegato extends javax.swing.JFrame {
 
-    
+    private FirmaControl FirC ;
+    private RichiesteControl RicC;
+    private OrariStipendiControl OSC;
+
     public HomepageImpiegato() {
         initComponents();
         jLabel4.setVisible(false);
@@ -55,6 +61,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         phoneText = new javax.swing.JTextField();
         Cornice = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 248, 238));
@@ -310,7 +317,15 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaImpiegato.png"))); // NOI18N
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(0, 0, 200, 680);
+        jLabel6.setBounds(0, -10, 200, 690);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaNomeAzienda.png"))); // NOI18N
+        jLabel5.setText("AKKIKUSHI");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(1580, 0, 340, 55);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
@@ -321,6 +336,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void BankButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BankButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            OSC = new OrariStipendiControl();
             OSC.ConsultaStipendioButtonPressed(this);
         }
     }//GEN-LAST:event_BankButtonActionPerformed
@@ -328,6 +344,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void ScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            OSC = new OrariStipendiControl();
             OSC.ConsultaOrarioButtonPressed(this);
         }
     }//GEN-LAST:event_ScheduleButtonActionPerformed
@@ -335,14 +352,15 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void PasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            CPC.CPButtonPressed(this);
+            //CPC.CPButtonPressed(this);
         }
 
     }//GEN-LAST:event_PasswordButtonActionPerformed
 
     private void NotificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotificationButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()){
+        if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.ConsultaListaButtonPressed(this);
         }
     }//GEN-LAST:event_NotificationButtonActionPerformed
@@ -350,21 +368,24 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void RequestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.RichiesteButtonPressed(this);
         }
     }//GEN-LAST:event_RequestButtonActionPerformed
 
     private void RequestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton1ActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
+            FirC = new FirmaControl();
             FirC.firmaRitardoButtonPressed(this);
         }
-        
+
     }//GEN-LAST:event_RequestButton1ActionPerformed
 
     private void PermessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PermessoActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.RichiestaPermessoButtonPressed(this);
         }
     }//GEN-LAST:event_PermessoActionPerformed
@@ -372,6 +393,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void FerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FerieActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.RichiestaFerieButtonPressed(this);
         }
     }//GEN-LAST:event_FerieActionPerformed
@@ -379,6 +401,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void CongedoParentaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CongedoParentaleActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.RichiestaCongedoParentaleButtonPressed(this);
         }
     }//GEN-LAST:event_CongedoParentaleActionPerformed
@@ -441,6 +464,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
@@ -449,11 +473,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private javax.swing.JTextField phoneText;
     // End of variables declaration//GEN-END:variables
 
-    private CambiaPasswordControl CPC = new CambiaPasswordControl();
-    private LoginControl AutC = new LoginControl();
-    private FirmaControl FirC = new FirmaControl();
-    private RichiesteControl RicC = new RichiesteControl();
-    private OrariStipendiControl OSC = new OrariStipendiControl();
+//    private CambiaPasswordControl CPC = new CambiaPasswordControl();
     private boolean clickable;
 
     public boolean isClickable() {

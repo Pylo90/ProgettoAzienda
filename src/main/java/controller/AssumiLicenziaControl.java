@@ -68,6 +68,12 @@ public class AssumiLicenziaControl {
         //Manda i dati nel DBMS (in caso spacchetta prima UT)
         ;
     }
+    public void DisposeWindow(JFrame finestra) {
+        finestra.dispose();
+        if(HPA!=null) HPA.setClickable(true);
+        if(HPD!=null) HPD.setClickable(true);
+
+    }
 
     public void assumiButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
