@@ -79,8 +79,11 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(280, 60, 517, 87);
 
+        jComboBox1.setBackground(new java.awt.Color(219, 213, 205));
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jComboBox1.setOpaque(true);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -103,6 +106,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(881, 523, 78, 64);
 
+        jTextField6.setBackground(new java.awt.Color(219, 213, 205));
         jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +121,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(jLabel7);
         jLabel7.setBounds(881, 614, 53, 64);
 
+        jTextField2.setBackground(new java.awt.Color(219, 213, 205));
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jPanel1.add(jTextField2);
         jTextField2.setBounds(1100, 710, 430, 65);
@@ -126,6 +131,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(jLabel9);
         jLabel9.setBounds(881, 705, 199, 70);
 
+        jTextField7.setBackground(new java.awt.Color(219, 213, 205));
         jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,8 +156,8 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(174, 614, 91, 64);
 
+        jTextField5.setBackground(new java.awt.Color(219, 213, 205));
         jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField5.setCaretPosition(0);
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -165,6 +171,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(jTextField5);
         jTextField5.setBounds(280, 620, 540, 65);
 
+        jTextField4.setBackground(new java.awt.Color(219, 213, 205));
         jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +191,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(174, 523, 207, 90);
 
+        jTextField1.setBackground(new java.awt.Color(219, 213, 205));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +260,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jButton1.setBounds(1350, 113, 390, 390);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 10, 1920, 1080);
+        jPanel1.setBounds(0, 0, 1920, 1080);
 
         setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
@@ -340,7 +348,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         
-        if(Character.isWhitespace(c)){
+        if(Character.isLetter(c) || Character.isWhitespace(c)){
             jTextField5.setEditable(true);
         }else jTextField5.setEditable(false);
     }//GEN-LAST:event_jTextField5KeyPressed
@@ -351,7 +359,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         chooser.setFileFilter(imageFilter);
         //chooser.addChoosableFileFilter(new ImageFilter()); // alternativa che ha bisogno però della classe ausiliaria ImageFilter
         //chooser.setAcceptAllFileFilterUsed(false);
-        chooser.showOpenDialog(null);
+        chooser.showOpenDialog(this);
         File file = chooser.getSelectedFile();
         String path = file.getAbsolutePath();
         

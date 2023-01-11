@@ -38,7 +38,7 @@ public class MalattiaControl {
         LI.setClickable(false);
         n.setVisible(true);
         n.setAlwaysOnTop(true);
-        DBMS.updateQuery();        //cambia lo stato in malato
+        //DBMS.updateQuery();        //cambia lo stato in malato
     }
     
     public void SubmitNotice(JFrame finestra) {

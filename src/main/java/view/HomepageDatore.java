@@ -314,7 +314,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         jLabel9.setBounds(0, 0, 460, 460);
 
         mainPanel.add(jPanel4);
-        jPanel4.setBounds(647, 225, 460, 730);
+        jPanel4.setBounds(647, 225, 0, 0);
 
         jPanel1.add(mainPanel);
         mainPanel.setBounds(0, 0, 1920, 1080);
