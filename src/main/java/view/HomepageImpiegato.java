@@ -5,6 +5,8 @@
 package view;
 
 import controller.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -12,9 +14,7 @@ import controller.*;
  */
 public class HomepageImpiegato extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FirmaBoundary
-     */
+    
     public HomepageImpiegato() {
         initComponents();
         jLabel4.setVisible(false);
@@ -367,24 +367,14 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void NotificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotificationButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()){
-            RicC.RichiesteButtonPressed(this);
+            RicC.ConsultaListaButtonPressed(this);
         }
     }//GEN-LAST:event_NotificationButtonActionPerformed
 
     private void RequestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            if (!jLabel4.isVisible()) {
-                jLabel4.setVisible(true);
-                Permesso.setVisible(true);
-                Ferie.setVisible(true);
-                CongedoParentale.setVisible(true);
-            } else {
-                jLabel4.setVisible(false);
-                Permesso.setVisible(false);
-                Ferie.setVisible(false);
-                CongedoParentale.setVisible(false);
-            }
+            RicC.RichiesteButtonPressed(this);
         }
     }//GEN-LAST:event_RequestButtonActionPerformed
 
@@ -496,6 +486,22 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     public void setClickable(boolean clickable) {
         this.clickable = clickable;
+    }
+
+    public JButton getCongedoParentale() {
+        return CongedoParentale;
+    }
+
+    public JButton getFerie() {
+        return Ferie;
+    }
+
+    public JButton getPermesso() {
+        return Permesso;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
     }
 
 }

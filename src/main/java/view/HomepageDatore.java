@@ -36,9 +36,6 @@ public class HomepageDatore extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -69,18 +66,6 @@ public class HomepageDatore extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/progetto/PersonIcon.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(164, 247, 0, 30);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/progetto/PhoneIcon.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(140, 668, 48, 39);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/progetto/MailIcon.png"))); // NOI18N
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(140, 620, 0, 0);
 
         jPanel1.setLayout(null);
 
@@ -450,12 +435,9 @@ public class HomepageDatore extends javax.swing.JFrame {
     private javax.swing.JButton impSalaryButton;
     private javax.swing.JButton impScheduleButton;
     private javax.swing.JButton jButton18;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;

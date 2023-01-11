@@ -43,6 +43,7 @@ public class DBMSBoundary {
             ex.printStackTrace();
         }
         return rs;
+        
     }
     
     /*      METODO DA ESEGUIRE PER QUERY SENZA RITORNO        */

@@ -88,7 +88,7 @@ public class AssumiLicenziaControl {
     public void sendData(Utente UT) {
         int number = 0;
 
-        ResultSet r = DBMSBoundary.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
+        ResultSet r = DBMS.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
         try {
             if(r.next()){
                 number = r.getInt(1);
