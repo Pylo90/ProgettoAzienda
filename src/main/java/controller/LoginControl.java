@@ -1,6 +1,10 @@
 package controller;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JFrame;
+import misc.DBMSBoundary;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import view.HomepageAmministratore;
 import view.LoginForm;
 
@@ -20,11 +24,43 @@ public class LoginControl {
     public void dataSubmit(){
         String email = loginFrame.getEmailField().getText();
         String mat = loginFrame.getMatricolaField().getText();
-        char[] psw = loginFrame.getPasswordField().getPassword();
+        String psw = String.valueOf(loginFrame.getPasswordField().getPassword());
+        boolean check = false;
+        
+        ResultSet imp = DBMSBoundary.getQuery("SELECT COUNT(matricola), psw FROM Impiegato WHERE matricola = " + mat + " AND email = " + email);
+        
+        try {
+            imp.next();
+            if(imp.getInt(1) == 0) {
+                wrongData();
+                return;
+            }
+            
+            String hash = imp.getString("psw");
+            
+            if(!BCrypt.checkpw(psw, hash)) {
+                wrongData();
+                return;
+            }
+            correctData();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
         System.out.println(loginFrame.getEmailField().getText()); //DEBUG
         System.out.println(loginFrame.getMatricolaField().getText()); //DEBUG
         System.out.println(loginFrame.getPasswordField().getPassword()); //DEBUG
         //implementazione Hashing password
+    }
+    
+    /*******IMPLEMENTARE AZIONE IN CASO DI CREDENZIALI CORRETTE*******/
+    private void correctData() {
+        System.out.println("CORRECT"); //DEBUG
+    }
+    
+    /*******IMPLEMENTARE AZIONE IN CASO DI CREDENZIALI ERRATE*******/
+    private void wrongData() {
+        System.out.println("WRONG"); //DEBUG
     }
     
     /* TODO */
