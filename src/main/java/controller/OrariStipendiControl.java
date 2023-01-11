@@ -18,9 +18,6 @@ import view.OrarioImpiegato;
 import view.StipendioImpiegato;
 import view.HomepageDatore;
 import view.ListaImpiegati;
-import view.StipendioImpiegatoDatore;
-import view.OrarioImpiegatoDatore;
-
 /**
  *
  * @author dario
@@ -118,7 +115,7 @@ public void ConsultaStipendioButtonPressed(HomepageImpiegato HP) {
     public void sendSelectionSalary(ListaImpiegati LI) {
         this.LI = LI;
         //chiedi il salario al dbms
-        JFrame StipendioImpiegatoDatore = new StipendioImpiegatoDatore(this);
+        JFrame StipendioImpiegatoDatore = new StipendioImpiegato(this);
         LI.setClickable(false);
         StipendioImpiegatoDatore.setVisible(true);
         StipendioImpiegatoDatore.setAlwaysOnTop(true);
@@ -127,7 +124,7 @@ public void ConsultaStipendioButtonPressed(HomepageImpiegato HP) {
     public void sendSelectionTimeTables(ListaImpiegati LI) {
         this.LI = LI;
         //chiedi l'orario al dbms
-        JFrame OrarioImpiegatoDatore = new OrarioImpiegatoDatore(this);
+        JFrame OrarioImpiegatoDatore = new OrarioImpiegato(this);
         LI.setClickable(false);
         OrarioImpiegatoDatore.setVisible(true);
         OrarioImpiegatoDatore.setAlwaysOnTop(true);

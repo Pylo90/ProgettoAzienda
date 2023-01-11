@@ -104,7 +104,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jLabel5.setBounds(881, 523, 78, 64);
 
         jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField6.setText("jTextField6");
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
@@ -119,7 +118,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jLabel7.setBounds(881, 614, 53, 64);
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField2.setText("jTextField2");
         jPanel1.add(jTextField2);
         jTextField2.setBounds(1100, 710, 430, 65);
 
@@ -129,7 +127,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jLabel9.setBounds(881, 705, 199, 70);
 
         jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField7.setText("jTextField7");
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
@@ -154,7 +151,12 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jLabel6.setBounds(174, 614, 91, 64);
 
         jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField5.setText("jTextField5");
+        jTextField5.setCaretPosition(0);
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
         jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField5KeyPressed(evt);
@@ -164,7 +166,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jTextField5.setBounds(280, 620, 540, 65);
 
         jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField4.setText("jTextField4");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -184,7 +185,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jLabel4.setBounds(174, 523, 207, 90);
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -361,6 +361,10 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         image.setIcon(foto);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     /**
      * @param args the command line arguments

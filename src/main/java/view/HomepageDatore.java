@@ -61,6 +61,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         idText = new javax.swing.JTextField();
         mailText = new javax.swing.JTextField();
         phoneText = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -191,8 +192,11 @@ public class HomepageDatore extends javax.swing.JFrame {
         licenziaButton.setBounds(1570, 203, 100, 100);
 
         jPanel4.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel4.setLayout(null);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagePlaceholder.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
+        jPanel4.add(jLabel7);
+        jLabel7.setBounds(0, 0, 460, 460);
 
         jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
         jButton18.setBorder(null);
@@ -203,6 +207,8 @@ public class HomepageDatore extends javax.swing.JFrame {
                 jButton18ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton18);
+        jButton18.setBounds(412, 460, 48, 48);
 
         jPanel5.setBackground(new java.awt.Color(255, 248, 238));
         jPanel5.setFocusable(false);
@@ -300,32 +306,12 @@ public class HomepageDatore extends javax.swing.JFrame {
                     .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton18))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel7)
-                .addGap(0, 0, 0)
-                .addComponent(jButton18)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel4.add(jPanel5);
+        jPanel5.setBounds(0, 508, 414, 216);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagePlaceholder.png"))); // NOI18N
+        jPanel4.add(jLabel9);
+        jLabel9.setBounds(0, 0, 460, 460);
 
         mainPanel.add(jPanel4);
         jPanel4.setBounds(647, 225, 460, 730);
@@ -442,6 +428,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

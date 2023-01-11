@@ -59,7 +59,7 @@ public class RichiesteControl {
     public void sendSelection(int mesi) {
         ResultSet idSet;
         int id = 1;
-        idSet = DBMSBoundary.getQuery("select max (id) from richiesta;");
+        idSet = DBMSBoundary.getQuery("select max(id) from richiesta;");
         try {
             if(idSet.next()) {
                 id = idSet.getInt(1)+1;
@@ -69,7 +69,7 @@ public class RichiesteControl {
         } catch (SQLException ex) {
             Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        DBMSBoundary.updateQuery("insert into richiesta values (" +id+ "," +1+ ",culo,ciao,casa;");
+        DBMSBoundary.updateQuery("insert into richiesta values(" +id+ "," +1+ ",'culo','400005','200006');");
     }
     
     public void ConsultaListaButtonPressed(HomepageImpiegato HPI) {

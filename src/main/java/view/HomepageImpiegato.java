@@ -55,6 +55,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         NomeText = new javax.swing.JLabel();
         MatricolaText = new javax.swing.JLabel();
         PhoneText = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 248, 238));
@@ -222,15 +223,22 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        jPanel1.setLayout(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/costinaHomepageImpiegato.png"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 200, 678);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(200, 0, 450, 220);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/costinaDestra.png"))); // NOI18N
         jLabel5.setText("NOME AZIENDA");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(1574, 0, 346, 55);
 
         RequestButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         RequestButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina.png"))); // NOI18N
@@ -245,96 +253,48 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                 RequestButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(RequestButton1);
+        RequestButton1.setBounds(0, 942, 350, 100);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Alessandra.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(910, 164, 460, 460);
 
         PersonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonIcon.png"))); // NOI18N
+        jPanel1.add(PersonLabel);
+        PersonLabel.setBounds(853, 683, 48, 48);
 
         MailLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MailIcon.png"))); // NOI18N
+        jPanel1.add(MailLabel);
+        MailLabel.setBounds(853, 791, 48, 48);
 
         PhoneLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhoneIcon.png"))); // NOI18N
+        jPanel1.add(PhoneLabel);
+        PhoneLabel.setBounds(853, 845, 48, 48);
 
         MailText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         MailText.setText(": mail");
+        jPanel1.add(MailText);
+        MailText.setBounds(913, 785, 94, 54);
 
         NomeText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         NomeText.setText(": Nome e Cognome");
+        jPanel1.add(NomeText);
+        NomeText.setBounds(913, 677, 344, 54);
 
         MatricolaText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         MatricolaText.setText(": Matricola");
+        jPanel1.add(MatricolaText);
+        MatricolaText.setBounds(913, 731, 185, 54);
 
         PhoneText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         PhoneText.setText(": mail");
+        jPanel1.add(PhoneText);
+        PhoneText.setBounds(913, 839, 94, 54);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(RequestButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(204, 204, 204))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(653, 653, 653)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(MailLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(PhoneLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(PersonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(NomeText)
-                                    .addComponent(MatricolaText)
-                                    .addComponent(MailText)
-                                    .addComponent(PhoneText))
-                                .addGap(317, 317, 317)))))
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PersonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NomeText))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RequestButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(MailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(MatricolaText)
-                                .addGap(0, 0, 0)
-                                .addComponent(MailText)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PhoneText)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PhoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(187, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Alessandra.png"))); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(910, 164, 460, 460);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
@@ -468,6 +428,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private javax.swing.JButton ScheduleButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

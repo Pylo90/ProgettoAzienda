@@ -13,13 +13,23 @@ import javax.swing.JTable;
  * @author dario
  */
 public class OrarioImpiegato extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form OrarioImpiegatoDatore
      */
     public OrarioImpiegato(OrariStipendiControl OSC) {
         this.OSC = OSC;
         initComponents();
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+
+    }
+    public OrarioImpiegato(OrariStipendiControl OSC, String nome, String cognome, String matricola) {
+        this.OSC = OSC;
+        initComponents();
+        jLabel1.setText("Impiegato Selezionato: "+ nome +" "+ cognome);
+        jLabel2.setText("Matricola: "+ matricola);
 
     }
 
