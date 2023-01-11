@@ -36,9 +36,7 @@ public class CambiaPasswordControl {
     public void submitForm(char vp, char np, char cp) {
         ResultSet pwSet;
         pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" +UT.getMatricola()+ ";");
-        if(pwSet=vp) {
-            
-        }
+        
     }
     
       public void DisposeWindow(JFrame finestra) {
