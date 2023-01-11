@@ -120,7 +120,9 @@ public class RichiesteControl {
 
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
-        HPI.setClickable(true);
+        if(HPI!= null) HPI.setClickable(true);
+        if(HPA!= null) HPA.setClickable(true);
+        if(HPD!= null) HPD.setClickable(true);
 
     }
     
