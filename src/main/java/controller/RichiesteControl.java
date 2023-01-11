@@ -4,7 +4,12 @@
  */
 package controller;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import misc.DBMSBoundary;
 import view.CalendarioInterattivo;
 import view.CongedoForm;
 import view.HomepageImpiegato;
@@ -49,6 +54,22 @@ public class RichiesteControl {
         CF = new CongedoForm(this);
         CF.setVisible(true);
         CF.setAlwaysOnTop(true);
+    }
+    
+    public void sendSelection(int mesi) {
+        ResultSet idSet;
+        int id = 1;
+        idSet = DBMSBoundary.getQuery("select max (id) from richiesta;");
+        try {
+            if(idSet.next()) {
+                id = idSet.getInt(1)+1;
+            }
+            else
+                id = 1;
+        } catch (SQLException ex) {
+            Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        DBMSBoundary.updateQuery("insert into richiesta values (" +id+ "," +1+ ",culo,ciao,casa;");
     }
     
     public void ConsultaListaButtonPressed(HomepageImpiegato HPI) {
