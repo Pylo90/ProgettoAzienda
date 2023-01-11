@@ -16,8 +16,8 @@ public class DBMSBoundary {
     /*  DEFINIZIONE PARAMETRI DATABASE - MODIFICA QUESTI  */
     /******************************************************/
     public static String IP = "localhost:3306";
-    public static String UNAME = "root"; //DA IMPOSTARE A NULL
-    public static String PSW = "root"; //DA IMPOSTARE A NULL
+    public static String UNAME = "admin"; //DA IMPOSTARE A NULL
+    public static String PSW = "password"; //DA IMPOSTARE A NULL
     public static String NAME = "azienda";
     /******************************************************/
     /*  FINE DEFINIZIONE PARAMETRI   */
@@ -38,7 +38,7 @@ public class DBMSBoundary {
         try {
             Connection con = DBMSBoundary.getConnection();
             rs = con.createStatement().executeQuery(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -51,7 +51,7 @@ public class DBMSBoundary {
         try {
             Connection con = DBMSBoundary.getConnection();
             con.createStatement().executeUpdate(query);
-            con.close();
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
