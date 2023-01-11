@@ -17,7 +17,6 @@ import view.RichiestaList;
  * @author dario
  */
 public class RichiesteControl {
-
     HomepageImpiegato HPI;
     HomepageDatore HPD;
     CongedoForm CF;
@@ -49,11 +48,7 @@ public class RichiesteControl {
         CongedoForm.setAlwaysOnTop(true);
     }
     
-
-
     public void ConsultaListaButtonPressed(HomepageImpiegato HPI) {
-
-    
         this.HPI = HPI;
         JFrame RichiestaList = new RichiestaList(this);
         HPI.setClickable(false);
@@ -76,7 +71,6 @@ public class RichiesteControl {
     }
 
     public void DisposeWindow(JFrame finestra) {
-
         finestra.dispose();
         HPI.setClickable(true);
 
