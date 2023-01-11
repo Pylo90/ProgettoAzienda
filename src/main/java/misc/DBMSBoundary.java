@@ -16,8 +16,8 @@ public class DBMSBoundary {
     /*  DEFINIZIONE PARAMETRI DATABASE - MODIFICA QUESTI  */
     /******************************************************/
     public static String IP = "localhost:3306";
-    public static String UNAME = "admin"; //DA IMPOSTARE A NULL
-    public static String PSW = "password"; //DA IMPOSTARE A NULL
+    public static String UNAME = "root"; //DA IMPOSTARE A NULL
+    public static String PSW = "root"; //DA IMPOSTARE A NULL
     public static String NAME = "azienda";
     /******************************************************/
     /*  FINE DEFINIZIONE PARAMETRI   */
@@ -26,7 +26,7 @@ public class DBMSBoundary {
     /*
      * @throws java.sql.SQLException
     */
-    public static Connection getConnection() throws SQLException {
+    private static Connection getConnection() throws SQLException {
         String connectionString = "jdbc:mysql://" + DBMSBoundary.IP + "/" + DBMSBoundary.NAME;
         Connection con = DriverManager.getConnection(connectionString, DBMSBoundary.UNAME, DBMSBoundary.PSW);
         return con;
