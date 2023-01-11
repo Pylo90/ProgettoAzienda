@@ -429,7 +429,6 @@ public class OrarioImpiegato extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         new OrarioImpiegato(null).setVisible(true);
-        System.out.println((-1)%(-7));
         /* Create and display the form */
  /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

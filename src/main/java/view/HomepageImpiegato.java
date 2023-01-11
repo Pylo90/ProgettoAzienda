@@ -14,9 +14,7 @@ import javax.swing.JLabel;
  */
 public class HomepageImpiegato extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FirmaBoundary
-     */
+    
     public HomepageImpiegato() {
         initComponents();
         jLabel4.setVisible(false);

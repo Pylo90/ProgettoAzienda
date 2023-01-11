@@ -38,11 +38,12 @@ public class DBMSBoundary {
         try {
             Connection con = DBMSBoundary.getConnection();
             rs = con.createStatement().executeQuery(query);
-            con.close();
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return rs;
+        
     }
     
     /*      METODO DA ESEGUIRE PER QUERY SENZA RITORNO        */

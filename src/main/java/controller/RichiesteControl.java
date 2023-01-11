@@ -20,6 +20,9 @@ public class RichiesteControl {
     HomepageImpiegato HPI;
     HomepageDatore HPD;
     CongedoForm CF;
+    RichiestaList RL;
+    ListaImpiegati LI;
+    CalendarioInterattivo CI;
 
     public RichiesteControl() {
     }
@@ -27,33 +30,33 @@ public class RichiesteControl {
     public void RichiestaPermessoButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
         HPI.setClickable(false);
-        JFrame CalendarioInterattivo = new CalendarioInterattivo(this);
-        CalendarioInterattivo.setVisible(true);
-        CalendarioInterattivo.setAlwaysOnTop(true);
+        CI = new CalendarioInterattivo(this);
+        CI.setVisible(true);
+        CI.setAlwaysOnTop(true);
     }
 
     public void RichiestaFerieButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
         HPI.setClickable(false);
-        JFrame CalendarioInterattivo = new CalendarioInterattivo(this);
-        CalendarioInterattivo.setVisible(true);
-        CalendarioInterattivo.setAlwaysOnTop(true);
+        CI = new CalendarioInterattivo(this);
+        CI.setVisible(true);
+        CI.setAlwaysOnTop(true);
     }
 
     public void RichiestaCongedoParentaleButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
         HPI.setClickable(false);
-        JFrame CongedoForm = new CongedoForm(this);
-        CongedoForm.setVisible(true);
-        CongedoForm.setAlwaysOnTop(true);
+        CF = new CongedoForm(this);
+        CF.setVisible(true);
+        CF.setAlwaysOnTop(true);
     }
     
     public void ConsultaListaButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
-        JFrame RichiestaList = new RichiestaList(this);
+        RL = new RichiestaList(this);
         HPI.setClickable(false);
-        RichiestaList.setVisible(true);
-        RichiestaList.setAlwaysOnTop(true);
+        RL.setVisible(true);
+        RL.setAlwaysOnTop(true);
     }
     
     public void RichiesteButtonPressed(HomepageImpiegato HPI) {
@@ -80,10 +83,10 @@ public class RichiesteControl {
     public void ScambiaOrariButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
         //prendi la lista dal dbms
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        LI = new ListaImpiegati(this);
         HPD.setClickable(false);
-        ListaImpiegati.setVisible(true);
-        ListaImpiegati.setAlwaysOnTop(true);
+        LI.setVisible(true);
+        LI.setAlwaysOnTop(true);
     }
     
 }
