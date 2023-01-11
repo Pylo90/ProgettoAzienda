@@ -335,7 +335,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         
-        if(Character.isLetter(c) || Character.isWhitespace(c)){
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
             jTextField1.setEditable(true);
         }else jTextField1.setEditable(false);
     }//GEN-LAST:event_jTextField1KeyPressed
@@ -348,7 +348,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         
-        if(Character.isLetter(c) || Character.isWhitespace(c)){
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
             jTextField4.setEditable(true);
         }else jTextField4.setEditable(false);
     }//GEN-LAST:event_jTextField4KeyPressed
