@@ -4,7 +4,10 @@
  */
 package controller;
 
+import java.sql.ResultSet;
 import javax.swing.JFrame;
+import misc.DBMSBoundary;
+import misc.Utente;
 import view.HomepageImpiegato;
 import view.ModificaPassword;
 import view.Errore;
@@ -17,6 +20,7 @@ public class CambiaPasswordControl {
 
     HomepageImpiegato HPI;
     ModificaPassword MP;
+    Utente UT;
 
     public CambiaPasswordControl() {
     }
@@ -27,6 +31,14 @@ public class CambiaPasswordControl {
         HPI.setClickable (false);
         ModificaPassword.setVisible(true);
         ModificaPassword.setAlwaysOnTop(true);
+    }
+    
+    public void submitForm(char vp, char np, char cp) {
+        ResultSet pwSet;
+        pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" +UT.getMatricola()+ ";");
+        if(pwSet=vp) {
+            
+        }
     }
     
       public void DisposeWindow(JFrame finestra) {
