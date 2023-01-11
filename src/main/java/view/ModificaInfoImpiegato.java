@@ -9,8 +9,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import misc.Utente;
 
 /**
@@ -29,6 +32,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     }
 
     ImageIcon foto;
+    FileFilter imageFilter = new FileNameExtensionFilter("Image files", ImageIO.getReaderFileSuffixes());
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -395,6 +399,9 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
+        chooser.setFileFilter(imageFilter);
+        //chooser.addChoosableFileFilter(new ImageFilter()); // alternativa che ha bisogno però della classe ausiliaria ImageFilter
+        //chooser.setAcceptAllFileFilterUsed(false);
         chooser.showOpenDialog(null);
         File file = chooser.getSelectedFile();
         String path = file.getAbsolutePath();
