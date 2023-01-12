@@ -9,6 +9,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -25,9 +30,12 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     /**
      * Creates new form AssumiImpiegatoBoundary
      */
+    InputStream in;
+    
     public AssumiImpiegatoBoundary(AssumiLicenziaControl ALC) {
         this.ALC = ALC;
         initComponents();
+        in = null;
     }
     
     ImageIcon foto;
@@ -296,8 +304,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         String numero = jTextField7.getText().trim();
         int livello = jComboBox1.getSelectedIndex()+1;
         boolean disability = jCheckBox1.isSelected();
-        Utente UT = new Utente(null,name, surname, mail, passw, cf, foto, numero, livello, disability, 0,0); //lo zero sta per le ore lavorate
-        ALC.sendData(UT);
+        ALC.sendData(name, surname, mail, passw, cf, foto, numero, livello, disability);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
@@ -375,7 +382,14 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         Image im = Toolkit.getDefaultToolkit().createImage(path);
         im = im.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
         foto = new ImageIcon(im);
+        
+        try {
+            in = new FileInputStream(path);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AssumiImpiegatoBoundary.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jButton1.setIcon(foto);
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
