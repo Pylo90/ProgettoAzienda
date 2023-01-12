@@ -11,7 +11,6 @@ import controller.RistabilisciConnessioneControl;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Utente
@@ -21,43 +20,37 @@ public class Notifica extends javax.swing.JFrame {
     /**
      * Creates new form NotificaBoundary
      */
-    public Notifica(String messaggio, CambiaPasswordControl CPC) {
-        this.CPC = CPC;
+    private CambiaPasswordControl CPC;
+    private FirmaControl FC;
+    private LoginControl LC;
+    private RecuperaPasswordControl RPC;
+    private RistabilisciConnessioneControl RCC;
+    private MalattiaControl MC;
+
+    public Notifica(String messaggio, Object controller) {
+        if (controller instanceof CambiaPasswordControl) {
+            this.CPC = (CambiaPasswordControl) controller;
+        }
+        if (controller instanceof FirmaControl) {
+            this.FC = (FirmaControl) controller;
+        }
+        if (controller instanceof LoginControl) {
+            this.LC = (LoginControl) controller;
+        }
+        if (controller instanceof RecuperaPasswordControl) {
+            this.RPC = (RecuperaPasswordControl) controller;
+        }
+        if (controller instanceof RistabilisciConnessioneControl) {
+            this.RCC = (RistabilisciConnessioneControl) controller;
+        }
+        if (controller instanceof MalattiaControl) {
+            this.MC = (MalattiaControl) controller;
+        }
         initComponents();
         setMessaggio(messaggio);
     }
-    
-    public Notifica(String messaggio, FirmaControl FC) {
-        this.FC = FC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public Notifica(String messaggio, LoginControl LC) {
-        this.LC = LC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public Notifica(String messaggio, RecuperaPasswordControl RPC) {
-        this.RPC = RPC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public Notifica(String messaggio, RistabilisciConnessioneControl RCC) {
-        this.RCC = RCC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public Notifica(String messaggio, MalattiaControl MC) {
-        this.MC = MC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public void setMessaggio(String messaggio){
+
+    public void setMessaggio(String messaggio) {
         jTextField1.setText(messaggio);
     }
 
@@ -88,17 +81,19 @@ public class Notifica extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(219, 24, 156, 48);
 
-        jTextField1.setBackground(new java.awt.Color(219, 213, 205));
+        jTextField1.setBackground(new java.awt.Color(255, 248, 238));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("testo notifica");
+        jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(230, 180, 130, 33);
+        jTextField1.setBounds(230, 180, 130, 27);
 
         ConfirmButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ConfirmButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,12 +207,5 @@ public class Notifica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-
-    private CambiaPasswordControl CPC = new CambiaPasswordControl();
-    private FirmaControl FC;
-    private LoginControl LC;
-    private RecuperaPasswordControl RPC;
-    private RistabilisciConnessioneControl RCC;
-    private MalattiaControl MC;
 
 }

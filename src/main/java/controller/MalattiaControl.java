@@ -4,6 +4,7 @@
  */
 package controller;
 
+import java.sql.ResultSet;
 import javax.swing.JFrame;
 import view.HomepageDatore;
 import view.ListaImpiegati;
@@ -28,15 +29,15 @@ public class MalattiaControl {
     }
     
     public void InserimentoMalattiaButtonPressed(HomepageDatore HPD) {
-        //prendi la lista dal dbms
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
     public void InserimentoMalattiaButtonPressed(HomepageAmministratore HPA) {
-        //prendi la lista dal dbms
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPA.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);

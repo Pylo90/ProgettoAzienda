@@ -11,55 +11,49 @@ import controller.RistabilisciConnessioneControl;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Utente
  */
-public class Errore extends javax.swing.JFrame{
+public class Errore extends javax.swing.JFrame {
 
     /**
      * Creates new form Errore
      */
-    public Errore(String messaggio, CambiaPasswordControl CPC) {
-        this.CPC = CPC;
+    private CambiaPasswordControl CPC;
+    private FirmaControl FC;
+    private LoginControl LC;
+    private RecuperaPasswordControl RPC;
+    private RistabilisciConnessioneControl RCC;
+    private AssumiLicenziaControl ALC;
+
+    public Errore(String messaggio, Object controller) {
+        if (controller instanceof CambiaPasswordControl) {
+            this.CPC = (CambiaPasswordControl) controller;
+        }
+        if (controller instanceof FirmaControl) {
+            this.FC = (FirmaControl) controller;
+        }
+        if (controller instanceof LoginControl) {
+            this.LC = (LoginControl) controller;
+        }
+        if (controller instanceof RecuperaPasswordControl) {
+            this.RPC = (RecuperaPasswordControl) controller;
+        }
+        if (controller instanceof RistabilisciConnessioneControl) {
+            this.RCC = (RistabilisciConnessioneControl) controller;
+        }
+        if (controller instanceof AssumiLicenziaControl) {
+            this.ALC = (AssumiLicenziaControl) controller;
+        }
         initComponents();
         setMessaggio(messaggio);
     }
-    
-    public Errore(String messaggio, FirmaControl FC) {
-        this.FC = FC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public Errore(String messaggio, LoginControl LC) {
-        this.LC = LC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public Errore(String messaggio, RecuperaPasswordControl RPC) {
-        this.RPC = RPC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public Errore(String messaggio, RistabilisciConnessioneControl RCC) {
-        this.RCC = RCC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public Errore(String messaggio, AssumiLicenziaControl ALC) {
-        this.ALC = ALC;
-        initComponents();
-        setMessaggio(messaggio);
-    }
-    
-    public void setMessaggio(String messaggio){
+
+    public void setMessaggio(String messaggio) {
         jTextField1.setText(messaggio);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,17 +99,20 @@ public class Errore extends javax.swing.JFrame{
         jPanel1.add(jLabel2);
         jLabel2.setBounds(225, 24, 139, 48);
 
-        jTextField1.setBackground(new java.awt.Color(187, 187, 187));
+        jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 248, 238));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("testo errore");
+        jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(230, 180, 130, 33);
+        jTextField1.setBounds(230, 180, 130, 27);
 
         ConfirmButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ConfirmButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -224,13 +221,6 @@ public class Errore extends javax.swing.JFrame{
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
-    private CambiaPasswordControl CPC = new CambiaPasswordControl();
-    private FirmaControl FC;
-    private LoginControl LC;
-    private RecuperaPasswordControl RPC;
-    private RistabilisciConnessioneControl RCC;
-    private AssumiLicenziaControl ALC;
-    
     private boolean clickable;
 
     public boolean isClickable() {

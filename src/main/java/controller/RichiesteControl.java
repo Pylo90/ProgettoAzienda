@@ -16,6 +16,7 @@ import view.HomepageAmministratore;
 import view.HomepageImpiegato;
 import view.HomepageDatore;
 import view.ListaImpiegati;
+import view.RichiestaForm;
 import view.RichiestaList;
 
 /**
@@ -34,25 +35,45 @@ public class RichiesteControl {
     public RichiesteControl() {
     }
 
-    public void RichiestaPermessoButtonPressed(HomepageImpiegato HPI) {
-        this.HPI = HPI;
+    public void RichiestaPermessoButtonPressed(JFrame homepage) {
+        if(homepage instanceof HomepageImpiegato){
+            this.HPI = (HomepageImpiegato) homepage;
+            this.HPI.setClickable(false);
+        }
+        if(homepage instanceof HomepageAmministratore){
+            this.HPA = (HomepageAmministratore) homepage;
+            this.HPA.setClickable(false);
+        }
+        
+        CI = new CalendarioInterattivo(this);
+        CI.setVisible(true);
+        CI.setAlwaysOnTop(true);
+    }
+
+    public void RichiestaFerieButtonPressed(JFrame homepage) {
+        if(homepage instanceof HomepageImpiegato){
+            this.HPI = (HomepageImpiegato) homepage;
+            this.HPI.setClickable(false);
+        }
+        if(homepage instanceof HomepageAmministratore){
+            this.HPA = (HomepageAmministratore) homepage;
+            this.HPA.setClickable(false);
+        }
         HPI.setClickable(false);
         CI = new CalendarioInterattivo(this);
         CI.setVisible(true);
         CI.setAlwaysOnTop(true);
     }
 
-    public void RichiestaFerieButtonPressed(HomepageImpiegato HPI) {
-        this.HPI = HPI;
-        HPI.setClickable(false);
-        CI = new CalendarioInterattivo(this);
-        CI.setVisible(true);
-        CI.setAlwaysOnTop(true);
-    }
-
-    public void RichiestaCongedoParentaleButtonPressed(HomepageImpiegato HPI) {
-        this.HPI = HPI;
-        HPI.setClickable(false);
+    public void RichiestaCongedoParentaleButtonPressed(JFrame homepage) {
+        if(homepage instanceof HomepageImpiegato){
+            this.HPI = (HomepageImpiegato) homepage;
+            this.HPI.setClickable(false);
+        }
+        if(homepage instanceof HomepageAmministratore){
+            this.HPA = (HomepageAmministratore) homepage;
+            this.HPA.setClickable(false);
+        }
         CF = new CongedoForm(this);
         CF.setVisible(true);
         CF.setAlwaysOnTop(true);
@@ -74,47 +95,51 @@ public class RichiesteControl {
         DBMSBoundary.updateQuery("insert into richiesta values(" +id+ "," +1+ ",'culo','400005','200006');");
     }
     
-    public void ConsultaListaButtonPressed(HomepageImpiegato HPI) {
-        this.HPI = HPI;
+
+    
+    public void ConsultaListaRichiesteButtonPressed(JFrame homepage) {
+        if(homepage instanceof HomepageImpiegato){
+            this.HPI = (HomepageImpiegato) homepage;
+            this.HPI.setClickable(false);
+        }
+        if(homepage instanceof HomepageAmministratore){
+            this.HPA = (HomepageAmministratore) homepage;
+            this.HPA.setClickable(false);
+        }
+        if(homepage instanceof HomepageDatore){
+            this.HPD = (HomepageDatore) homepage;
+            this.HPD.setClickable(false);
+        }
         RL = new RichiestaList(this);
-        HPI.setClickable(false);
-        RL.setVisible(true);
-        RL.setAlwaysOnTop(true);
-    }
-    public void ConsultaListaButtonPressed(HomepageAmministratore HPA) {
-        this.HPA = HPA;
-        RL = new RichiestaList(this);
-        HPA.setClickable(false);
         RL.setVisible(true);
         RL.setAlwaysOnTop(true);
     }
     
+    
     public void RichiesteButtonPressed(HomepageImpiegato HPI) {
-        this.HPI=HPI;
-        if (!this.HPI.getjLabel4().isVisible()) {
-                this.HPI.getjLabel4().setVisible(true);
-                this.HPI.getPermesso().setVisible(true);
-                this.HPI.getFerie().setVisible(true);
-                this.HPI.getCongedoParentale().setVisible(true);
+        if (!HPI.getjLabel4().isVisible()) {
+                HPI.getjLabel4().setVisible(true);
+                HPI.getPermesso().setVisible(true);
+                HPI.getFerie().setVisible(true);
+                HPI.getCongedoParentale().setVisible(true);
             } else {
-                this.HPI.getjLabel4().setVisible(false);
-                this.HPI.getPermesso().setVisible(false);
-                this.HPI.getFerie().setVisible(false);
-                this.HPI.getCongedoParentale().setVisible(false);
+                HPI.getjLabel4().setVisible(false);
+                HPI.getPermesso().setVisible(false);
+                HPI.getFerie().setVisible(false);
+                HPI.getCongedoParentale().setVisible(false);
             }
     }
     public void RichiesteButtonPressed(HomepageAmministratore HPA) {
-        this.HPA=HPA;
-        if (!this.HPA.getjLabel3().isVisible()) {
-                this.HPA.getjLabel3().setVisible(true);
-                this.HPA.getPermesso().setVisible(true);
-                this.HPA.getFerie().setVisible(true);
-                this.HPA.getCongedoParentale().setVisible(true);
+        if (!HPA.getjLabel3().isVisible()) {
+                HPA.getjLabel3().setVisible(true);
+                HPA.getPermesso().setVisible(true);
+                HPA.getFerie().setVisible(true);
+                HPA.getCongedoParentale().setVisible(true);
             } else {
-                this.HPA.getjLabel3().setVisible(false);
-                this.HPA.getPermesso().setVisible(false);
-                this.HPA.getFerie().setVisible(false);
-                this.HPA.getCongedoParentale().setVisible(false);
+                HPA.getjLabel3().setVisible(false);
+                HPA.getPermesso().setVisible(false);
+                HPA.getFerie().setVisible(false);
+                HPA.getCongedoParentale().setVisible(false);
             }
     }
 
@@ -126,19 +151,17 @@ public class RichiesteControl {
 
     }
     
-    public void ScambiaOrariButtonPressed(HomepageDatore HPD) {
-        this.HPD = HPD;
-        //prendi la lista dal dbms
-        LI = new ListaImpiegati(this);
-        HPD.setClickable(false);
-        LI.setVisible(true);
-        LI.setAlwaysOnTop(true);
-    }
-    public void ScambiaOrariButtonPressed(HomepageAmministratore HPA) {
-        this.HPA = HPA;
-        //prendi la lista dal dbms
-        LI = new ListaImpiegati(this);
-        HPA.setClickable(false);
+    public void ScambiaOrariButtonPressed(JFrame homepage) {
+        if(homepage instanceof HomepageAmministratore){
+            this.HPA = (HomepageAmministratore) homepage;
+            this.HPA.setClickable(false);
+        }
+        if(homepage instanceof HomepageDatore){
+            this.HPD = (HomepageDatore) homepage;
+            this.HPD.setClickable(false);
+        }
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        LI = new ListaImpiegati(this, rs);
         LI.setVisible(true);
         LI.setAlwaysOnTop(true);
     }

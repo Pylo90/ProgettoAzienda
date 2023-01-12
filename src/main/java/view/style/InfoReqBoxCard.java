@@ -1,5 +1,6 @@
 package view.style;
 
+import controller.RichiesteControl;
 import javax.swing.JTextField;
 
 /**
@@ -11,15 +12,21 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     /**
      * Creates new form infoBoxCard
      */
+    
+    String id = null;
+    RichiesteControl RC = null;
+    
     public InfoReqBoxCard() {
         initComponents();
     }
     
-    public InfoReqBoxCard(String name, String type, String date) {
-        initComponents();
+    public InfoReqBoxCard(String name, String type, String date, String id, RichiesteControl RC) {
+        initComponents();        
         nameField.setText(name);
         typeField.setText(type);
         dateField.setText(date);
+        this.id = id;
+        this.RC= RC;
     }
 
     /**
@@ -38,9 +45,8 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         selectButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 248, 238));
+        setBackground(new java.awt.Color(219, 213, 205));
         setMinimumSize(new java.awt.Dimension(1201, 113));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1201, 113));
@@ -112,18 +118,22 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
         selectButton.setContentAreaFilled(false);
         selectButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         selectButton.setFocusable(false);
+        selectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectButtonActionPerformed(evt);
+            }
+        });
         add(selectButton);
         selectButton.setBounds(1120, 20, 60, 70);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1200, 113);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
+        
+    }//GEN-LAST:event_selectButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dateField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;

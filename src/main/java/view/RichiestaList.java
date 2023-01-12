@@ -19,26 +19,30 @@ public class RichiestaList extends javax.swing.JFrame {
 
     public RichiestaList(RichiesteControl RC) {
 
-        this.RC=RC;
-        
+        this.RC = RC;
+
         initComponents();
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
     }
-    
-    /*******TEST - DA ELIMINARE*******/
-    public void addInfoPane() {
+
+    /**
+     * *****TEST - DA ELIMINARE******
+     */
+   /* public void addInfoPane() {
         listPanel.add(new InfoReqBoxCard("NomeProvaLungo CognomeProvaLungo", "NomeTipoLungo", "12/12/22"));
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
         listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
         //System.out.println("Dopo: " + jPanel5.getSize().height);
         listPanel.revalidate();
-    }
-    /*********************************/
-    
-    public void addInfoPane(String name, String type, String date) {
-        listPanel.add(new InfoReqBoxCard(name, type, date));
+    }*/
+
+    /**
+     * ******************************
+     */
+    public void addInfoPane(String name, String type, String date, String id) {
+        listPanel.add(new InfoReqBoxCard(name, type, date, id,RC));
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
         listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
@@ -164,7 +168,9 @@ public class RichiestaList extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        RC.DisposeWindow(this);
+        if (RC != null) {
+            RC.DisposeWindow(this);
+        }
     }//GEN-LAST:event_homeButtonActionPerformed
 
     /**
@@ -172,6 +178,7 @@ public class RichiestaList extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         new RichiestaList(null).setVisible(true);
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

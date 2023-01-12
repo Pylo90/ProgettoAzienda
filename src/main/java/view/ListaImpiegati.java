@@ -26,80 +26,46 @@ import view.style.ScrollBarCustom;
  */
 public class ListaImpiegati extends javax.swing.JFrame implements DocumentListener {
 
+    OrariStipendiControl OSC;
+    RichiesteControl RC;
+    AssumiLicenziaControl ALC;
+    MalattiaControl MC;
+    StraordinariControl SC;
     int cardCount;
     boolean searchFieldPlaceholder;
     ArrayList<InfoBoxCard> infoBoxList;
 
-    public ListaImpiegati(OrariStipendiControl OSC) {
-
-        this.OSC = OSC;
+    public ListaImpiegati(Object controller, ResultSet rs) {
+        if (controller instanceof OrariStipendiControl) {
+            this.OSC = (OrariStipendiControl) controller;
+        }
+        if (controller instanceof RichiesteControl) {
+            this.RC = (RichiesteControl) controller;
+        }
+        if (controller instanceof AssumiLicenziaControl) {
+            this.ALC = (AssumiLicenziaControl) controller;
+        }
+        if (controller instanceof MalattiaControl) {
+            this.MC = (MalattiaControl) controller;
+        }
+        if (controller instanceof StraordinariControl) {
+            this.SC = (StraordinariControl) controller;
+        }
         setClickable(true);
         initComponents();
         searchField.getDocument().addDocumentListener(this);
-       
         cardCount = 0;
         infoBoxList = new ArrayList<>();
-        
-        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;" );
+        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
+        searchFieldPlaceholder = true;
+        mainPanel.requestFocus();
         try {
-            while(rs.next()){
-                addInfoPane (rs.getString("nome"),rs.getString("cognome"), null, valueOf(rs.getInt("livello")));
+            while (rs.next()) {
+                addInfoPane(rs.getString("nome"), rs.getString("cognome"), null, valueOf(rs.getInt("livello")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ListaImpiegati.class.getName()).log(Level.SEVERE, null, ex);
         }
-        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
-        searchFieldPlaceholder = true;
-        mainPanel.requestFocus();
-    }
-
-    public ListaImpiegati(RichiesteControl RC) {
-
-        this.RC = RC;
-        initComponents();
-        
-        setClickable(true);
-        cardCount = 0;
-        infoBoxList = new ArrayList<>();
-        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
-        searchFieldPlaceholder = true;
-        mainPanel.requestFocus();
-    }
-
-    public ListaImpiegati(AssumiLicenziaControl ALC) {
-
-        this.ALC = ALC;
-        initComponents();
-        setClickable(true);
-        cardCount = 0;
-        infoBoxList = new ArrayList<>();
-        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
-        searchFieldPlaceholder = true;
-        mainPanel.requestFocus();
-    }
-    
-    public ListaImpiegati(MalattiaControl MC) {
-
-        this.MC = MC;
-        initComponents();
-        setClickable(true);
-        cardCount = 0;
-        infoBoxList = new ArrayList<>();
-        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
-        searchFieldPlaceholder = true;
-        mainPanel.requestFocus();
-    }
-    
-    public ListaImpiegati(StraordinariControl SC) {
-
-        this.SC = SC;
-        initComponents();
-        setClickable(true);
-        cardCount = 0;
-        infoBoxList = new ArrayList<>();
-        listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
-        searchFieldPlaceholder = true;
-        mainPanel.requestFocus();
     }
 
     public void addInfoPane(String name, String surname, Image propic, String level) {
@@ -113,15 +79,17 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         listPanel.revalidate();
     }
 
-    private void adaptListPanel(){
+    private void adaptListPanel() {
         int count = 0;
-        for(int i = 0; i < infoBoxList.size(); i++) {
-            if(infoBoxList.get(i).isVisible())
+        for (int i = 0; i < infoBoxList.size(); i++) {
+            if (infoBoxList.get(i).isVisible()) {
                 count++;
+            }
         }
         listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, count * 123));
         listPanel.revalidate();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -314,10 +282,10 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         }
     }//GEN-LAST:event_searchFieldFocusLost
 
-    
     @Override
-    public void changedUpdate(DocumentEvent e) {}
-    
+    public void changedUpdate(DocumentEvent e) {
+    }
+
     @Override
     public void removeUpdate(DocumentEvent e) {
         String comName;
@@ -327,22 +295,25 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
             comName = infoBoxList.get(i).getNameField().getText().toLowerCase() + " " + infoBoxList.get(i).getSurnameField().getText().toLowerCase(); //Nome Cognome
             comNameRev = infoBoxList.get(i).getSurnameField().getText().toLowerCase() + " " + infoBoxList.get(i).getNameField().getText().toLowerCase(); //Cognome Nome
             searchText = searchField.getText().toLowerCase();
-            if(!searchText.equals("") && !searchFieldPlaceholder && !(comName.startsWith(searchText)) && !(comNameRev.startsWith(searchText)))
+            if (!searchText.equals("") && !searchFieldPlaceholder && !(comName.startsWith(searchText)) && !(comNameRev.startsWith(searchText))) {
                 infoBoxList.get(i).setVisible(false);
-            else
+            } else {
                 infoBoxList.get(i).setVisible(true);
+            }
         }
         adaptListPanel();
     }
-    
+
     @Override
     public void insertUpdate(DocumentEvent e) {
         removeUpdate(e);
     }
-    
-    /**TEST MAIN**/
+
+    /**
+     * TEST MAIN*
+     */
     public static void main(String args[]) {
-        new ListaImpiegati(new OrariStipendiControl()).setVisible(true);
+        new ListaImpiegati(null, null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -362,12 +333,6 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
 
-    OrariStipendiControl OSC;
-    RichiesteControl RC;
-    AssumiLicenziaControl ALC;
-    MalattiaControl MC;
-    StraordinariControl SC;
-
     private boolean clickable;
 
     public boolean isClickable() {
@@ -377,6 +342,5 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     public void setClickable(boolean clickable) {
         this.clickable = clickable;
     }
-    
 
 }

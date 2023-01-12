@@ -4,7 +4,9 @@
  */
 package controller;
 
+import java.sql.ResultSet;
 import javax.swing.JFrame;
+import misc.DBMSBoundary;
 import view.HomepageDatore;
 import view.ListaImpiegati;
 import misc.Utente;
@@ -29,15 +31,15 @@ public class StraordinariControl {
     }
     
     public void AffidaStraordinariButtonPressed(HomepageDatore HPD) {
-        //prendi la lista dal dbms
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
     public void AffidaStraordinariButtonPressed(HomepageAmministratore HPA) {
-        //prendi la lista dal dbms
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPA.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);

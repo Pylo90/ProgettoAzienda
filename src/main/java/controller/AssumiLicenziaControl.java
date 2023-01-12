@@ -42,8 +42,8 @@ public class AssumiLicenziaControl {
 
     public void ModificaInfoImpiegatoButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
-        //prendi la lista dal dbms
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
@@ -51,8 +51,8 @@ public class AssumiLicenziaControl {
 
     public void ModificaInfoImpiegatoButtonPressed(HomepageAmministratore HPA) {
         this.HPA = HPA;
-        //prendi la lista dal dbms
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
@@ -172,8 +172,8 @@ public class AssumiLicenziaControl {
 
     public void LicenziaButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
-        //prendi la lista degli impiegati dal dbms
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);

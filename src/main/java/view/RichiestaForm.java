@@ -14,7 +14,7 @@ public class RichiestaForm extends javax.swing.JFrame {
     /**
      * Creates new form RichiestaFrom
      */
-    public RichiestaForm() {
+    public RichiestaForm(String nome,String cognome, String tipo, String scadenza, String testo) {
         initComponents();
     }
 
@@ -208,7 +208,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RichiestaForm().setVisible(true);
+                new RichiestaForm("prova","prova","prova","prova","prova").setVisible(true);
             }
         });
     }

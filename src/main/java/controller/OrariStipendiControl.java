@@ -153,16 +153,16 @@ public void ConsultaStipendioButtonPressed(HomepageAmministratore HP) {
 
     public void ConsultaStipendiImpiegatiButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
-        //consulta il dbms per la lista degli impiegati
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
     public void ConsultaStipendiImpiegatiButtonPressed(HomepageAmministratore HPA) {
         this.HPA = HPA;
-        //consulta il dbms per la lista degli impiegati
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPA.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
@@ -170,16 +170,16 @@ public void ConsultaStipendioButtonPressed(HomepageAmministratore HP) {
 
     public void ConsultaOrariImpiegatiButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
-        //consulta il dbms per la lista degli impiegati
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
     public void ConsultaOrariImpiegatiButtonPressed(HomepageAmministratore HPA) {
         this.HPA = HPA;
-        //consulta il dbms per la lista degli impiegati
-        JFrame ListaImpiegati = new ListaImpiegati(this);
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
         HPA.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
