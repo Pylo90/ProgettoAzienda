@@ -524,7 +524,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (isClickable()) {
             RicC = new RichiesteControl();
-            RicC.ConsultaListaButtonPressed(this);
+            RicC.ConsultaListaRichiesteButtonPressed(this);
         }
     }//GEN-LAST:event_notificationButtonActionPerformed
 
