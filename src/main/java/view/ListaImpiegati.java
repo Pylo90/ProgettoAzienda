@@ -9,9 +9,15 @@ import controller.StraordinariControl;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
+import static java.lang.String.valueOf;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import misc.DBMSBoundary;
 import view.style.ScrollBarCustom;
 
 /**
@@ -33,15 +39,15 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
        
         cardCount = 0;
         infoBoxList = new ArrayList<>();
-        /**********TEST************
-        addInfoPane("Alberto", "Cocco", null, "1");
-        addInfoPane("Giovanni", "Pron", null, "3");
-        addInfoPane("Piero", "Sis", null, "1");
-        addInfoPane("Federico", "Amblubalub", null, "1");
-        addInfoPane("Alberto", "Coccolunghissimo", null, "2");
-        addInfoPane("Alessia", "Peppino", null, "3");
-        addInfoPane("Giuseppe", "Pisciazza", null, "2");
-        **************************/
+        
+        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;" );
+        try {
+            while(rs.next()){
+                addInfoPane (rs.getString("nome"),rs.getString("cognome"), null, valueOf(rs.getInt("livello")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ListaImpiegati.class.getName()).log(Level.SEVERE, null, ex);
+        }
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         searchFieldPlaceholder = true;
         mainPanel.requestFocus();

@@ -106,13 +106,13 @@ public class AssumiLicenziaControl {
             Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String matricola =this.generateMatricola(UT.getLivello(), number);
+        String matricola =this.generateMatricola(livello, number);
 
         long PINtemporaneo = this.generatePIN(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
 
         
-        this.sendPinToMail(PINtemporaneo, UT.getMail());
+        this.sendPinToMail(PINtemporaneo, mail);
         DBMS.updateQuery("insert into impiegato values('"
                 + matricola + "','"
                 + surname + "',"

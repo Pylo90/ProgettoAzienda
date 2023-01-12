@@ -47,7 +47,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
         propic = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 248, 238));
+        setBackground(new java.awt.Color(219, 213, 205));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(1201, 113));
         setName(""); // NOI18N
@@ -103,13 +103,11 @@ public class InfoBoxCard extends javax.swing.JPanel {
         add(jTextField4);
         jTextField4.setBounds(610, 40, 120, 40);
 
-        propic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image-placeholder-105x105.png"))); // NOI18N
+        propic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePlaceholder.png"))); // NOI18N
         add(propic);
-        propic.setBounds(1090, 0, 105, 110);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/infoBox-0.75.png"))); // NOI18N
+        propic.setBounds(1090, 2, 105, 105);
         add(jLabel1);
-        jLabel1.setBounds(0, 0, 1200, 113);
+        jLabel1.setBounds(0, 0, 1200, 110);
     }// </editor-fold>//GEN-END:initComponents
     
     /*UTILIZZARE QUESTO METODO PER GESTIRE IL CLICK SULL'IMPIEGATO DALLA LISTA*/
