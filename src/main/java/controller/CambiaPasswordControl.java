@@ -34,11 +34,7 @@ public class CambiaPasswordControl {
         ModificaPassword.setVisible(true);
         ModificaPassword.setAlwaysOnTop(true);
     }
-    
-    public void DisposeWindow(JFrame finestra) {
-        finestra.dispose();
-        HPI.setClickable(true);
-    }
+
 
     public void CPButtonPressed(HomepageAmministratore HPA) {
         this.HPA = HPA;
