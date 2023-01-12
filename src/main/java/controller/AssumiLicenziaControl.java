@@ -192,7 +192,7 @@ public class AssumiLicenziaControl {
     }
     
     public void verifyMail(String mail, AssumiImpiegatoBoundary AIB){
-        if((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com")){
+        if(!((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com"))){
             Errore e = new Errore("mail errata", this);
             AIB.setClickable(false);
             e.setVisible(true);
