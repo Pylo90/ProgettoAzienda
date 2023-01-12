@@ -1,9 +1,14 @@
 package misc;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -58,15 +63,34 @@ public class DBMSBoundary {
         }
     }
     
-    /*      TEST       */
-    public static void main(String[] args) {
-        ResultSet rs = DBMSBoundary.getQuery("SELECT * FROM servizio");
+    public static void updatePropic(String matricola, FileInputStream image) {
+        ResultSet rs = getQuery("SELECT COUNT(matricola) FROM Impiegato WHERE matricola = " + matricola);
         try {
-            while(rs.next()) {
-                System.out.println(rs.getDouble("paga_oraria"));
+            rs.next();
+            if(rs.getInt(1) == 0) {
+                return;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            return;
+        }
+        
+        try {
+            PreparedStatement ps = con.prepareStatement("UPDATE Impiegato SET propic = ? WHERE matricola = ?");
+            ps.setBinaryStream(1, image);
+            ps.setString(2, matricola);
+            ps.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    /*********TEST**********/
+    public static void main(String[] args) {
+        try {
+            updatePropic("123457", new FileInputStream("D:\\Desktop\\UseCaseDiagram.asta"));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DBMSBoundary.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
