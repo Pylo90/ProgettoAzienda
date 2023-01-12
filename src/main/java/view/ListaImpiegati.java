@@ -61,15 +61,15 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         mainPanel.requestFocus();
         try {
             while (rs.next()) {
-                addInfoPane(rs.getString("nome"), rs.getString("cognome"), null, valueOf(rs.getInt("livello")));
+                addInfoPane(controller, rs);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ListaImpiegati.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void addInfoPane(String name, String surname, Image propic, String level) {
-        InfoBoxCard infoBox = new InfoBoxCard(name, surname, propic, level);
+    public void addInfoPane(Object controller, ResultSet rs) {    
+        InfoBoxCard infoBox = new InfoBoxCard(controller,rs);
         infoBoxList.add(infoBox);
         listPanel.add(infoBox);
         cardCount++;

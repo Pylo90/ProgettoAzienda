@@ -1,7 +1,12 @@
 package view.style;
 
+import controller.RichiesteControl;
 import java.awt.Image;
 import java.io.FileInputStream;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -15,19 +20,25 @@ public class InfoBoxCard extends javax.swing.JPanel {
     /**
      * Creates new form infoBoxCard
      */
-    public InfoBoxCard() {
-        initComponents();
-    }
+
     
-    public InfoBoxCard(String name, String surname, Image propic, String level) {
+    Object controller = null;
+    
+    public InfoBoxCard(Object controller, ResultSet rs) {
         initComponents();
-        nameField.setText(name);
-        surnameField.setText(surname);
-        levelField.setText(level);
-        /*******GESTIONE IMMAGINE - DA ATTIVARE*******/
-        //propic = propic.getScaledInstance(105, 105, Image.SCALE_DEFAULT);
-        //this.propic.setIcon(new ImageIcon(propic));
-        /*********************************************/
+        this.controller = controller;
+        try {
+            nameField.setText(rs.getString("nome"));
+            surnameField.setText(rs.getString("cognome"));
+            levelField.setText(rs.getString("livello"));
+            /*******GESTIONE IMMAGINE - DA ATTIVARE*******/
+            //propic = propic.getScaledInstance(105, 105, Image.SCALE_DEFAULT);
+            //this.propic.setIcon(new ImageIcon(propic));
+            /*********************************************/
+        } catch (SQLException ex) {
+            Logger.getLogger(InfoBoxCard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -112,7 +123,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
     
     /*UTILIZZARE QUESTO METODO PER GESTIRE IL CLICK SULL'IMPIEGATO DALLA LISTA*/
     private void useThisToHandleClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_useThisToHandleClick
-        // ROBA DA IMPLEMENTARE QUANDO SI PREME LA CARD
+        System.out.println("culo");
     }//GEN-LAST:event_useThisToHandleClick
 
 

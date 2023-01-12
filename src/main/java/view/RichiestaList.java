@@ -3,6 +3,10 @@ package view;
 import view.style.InfoReqBoxCard;
 import controller.RichiesteControl;
 import java.awt.Dimension;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import view.style.ScrollBarCustom;
 
 /*
@@ -17,13 +21,20 @@ public class RichiestaList extends javax.swing.JFrame {
 
     int cardCount;
 
-    public RichiestaList(RichiesteControl RC) {
+    public RichiestaList(RichiesteControl RC, ResultSet rs) {
 
         this.RC = RC;
 
         initComponents();
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
+        try {
+            if (rs.next()){
+                addInfoPane(RC,rs);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RichiestaList.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -41,8 +52,9 @@ public class RichiestaList extends javax.swing.JFrame {
     /**
      * ******************************
      */
-    public void addInfoPane(String name, String type, String date, String id) {
-        listPanel.add(new InfoReqBoxCard(name, type, date, id,RC));
+    public void addInfoPane(RichiesteControl RC, ResultSet rs) {
+        InfoReqBoxCard infoBox= new InfoReqBoxCard(RC, rs);
+        listPanel.add(infoBox);
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
         listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
@@ -177,7 +189,7 @@ public class RichiestaList extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new RichiestaList(null).setVisible(true);
+        new RichiestaList(null,null).setVisible(true);
 
     }
 

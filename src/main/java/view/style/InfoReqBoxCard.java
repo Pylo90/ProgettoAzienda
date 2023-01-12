@@ -1,6 +1,10 @@
 package view.style;
 
 import controller.RichiesteControl;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 /**
@@ -12,21 +16,22 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     /**
      * Creates new form infoBoxCard
      */
-    
-    String id = null;
+    ResultSet rs;
     RichiesteControl RC = null;
-    
-    public InfoReqBoxCard() {
+
+    public InfoReqBoxCard(RichiesteControl RC, ResultSet rs) {
         initComponents();
-    }
-    
-    public InfoReqBoxCard(String name, String type, String date, String id, RichiesteControl RC) {
-        initComponents();        
-        nameField.setText(name);
-        typeField.setText(type);
-        dateField.setText(date);
-        this.id = id;
-        this.RC= RC;
+        this.RC = RC;
+        try {
+            this.rs = rs;
+            nameField.setText(rs.getString("nome") + " " + rs.getString("cognome"));
+            typeField.setText(rs.getString("livello"));
+            dateField.setText(rs.getString("data_scadenza"));
+        } catch (SQLException ex) {
+            Logger.getLogger(InfoReqBoxCard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
     }
 
     /**
@@ -128,7 +133,7 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        
+        RC.showRichiesta(rs);
     }//GEN-LAST:event_selectButtonActionPerformed
 
 
@@ -153,5 +158,5 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     public JTextField getTypeField() {
         return typeField;
     }
-    
+
 }

@@ -1,10 +1,14 @@
 package view;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Monica Salluzzo
@@ -14,8 +18,17 @@ public class RichiestaForm extends javax.swing.JFrame {
     /**
      * Creates new form RichiestaFrom
      */
-    public RichiestaForm(String nome,String cognome, String tipo, String scadenza, String testo) {
+    public RichiestaForm(ResultSet rs) {
+        try {
+            jLabel1.setText("mittente: " + rs.getString("nome") + " " + rs.getString("cognome"));
+            jLabel2.setText("Tipo di richiesta: " + rs.getString("tipo"));
+            jLabel3.setText("Scadenza: " + rs.getString("data_scadenza"));
+        } catch (SQLException ex) {
+            Logger.getLogger(RichiestaForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         initComponents();
+
     }
 
     /**
@@ -92,6 +105,11 @@ public class RichiestaForm extends javax.swing.JFrame {
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setIconTextGap(0);
         jButton4.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -177,6 +195,10 @@ public class RichiestaForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,7 +230,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RichiestaForm("prova","prova","prova","prova","prova").setVisible(true);
+                new RichiestaForm(null);
             }
         });
     }

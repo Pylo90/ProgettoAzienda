@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import misc.DBMSBoundary;
+import misc.Utente;
 import view.CalendarioInterattivo;
 import view.CongedoForm;
 import view.HomepageAmministratore;
@@ -110,7 +111,8 @@ public class RichiesteControl {
             this.HPD = (HomepageDatore) homepage;
             this.HPD.setClickable(false);
         }
-        RL = new RichiestaList(this);
+        ResultSet rs = DBMSBoundary.getQuery("select * from richiesta where richiesta.dest_matricola = "+ Utente.getMatricola() +");");
+        RL = new RichiestaList(this,rs);
         RL.setVisible(true);
         RL.setAlwaysOnTop(true);
     }
@@ -164,6 +166,9 @@ public class RichiesteControl {
         LI = new ListaImpiegati(this, rs);
         LI.setVisible(true);
         LI.setAlwaysOnTop(true);
+    }
+    public void showRichiesta(ResultSet rs){
+        RichiestaForm RF = new RichiestaForm(rs);
     }
     
 }
