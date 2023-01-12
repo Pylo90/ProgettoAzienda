@@ -83,11 +83,14 @@ public class Notifica extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("NOTIFICA");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(219, 24, 156, 48);
 
+        jTextField1.setBackground(new java.awt.Color(219, 213, 205));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setText("testo notifica");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +101,7 @@ public class Notifica extends javax.swing.JFrame {
         jTextField1.setBounds(230, 180, 130, 33);
 
         ConfirmButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton2.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         ConfirmButton2.setText("Conferma");
         ConfirmButton2.setAlignmentY(0.0F);

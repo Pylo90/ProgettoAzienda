@@ -27,9 +27,10 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     public ListaImpiegati(OrariStipendiControl OSC) {
 
         this.OSC = OSC;
+        setClickable(true);
         initComponents();
         searchField.getDocument().addDocumentListener(this);
-        // setClickable(true);
+       
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         /**********TEST************
@@ -50,7 +51,8 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
         this.RC = RC;
         initComponents();
-        // setClickable(true);
+        
+        setClickable(true);
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -62,7 +64,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
         this.ALC = ALC;
         initComponents();
-        // setClickable(true);
+        setClickable(true);
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -74,7 +76,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
         this.MC = MC;
         initComponents();
-        // setClickable(true);
+        setClickable(true);
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -86,7 +88,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
         this.SC = SC;
         initComponents();
-        // setClickable(true);
+        setClickable(true);
         cardCount = 0;
         infoBoxList = new ArrayList<>();
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -174,6 +176,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         jTextPane1.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane1.setBorder(null);
         jTextPane1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextPane1.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane1.setText("Lista Impiegati");
         jTextPane1.setFocusable(false);
         jScrollPane1.setViewportView(jTextPane1);
@@ -190,7 +193,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         jPanel3.setBackground(new java.awt.Color(255, 248, 238));
         jPanel3.setLayout(null);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cercaIcon.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SearchIcon.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel3.add(jLabel3);
         jLabel3.setBounds(20, 20, 70, 60);
@@ -210,8 +213,6 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         });
         jPanel3.add(searchField);
         searchField.setBounds(100, 10, 230, 80);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cercaBox.png"))); // NOI18N
         jPanel3.add(jLabel2);
         jLabel2.setBounds(0, 0, 370, 100);
 
@@ -281,13 +282,13 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
             RC.DisposeWindow(this);
         }
         if (isClickable() && (this.ALC != null)) {
-            //ALC.DisposeWindow(this);
+            ALC.DisposeWindow(this);
         }
         if (isClickable() && (this.MC != null)) {
-            //MC.DisposeWindow(this);
+            MC.DisposeWindow(this);
         }
         if (isClickable() && (this.SC != null)) {
-            //SC.DisposeWindow(this);
+            SC.DisposeWindow(this);
         }
     }//GEN-LAST:event_homeButtonActionPerformed
 

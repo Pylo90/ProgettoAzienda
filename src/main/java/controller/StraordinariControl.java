@@ -10,6 +10,7 @@ import view.ListaImpiegati;
 import misc.Utente;
 import view.CalendarioInterattivo;
 import view.CalendarioOreInterattivo;
+import view.HomepageAmministratore;
 
 /**
  *
@@ -18,6 +19,7 @@ import view.CalendarioOreInterattivo;
 public class StraordinariControl {
     
     HomepageDatore HPD;
+    HomepageAmministratore HPA;
     ListaImpiegati LI;
     Utente UT;
     CalendarioInterattivo CI;
@@ -33,6 +35,13 @@ public class StraordinariControl {
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
+    public void AffidaStraordinariButtonPressed(HomepageAmministratore HPA) {
+        //prendi la lista dal dbms
+        JFrame ListaImpiegati = new ListaImpiegati(this);
+        HPA.setClickable(false);
+        ListaImpiegati.setVisible(true);
+        ListaImpiegati.setAlwaysOnTop(true);
+    }
     
     public void workerSelected(ListaImpiegati LI, Utente UT) {
         this.LI = LI;
@@ -45,7 +54,7 @@ public class StraordinariControl {
     public void daySelected(CalendarioInterattivo CI, Utente UT, int giorno) {
         this.CI = CI;
         CalendarioOreInterattivo c = new CalendarioOreInterattivo(this, UT, giorno, false); 
-        CI.setClickable(false);
+        DisposeWindow(CI);
         c.setVisible(true);
         c.setAlwaysOnTop(true);
     }
@@ -60,8 +69,10 @@ public class StraordinariControl {
         // manda inizio e fine straordinario nel dbms
     }
     
-    public void disposeWindow(JFrame finestra) {
+    public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
-        HPD.setClickable(true);
+        if(HPA!=null) HPA.setClickable(true);
+        if(HPD!=null) HPD.setClickable(true);
+
     }
 }

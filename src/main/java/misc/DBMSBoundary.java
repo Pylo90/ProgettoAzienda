@@ -27,10 +27,11 @@ public class DBMSBoundary {
     private static Connection getConnection() throws SQLException {
         if (con == null) {
             String connectionString = "jdbc:mysql://" + DBMSBoundary.IP + "/" + DBMSBoundary.NAME;
-            Connection con = DriverManager.getConnection(connectionString, DBMSBoundary.UNAME, DBMSBoundary.PSW);
+            con = DriverManager.getConnection(connectionString, DBMSBoundary.UNAME, DBMSBoundary.PSW);
         }
         return con;
     }
+
     
     /*      METODO DA ESEGUIRE PER QUERY CON RITORNO        */
     public static ResultSet getQuery(String query) {

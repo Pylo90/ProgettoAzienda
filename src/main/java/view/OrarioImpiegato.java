@@ -96,158 +96,167 @@ public class OrarioImpiegato extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Impiegato Selezionato: ");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Matricola:");
 
         jLabel3.setText("jLabel2");
 
         LUNLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        LUNLabel.setForeground(new java.awt.Color(0, 0, 0));
         LUNLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LUNLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        LUNLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         LUNLabel.setText("LUN");
         LUNLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         MARLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        MARLabel.setForeground(new java.awt.Color(0, 0, 0));
         MARLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        MARLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        MARLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         MARLabel.setText("MAR");
         MARLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         MERLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        MERLabel.setForeground(new java.awt.Color(0, 0, 0));
         MERLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        MERLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        MERLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         MERLabel.setText("MER");
         MERLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         GIOLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        GIOLabel.setForeground(new java.awt.Color(0, 0, 0));
         GIOLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        GIOLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        GIOLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         GIOLabel.setText("GIO");
         GIOLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         VENLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        VENLabel.setForeground(new java.awt.Color(0, 0, 0));
         VENLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        VENLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        VENLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         VENLabel.setText("VEN");
         VENLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         SABLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        SABLabel.setForeground(new java.awt.Color(0, 0, 0));
         SABLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        SABLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        SABLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         SABLabel.setText("SAB");
         SABLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         DOMLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        DOMLabel.setForeground(new java.awt.Color(0, 0, 0));
         DOMLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        DOMLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        DOMLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         DOMLabel.setText("DOM");
         DOMLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label10.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label20.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label30.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label30.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label21.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label31.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label31.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label22.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label32.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label32.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label23.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label33.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label33.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label24.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label34.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label34.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label34.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label14.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label15.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label35.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label35.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label35.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label25.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label25.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label36.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label36.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label36.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label26.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label26.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         Label16.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Label16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Label16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
+        Label16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         Label16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout Label37Layout = new javax.swing.GroupLayout(Label37);

@@ -83,6 +83,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         jTextPane1.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane1.setBorder(null);
         jTextPane1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextPane1.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane1.setText("Recupera password");
         jTextPane1.setFocusable(false);
         jScrollPane1.setViewportView(jTextPane1);
@@ -101,6 +102,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         jTextPane6.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane6.setBorder(null);
         jTextPane6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextPane6.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane6.setText("Nome:");
         jTextPane6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextPane6.setFocusable(false);
@@ -112,6 +114,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         jTextPane7.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane7.setBorder(null);
         jTextPane7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextPane7.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane7.setText("Cognome:");
         jTextPane7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextPane7.setFocusable(false);
@@ -124,6 +127,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         jTextPane8.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane8.setBorder(null);
         jTextPane8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextPane8.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane8.setText("Matricola:");
         jTextPane8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextPane8.setFocusable(false);
@@ -135,6 +139,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         jTextPane9.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane9.setBorder(null);
         jTextPane9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextPane9.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane9.setText("Pin:");
         jTextPane9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextPane9.setFocusable(false);
@@ -206,6 +211,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         jPanel2.add(jPanel3, new java.awt.GridBagConstraints());
 
         confirmButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        confirmButton.setForeground(new java.awt.Color(255, 255, 255));
         confirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         confirmButton.setText("Conferma");
         confirmButton.setBorder(null);

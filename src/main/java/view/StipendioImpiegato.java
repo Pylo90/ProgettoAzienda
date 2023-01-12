@@ -77,46 +77,59 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Impiegato Selezionato: ");
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel6.setBackground(new java.awt.Color(255, 248, 238));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Stipendio 104");
 
         jLabel16.setBackground(new java.awt.Color(255, 248, 238));
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("+1200.00€");
 
         jLabel7.setBackground(new java.awt.Color(255, 248, 238));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Stipendio Malattia");
 
         jLabel8.setBackground(new java.awt.Color(255, 248, 238));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Stipendio Congedo Parentale");
 
         jLabel9.setBackground(new java.awt.Color(255, 248, 238));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("+200.00€");
 
         jLabel10.setBackground(new java.awt.Color(255, 248, 238));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("+200.00€");
 
         jLabel11.setBackground(new java.awt.Color(255, 248, 238));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("+200.00€");
 
         jLabel12.setBackground(new java.awt.Color(255, 248, 238));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("+200.00€");
 
         jLabel13.setBackground(new java.awt.Color(255, 248, 238));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("+200.00€");
 
         jLabel14.setBackground(new java.awt.Color(255, 248, 238));
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("+200.00€");
 
         jSeparator1.setBackground(new java.awt.Color(38, 38, 38));
@@ -124,21 +137,26 @@ public class StipendioImpiegato extends javax.swing.JFrame {
 
         jLabel15.setBackground(new java.awt.Color(255, 248, 238));
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Totale");
 
         jLabel4.setBackground(new java.awt.Color(255, 248, 238));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Stipendio Base");
 
         jLabel2.setBackground(new java.awt.Color(255, 248, 238));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Stipendio Bonus");
 
         jLabel5.setBackground(new java.awt.Color(255, 248, 238));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Stipendio Straordinari");
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Matricola:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

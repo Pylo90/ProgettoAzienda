@@ -82,13 +82,13 @@ public class ScioperoForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 248, 238));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1200, 700));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setPreferredSize(new java.awt.Dimension(1200, 700));
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton1.setText("1");
         jButton1.setContentAreaFilled(false);
@@ -101,6 +101,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton2.setText("2");
         jButton2.setContentAreaFilled(false);
@@ -113,6 +114,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton3.setText("3");
         jButton3.setContentAreaFilled(false);
@@ -125,6 +127,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton4.setText("4");
         jButton4.setContentAreaFilled(false);
@@ -137,6 +140,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton5.setText("5");
         jButton5.setContentAreaFilled(false);
@@ -149,6 +153,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton6.setText("6");
         jButton6.setContentAreaFilled(false);
@@ -161,6 +166,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton7.setText("7");
         jButton7.setContentAreaFilled(false);
@@ -173,6 +179,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton8.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(0, 0, 0));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton8.setText("8");
         jButton8.setContentAreaFilled(false);
@@ -185,6 +192,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton9.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(0, 0, 0));
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton9.setText("9");
         jButton9.setContentAreaFilled(false);
@@ -197,6 +205,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton10.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton10.setForeground(new java.awt.Color(0, 0, 0));
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton10.setText("10");
         jButton10.setContentAreaFilled(false);
@@ -209,6 +218,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton11.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton11.setForeground(new java.awt.Color(0, 0, 0));
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton11.setText("11");
         jButton11.setContentAreaFilled(false);
@@ -221,6 +231,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton12.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton12.setForeground(new java.awt.Color(0, 0, 0));
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton12.setText("12");
         jButton12.setContentAreaFilled(false);
@@ -233,6 +244,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton13.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton13.setForeground(new java.awt.Color(0, 0, 0));
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton13.setText("13");
         jButton13.setContentAreaFilled(false);
@@ -245,6 +257,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton14.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton14.setForeground(new java.awt.Color(0, 0, 0));
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton14.setText("14");
         jButton14.setContentAreaFilled(false);
@@ -257,6 +270,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton15.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton15.setForeground(new java.awt.Color(0, 0, 0));
         jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton15.setText("15");
         jButton15.setContentAreaFilled(false);
@@ -269,6 +283,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton16.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton16.setForeground(new java.awt.Color(0, 0, 0));
         jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton16.setText("16");
         jButton16.setContentAreaFilled(false);
@@ -281,6 +296,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton17.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton17.setForeground(new java.awt.Color(0, 0, 0));
         jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton17.setText("17");
         jButton17.setContentAreaFilled(false);
@@ -293,6 +309,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton18.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton18.setForeground(new java.awt.Color(0, 0, 0));
         jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton18.setText("18");
         jButton18.setContentAreaFilled(false);
@@ -305,6 +322,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton19.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton19.setForeground(new java.awt.Color(0, 0, 0));
         jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton19.setText("19");
         jButton19.setContentAreaFilled(false);
@@ -317,6 +335,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton20.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton20.setForeground(new java.awt.Color(0, 0, 0));
         jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton20.setText("20");
         jButton20.setContentAreaFilled(false);
@@ -329,6 +348,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton21.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton21.setForeground(new java.awt.Color(0, 0, 0));
         jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton21.setText("21");
         jButton21.setContentAreaFilled(false);
@@ -341,6 +361,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton22.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton22.setForeground(new java.awt.Color(0, 0, 0));
         jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton22.setText("22");
         jButton22.setContentAreaFilled(false);
@@ -353,6 +374,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton23.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton23.setForeground(new java.awt.Color(0, 0, 0));
         jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton23.setText("23");
         jButton23.setContentAreaFilled(false);
@@ -365,6 +387,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton24.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton24.setForeground(new java.awt.Color(0, 0, 0));
         jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton24.setText("24");
         jButton24.setContentAreaFilled(false);
@@ -377,6 +400,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton25.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton25.setForeground(new java.awt.Color(0, 0, 0));
         jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton25.setText("25");
         jButton25.setContentAreaFilled(false);
@@ -389,6 +413,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton26.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton26.setForeground(new java.awt.Color(0, 0, 0));
         jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton26.setText("26");
         jButton26.setContentAreaFilled(false);
@@ -401,6 +426,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton27.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton27.setForeground(new java.awt.Color(0, 0, 0));
         jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton27.setText("27");
         jButton27.setContentAreaFilled(false);
@@ -413,6 +439,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton28.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton28.setForeground(new java.awt.Color(0, 0, 0));
         jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton28.setText("28");
         jButton28.setContentAreaFilled(false);
@@ -425,6 +452,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton29.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton29.setForeground(new java.awt.Color(0, 0, 0));
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton29.setText("29");
         jButton29.setContentAreaFilled(false);
@@ -437,6 +465,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton30.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton30.setForeground(new java.awt.Color(0, 0, 0));
         jButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton30.setText("30");
         jButton30.setContentAreaFilled(false);
@@ -449,6 +478,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         jButton31.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton31.setForeground(new java.awt.Color(0, 0, 0));
         jButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton31.setText("31");
         jButton31.setContentAreaFilled(false);
@@ -474,16 +504,19 @@ public class ScioperoForm extends javax.swing.JFrame {
         jTextArea2.setBackground(new java.awt.Color(255, 248, 238));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea2.setRows(5);
         jTextArea2.setText("Quale giorno vuoi \nselezionare?");
         jTextArea2.setBorder(null);
         jScrollPane2.setViewportView(jTextArea2);
 
         MonthLabel.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        MonthLabel.setForeground(new java.awt.Color(0, 0, 0));
         MonthLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MonthLabel.setText("cottu");
 
         nextMonthButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        nextMonthButton.setForeground(new java.awt.Color(0, 0, 0));
         nextMonthButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/40x40ButtonBeige.png"))); // NOI18N
         nextMonthButton.setText("→");
         nextMonthButton.setAlignmentY(0.0F);
@@ -503,6 +536,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         prevMonthButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        prevMonthButton.setForeground(new java.awt.Color(0, 0, 0));
         prevMonthButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/40x40ButtonBeige.png"))); // NOI18N
         prevMonthButton.setText("←");
         prevMonthButton.setAlignmentY(0.0F);
@@ -552,12 +586,14 @@ public class ScioperoForm extends javax.swing.JFrame {
         jTextArea3.setBackground(new java.awt.Color(255, 248, 238));
         jTextArea3.setColumns(20);
         jTextArea3.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jTextArea3.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea3.setRows(5);
         jTextArea3.setText("Liv. servizio per cui indire lo sciopero");
         jTextArea3.setBorder(null);
         jScrollPane3.setViewportView(jTextArea3);
 
         ConfirmButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         ConfirmButton.setText("Conferma");
         ConfirmButton.setAlignmentY(0.0F);
@@ -575,6 +611,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         Level2Button.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        Level2Button.setForeground(new java.awt.Color(0, 0, 0));
         Level2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LivBeige.png"))); // NOI18N
         Level2Button.setText("2");
         Level2Button.setAlignmentY(0.0F);
@@ -592,6 +629,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         Level1Button.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        Level1Button.setForeground(new java.awt.Color(0, 0, 0));
         Level1Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LivBeige.png"))); // NOI18N
         Level1Button.setText("1");
         Level1Button.setAlignmentY(0.0F);
@@ -609,6 +647,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         Level3Button.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        Level3Button.setForeground(new java.awt.Color(0, 0, 0));
         Level3Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LivBeige.png"))); // NOI18N
         Level3Button.setText("3");
         Level3Button.setAlignmentY(0.0F);
@@ -626,6 +665,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         });
 
         Level4Button.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        Level4Button.setForeground(new java.awt.Color(0, 0, 0));
         Level4Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LivBeige.png"))); // NOI18N
         Level4Button.setText("4");
         Level4Button.setAlignmentY(0.0F);

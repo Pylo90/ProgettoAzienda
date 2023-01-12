@@ -9,6 +9,7 @@ import view.HomepageDatore;
 import view.ListaImpiegati;
 import misc.Utente;
 import misc.DBMSBoundary;
+import view.HomepageAmministratore;
 import view.Notifica;
 
 /**
@@ -18,6 +19,7 @@ import view.Notifica;
 public class MalattiaControl {
     
     HomepageDatore HPD;
+    HomepageAmministratore HPA;
     DBMSBoundary DBMS;
     ListaImpiegati LI;
     Utente UT;
@@ -32,6 +34,14 @@ public class MalattiaControl {
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
+    public void InserimentoMalattiaButtonPressed(HomepageAmministratore HPA) {
+        //prendi la lista dal dbms
+        JFrame ListaImpiegati = new ListaImpiegati(this);
+        HPA.setClickable(false);
+        ListaImpiegati.setVisible(true);
+        ListaImpiegati.setAlwaysOnTop(true);
+    }
+    
     
     public void SelectWorker(ListaImpiegati LI, Utente UT) {
         Notifica n = new Notifica("Dato inserito correttamente", this);     //non ho ancora creato Notifica quindi dà errore
@@ -44,5 +54,11 @@ public class MalattiaControl {
     public void SubmitNotice(JFrame finestra) {
         finestra.dispose();
         LI.setClickable(true);
+    }
+    public void DisposeWindow(JFrame finestra) {
+        finestra.dispose();
+        if(HPA!=null) HPA.setClickable(true);
+        if(HPD!=null) HPD.setClickable(true);
+
     }
 }

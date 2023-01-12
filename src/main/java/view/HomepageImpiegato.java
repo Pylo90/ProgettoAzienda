@@ -4,7 +4,10 @@
  */
 package view;
 
-import controller.*;
+import controller.FirmaControl;
+import controller.LoginControl;
+import controller.OrariStipendiControl;
+import controller.RichiesteControl;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -14,7 +17,10 @@ import javax.swing.JLabel;
  */
 public class HomepageImpiegato extends javax.swing.JFrame {
 
-    
+    private FirmaControl FirC ;
+    private RichiesteControl RicC;
+    private OrariStipendiControl OSC;
+
     public HomepageImpiegato() {
         initComponents();
         jLabel4.setVisible(false);
@@ -33,6 +39,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         BankButton = new javax.swing.JButton();
         ScheduleButton = new javax.swing.JButton();
         PasswordButton = new javax.swing.JButton();
@@ -41,26 +48,29 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         Permesso = new javax.swing.JButton();
         Ferie = new javax.swing.JButton();
         CongedoParentale = new javax.swing.JButton();
-        RequestButton3 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         RequestButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        PersonLabel = new javax.swing.JLabel();
-        MailLabel = new javax.swing.JLabel();
-        PhoneLabel = new javax.swing.JLabel();
-        MailText = new javax.swing.JLabel();
-        NomeText = new javax.swing.JLabel();
-        MatricolaText = new javax.swing.JLabel();
-        PhoneText = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        idText = new javax.swing.JTextField();
+        nameText = new javax.swing.JTextField();
+        LogoutButton = new javax.swing.JButton();
+        mailText = new javax.swing.JTextField();
+        phoneText = new javax.swing.JTextField();
+        Cornice = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 248, 238));
         setUndecorated(true);
         getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        jPanel1.setLayout(null);
 
         BankButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         BankButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BankButton.png"))); // NOI18N
@@ -74,7 +84,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                 BankButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(BankButton);
+        jPanel1.add(BankButton);
         BankButton.setBounds(50, 50, 100, 100);
 
         ScheduleButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -89,7 +99,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                 ScheduleButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(ScheduleButton);
+        jPanel1.add(ScheduleButton);
         ScheduleButton.setBounds(50, 170, 100, 100);
 
         PasswordButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -104,7 +114,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                 PasswordButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(PasswordButton);
+        jPanel1.add(PasswordButton);
         PasswordButton.setBounds(50, 290, 100, 100);
 
         NotificationButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -119,7 +129,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                 NotificationButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(NotificationButton);
+        jPanel1.add(NotificationButton);
         NotificationButton.setBounds(50, 410, 100, 100);
 
         RequestButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -134,7 +144,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                 RequestButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(RequestButton);
+        jPanel1.add(RequestButton);
         RequestButton.setBounds(50, 530, 100, 100);
 
         Permesso.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -155,7 +165,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                 PermessoActionPerformed(evt);
             }
         });
-        getContentPane().add(Permesso);
+        jPanel1.add(Permesso);
         Permesso.setBounds(223, 19, 177, 60);
 
         Ferie.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -176,7 +186,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                 FerieActionPerformed(evt);
             }
         });
-        getContentPane().add(Ferie);
+        jPanel1.add(Ferie);
         Ferie.setBounds(223, 72, 177, 60);
 
         CongedoParentale.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -197,50 +207,15 @@ public class HomepageImpiegato extends javax.swing.JFrame {
                 CongedoParentaleActionPerformed(evt);
             }
         });
-        getContentPane().add(CongedoParentale);
+        jPanel1.add(CongedoParentale);
         CongedoParentale.setBounds(223, 125, 340, 60);
-
-        RequestButton3.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        RequestButton3.setForeground(new java.awt.Color(255, 255, 255));
-        RequestButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
-        RequestButton3.setAlignmentY(0.0F);
-        RequestButton3.setBorderPainted(false);
-        RequestButton3.setContentAreaFilled(false);
-        RequestButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        RequestButton3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        RequestButton3.setIconTextGap(0);
-        RequestButton3.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        RequestButton3.setMaximumSize(new java.awt.Dimension(177, 55));
-        RequestButton3.setMinimumSize(new java.awt.Dimension(177, 55));
-        RequestButton3.setPreferredSize(new java.awt.Dimension(177, 55));
-        RequestButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RequestButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(RequestButton3);
-        RequestButton3.setBounds(1304, 572, 60, 60);
-
-        jPanel1.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
-        jPanel1.setLayout(null);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/costinaHomepageImpiegato.png"))); // NOI18N
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(0, 0, 200, 678);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
         jPanel1.add(jLabel4);
         jLabel4.setBounds(200, 0, 450, 220);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/costinaDestra.png"))); // NOI18N
-        jLabel5.setText("NOME AZIENDA");
-        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(1574, 0, 346, 55);
-
         RequestButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        RequestButton1.setForeground(new java.awt.Color(255, 255, 255));
         RequestButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina.png"))); // NOI18N
         RequestButton1.setText("FIRMA RITARDO");
         RequestButton1.setContentAreaFilled(false);
@@ -256,45 +231,101 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         jPanel1.add(RequestButton1);
         RequestButton1.setBounds(0, 942, 350, 100);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(910, 164, 460, 460);
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("ID :");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(860, 740, 53, 48);
 
-        PersonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonIcon.png"))); // NOI18N
-        jPanel1.add(PersonLabel);
-        PersonLabel.setBounds(853, 683, 48, 48);
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MailIcon.png"))); // NOI18N
+        jLabel12.setText(":");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(850, 800, 60, 48);
 
-        MailLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MailIcon.png"))); // NOI18N
-        jPanel1.add(MailLabel);
-        MailLabel.setBounds(853, 791, 48, 48);
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhoneIcon.png"))); // NOI18N
+        jLabel13.setText(":");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(850, 860, 60, 48);
 
-        PhoneLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhoneIcon.png"))); // NOI18N
-        jPanel1.add(PhoneLabel);
-        PhoneLabel.setBounds(853, 845, 48, 48);
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonIcon.png"))); // NOI18N
+        jLabel8.setText(":");
+        jLabel8.setToolTipText("");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(850, 680, 60, 48);
 
-        MailText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
-        MailText.setText(": mail");
-        jPanel1.add(MailText);
-        MailText.setBounds(913, 785, 94, 54);
+        idText.setBackground(new java.awt.Color(255, 248, 238));
+        idText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        idText.setForeground(new java.awt.Color(0, 0, 0));
+        idText.setText(" Lorem ipsum dolor sit gravida.");
+        idText.setBorder(null);
+        idText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        idText.setFocusable(false);
+        jPanel1.add(idText);
+        idText.setBounds(930, 750, 331, 32);
 
-        NomeText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
-        NomeText.setText(": Nome e Cognome");
-        jPanel1.add(NomeText);
-        NomeText.setBounds(913, 677, 344, 54);
+        nameText.setBackground(new java.awt.Color(255, 248, 238));
+        nameText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        nameText.setForeground(new java.awt.Color(0, 0, 0));
+        nameText.setText(" Lorem ipsum dolor sit gravida.");
+        nameText.setBorder(null);
+        nameText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        nameText.setFocusable(false);
+        jPanel1.add(nameText);
+        nameText.setBounds(930, 690, 331, 32);
 
-        MatricolaText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
-        MatricolaText.setText(": Matricola");
-        jPanel1.add(MatricolaText);
-        MatricolaText.setBounds(913, 731, 185, 54);
+        LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
+        LogoutButton.setBorder(null);
+        LogoutButton.setContentAreaFilled(false);
+        LogoutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LogoutButton);
+        LogoutButton.setBounds(1300, 570, 75, 75);
 
-        PhoneText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
-        PhoneText.setText(": mail");
-        jPanel1.add(PhoneText);
-        PhoneText.setBounds(913, 839, 94, 54);
+        mailText.setBackground(new java.awt.Color(255, 248, 238));
+        mailText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        mailText.setForeground(new java.awt.Color(0, 0, 0));
+        mailText.setText(" Lorem ipsum dolor sit gravida.");
+        mailText.setBorder(null);
+        mailText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mailText.setFocusable(false);
+        jPanel1.add(mailText);
+        mailText.setBounds(930, 810, 331, 32);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Alessandra.png"))); // NOI18N
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(910, 164, 460, 460);
+        phoneText.setBackground(new java.awt.Color(255, 248, 238));
+        phoneText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        phoneText.setForeground(new java.awt.Color(0, 0, 0));
+        phoneText.setText(" Lorem ipsum dolor sit gravida.");
+        phoneText.setBorder(null);
+        phoneText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        phoneText.setFocusable(false);
+        jPanel1.add(phoneText);
+        phoneText.setBounds(930, 870, 331, 32);
+
+        Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
+        jPanel1.add(Cornice);
+        Cornice.setBounds(880, 165, 460, 460);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaImpiegato.png"))); // NOI18N
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(0, -10, 200, 690);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaNomeAzienda.png"))); // NOI18N
+        jLabel5.setText("AKKIKUSHI");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(1580, 0, 340, 55);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
@@ -305,6 +336,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void BankButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BankButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            OSC = new OrariStipendiControl();
             OSC.ConsultaStipendioButtonPressed(this);
         }
     }//GEN-LAST:event_BankButtonActionPerformed
@@ -312,6 +344,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void ScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            OSC = new OrariStipendiControl();
             OSC.ConsultaOrarioButtonPressed(this);
         }
     }//GEN-LAST:event_ScheduleButtonActionPerformed
@@ -319,14 +352,15 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void PasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            CPC.CPButtonPressed(this);
+            //CPC.CPButtonPressed(this);
         }
 
     }//GEN-LAST:event_PasswordButtonActionPerformed
 
     private void NotificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotificationButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()){
+        if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.ConsultaListaButtonPressed(this);
         }
     }//GEN-LAST:event_NotificationButtonActionPerformed
@@ -334,21 +368,24 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void RequestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.RichiesteButtonPressed(this);
         }
     }//GEN-LAST:event_RequestButtonActionPerformed
 
     private void RequestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton1ActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
+            FirC = new FirmaControl();
             FirC.firmaRitardoButtonPressed(this);
         }
-        
+
     }//GEN-LAST:event_RequestButton1ActionPerformed
 
     private void PermessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PermessoActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.RichiestaPermessoButtonPressed(this);
         }
     }//GEN-LAST:event_PermessoActionPerformed
@@ -356,21 +393,23 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void FerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FerieActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.RichiestaFerieButtonPressed(this);
         }
     }//GEN-LAST:event_FerieActionPerformed
 
-    private void RequestButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton3ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_RequestButton3ActionPerformed
-
     private void CongedoParentaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CongedoParentaleActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            RicC = new RichiesteControl();
             RicC.RichiestaCongedoParentaleButtonPressed(this);
         }
     }//GEN-LAST:event_CongedoParentaleActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_LogoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -411,34 +450,30 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BankButton;
     private javax.swing.JButton CongedoParentale;
+    private javax.swing.JLabel Cornice;
     private javax.swing.JButton Ferie;
-    private javax.swing.JLabel MailLabel;
-    private javax.swing.JLabel MailText;
-    private javax.swing.JLabel MatricolaText;
-    private javax.swing.JLabel NomeText;
+    private javax.swing.JButton LogoutButton;
     private javax.swing.JButton NotificationButton;
     private javax.swing.JButton PasswordButton;
     private javax.swing.JButton Permesso;
-    private javax.swing.JLabel PersonLabel;
-    private javax.swing.JLabel PhoneLabel;
-    private javax.swing.JLabel PhoneText;
     private javax.swing.JButton RequestButton;
     private javax.swing.JButton RequestButton1;
-    private javax.swing.JButton RequestButton3;
     private javax.swing.JButton ScheduleButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField idText;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField mailText;
+    private javax.swing.JTextField nameText;
+    private javax.swing.JTextField phoneText;
     // End of variables declaration//GEN-END:variables
 
-    private CambiaPasswordControl CPC = new CambiaPasswordControl();
-    private LoginControl AutC = new LoginControl();
-    private FirmaControl FirC = new FirmaControl();
-    private RichiesteControl RicC = new RichiesteControl();
-    private OrariStipendiControl OSC = new OrariStipendiControl();
+//    private CambiaPasswordControl CPC = new CambiaPasswordControl();
     private boolean clickable;
 
     public boolean isClickable() {

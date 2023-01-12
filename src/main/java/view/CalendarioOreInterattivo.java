@@ -6,7 +6,6 @@ package view;
 
 import controller.StraordinariControl;
 import javax.swing.JButton;
-import view.CalendarioInterattivo;
 import misc.Utente;
 
 /**
@@ -105,12 +104,14 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         jTextArea2.setBackground(new java.awt.Color(255, 248, 238));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea2.setRows(5);
         jTextArea2.setText("Quale ora vuoi \nselezionare?");
         jTextArea2.setBorder(null);
         jScrollPane2.setViewportView(jTextArea2);
 
         ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton1.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         ConfirmButton1.setText("Conferma");
         ConfirmButton1.setAlignmentY(0.0F);
@@ -128,7 +129,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         jButton32.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
+        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
         jButton32.setContentAreaFilled(false);
         jButton32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton32.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -139,7 +140,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Turno1Button.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Turno1Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turnBeige.png"))); // NOI18N
+        Turno1Button.setForeground(new java.awt.Color(0, 0, 0));
+        Turno1Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButton.png"))); // NOI18N
         Turno1Button.setText("Turno I");
         Turno1Button.setContentAreaFilled(false);
         Turno1Button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -151,7 +153,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Turno2Button.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Turno2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turnBeige.png"))); // NOI18N
+        Turno2Button.setForeground(new java.awt.Color(0, 0, 0));
+        Turno2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButton.png"))); // NOI18N
         Turno2Button.setText("Turno II");
         Turno2Button.setContentAreaFilled(false);
         Turno2Button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -163,7 +166,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Turno3Button.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Turno3Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turnBeige.png"))); // NOI18N
+        Turno3Button.setForeground(new java.awt.Color(0, 0, 0));
+        Turno3Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButton.png"))); // NOI18N
         Turno3Button.setText("Turno III");
         Turno3Button.setContentAreaFilled(false);
         Turno3Button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -175,7 +179,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Hour1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour1.setForeground(new java.awt.Color(0, 0, 0));
+        Hour1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour1.setText("0:00-1:00");
         Hour1.setContentAreaFilled(false);
         Hour1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -187,7 +192,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Hour2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour2.setForeground(new java.awt.Color(0, 0, 0));
+        Hour2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour2.setContentAreaFilled(false);
         Hour2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Hour2.setLabel("1:00-2:00");
@@ -199,7 +205,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Hour3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour3.setForeground(new java.awt.Color(0, 0, 0));
+        Hour3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour3.setContentAreaFilled(false);
         Hour3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Hour3.setLabel("2:00-3:00");
@@ -211,7 +218,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Hour4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour4.setForeground(new java.awt.Color(0, 0, 0));
+        Hour4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour4.setContentAreaFilled(false);
         Hour4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Hour4.setLabel("3:00-4:00");
@@ -223,7 +231,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Hour5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour5.setForeground(new java.awt.Color(0, 0, 0));
+        Hour5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour5.setText("4:00-5:00");
         Hour5.setContentAreaFilled(false);
         Hour5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -235,7 +244,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Hour6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour6.setForeground(new java.awt.Color(0, 0, 0));
+        Hour6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour6.setText("5:00-6:00");
         Hour6.setContentAreaFilled(false);
         Hour6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -247,7 +257,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Hour7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour7.setForeground(new java.awt.Color(0, 0, 0));
+        Hour7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour7.setText("6:00-7:00");
         Hour7.setContentAreaFilled(false);
         Hour7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -259,7 +270,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         Hour8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Hour8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hourBeige.png"))); // NOI18N
+        Hour8.setForeground(new java.awt.Color(0, 0, 0));
+        Hour8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png"))); // NOI18N
         Hour8.setText("7:00-8:00");
         Hour8.setContentAreaFilled(false);
         Hour8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -271,6 +283,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         });
 
         ConfirmButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton2.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         ConfirmButton2.setText("Annulla");
         ConfirmButton2.setAlignmentY(0.0F);
@@ -394,7 +407,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
-        SC.disposeWindow(this);
+        
+        SC.DisposeWindow(this);
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
@@ -422,7 +436,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
             SC.endingHourSelected(UT, giorno, inizio, fineStraordinario);
         }
         
-        SC.disposeWindow(this);
+        SC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
     private void Turno1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Turno1ButtonActionPerformed
@@ -516,7 +530,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         // TODO add your handling code here:
         CI = new CalendarioInterattivo(SC, UT);
         SC.daySelected(CI, UT, giorno);
-        SC.disposeWindow(this);
+        SC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
     /**
@@ -581,13 +595,13 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     public void setSelectedHour(JButton selectedHour) {
         if (this.selectedHour != null) {
-            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HourBeige.png")));
+            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButton.png")));
             this.selectedHour = selectedHour;
-            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HourRed.png")));
+            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButtonSelezionato.png")));
 
         } else {
             this.selectedHour = selectedHour;
-            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HourRed.png")));
+            this.selectedHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioButtonSelezionato.png")));
 
         }
     }
@@ -598,13 +612,13 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     public void setSelectedTurn(JButton selectedTurn) {
         if (this.selectedTurn != null) {
-            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnBeige.png")));
+            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButton.png")));
             this.selectedTurn = selectedTurn;
-            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnRed.png")));
+            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButtonSelezionato.png")));
 
         } else {
             this.selectedTurn = selectedTurn;
-            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnRed.png")));
+            this.selectedTurn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TurnoButtonSelezionato.png")));
 
         }
     }

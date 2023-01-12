@@ -11,7 +11,7 @@ public class FirmaControl {
     FirmaForm FF;
     RitardoBoundary RB;
 
-    public FirmaControl() {
+    public FirmaControl() {;
     }
 
     public void badgeINButtonPressed() {

@@ -38,21 +38,21 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        impSalaryButton = new javax.swing.JButton();
-        impScheduleButton = new javax.swing.JButton();
+        ImpScheduleButton = new javax.swing.JButton();
+        ImpSalaryButton = new javax.swing.JButton();
         healthButton = new javax.swing.JButton();
         switchButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         straordButton = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        passwordButton = new javax.swing.JButton();
+        notificationButton = new javax.swing.JButton();
         assumiButton = new javax.swing.JButton();
         licenziaButton = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jButton18 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        LogoutButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        Cornice = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -61,7 +61,6 @@ public class HomepageDatore extends javax.swing.JFrame {
         idText = new javax.swing.JTextField();
         mailText = new javax.swing.JTextField();
         phoneText = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -76,39 +75,29 @@ public class HomepageDatore extends javax.swing.JFrame {
         mainPanel.setPreferredSize(new java.awt.Dimension(1920, 1080));
         mainPanel.setLayout(null);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/costinaDestra.png"))); // NOI18N
-        jLabel4.setText("Nome Azienda");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mainPanel.add(jLabel4);
-        jLabel4.setBounds(1574, 0, 346, 55);
-
-        jPanel3.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel3.setLayout(null);
-
-        impSalaryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salaryImpiegatoButton.png"))); // NOI18N
-        impSalaryButton.setBorder(null);
-        impSalaryButton.setContentAreaFilled(false);
-        impSalaryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        impSalaryButton.addActionListener(new java.awt.event.ActionListener() {
+        ImpScheduleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrariImpiegatoButton.png"))); // NOI18N
+        ImpScheduleButton.setBorder(null);
+        ImpScheduleButton.setContentAreaFilled(false);
+        ImpScheduleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ImpScheduleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                impSalaryButtonActionPerformed(evt);
+                ImpScheduleButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(impSalaryButton);
-        impSalaryButton.setBounds(50, 20, 100, 100);
+        mainPanel.add(ImpScheduleButton);
+        ImpScheduleButton.setBounds(1770, 220, 100, 100);
 
-        impScheduleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrariImpiegatoButton.png"))); // NOI18N
-        impScheduleButton.setBorder(null);
-        impScheduleButton.setContentAreaFilled(false);
-        impScheduleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        impScheduleButton.addActionListener(new java.awt.event.ActionListener() {
+        ImpSalaryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SalaryImpiegatoIcon.png"))); // NOI18N
+        ImpSalaryButton.setBorder(null);
+        ImpSalaryButton.setContentAreaFilled(false);
+        ImpSalaryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ImpSalaryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                impScheduleButtonActionPerformed(evt);
+                ImpSalaryButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(impScheduleButton);
-        impScheduleButton.setBounds(50, 150, 100, 100);
+        mainPanel.add(ImpSalaryButton);
+        ImpSalaryButton.setBounds(1770, 100, 100, 100);
 
         healthButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MalattiaButton.png"))); // NOI18N
         healthButton.setBorder(null);
@@ -119,8 +108,8 @@ public class HomepageDatore extends javax.swing.JFrame {
                 healthButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(healthButton);
-        healthButton.setBounds(50, 280, 100, 100);
+        mainPanel.add(healthButton);
+        healthButton.setBounds(1770, 580, 100, 100);
 
         switchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SwitchButton.png"))); // NOI18N
         switchButton.setBorder(null);
@@ -131,8 +120,8 @@ public class HomepageDatore extends javax.swing.JFrame {
                 switchButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(switchButton);
-        switchButton.setBounds(50, 410, 100, 100);
+        mainPanel.add(switchButton);
+        switchButton.setBounds(1770, 700, 100, 100);
 
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EditButton.png"))); // NOI18N
         editButton.setBorder(null);
@@ -143,8 +132,8 @@ public class HomepageDatore extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(editButton);
-        editButton.setBounds(50, 540, 100, 100);
+        mainPanel.add(editButton);
+        editButton.setBounds(1770, 820, 100, 100);
 
         straordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StraordinariButton.png"))); // NOI18N
         straordButton.setBorder(null);
@@ -155,15 +144,34 @@ public class HomepageDatore extends javax.swing.JFrame {
                 straordButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(straordButton);
-        straordButton.setBounds(50, 670, 100, 100);
+        mainPanel.add(straordButton);
+        straordButton.setBounds(1770, 940, 100, 100);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/costinaHomepageImpiegato-flipped.png"))); // NOI18N
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(0, -60, 200, 880);
+        passwordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PasswordButton.png"))); // NOI18N
+        passwordButton.setBorderPainted(false);
+        passwordButton.setContentAreaFilled(false);
+        passwordButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        passwordButton.setFocusable(false);
+        passwordButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordButtonActionPerformed(evt);
+            }
+        });
+        mainPanel.add(passwordButton);
+        passwordButton.setBounds(1770, 340, 100, 107);
 
-        mainPanel.add(jPanel3);
-        jPanel3.setBounds(1720, 55, 200, 819);
+        notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/NotificationButton.png"))); // NOI18N
+        notificationButton.setBorderPainted(false);
+        notificationButton.setContentAreaFilled(false);
+        notificationButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        notificationButton.setFocusable(false);
+        notificationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notificationButtonActionPerformed(evt);
+            }
+        });
+        mainPanel.add(notificationButton);
+        notificationButton.setBounds(1770, 460, 100, 107);
 
         assumiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AssumiButton.png"))); // NOI18N
         assumiButton.setBorder(null);
@@ -176,7 +184,7 @@ public class HomepageDatore extends javax.swing.JFrame {
             }
         });
         mainPanel.add(assumiButton);
-        assumiButton.setBounds(1570, 73, 100, 100);
+        assumiButton.setBounds(1580, 100, 100, 100);
 
         licenziaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LicenziaButton.png"))); // NOI18N
         licenziaButton.setBorder(null);
@@ -189,132 +197,105 @@ public class HomepageDatore extends javax.swing.JFrame {
             }
         });
         mainPanel.add(licenziaButton);
-        licenziaButton.setBounds(1570, 203, 100, 100);
+        licenziaButton.setBounds(1580, 220, 100, 100);
 
-        jPanel4.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel4.setLayout(null);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
-        jPanel4.add(jLabel7);
-        jLabel7.setBounds(0, 0, 460, 460);
-
-        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
-        jButton18.setBorder(null);
-        jButton18.setContentAreaFilled(false);
-        jButton18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
+        LogoutButton.setBorder(null);
+        LogoutButton.setContentAreaFilled(false);
+        LogoutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                LogoutButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton18);
-        jButton18.setBounds(412, 460, 48, 48);
+        mainPanel.add(LogoutButton);
+        LogoutButton.setBounds(1300, 570, 75, 75);
 
-        jPanel5.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel5.setFocusable(false);
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaNomeAzienda.png"))); // NOI18N
+        jLabel4.setText("AKKIKUSHI");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mainPanel.add(jLabel4);
+        jLabel4.setBounds(1580, 0, 340, 55);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaDatore.png"))); // NOI18N
+        mainPanel.add(jLabel5);
+        jLabel5.setBounds(1720, 0, 200, 1080);
+
+        Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
+        mainPanel.add(Cornice);
+        Cornice.setBounds(880, 165, 460, 460);
+        mainPanel.add(jLabel9);
+        jLabel9.setBounds(0, 0, 0, 0);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonIcon.png"))); // NOI18N
         jLabel8.setText(":");
         jLabel8.setToolTipText("");
+        mainPanel.add(jLabel8);
+        jLabel8.setBounds(850, 680, 60, 48);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("ID :");
+        mainPanel.add(jLabel11);
+        jLabel11.setBounds(860, 740, 53, 48);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MailIcon.png"))); // NOI18N
         jLabel12.setText(":");
+        mainPanel.add(jLabel12);
+        jLabel12.setBounds(850, 800, 60, 48);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhoneIcon.png"))); // NOI18N
         jLabel13.setText(":");
+        mainPanel.add(jLabel13);
+        jLabel13.setBounds(850, 860, 60, 48);
 
         nameText.setBackground(new java.awt.Color(255, 248, 238));
         nameText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        nameText.setForeground(new java.awt.Color(0, 0, 0));
         nameText.setText(" Lorem ipsum dolor sit gravida.");
         nameText.setBorder(null);
         nameText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nameText.setFocusable(false);
+        mainPanel.add(nameText);
+        nameText.setBounds(930, 690, 331, 32);
 
         idText.setBackground(new java.awt.Color(255, 248, 238));
         idText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        idText.setForeground(new java.awt.Color(0, 0, 0));
         idText.setText(" Lorem ipsum dolor sit gravida.");
         idText.setBorder(null);
         idText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         idText.setFocusable(false);
+        mainPanel.add(idText);
+        idText.setBounds(930, 750, 331, 32);
 
         mailText.setBackground(new java.awt.Color(255, 248, 238));
         mailText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        mailText.setForeground(new java.awt.Color(0, 0, 0));
         mailText.setText(" Lorem ipsum dolor sit gravida.");
         mailText.setBorder(null);
         mailText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         mailText.setFocusable(false);
+        mainPanel.add(mailText);
+        mailText.setBounds(930, 810, 331, 32);
 
         phoneText.setBackground(new java.awt.Color(255, 248, 238));
         phoneText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        phoneText.setForeground(new java.awt.Color(0, 0, 0));
         phoneText.setText(" Lorem ipsum dolor sit gravida.");
         phoneText.setBorder(null);
         phoneText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         phoneText.setFocusable(false);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(17, 17, 17)
-                                .addComponent(mailText))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(17, 17, 17)
-                                .addComponent(phoneText))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel11)
-                                .addGap(18, 18, 18)
-                                .addComponent(idText)))
-                        .addContainerGap())
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(nameText))))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(mailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        jPanel4.add(jPanel5);
-        jPanel5.setBounds(0, 508, 414, 216);
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagePlaceholder.png"))); // NOI18N
-        jPanel4.add(jLabel9);
-        jLabel9.setBounds(0, 0, 460, 460);
-
-        mainPanel.add(jPanel4);
-        jPanel4.setBounds(647, 225, 0, 0);
+        mainPanel.add(phoneText);
+        phoneText.setBounds(930, 870, 331, 32);
 
         jPanel1.add(mainPanel);
         mainPanel.setBounds(0, 0, 1920, 1080);
@@ -325,17 +306,17 @@ public class HomepageDatore extends javax.swing.JFrame {
         setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void impSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impSalaryButtonActionPerformed
+    private void ImpSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpSalaryButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
             OSC.ConsultaStipendiImpiegatiButtonPressed(this);
-    }//GEN-LAST:event_impSalaryButtonActionPerformed
+    }//GEN-LAST:event_ImpSalaryButtonActionPerformed
     }
-    private void impScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impScheduleButtonActionPerformed
+    private void ImpScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpScheduleButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
             OSC.ConsultaOrariImpiegatiButtonPressed(this);
-    }//GEN-LAST:event_impScheduleButtonActionPerformed
+    }//GEN-LAST:event_ImpScheduleButtonActionPerformed
     }
     private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
         // TODO add your handling code here:
@@ -373,10 +354,18 @@ public class HomepageDatore extends javax.swing.JFrame {
             ALC.LicenziaButtonPressed(this);
     }//GEN-LAST:event_licenziaButtonActionPerformed
     }
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void passwordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordButtonActionPerformed
+
+    private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notificationButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,29 +403,28 @@ public class HomepageDatore extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Cornice;
+    private javax.swing.JButton ImpSalaryButton;
+    private javax.swing.JButton ImpScheduleButton;
+    private javax.swing.JButton LogoutButton;
     private javax.swing.JButton assumiButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton healthButton;
     private javax.swing.JTextField idText;
-    private javax.swing.JButton impSalaryButton;
-    private javax.swing.JButton impScheduleButton;
-    private javax.swing.JButton jButton18;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JButton licenziaButton;
     private javax.swing.JTextField mailText;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField nameText;
+    private javax.swing.JButton notificationButton;
+    private javax.swing.JButton passwordButton;
     private javax.swing.JTextField phoneText;
     private javax.swing.JButton straordButton;
     private javax.swing.JButton switchButton;

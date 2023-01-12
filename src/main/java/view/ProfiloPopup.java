@@ -74,7 +74,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(481, 56, 54, 55);
+        jButton2.setBounds(481, 56, 81, 82);
 
         jScrollPane2.setBackground(new java.awt.Color(255, 248, 238));
         jScrollPane2.setBorder(null);
@@ -90,6 +90,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
         jTextArea2.setBackground(new java.awt.Color(255, 248, 238));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea2.setRows(5);
         jTextArea2.setText("Sicuro di voler licenziare\nquesto impiegato?\n");
         jTextArea2.setBorder(null);
@@ -106,21 +107,26 @@ public class ProfiloPopup extends javax.swing.JFrame {
         jPanel5.setFocusable(false);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonIcon.png"))); // NOI18N
         jLabel8.setText(":");
         jLabel8.setToolTipText("");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("ID :");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("104:");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Livello:");
 
         nameText.setBackground(new java.awt.Color(255, 248, 238));
         nameText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        nameText.setForeground(new java.awt.Color(0, 0, 0));
         nameText.setText(" Lorem ipsum dolor sit gravida.");
         nameText.setBorder(null);
         nameText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -133,6 +139,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
 
         idText.setBackground(new java.awt.Color(255, 248, 238));
         idText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        idText.setForeground(new java.awt.Color(0, 0, 0));
         idText.setText(" Lorem ipsum dolor sit gravida.");
         idText.setBorder(null);
         idText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -145,6 +152,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(255, 248, 238));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setText("Numero");
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +163,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
 
         jTextField2.setBackground(new java.awt.Color(255, 248, 238));
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         jTextField2.setText("Si/No");
         jTextField2.setBorder(null);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -219,12 +228,14 @@ public class ProfiloPopup extends javax.swing.JFrame {
         jPanel5.setBounds(40, 416, 414, 216);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ore Lavorate:");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(40, 620, 220, 70);
 
         idText1.setBackground(new java.awt.Color(255, 248, 238));
         idText1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        idText1.setForeground(new java.awt.Color(0, 0, 0));
         idText1.setText("X");
         idText1.setBorder(null);
         idText1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -238,6 +249,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
         idText1.setBounds(260, 630, 110, 48);
 
         ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ConfirmButton1.setForeground(new java.awt.Color(255, 255, 255));
         ConfirmButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         ConfirmButton1.setText("Conferma");
         ConfirmButton1.setAlignmentY(0.0F);

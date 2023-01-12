@@ -65,11 +65,13 @@ public class ModificaPassword extends javax.swing.JFrame {
         homeButton.setBounds(50, 33, 100, 107);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 65)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Modifica Password");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(280, 6, 538, 88);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Vecchia Password :");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(310, 310, 410, 64);
@@ -87,6 +89,7 @@ public class ModificaPassword extends javax.swing.JFrame {
         jPasswordField1.setBounds(700, 410, 783, 64);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nuova Password :");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(310, 410, 380, 64);
@@ -104,11 +107,13 @@ public class ModificaPassword extends javax.swing.JFrame {
         jTextField1.setBounds(720, 310, 759, 64);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Conferma Nuova Password :");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(310, 500, 620, 64);
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
         jButton2.setText("Conferma");
         jButton2.setAlignmentY(0.0F);
@@ -135,7 +140,7 @@ public class ModificaPassword extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(0, 0, 200, 195);
+        jLabel5.setBounds(0, 0, 200, 200);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

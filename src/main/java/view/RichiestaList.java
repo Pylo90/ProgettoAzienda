@@ -103,6 +103,7 @@ public class RichiestaList extends javax.swing.JFrame {
         jTextPane1.setBackground(new java.awt.Color(255, 248, 238));
         jTextPane1.setBorder(null);
         jTextPane1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jTextPane1.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane1.setText("Lista Richieste");
         jTextPane1.setFocusable(false);
         jScrollPane1.setViewportView(jTextPane1);

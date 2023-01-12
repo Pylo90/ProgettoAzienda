@@ -4,12 +4,14 @@
  */
 package controller;
 
+import java.io.InputStream;
 import java.security.SecureRandom;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import view.HomepageDatore;
 import view.HomepageAmministratore;
 import view.ListaImpiegati;
@@ -68,6 +70,12 @@ public class AssumiLicenziaControl {
         //Manda i dati nel DBMS (in caso spacchetta prima UT)
         ;
     }
+    public void DisposeWindow(JFrame finestra) {
+        finestra.dispose();
+        if(HPA!=null) HPA.setClickable(true);
+        if(HPD!=null) HPD.setClickable(true);
+
+    }
 
     public void assumiButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
@@ -85,7 +93,7 @@ public class AssumiLicenziaControl {
         AssumiImpiegatoBoundary.setAlwaysOnTop(true);
     }
 
-    public void sendData(Utente UT) {
+    public void sendData(String name,String surname,String mail,String passw,String cf,ImageIcon foto, String numero, int livello,boolean disability ) {
         int number = 0;
 
         ResultSet r = DBMS.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
@@ -98,25 +106,27 @@ public class AssumiLicenziaControl {
             Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        UT.setMatricola(this.generateMatricola(UT.getLivello(), number));
+        String matricola =this.generateMatricola(UT.getLivello(), number);
 
         long PINtemporaneo = this.generatePIN(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
 
+        
         this.sendPinToMail(PINtemporaneo, UT.getMail());
         DBMS.updateQuery("insert into impiegato values('"
-                + UT.getMatricola() + "','"
-                + UT.getCognome() + "',"
-                + PINtemporaneo+ ",'"
-                + UT.getPW() + "','"
-                + UT.getNome() + "',"
-                + UT.getLivello() + ",'"
-                + UT.getMail() + "','"
-                + UT.getNumero() + "',"
-                + UT.isDisability() + ","
-                + UT.getFoto() + ","
-                + UT.getLivello() 
-                + ");"); // inserisci impiegato
+                + matricola + "','"
+                + surname + "',"
+                + PINtemporaneo + ",'"
+                + passw + "','"
+                + name + "',"
+                + livello + ",'"
+                + mail + "','"
+                + numero + "',"
+                + disability + ","
+                + null + ","
+                + livello + ");"); // inserisci impiegato
+        
+       
     }
 
     public void disposeWindow(JFrame finestra) {
@@ -191,7 +201,7 @@ public class AssumiLicenziaControl {
     }
     
     public void verifyMail(String mail, ModificaInfoImpiegato MII){
-        if((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com")){
+        if(!((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com"))){
             Errore e = new Errore("mail errata", this);
             MII.setClickable(false);
             e.setVisible(true);

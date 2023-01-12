@@ -39,25 +39,18 @@ public class LoginForm extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        emailField = new javax.swing.JTextField();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextPane7 = new javax.swing.JTextPane();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextPane8 = new javax.swing.JTextPane();
-        matricolaField = new javax.swing.JTextField();
-        passwordField = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
         confermaButton = new javax.swing.JButton();
         forgotButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        emailField = new javax.swing.JTextField();
+        matricolaField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton45 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -69,110 +62,21 @@ public class LoginForm extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         setSize(new java.awt.Dimension(1920, 1080));
-        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setPreferredSize(new java.awt.Dimension(1920, 1080));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.setLayout(null);
 
-        jPanel3.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel3.setPreferredSize(new java.awt.Dimension(911, 245));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Mail:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(464, 417, 103, 64);
 
-        emailField.setBackground(new java.awt.Color(219, 213, 205));
-        emailField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        emailField.setToolTipText("");
-        emailField.setBorder(null);
-
-        jScrollPane6.setBackground(new java.awt.Color(60, 63, 65));
-        jScrollPane6.setBorder(null);
-
-        jTextPane6.setEditable(false);
-        jTextPane6.setBackground(new java.awt.Color(255, 248, 238));
-        jTextPane6.setBorder(null);
-        jTextPane6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextPane6.setText("E-Mail:");
-        jTextPane6.setDoubleBuffered(true);
-        jTextPane6.setFocusable(false);
-        jScrollPane6.setViewportView(jTextPane6);
-
-        jScrollPane7.setBackground(new java.awt.Color(60, 63, 65));
-        jScrollPane7.setBorder(null);
-
-        jTextPane7.setEditable(false);
-        jTextPane7.setBackground(new java.awt.Color(255, 248, 238));
-        jTextPane7.setBorder(null);
-        jTextPane7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextPane7.setText("Password:");
-        jTextPane7.setFocusable(false);
-        jScrollPane7.setViewportView(jTextPane7);
-
-        jScrollPane8.setBackground(new java.awt.Color(60, 63, 65));
-        jScrollPane8.setBorder(null);
-
-        jTextPane8.setEditable(false);
-        jTextPane8.setBackground(new java.awt.Color(255, 248, 238));
-        jTextPane8.setBorder(null);
-        jTextPane8.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextPane8.setText("Matricola:");
-        jTextPane8.setFocusable(false);
-        jScrollPane8.setViewportView(jTextPane8);
-
-        matricolaField.setBackground(new java.awt.Color(219, 213, 205));
-        matricolaField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        matricolaField.setBorder(null);
-
-        passwordField.setBackground(new java.awt.Color(219, 213, 205));
-        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        passwordField.setBorder(null);
-        passwordField.setPreferredSize(new java.awt.Dimension(116, 32));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(matricolaField)
-                    .addComponent(emailField, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE))
-                .addGap(12, 12, 12))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane6)
-                    .addComponent(emailField))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane7)
-                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane8)
-                    .addComponent(matricolaField))
-                .addGap(8, 8, 8))
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 611;
-        gridBagConstraints.ipady = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(180, 289, 0, 288);
-        jPanel1.add(jPanel3, gridBagConstraints);
-
-        confermaButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        confermaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
+        confermaButton.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        confermaButton.setForeground(new java.awt.Color(255, 255, 255));
+        confermaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LoginConferma.png"))); // NOI18N
         confermaButton.setText("Conferma");
         confermaButton.setBorder(null);
         confermaButton.setBorderPainted(false);
@@ -181,22 +85,18 @@ public class LoginForm extends javax.swing.JFrame {
         confermaButton.setFocusable(false);
         confermaButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         confermaButton.setMaximumSize(new java.awt.Dimension(3, 161));
-        confermaButton.setPreferredSize(new java.awt.Dimension(195, 50));
         confermaButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton-selected.png"))); // NOI18N
         confermaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confermaButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(24, 643, 0, 0);
-        jPanel1.add(confermaButton, gridBagConstraints);
+        jPanel1.add(confermaButton);
+        confermaButton.setBounds(810, 750, 300, 77);
 
         forgotButton.setBackground(new java.awt.Color(255, 248, 238));
-        forgotButton.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        forgotButton.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
+        forgotButton.setForeground(new java.awt.Color(0, 0, 0));
         forgotButton.setText("Hai dimenticato la password?");
         forgotButton.setBorder(null);
         forgotButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -207,70 +107,62 @@ public class LoginForm extends javax.swing.JFrame {
                 forgotButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 628, 133, 0);
-        jPanel1.add(forgotButton, gridBagConstraints);
+        jPanel1.add(forgotButton);
+        forgotButton.setBounds(722, 850, 476, 50);
 
-        jPanel2.setBackground(new java.awt.Color(255, 248, 238));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Password:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(464, 507, 210, 64);
 
-        jScrollPane5.setBackground(new java.awt.Color(255, 248, 238));
-        jScrollPane5.setBorder(null);
+        emailField.setBackground(new java.awt.Color(219, 213, 205));
+        emailField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        emailField.setToolTipText("");
+        emailField.setBorder(null);
+        jPanel1.add(emailField);
+        emailField.setBounds(582, 417, 873, 65);
 
-        jTextPane5.setEditable(false);
-        jTextPane5.setBackground(new java.awt.Color(255, 248, 238));
-        jTextPane5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextPane5.setText("Benvenuto!");
-        jTextPane5.setFocusable(false);
-        jScrollPane5.setViewportView(jTextPane5);
+        matricolaField.setBackground(new java.awt.Color(219, 213, 205));
+        matricolaField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        matricolaField.setBorder(null);
+        jPanel1.add(matricolaField);
+        matricolaField.setBounds(702, 507, 753, 65);
 
-        jButton1.setBackground(new java.awt.Color(255, 248, 238));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusable(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        passwordField.setBackground(new java.awt.Color(219, 213, 205));
+        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        passwordField.setBorder(null);
+        passwordField.setPreferredSize(new java.awt.Dimension(116, 32));
+        jPanel1.add(passwordField);
+        passwordField.setBounds(690, 597, 765, 65);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Matricola:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(464, 597, 210, 64);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoLogin.png"))); // NOI18N
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(510, 85, 900, 275);
+
+        jButton45.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        jButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
+        jButton45.setContentAreaFilled(false);
+        jButton45.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton45.setPreferredSize(new java.awt.Dimension(65, 65));
+        jButton45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton45ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(331, 331, 331)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 333;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 289, 0, 0);
-        jPanel1.add(jPanel2, gridBagConstraints);
+        jPanel1.add(jButton45);
+        jButton45.setBounds(1500, 185, 65, 65);
 
         getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1920, 1080);
 
-        setBounds(0, 0, 1488, 993);
+        setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void confermaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confermaButtonActionPerformed
@@ -281,9 +173,9 @@ public class LoginForm extends javax.swing.JFrame {
         lc.RPButtonPressed();
     }//GEN-LAST:event_forgotButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton45ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,18 +198,12 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JButton confermaButton;
     private javax.swing.JTextField emailField;
     private javax.swing.JButton forgotButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
-    private javax.swing.JTextPane jTextPane7;
-    private javax.swing.JTextPane jTextPane8;
     private javax.swing.JTextField matricolaField;
     private javax.swing.JPasswordField passwordField;
     // End of variables declaration//GEN-END:variables
