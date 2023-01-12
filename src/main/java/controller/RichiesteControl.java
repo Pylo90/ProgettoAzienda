@@ -25,6 +25,7 @@ import view.RichiestaList;
  * @author dario
  */
 public class RichiesteControl {
+
     HomepageImpiegato HPI;
     HomepageAmministratore HPA;
     HomepageDatore HPD;
@@ -37,26 +38,26 @@ public class RichiesteControl {
     }
 
     public void RichiestaPermessoButtonPressed(JFrame homepage) {
-        if(homepage instanceof HomepageImpiegato){
+        if (homepage instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) homepage;
             this.HPI.setClickable(false);
         }
-        if(homepage instanceof HomepageAmministratore){
+        if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
             this.HPA.setClickable(false);
         }
-        
+
         CI = new CalendarioInterattivo(this);
         CI.setVisible(true);
         CI.setAlwaysOnTop(true);
     }
 
     public void RichiestaFerieButtonPressed(JFrame homepage) {
-        if(homepage instanceof HomepageImpiegato){
+        if (homepage instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) homepage;
             this.HPI.setClickable(false);
         }
-        if(homepage instanceof HomepageAmministratore){
+        if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
             this.HPA.setClickable(false);
         }
@@ -67,11 +68,11 @@ public class RichiesteControl {
     }
 
     public void RichiestaCongedoParentaleButtonPressed(JFrame homepage) {
-        if(homepage instanceof HomepageImpiegato){
+        if (homepage instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) homepage;
             this.HPI.setClickable(false);
         }
-        if(homepage instanceof HomepageAmministratore){
+        if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
             this.HPA.setClickable(false);
         }
@@ -79,86 +80,94 @@ public class RichiesteControl {
         CF.setVisible(true);
         CF.setAlwaysOnTop(true);
     }
-    
+
     public void sendSelection(int mesi) {
         ResultSet idSet;
         int id = 1;
         idSet = DBMSBoundary.getQuery("select max(id) from richiesta;");
         try {
-            if(idSet.next()) {
-                id = idSet.getInt(1)+1;
-            }
-            else
+            if (idSet.next()) {
+                id = idSet.getInt(1) + 1;
+            } else {
                 id = 1;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        DBMSBoundary.updateQuery("insert into richiesta values(" +id+ "," +1+ ",'culo','400005','200006');");
+        DBMSBoundary.updateQuery("insert into richiesta values(" + id + "," + 1 + ",'culo','400005','200006');");
     }
-    
 
-    
     public void ConsultaListaRichiesteButtonPressed(JFrame homepage) {
-        if(homepage instanceof HomepageImpiegato){
+        Utente.setMatricola("000");
+        if (homepage instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) homepage;
             this.HPI.setClickable(false);
         }
-        if(homepage instanceof HomepageAmministratore){
+        if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
             this.HPA.setClickable(false);
         }
-        if(homepage instanceof HomepageDatore){
+        if (homepage instanceof HomepageDatore) {
             this.HPD = (HomepageDatore) homepage;
             this.HPD.setClickable(false);
         }
-        ResultSet rs = DBMSBoundary.getQuery("select * from richiesta where richiesta.dest_matricola = "+ Utente.getMatricola() +");");
-        RL = new RichiestaList(this,rs);
+        ResultSet rs = DBMSBoundary.getQuery("select * "
+                + "from richiesta R, impiegato MITT "
+                + "where R.dest_matricola = " + Utente.getMatricola() + " AND R.mittente_matricola = MITT.matricola;");
+
+        RL = new RichiestaList(this, rs);
         RL.setVisible(true);
         RL.setAlwaysOnTop(true);
     }
-    
-    
+
     public void RichiesteButtonPressed(HomepageImpiegato HPI) {
         if (!HPI.getjLabel4().isVisible()) {
-                HPI.getjLabel4().setVisible(true);
-                HPI.getPermesso().setVisible(true);
-                HPI.getFerie().setVisible(true);
-                HPI.getCongedoParentale().setVisible(true);
-            } else {
-                HPI.getjLabel4().setVisible(false);
-                HPI.getPermesso().setVisible(false);
-                HPI.getFerie().setVisible(false);
-                HPI.getCongedoParentale().setVisible(false);
-            }
+            HPI.getjLabel4().setVisible(true);
+            HPI.getPermesso().setVisible(true);
+            HPI.getFerie().setVisible(true);
+            HPI.getCongedoParentale().setVisible(true);
+        } else {
+            HPI.getjLabel4().setVisible(false);
+            HPI.getPermesso().setVisible(false);
+            HPI.getFerie().setVisible(false);
+            HPI.getCongedoParentale().setVisible(false);
+        }
     }
+
     public void RichiesteButtonPressed(HomepageAmministratore HPA) {
         if (!HPA.getjLabel3().isVisible()) {
-                HPA.getjLabel3().setVisible(true);
-                HPA.getPermesso().setVisible(true);
-                HPA.getFerie().setVisible(true);
-                HPA.getCongedoParentale().setVisible(true);
-            } else {
-                HPA.getjLabel3().setVisible(false);
-                HPA.getPermesso().setVisible(false);
-                HPA.getFerie().setVisible(false);
-                HPA.getCongedoParentale().setVisible(false);
-            }
+            HPA.getjLabel3().setVisible(true);
+            HPA.getPermesso().setVisible(true);
+            HPA.getFerie().setVisible(true);
+            HPA.getCongedoParentale().setVisible(true);
+        } else {
+            HPA.getjLabel3().setVisible(false);
+            HPA.getPermesso().setVisible(false);
+            HPA.getFerie().setVisible(false);
+            HPA.getCongedoParentale().setVisible(false);
+        }
     }
 
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
-        if(HPI!= null) HPI.setClickable(true);
-        if(HPA!= null) HPA.setClickable(true);
-        if(HPD!= null) HPD.setClickable(true);
+        if (HPI != null) {
+            HPI.setClickable(true);
+        }
+        if (HPA != null) {
+            HPA.setClickable(true);
+        }
+        if (HPD != null) {
+            HPD.setClickable(true);
+        }
 
     }
-    
+
     public void ScambiaOrariButtonPressed(JFrame homepage) {
-        if(homepage instanceof HomepageAmministratore){
+        if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
             this.HPA.setClickable(false);
         }
-        if(homepage instanceof HomepageDatore){
+        if (homepage instanceof HomepageDatore) {
             this.HPD = (HomepageDatore) homepage;
             this.HPD.setClickable(false);
         }
@@ -167,8 +176,9 @@ public class RichiesteControl {
         LI.setVisible(true);
         LI.setAlwaysOnTop(true);
     }
-    public void showRichiesta(ResultSet rs){
+
+    public void showRichiesta(ResultSet rs) {
         RichiestaForm RF = new RichiestaForm(rs);
     }
-    
+
 }

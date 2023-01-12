@@ -327,7 +327,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            RicC.ScambiaOrariButtonPressed(this);
+            RC.ScambiaOrariButtonPressed(this);
     }//GEN-LAST:event_switchButtonActionPerformed
     }
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
@@ -364,7 +364,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordButtonActionPerformed
 
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
-        // TODO add your handling code here:
+        RC.ConsultaListaRichiesteButtonPressed(this);
     }//GEN-LAST:event_notificationButtonActionPerformed
 
     /**
@@ -433,7 +433,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private AssumiLicenziaControl ALC = new AssumiLicenziaControl();
     private StraordinariControl SC = new StraordinariControl();
     private OrariStipendiControl OSC = new OrariStipendiControl();
-    private RichiesteControl RicC = new RichiesteControl();
+    private RichiesteControl RC = new RichiesteControl();
     private MalattiaControl MC = new MalattiaControl();
     private boolean clickable;
 

@@ -19,6 +19,7 @@ public class RichiestaForm extends javax.swing.JFrame {
      * Creates new form RichiestaFrom
      */
     public RichiestaForm(ResultSet rs) {
+        initComponents();
         try {
             jLabel1.setText("mittente: " + rs.getString("nome") + " " + rs.getString("cognome"));
             jLabel2.setText("Tipo di richiesta: " + rs.getString("tipo"));
@@ -26,8 +27,9 @@ public class RichiestaForm extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(RichiestaForm.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.setVisible(true);
 
-        initComponents();
+        
 
     }
 
