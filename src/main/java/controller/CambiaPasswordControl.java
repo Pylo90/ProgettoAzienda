@@ -58,6 +58,12 @@ public class CambiaPasswordControl {
         }
 
     }
+    
+    public void submitForm(char vp, char np, char cp) {
+        ResultSet pwSet;
+        char pswSet;
+        pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" +UT.getMatricola()+ ";"); 
+    }
 
     public void MostraErrore(String messaggio) {
         Errore error = new Errore(messaggio, this);
