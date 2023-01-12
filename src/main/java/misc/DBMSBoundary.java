@@ -37,6 +37,11 @@ public class DBMSBoundary {
         return con;
     }
 
+    /*******METODO DA UTILIZZARE DURANTE IL LOGOUT*******/
+    public static void disposeConnection() throws SQLException {
+        con.close();
+        con = null;
+    }
     
     /*      METODO DA ESEGUIRE PER QUERY CON RITORNO        */
     public static ResultSet getQuery(String query) {
