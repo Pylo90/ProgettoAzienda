@@ -156,13 +156,17 @@ public class AssumiLicenziaControl {
         }
         return PINtemp;
     }
-
-    private String generatePassword() {
+    
+    /*******DA UTILIZZARE PER GENERARE UNA PASSWORD CASUALE*******/
+    private String generatePlainPassword() {
         byte[] psw = new byte[16];
         new SecureRandom().nextBytes(psw);
-        
-        String hash = BCrypt.hashpw(psw, BCrypt.gensalt());
-        
+        return new String(psw);
+    }
+    
+    /*******DA UTILIZZARE PER GENERARE L'HASH DI UNA PASSWORD PER SALVARLA NEL DATABASE*******/
+    private String hashPassword(String password) {
+        String hash = BCrypt.hashpw(password, BCrypt.gensalt());
         return hash;
     }
     
