@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
  */
 public class Utente {
 
+    /* Non serve definire un costruttore
     public Utente(String matricola, String nome, String cognome, String mail, String PW, String CF, ImageIcon foto, String numero, int livello, boolean disability, int ore_lavorate, long pin) {
         this.matricola = matricola;
         this.nome = nome;
@@ -26,9 +27,10 @@ public class Utente {
         this.ore_lavorate = ore_lavorate;
         this.pin = pin;
     }
-
+    */
     
-    String matricola;
+    private static String matricola; //Per utilizzare la matricola: Utente.setMatricola(matricola) - Utente.getMatricola
+    /* Facoltative
     String nome;
     String cognome;
     String mail;
@@ -40,7 +42,9 @@ public class Utente {
     boolean disability;
     int ore_lavorate;
     long pin;
-
+    */
+    
+    /*
     public long getPin() {
         return pin;
     }
@@ -137,6 +141,15 @@ public class Utente {
 
     public void setOre_lavorate(int ore_lavorate) {
         this.ore_lavorate = ore_lavorate;
+    }
+    */
+
+    public static void setMatricola(String matricola) {
+        Utente.matricola = matricola;
+    }
+
+    public static String getMatricola() {
+        return matricola;
     }
     
     
