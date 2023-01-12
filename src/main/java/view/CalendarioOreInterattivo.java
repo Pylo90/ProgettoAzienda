@@ -6,7 +6,6 @@ package view;
 
 import controller.StraordinariControl;
 import javax.swing.JButton;
-import view.CalendarioInterattivo;
 import misc.Utente;
 
 /**
@@ -408,7 +407,8 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
-        SC.disposeWindow(this);
+        
+        SC.DisposeWindow(this);
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
@@ -436,7 +436,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
             SC.endingHourSelected(UT, giorno, inizio, fineStraordinario);
         }
         
-        SC.disposeWindow(this);
+        SC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
     private void Turno1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Turno1ButtonActionPerformed
@@ -530,7 +530,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         // TODO add your handling code here:
         CI = new CalendarioInterattivo(SC, UT);
         SC.daySelected(CI, UT, giorno);
-        SC.disposeWindow(this);
+        SC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
     /**
