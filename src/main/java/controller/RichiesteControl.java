@@ -181,8 +181,12 @@ public class RichiesteControl {
     }
 
     public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
-        RL.setAlwaysOnTop(false);       
-        RF = new RichiestaForm(nomeMittente,cognomeMittente,tipoRichiesta,dataScadenza,dati);
+        RL.setAlwaysOnTop(false);
+        RL.setClickable(false);
+        for (int i = 0; i<RL.getRichieste().size()  ; ++i) {
+            RL.getRichieste().get(i).setClickable(false);
+        }
+        RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati);
 
     }
 
