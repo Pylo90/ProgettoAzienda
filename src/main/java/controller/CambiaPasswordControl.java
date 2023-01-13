@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import misc.DBMSBoundary;
 import misc.Utente;
 import view.HomepageImpiegato;
-import view.ModificaPassword;
+import view.CambiaPasswordBoundary;
 import view.Errore;
 import view.HomepageAmministratore;
 
@@ -21,7 +21,7 @@ public class CambiaPasswordControl {
 
     HomepageImpiegato HPI;
     HomepageAmministratore HPA;
-    ModificaPassword MP;
+    CambiaPasswordBoundary MP;
     Utente UT;
 
     public CambiaPasswordControl() {
@@ -29,7 +29,7 @@ public class CambiaPasswordControl {
 
     public void CPButtonPressed(HomepageImpiegato HPI) {
         this.HPI = HPI;
-        JFrame ModificaPassword = new ModificaPassword(this);
+        JFrame ModificaPassword = new CambiaPasswordBoundary(this);
         HPI.setClickable(false);
         ModificaPassword.setVisible(true);
         ModificaPassword.setAlwaysOnTop(true);
@@ -38,7 +38,7 @@ public class CambiaPasswordControl {
 
     public void CPButtonPressed(HomepageAmministratore HPA) {
         this.HPA = HPA;
-        JFrame ModificaPassword = new ModificaPassword(this);
+        JFrame ModificaPassword = new CambiaPasswordBoundary(this);
         HPA.setClickable(false);
         ModificaPassword.setVisible(true);
         ModificaPassword.setAlwaysOnTop(true);

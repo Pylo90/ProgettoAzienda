@@ -45,8 +45,8 @@ public class AssumiLicenziaControl {
 
     public void ModificaInfoImpiegatoButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
-        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        JFrame ListaImpiegati = new ListaImpiegati(this,rs,"ModificaImpiegato");
+        ResultSet rs = DBMSBoundary.getQuery("select * from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ModificaImpiegato");
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
@@ -55,17 +55,17 @@ public class AssumiLicenziaControl {
     public void ModificaInfoImpiegatoButtonPressed(HomepageAmministratore HPA) {
         this.HPA = HPA;
         ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        JFrame ListaImpiegati = new ListaImpiegati(this,rs,"ModificaImpiegato");
+        JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ModificaImpiegato");
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
 
-    public void workerSelected(ListaImpiegati LI, String matricola ) {
-        rs=null;
+    public void workerSelected(ListaImpiegati LI, String matricola) {
+        rs = null;
         this.LI = LI;
-        rs = DBMSBoundary.getQuery("select * from impiegato where impiegato.matricola = "+matricola);
-        JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(this,rs);
+        rs = DBMSBoundary.getQuery("select * from impiegato where impiegato.matricola = " + matricola);
+        JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(this, rs);
         LI.setClickable(false);
         ModificaInfoImpiegato.setVisible(true);
         ModificaInfoImpiegato.setAlwaysOnTop(true);
@@ -75,10 +75,15 @@ public class AssumiLicenziaControl {
         //Manda i dati nel DBMS (in caso spacchetta prima UT)
         ;
     }
+
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
-        if(HPA!=null) HPA.setClickable(true);
-        if(HPD!=null) HPD.setClickable(true);
+        if (HPA != null) {
+            HPA.setClickable(true);
+        }
+        if (HPD != null) {
+            HPD.setClickable(true);
+        }
 
     }
 
@@ -98,25 +103,25 @@ public class AssumiLicenziaControl {
         AssumiImpiegatoBoundary.setAlwaysOnTop(true);
     }
 
-    public void sendData(String name,String surname,String mail,String passw,String cf,ImageIcon foto, String numero, int livello,boolean disability,String path ) {
+    public void sendData(String name, String surname, String mail, String passw, String cf, ImageIcon foto, String numero, int livello, boolean disability, String path) {
         int number = 0;
 
         ResultSet r = DBMS.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
         try {
-            if(r.next()){
+            if (r.next()) {
                 number = r.getInt(1);
+            } else {
+                number = 0;
             }
-            else number = 0;
         } catch (SQLException ex) {
             Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        String matricola =this.generateMatricola(livello, number);
+
+        String matricola = this.generateMatricola(livello, number);
 
         long PINtemporaneo = this.generatePIN(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
 
-        
         this.sendPinToMail(PINtemporaneo, mail);
         DBMS.updateQuery("insert into impiegato values('"
                 + matricola + "','"
@@ -131,17 +136,39 @@ public class AssumiLicenziaControl {
                 + null + ","
                 + livello + ");"); // inserisci impiegato
         try {
-            DBMS.updatePropic(matricola,new FileInputStream(path));
+            DBMS.updatePropic(matricola, new FileInputStream(path));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
+    }
+
+    public void submitForm(String name, String surname, String mail, String passw, String cf, ImageIcon foto, String numero, int livello, boolean disability, String path, String matricola) {
+
+ 
+        DBMS.updateQuery("UPDATE Impiegato SET "
+                + "cognome = '" +surname + "',"
+                + "nome = '"+name + "',"
+                + "livello = "+livello + ",'"
+                + "email = '" +mail + "','"
+                + "tel = '"+numero + "',"
+                + "_104 = "+disability + ");"); // inserisci impiegato
+        try {
+            DBMS.updatePropic(matricola, new FileInputStream(path));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     public void disposeWindow(JFrame finestra) {
         finestra.dispose();
-         if (HPD != null) HPD.setClickable(true);
-         if (HPA != null) HPA.setClickable(true);
+        if (HPD != null) {
+            HPD.setClickable(true);
+        }
+        if (HPA != null) {
+            HPA.setClickable(true);
+        }
     }
 
     public String generateMatricola(int livello, int numero_impiegati) {
@@ -165,20 +192,24 @@ public class AssumiLicenziaControl {
         }
         return PINtemp;
     }
-    
-    /*******DA UTILIZZARE PER GENERARE UNA PASSWORD CASUALE*******/
+
+    /**
+     * *****DA UTILIZZARE PER GENERARE UNA PASSWORD CASUALE******
+     */
     private String generatePlainPassword() {
         byte[] psw = new byte[16];
         new SecureRandom().nextBytes(psw);
         return new String(psw);
     }
-    
-    /*******DA UTILIZZARE PER GENERARE L'HASH DI UNA PASSWORD PER SALVARLA NEL DATABASE*******/
+
+    /**
+     * *****DA UTILIZZARE PER GENERARE L'HASH DI UNA PASSWORD PER SALVARLA NEL DATABASE******
+     */
     private String hashPassword(String password) {
         String hash = BCrypt.hashpw(password, BCrypt.gensalt());
         return hash;
     }
-    
+
     public void sendPinToMail(long pin, String mail) {
         //capire come mandare una mail
     }
@@ -186,7 +217,7 @@ public class AssumiLicenziaControl {
     public void LicenziaButtonPressed(HomepageDatore HPD) {
         this.HPD = HPD;
         ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        JFrame ListaImpiegati = new ListaImpiegati(this,rs,"LicenziaImpiegato");
+        JFrame ListaImpiegati = new ListaImpiegati(this, rs, "LicenziaImpiegato");
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
@@ -203,25 +234,25 @@ public class AssumiLicenziaControl {
         DBMS.updateQuery(null);       //licenzia l'impiegato
         //distruggere profilopopup e listaimpiegati
     }
-    
-    public void verifyMail(String mail, AssumiImpiegatoBoundary AIB){
-        if(!((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com"))){
+
+    public void verifyMail(String mail, AssumiImpiegatoBoundary AIB) {
+        if (!((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com"))) {
             Errore e = new Errore("mail errata", this);
             AIB.setClickable(false);
             e.setVisible(true);
             e.setAlwaysOnTop(true);
         }
     }
-    
-    public void verifyMail(String mail, ModificaInfoImpiegato MII){
-        if(!((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com"))){
+
+    public void verifyMail(String mail, ModificaInfoImpiegato MII) {
+        if (!((mail.contains("@") && mail.contains(".it")) || mail.contains("@gmail.com"))) {
             Errore e = new Errore("mail errata", this);
             MII.setClickable(false);
             e.setVisible(true);
             e.setAlwaysOnTop(true);
         }
     }
-    
+
     public void SubmitError(JFrame finestra) {
         finestra.dispose();
         AIB.setClickable(true);

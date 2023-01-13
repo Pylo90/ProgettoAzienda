@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,15 +36,39 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
      */
     ResultSet r;
     InputStream in;
-    public ModificaInfoImpiegato(AssumiLicenziaControl ALC,ResultSet r) {
+
+    public ModificaInfoImpiegato(AssumiLicenziaControl ALC, ResultSet r) {
         this.ALC = ALC;
         initComponents();
         in = null;
+        try {
+            // TODO add your handling code here:
+            if (r.next()) {
+                jTextField1.setText(r.getString("nome"));
+            }
+            jTextField4.setText(r.getString("cognome"));
+            jTextField5.setText(r.getString("email"));
+            jTextField6.setText(r.getString("CF"));
+            jTextField7.setText(r.getString("tel"));
+            jCheckBox1.setSelected(r.getBoolean("_104"));
+            if (r.getBlob("propic") != null) {
+                InputStream in = r.getBlob("propic").getBinaryStream();
+                try {
+                    jButton2.setIcon(new ImageIcon(ImageIO.read(in)));
+                } catch (IOException ex) {
+                    Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            jComboBox1.setSelectedIndex(Integer.valueOf(r.getString("livello")) - 1);
+        } catch (SQLException ex) {
+            Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     ImageIcon foto;
     FileFilter imageFilter = new FileNameExtensionFilter("Image files", ImageIO.getReaderFileSuffixes());
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -294,29 +319,16 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        try {
-            // TODO add your handling code here:
-            jComboBox1.setSelectedIndex(Integer.valueOf(r.getString("livello"))-1);
-        } catch (SQLException ex) {
-            Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    public ModificaInfoImpiegato() {
-    }
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-        //jTextField6.setText(r.getString"CF");
+        //
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        try {
-            // TODO add your handling code here:
-            jTextField1.setText(r.getString("nome"));
-        } catch (SQLException ex) {
-            Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
@@ -324,7 +336,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         String name = jTextField1.getText().trim();
         String surname = jTextField4.getText().trim();
         String mail = jTextField5.getText().trim();
-        ALC.verifyMail(mail, this);
+        //ALC.verifyMail(mail, this);
         String cf = jTextField6.getText().trim();
         //String passw = jTextField2.getText().trim();
         String numero = jTextField7.getText().trim();
@@ -344,82 +356,65 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         int length = numero.length();
         char c = evt.getKeyChar();
         //controllo i numeri da 0 a 9
-        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9') {
-            if(length<10){                                        //il numero non deve essere più lungo di 10 righe
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            if (length < 10) {                                        //il numero non deve essere più lungo di 10 righe
                 jTextField7.setEditable(true);
-            }else{
+            } else {
                 jTextField7.setEditable(false);
             }
-        }else{
-            if(evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() ==KeyEvent.VK_DELETE){ //non conta spazi e cancella nei 10 char
+        } else {
+            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) { //non conta spazi e cancella nei 10 char
                 jTextField7.setEditable(true);
-            }else{
+            } else {
                 jTextField7.setEditable(false);
             }
         }
     }//GEN-LAST:event_jTextField7KeyPressed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        try {
-            // TODO add your handling code here:
-            jTextField4.setText(r.getString("cognome"));
-        } catch (SQLException ex) {
-            Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        try {
-            // TODO add your handling code here:
-            jCheckBox1.setSelected(r.getBoolean("_104"));
-        } catch (SQLException ex) {
-            Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        try {
-            // TODO add your handling code here:
-            jTextField5.setText(r.getString("email"));
-        } catch (SQLException ex) {
-            Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        try {
-            // TODO add your handling code here:
-            jTextField4.setText(r.getString("numero"));
-        } catch (SQLException ex) {
-            Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c) || Character.isWhitespace(c)){
+
+        if (Character.isLetter(c) || Character.isWhitespace(c)) {
             jTextField1.setEditable(true);
-        }else jTextField1.setEditable(false);
+        } else
+            jTextField1.setEditable(false);
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c) || Character.isWhitespace(c)){
+
+        if (Character.isLetter(c) || Character.isWhitespace(c)) {
             jTextField4.setEditable(true);
-        }else jTextField4.setEditable(false);
+        } else
+            jTextField4.setEditable(false);
     }//GEN-LAST:event_jTextField4KeyPressed
 
     private void jTextField5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        
-        if(Character.isWhitespace(c)){
+
+        if (Character.isWhitespace(c)) {
             jTextField5.setEditable(true);
-        }else jTextField5.setEditable(false);
+        } else
+            jTextField5.setEditable(false);
     }//GEN-LAST:event_jTextField5KeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -473,7 +468,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ModificaInfoImpiegato().setVisible(true);
             }
@@ -506,7 +501,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
     Utente UT;
     AssumiLicenziaControl ALC = new AssumiLicenziaControl();
-    
+
     private boolean clickable;
 
     public boolean isClickable() {
