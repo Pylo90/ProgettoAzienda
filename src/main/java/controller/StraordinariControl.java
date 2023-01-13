@@ -32,14 +32,14 @@ public class StraordinariControl {
     
     public void AffidaStraordinariButtonPressed(HomepageDatore HPD) {
         ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs,"AffidaStraordinari");
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
     public void AffidaStraordinariButtonPressed(HomepageAmministratore HPA) {
         ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs,"AffidaStraordinari");
         HPA.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);

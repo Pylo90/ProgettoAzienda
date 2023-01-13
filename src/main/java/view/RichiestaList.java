@@ -26,7 +26,7 @@ public class RichiestaList extends javax.swing.JFrame {
     RichiesteControl RC;
     ResultSet rs;
     private boolean clickable;
-    private ArrayList <InfoReqBoxCard> richieste = new ArrayList<InfoReqBoxCard>();
+    private ArrayList<InfoReqBoxCard> richieste = new ArrayList<InfoReqBoxCard>();
 
     public boolean isClickable() {
         return clickable;
@@ -39,20 +39,18 @@ public class RichiestaList extends javax.swing.JFrame {
     public ArrayList<InfoReqBoxCard> getRichieste() {
         return richieste;
     }
-    
 
-    
     public RichiestaList(RichiesteControl RiC, ResultSet rst) {
 
         this.RC = RiC;
         this.rs = rst;
-
+        setClickable(true);
         initComponents();
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         try {
-            while (rs.next()){
-                addInfoPane(RC,rs.getString("nome"),rs.getString("cognome"),rs.getString("tipo"),rs.getString("data_scadenza"),rs.getString("dati_richiesta"));
+            while (rs.next()) {
+                addInfoPane(RC, rs.getString("nome"), rs.getString("cognome"), rs.getString("tipo"), rs.getString("data_scadenza"), rs.getString("dati_richiesta"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiestaList.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,7 +60,7 @@ public class RichiestaList extends javax.swing.JFrame {
     /**
      * *****TEST - DA ELIMINARE******
      */
-   /* public void addInfoPane() {
+    /* public void addInfoPane() {
         listPanel.add(new InfoReqBoxCard("NomeProvaLungo CognomeProvaLungo", "NomeTipoLungo", "12/12/22"));
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
@@ -70,13 +68,12 @@ public class RichiestaList extends javax.swing.JFrame {
         //System.out.println("Dopo: " + jPanel5.getSize().height);
         listPanel.revalidate();
     }*/
-
     /**
      * ******************************
      */
     public void addInfoPane(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
         this.RC = RC;
-        InfoReqBoxCard infoBox = new InfoReqBoxCard(RC, nomeMittente,cognomeMittente,tipoRichiesta,dataScadenza,dati);
+        InfoReqBoxCard infoBox = new InfoReqBoxCard(RC, nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati);
         listPanel.add(infoBox);
         richieste.add(infoBox);
         cardCount++;
@@ -213,7 +210,7 @@ public class RichiestaList extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new RichiestaList(null,null).setVisible(true);
+        new RichiestaList(null, null).setVisible(true);
 
     }
 
@@ -233,6 +230,5 @@ public class RichiestaList extends javax.swing.JFrame {
     public JPanel getListPanel() {
         return listPanel;
     }
-
 
 }

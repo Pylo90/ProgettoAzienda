@@ -1,5 +1,6 @@
 package view;
 
+import controller.RichiesteControl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -19,20 +20,20 @@ public class RichiestaForm extends javax.swing.JFrame {
      * Creates new form RichiestaFrom
      */
     ResultSet rs;
-    public RichiestaForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
+    RichiesteControl RC;
+
+    public RichiestaForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, RichiesteControl RC) {
         this.rs = rs;
-        
+        this.RC = RC;
         initComponents();
-        
+
         this.setVisible(true);
         this.setAlwaysOnTop(true);
 
-       
-            jLabel1.setText("mittente: " + nomeMittente + " " + cognomeMittente);
-            jLabel2.setText("Tipo di richiesta: " + tipoRichiesta);
-            jLabel3.setText("Scadenza: " + dataScadenza);
-            jTextPane1.setText(dati);
-        
+        jLabel1.setText("mittente: " + nomeMittente + " " + cognomeMittente);
+        jLabel2.setText("Tipo di richiesta: " + tipoRichiesta);
+        jLabel3.setText("Scadenza: " + dataScadenza);
+        jTextPane1.setText(dati);
 
     }
 
@@ -70,7 +71,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         jLabel1.setPreferredSize(new java.awt.Dimension(413, 48));
 
         jButton1.setBackground(new java.awt.Color(255, 248, 238));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -207,11 +208,11 @@ public class RichiestaForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        RC.DisposeForm(this);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        RC.DisposeForm(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

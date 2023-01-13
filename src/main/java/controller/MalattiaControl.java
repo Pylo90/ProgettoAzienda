@@ -30,14 +30,14 @@ public class MalattiaControl {
     
     public void InserimentoMalattiaButtonPressed(HomepageDatore HPD) {
         ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs,"InserimentoMalattia");
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
     public void InserimentoMalattiaButtonPressed(HomepageAmministratore HPA) {
         ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        JFrame ListaImpiegati = new ListaImpiegati(this,rs);
+        JFrame ListaImpiegati = new ListaImpiegati(this,rs,"InserimentoMalattia");
         HPA.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);

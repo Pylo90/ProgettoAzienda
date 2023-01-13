@@ -1,6 +1,10 @@
 package view.style;
 
+import controller.AssumiLicenziaControl;
+import controller.MalattiaControl;
+import controller.OrariStipendiControl;
 import controller.RichiesteControl;
+import controller.StraordinariControl;
 import java.awt.Image;
 import java.io.FileInputStream;
 import java.sql.ResultSet;
@@ -10,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import view.ListaImpiegati;
 
 /**
  *
@@ -20,24 +25,25 @@ public class InfoBoxCard extends javax.swing.JPanel {
     /**
      * Creates new form infoBoxCard
      */
+    String matricola;
+    ListaImpiegati li;
 
-    
-    Object controller = null;
-    
-    public InfoBoxCard(Object controller, ResultSet rs) {
+    public InfoBoxCard(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello, ImageIcon propic, ListaImpiegati li) {
         initComponents();
-        this.controller = controller;
-        try {
-            nameField.setText(rs.getString("nome"));
-            surnameField.setText(rs.getString("cognome"));
-            levelField.setText(rs.getString("livello"));
-            /*******GESTIONE IMMAGINE - DA ATTIVARE*******/
-            //propic = propic.getScaledInstance(105, 105, Image.SCALE_DEFAULT);
-            //this.propic.setIcon(new ImageIcon(propic));
-            /*********************************************/
-        } catch (SQLException ex) {
-            Logger.getLogger(InfoBoxCard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.matricola = matricolaImpiegato;
+        this.li=li;
+
+        nameField.setText(nomeImpiegato);
+        surnameField.setText(cognomeImpiegato);
+        levelField.setText(livello);
+        /**
+         * *****GESTIONE IMMAGINE - DA ATTIVARE******
+         */
+        //propic = propic.getScaledInstance(105, 105, Image.SCALE_DEFAULT);
+        //this.propic.setIcon(new ImageIcon(propic));
+        /**
+         * ******************************************
+         */
 
     }
 
@@ -120,10 +126,11 @@ public class InfoBoxCard extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(0, 0, 1200, 110);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     /*UTILIZZARE QUESTO METODO PER GESTIRE IL CLICK SULL'IMPIEGATO DALLA LISTA*/
     private void useThisToHandleClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_useThisToHandleClick
-        System.out.println("culo");
+        
+            li.getFromInfoBox(matricola);
     }//GEN-LAST:event_useThisToHandleClick
 
 
@@ -152,5 +159,5 @@ public class InfoBoxCard extends javax.swing.JPanel {
     public JTextField getSurnameField() {
         return surnameField;
     }
-    
+
 }

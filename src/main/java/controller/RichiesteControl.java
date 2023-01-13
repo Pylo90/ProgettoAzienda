@@ -164,6 +164,13 @@ public class RichiesteControl {
         }
 
     }
+    public void DisposeForm(JFrame form){
+        form.dispose();        
+        RL.setClickable(true);
+        for (int i = 0; i<RL.getRichieste().size()  ; ++i) {
+            RL.getRichieste().get(i).setClickable(true);
+        }
+    }
 
     public void ScambiaOrariButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageAmministratore) {
@@ -175,7 +182,7 @@ public class RichiesteControl {
             this.HPD.setClickable(false);
         }
         ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        LI = new ListaImpiegati(this, rs);
+        LI = new ListaImpiegati(this, rs,"ScambiaOrari");
         LI.setVisible(true);
         LI.setAlwaysOnTop(true);
     }
@@ -186,7 +193,7 @@ public class RichiesteControl {
         for (int i = 0; i<RL.getRichieste().size()  ; ++i) {
             RL.getRichieste().get(i).setClickable(false);
         }
-        RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati);
+        RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati,this);
 
     }
 

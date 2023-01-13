@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import misc.DBMSBoundary;
@@ -31,11 +32,12 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     AssumiLicenziaControl ALC;
     MalattiaControl MC;
     StraordinariControl SC;
+    String funzione = null;
     int cardCount;
     boolean searchFieldPlaceholder;
     ArrayList<InfoBoxCard> infoBoxList;
 
-    public ListaImpiegati(Object controller, ResultSet rs) {
+    public ListaImpiegati(Object controller, ResultSet rs, String f) {
         if (controller instanceof OrariStipendiControl) {
             this.OSC = (OrariStipendiControl) controller;
         }
@@ -53,6 +55,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         }
         setClickable(true);
         initComponents();
+        this.funzione = f;
         searchField.getDocument().addDocumentListener(this);
         cardCount = 0;
         infoBoxList = new ArrayList<>();
@@ -61,15 +64,15 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         mainPanel.requestFocus();
         try {
             while (rs.next()) {
-                addInfoPane(controller, rs);
+                addInfoPane(rs.getString("matricola"),rs.getString("nome"),rs.getString("cognome"),rs.getString("livello"),null);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ListaImpiegati.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void addInfoPane(Object controller, ResultSet rs) {    
-        InfoBoxCard infoBox = new InfoBoxCard(controller,rs);
+    public void addInfoPane(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello,ImageIcon propic) {    
+        InfoBoxCard infoBox = new InfoBoxCard(matricolaImpiegato,nomeImpiegato,cognomeImpiegato,livello,propic,this);
         infoBoxList.add(infoBox);
         listPanel.add(infoBox);
         cardCount++;
@@ -79,6 +82,22 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         listPanel.revalidate();
     }
 
+    public void getFromInfoBox(String matricola){
+        switch (funzione){
+            case "ConsultaStipendi":
+                System.out.println("A");
+                break;
+            
+            case "ConsultaOrari":
+                                System.out.println("B");
+
+                break;
+            
+                
+        }
+        System.out.println(matricola);
+    }
+    
     private void adaptListPanel() {
         int count = 0;
         for (int i = 0; i < infoBoxList.size(); i++) {
@@ -185,6 +204,11 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
                 searchFieldFocusLost(evt);
             }
         });
+        searchField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchFieldActionPerformed(evt);
+            }
+        });
         jPanel3.add(searchField);
         searchField.setBounds(100, 10, 230, 80);
         jPanel3.add(jLabel2);
@@ -282,6 +306,10 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         }
     }//GEN-LAST:event_searchFieldFocusLost
 
+    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchFieldActionPerformed
+
     @Override
     public void changedUpdate(DocumentEvent e) {
     }
@@ -313,7 +341,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
      * TEST MAIN*
      */
     public static void main(String args[]) {
-        new ListaImpiegati(null, null);
+        new ListaImpiegati(null, null,null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
