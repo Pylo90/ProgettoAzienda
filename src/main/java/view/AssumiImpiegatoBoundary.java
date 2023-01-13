@@ -31,6 +31,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
      * Creates new form AssumiImpiegatoBoundary
      */
     InputStream in;
+    String path;
     
     public AssumiImpiegatoBoundary(AssumiLicenziaControl ALC) {
         this.ALC = ALC;
@@ -82,6 +83,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Assumi Impiegato");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(280, 60, 517, 87);
@@ -304,7 +306,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         String numero = jTextField7.getText().trim();
         int livello = jComboBox1.getSelectedIndex()+1;
         boolean disability = jCheckBox1.isSelected();
-        ALC.sendData(name, surname, mail, passw, cf, foto, numero, livello, disability);
+        ALC.sendData(name, surname, mail, passw, cf, foto, numero, livello, disability,path);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
@@ -377,7 +379,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         //chooser.setAcceptAllFileFilterUsed(false);
         chooser.showOpenDialog(this);
         File file = chooser.getSelectedFile();
-        String path = file.getAbsolutePath();
+        this.path = file.getAbsolutePath();
         
         Image im = Toolkit.getDefaultToolkit().createImage(path);
         im = im.getScaledInstance(400, 400, Image.SCALE_SMOOTH);

@@ -4,6 +4,8 @@
  */
 package controller;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.security.SecureRandom;
 import java.sql.ResultSet;
@@ -36,6 +38,7 @@ public class AssumiLicenziaControl {
     AssumiImpiegatoBoundary AIB;
     DBMSBoundary DBMS;
     Utente UT;
+    ResultSet rs;
 
     public AssumiLicenziaControl() {
     }
@@ -58,9 +61,11 @@ public class AssumiLicenziaControl {
         ListaImpiegati.setAlwaysOnTop(true);
     }
 
-    public void workerSelected(ListaImpiegati LI, Utente UT) {
+    public void workerSelected(ListaImpiegati LI, String matricola ) {
+        rs=null;
         this.LI = LI;
-        JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(this, UT);
+        rs = DBMSBoundary.getQuery("select * from impiegato where impiegato.matricola = "+matricola);
+        JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(this,rs);
         LI.setClickable(false);
         ModificaInfoImpiegato.setVisible(true);
         ModificaInfoImpiegato.setAlwaysOnTop(true);
@@ -93,7 +98,7 @@ public class AssumiLicenziaControl {
         AssumiImpiegatoBoundary.setAlwaysOnTop(true);
     }
 
-    public void sendData(String name,String surname,String mail,String passw,String cf,ImageIcon foto, String numero, int livello,boolean disability ) {
+    public void sendData(String name,String surname,String mail,String passw,String cf,ImageIcon foto, String numero, int livello,boolean disability,String path ) {
         int number = 0;
 
         ResultSet r = DBMS.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
@@ -125,7 +130,11 @@ public class AssumiLicenziaControl {
                 + disability + ","
                 + null + ","
                 + livello + ");"); // inserisci impiegato
-        
+        try {
+            DBMS.updatePropic(matricola,new FileInputStream(path));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
     }
 

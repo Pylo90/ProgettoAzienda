@@ -64,15 +64,15 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         mainPanel.requestFocus();
         try {
             while (rs.next()) {
-                addInfoPane(rs.getString("matricola"),rs.getString("nome"),rs.getString("cognome"),rs.getString("livello"),null);
+                addInfoPane(rs.getString("matricola"), rs.getString("nome"), rs.getString("cognome"), rs.getString("livello"), null);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ListaImpiegati.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void addInfoPane(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello,ImageIcon propic) {    
-        InfoBoxCard infoBox = new InfoBoxCard(matricolaImpiegato,nomeImpiegato,cognomeImpiegato,livello,propic,this);
+    public void addInfoPane(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello, ImageIcon propic) {
+        InfoBoxCard infoBox = new InfoBoxCard(matricolaImpiegato, nomeImpiegato, cognomeImpiegato, livello, propic, this);
         infoBoxList.add(infoBox);
         listPanel.add(infoBox);
         cardCount++;
@@ -82,22 +82,29 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         listPanel.revalidate();
     }
 
-    public void getFromInfoBox(String matricola){
-        switch (funzione){
+    public void getFromInfoBox(String matricola) {
+        switch (funzione) {
             case "ConsultaStipendi":
                 System.out.println("A");
                 break;
-            
+
             case "ConsultaOrari":
-                                System.out.println("B");
+                System.out.println("B");
 
                 break;
-            
-                
+            case "LicenziaIpiegato":
+                System.out.println("B");
+
+                break;
+            case "ModificaImpiegato":
+                ALC.workerSelected(this, matricola);
+
+                break;
+
         }
         System.out.println(matricola);
     }
-    
+
     private void adaptListPanel() {
         int count = 0;
         for (int i = 0; i < infoBoxList.size(); i++) {
@@ -341,7 +348,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
      * TEST MAIN*
      */
     public static void main(String args[]) {
-        new ListaImpiegati(null, null,null);
+        new ListaImpiegati(null, null, null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
