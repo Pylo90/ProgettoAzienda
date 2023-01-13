@@ -31,8 +31,10 @@ public class RichiesteControl {
     HomepageDatore HPD;
     CongedoForm CF;
     RichiestaList RL;
+    RichiestaForm RF;
     ListaImpiegati LI;
     CalendarioInterattivo CI;
+    ResultSet rs;
 
     public RichiesteControl() {
     }
@@ -118,6 +120,7 @@ public class RichiesteControl {
         RL = new RichiestaList(this, rs);
         RL.setVisible(true);
         RL.setAlwaysOnTop(true);
+
     }
 
     public void RichiesteButtonPressed(HomepageImpiegato HPI) {
@@ -177,8 +180,10 @@ public class RichiesteControl {
         LI.setAlwaysOnTop(true);
     }
 
-    public void showRichiesta(ResultSet rs) {
-        RichiestaForm RF = new RichiestaForm(rs);
+    public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
+        RL.setAlwaysOnTop(false);       
+        RF = new RichiestaForm(nomeMittente,cognomeMittente,tipoRichiesta,dataScadenza,dati);
+
     }
 
 }

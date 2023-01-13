@@ -18,18 +18,26 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
      */
     ResultSet rs;
     RichiesteControl RC = null;
+    
+    String nome;
+    String cognome;
+    String tipo;
+    String data;
+    String dati;
 
-    public InfoReqBoxCard(RichiesteControl RC, ResultSet rs) {
+    public InfoReqBoxCard(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
+       
+        nome = nomeMittente;
+        cognome = cognomeMittente;
+        tipo = tipoRichiesta;
+        data = dataScadenza;
+        this.dati = dati;       
+        
         initComponents();
         this.RC = RC;
-        try {
-            this.rs = rs;
-            nameField.setText(rs.getString("nome") + " " + rs.getString("cognome"));
-            typeField.setText(rs.getString("livello"));
-            dateField.setText(rs.getString("data_scadenza"));
-        } catch (SQLException ex) {
-            Logger.getLogger(InfoReqBoxCard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            nameField.setText(nomeMittente +" "+ cognomeMittente);
+            typeField.setText(tipoRichiesta);
+            dateField.setText(dataScadenza);
         
 
     }
@@ -133,7 +141,8 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        RC.showRichiesta(rs);
+        
+        RC.showRichiesta(nome,cognome,tipo,data, dati);
     }//GEN-LAST:event_selectButtonActionPerformed
 
 

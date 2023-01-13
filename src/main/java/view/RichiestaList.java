@@ -1,5 +1,6 @@
 package view;
 
+import com.mysql.cj.protocol.Resultset;
 import view.style.InfoReqBoxCard;
 import controller.RichiesteControl;
 import java.awt.Dimension;
@@ -20,17 +21,20 @@ import view.style.ScrollBarCustom;
 public class RichiestaList extends javax.swing.JFrame {
 
     int cardCount;
+    RichiesteControl RC;
+    ResultSet rs;
 
-    public RichiestaList(RichiesteControl RC, ResultSet rs) {
+    public RichiestaList(RichiesteControl RiC, ResultSet rst) {
 
-        this.RC = RC;
+        this.RC = RiC;
+        this.rs = rst;
 
         initComponents();
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         try {
-            if (rs.next()){
-                addInfoPane(RC,rs);
+            while (rs.next()){
+                addInfoPane(RC,rs.getString("nome"),rs.getString("cognome"),rs.getString("tipo"),rs.getString("data_scadenza"),rs.getString("dati_richiesta"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiestaList.class.getName()).log(Level.SEVERE, null, ex);
@@ -52,8 +56,9 @@ public class RichiestaList extends javax.swing.JFrame {
     /**
      * ******************************
      */
-    public void addInfoPane(RichiesteControl RC, ResultSet rs) {
-        InfoReqBoxCard infoBox= new InfoReqBoxCard(RC, rs);
+    public void addInfoPane(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
+        this.RC = RC;
+        InfoReqBoxCard infoBox = new InfoReqBoxCard(RC, nomeMittente,cognomeMittente,tipoRichiesta,dataScadenza,dati);
         listPanel.add(infoBox);
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
@@ -206,6 +211,5 @@ public class RichiestaList extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 
-    RichiesteControl RC;
 
 }

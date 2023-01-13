@@ -18,17 +18,20 @@ public class RichiestaForm extends javax.swing.JFrame {
     /**
      * Creates new form RichiestaFrom
      */
-    public RichiestaForm(ResultSet rs) {
+    ResultSet rs;
+    public RichiestaForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
+        this.rs = rs;
+        
         initComponents();
-        try {
-            jLabel1.setText("mittente: " + rs.getString("nome") + " " + rs.getString("cognome"));
-            jLabel2.setText("Tipo di richiesta: " + rs.getString("tipo"));
-            jLabel3.setText("Scadenza: " + rs.getString("data_scadenza"));
-        } catch (SQLException ex) {
-            Logger.getLogger(RichiestaForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         this.setVisible(true);
+        this.setAlwaysOnTop(true);
 
+       
+            jLabel1.setText("mittente: " + nomeMittente + " " + cognomeMittente);
+            jLabel2.setText("Tipo di richiesta: " + tipoRichiesta);
+            jLabel3.setText("Scadenza: " + dataScadenza);
+            jTextPane1.setText(dati);
         
 
     }
@@ -58,6 +61,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setPreferredSize(new java.awt.Dimension(1440, 810));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
@@ -70,6 +74,11 @@ public class RichiestaForm extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextPane1.setEditable(false);
         jTextPane1.setBackground(new java.awt.Color(219, 213, 205));
@@ -130,7 +139,7 @@ public class RichiestaForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(266, 266, 266)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 456, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 470, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(312, 312, 312))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -165,7 +174,7 @@ public class RichiestaForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 559, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 557, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -201,6 +210,10 @@ public class RichiestaForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -230,11 +243,11 @@ public class RichiestaForm extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RichiestaForm(null);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
