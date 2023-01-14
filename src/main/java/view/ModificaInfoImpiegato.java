@@ -350,7 +350,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         String name = jTextField1.getText().trim();
         String surname = jTextField4.getText().trim();
         String mail = jTextField5.getText().trim();
-        //ALC.verifyMail(mail, this);
+        ALC.verifyMail(mail, this);
         String cf = jTextField6.getText().trim();
         //String passw = jTextField2.getText().trim();
         String numero = jTextField7.getText().trim();
@@ -411,7 +411,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
 
-        if (Character.isLetter(c) || Character.isWhitespace(c)) {
+        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
             jTextField1.setEditable(true);
         } else
             jTextField1.setEditable(false);
@@ -421,7 +421,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
 
-        if (Character.isLetter(c) || Character.isWhitespace(c)) {
+        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
             jTextField4.setEditable(true);
         } else
             jTextField4.setEditable(false);
