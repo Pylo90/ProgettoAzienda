@@ -12,6 +12,7 @@ import controller.MalattiaControl;
 import controller.OrariStipendiControl;
 import controller.RichiesteControl;
 import controller.StraordinariControl;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -22,9 +23,17 @@ public class HomepageDatore extends javax.swing.JFrame {
     /**
      * Creates new form HomepageDatore
      */
-    public HomepageDatore() {
+    private LoginControl LC;
+    
+    public HomepageDatore(String nome, String cognome, String matricola, String tel,String mail, ImageIcon propic,LoginControl logC) {
         initComponents();
         setClickable(true);
+        nameText.setText(nome+ " "+cognome);
+        idText.setText(matricola);
+        mailText.setText(mail);
+        phoneText.setText(tel);
+        this.propic.setIcon(propic);
+        LC=logC;
     }
 
     /**
@@ -61,6 +70,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         idText = new javax.swing.JTextField();
         mailText = new javax.swing.JTextField();
         phoneText = new javax.swing.JTextField();
+        propic = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -148,6 +158,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         straordButton.setBounds(1770, 940, 100, 100);
 
         passwordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PasswordButton.png"))); // NOI18N
+        passwordButton.setBorder(null);
         passwordButton.setBorderPainted(false);
         passwordButton.setContentAreaFilled(false);
         passwordButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -158,9 +169,10 @@ public class HomepageDatore extends javax.swing.JFrame {
             }
         });
         mainPanel.add(passwordButton);
-        passwordButton.setBounds(1770, 340, 100, 107);
+        passwordButton.setBounds(1770, 340, 100, 100);
 
         notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/NotificationButton.png"))); // NOI18N
+        notificationButton.setBorder(null);
         notificationButton.setBorderPainted(false);
         notificationButton.setContentAreaFilled(false);
         notificationButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -171,7 +183,7 @@ public class HomepageDatore extends javax.swing.JFrame {
             }
         });
         mainPanel.add(notificationButton);
-        notificationButton.setBounds(1770, 460, 100, 107);
+        notificationButton.setBounds(1770, 460, 100, 100);
 
         assumiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AssumiButton.png"))); // NOI18N
         assumiButton.setBorder(null);
@@ -258,44 +270,48 @@ public class HomepageDatore extends javax.swing.JFrame {
         jLabel13.setBounds(850, 860, 60, 48);
 
         nameText.setBackground(new java.awt.Color(255, 248, 238));
-        nameText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        nameText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         nameText.setForeground(new java.awt.Color(0, 0, 0));
         nameText.setText(" Lorem ipsum dolor sit gravida.");
         nameText.setBorder(null);
         nameText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nameText.setFocusable(false);
         mainPanel.add(nameText);
-        nameText.setBounds(930, 690, 331, 32);
+        nameText.setBounds(930, 680, 550, 54);
 
         idText.setBackground(new java.awt.Color(255, 248, 238));
-        idText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        idText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         idText.setForeground(new java.awt.Color(0, 0, 0));
         idText.setText(" Lorem ipsum dolor sit gravida.");
         idText.setBorder(null);
         idText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         idText.setFocusable(false);
         mainPanel.add(idText);
-        idText.setBounds(930, 750, 331, 32);
+        idText.setBounds(930, 740, 550, 54);
 
         mailText.setBackground(new java.awt.Color(255, 248, 238));
-        mailText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        mailText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         mailText.setForeground(new java.awt.Color(0, 0, 0));
         mailText.setText(" Lorem ipsum dolor sit gravida.");
         mailText.setBorder(null);
         mailText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         mailText.setFocusable(false);
         mainPanel.add(mailText);
-        mailText.setBounds(930, 810, 331, 32);
+        mailText.setBounds(930, 800, 550, 54);
 
         phoneText.setBackground(new java.awt.Color(255, 248, 238));
-        phoneText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        phoneText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         phoneText.setForeground(new java.awt.Color(0, 0, 0));
         phoneText.setText(" Lorem ipsum dolor sit gravida.");
         phoneText.setBorder(null);
         phoneText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         phoneText.setFocusable(false);
         mainPanel.add(phoneText);
-        phoneText.setBounds(930, 870, 331, 32);
+        phoneText.setBounds(930, 860, 550, 54);
+
+        propic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Propic.png"))); // NOI18N
+        mainPanel.add(propic);
+        propic.setBounds(880, 165, 460, 460);
 
         jPanel1.add(mainPanel);
         mainPanel.setBounds(0, 0, 1920, 1080);
@@ -355,8 +371,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     }//GEN-LAST:event_licenziaButtonActionPerformed
     }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
+        LC.DisposeWindow(this);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void passwordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordButtonActionPerformed
@@ -397,7 +412,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageDatore().setVisible(true);
+                new HomepageDatore(null,null,null,null,null,null,null).setVisible(true);
             }
         });
     }
@@ -426,6 +441,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private javax.swing.JButton notificationButton;
     private javax.swing.JButton passwordButton;
     private javax.swing.JTextField phoneText;
+    private javax.swing.JLabel propic;
     private javax.swing.JButton straordButton;
     private javax.swing.JButton switchButton;
     // End of variables declaration//GEN-END:variables

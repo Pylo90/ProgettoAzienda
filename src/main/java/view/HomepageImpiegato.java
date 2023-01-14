@@ -8,6 +8,7 @@ import controller.FirmaControl;
 import controller.LoginControl;
 import controller.OrariStipendiControl;
 import controller.RichiesteControl;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -20,14 +21,23 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private FirmaControl FirC ;
     private RichiesteControl RicC;
     private OrariStipendiControl OSC;
+    private LoginControl LC;
+    
+    
 
-    public HomepageImpiegato() {
+    public HomepageImpiegato(String nome, String cognome, String matricola, String tel,String mail, ImageIcon propic, LoginControl logC) {
         initComponents();
         jLabel4.setVisible(false);
         Permesso.setVisible(false);
         Ferie.setVisible(false);
         CongedoParentale.setVisible(false);
         setClickable(true);
+        nameText.setText(nome+ " "+cognome);
+        idText.setText(matricola);
+        mailText.setText(mail);
+        phoneText.setText(tel);
+        this.Propic.setIcon(propic);
+        this.LC=logC;
     }
 
     /**
@@ -62,6 +72,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         Cornice = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        Propic = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 248, 238));
@@ -74,6 +85,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
         BankButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         BankButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BankButton.png"))); // NOI18N
+        BankButton.setBorder(null);
         BankButton.setContentAreaFilled(false);
         BankButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BankButton.setIconTextGap(0);
@@ -89,6 +101,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
         ScheduleButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ScheduleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ScheduleButton.png"))); // NOI18N
+        ScheduleButton.setBorder(null);
         ScheduleButton.setContentAreaFilled(false);
         ScheduleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ScheduleButton.setIconTextGap(0);
@@ -104,6 +117,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
         PasswordButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         PasswordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PasswordButton.png"))); // NOI18N
+        PasswordButton.setBorder(null);
         PasswordButton.setContentAreaFilled(false);
         PasswordButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PasswordButton.setIconTextGap(0);
@@ -119,6 +133,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
         NotificationButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         NotificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/NotificationButton.png"))); // NOI18N
+        NotificationButton.setBorder(null);
         NotificationButton.setContentAreaFilled(false);
         NotificationButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         NotificationButton.setIconTextGap(0);
@@ -134,6 +149,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
         RequestButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         RequestButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RequestIcon.png"))); // NOI18N
+        RequestButton.setBorder(null);
         RequestButton.setContentAreaFilled(false);
         RequestButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         RequestButton.setIconTextGap(0);
@@ -151,6 +167,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         Permesso.setForeground(new java.awt.Color(255, 255, 255));
         Permesso.setText("Permesso");
         Permesso.setAlignmentY(0.0F);
+        Permesso.setBorder(null);
         Permesso.setBorderPainted(false);
         Permesso.setContentAreaFilled(false);
         Permesso.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -172,6 +189,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         Ferie.setForeground(new java.awt.Color(255, 255, 255));
         Ferie.setText("Ferie");
         Ferie.setAlignmentY(0.0F);
+        Ferie.setBorder(null);
         Ferie.setBorderPainted(false);
         Ferie.setContentAreaFilled(false);
         Ferie.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -193,6 +211,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         CongedoParentale.setForeground(new java.awt.Color(255, 255, 255));
         CongedoParentale.setText("Congedo Parentale");
         CongedoParentale.setAlignmentY(0.0F);
+        CongedoParentale.setBorder(null);
         CongedoParentale.setBorderPainted(false);
         CongedoParentale.setContentAreaFilled(false);
         CongedoParentale.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -218,6 +237,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         RequestButton1.setForeground(new java.awt.Color(255, 255, 255));
         RequestButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina.png"))); // NOI18N
         RequestButton1.setText("FIRMA RITARDO");
+        RequestButton1.setBorder(null);
         RequestButton1.setContentAreaFilled(false);
         RequestButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         RequestButton1.setIconTextGap(0);
@@ -260,24 +280,24 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         jLabel8.setBounds(850, 680, 60, 48);
 
         idText.setBackground(new java.awt.Color(255, 248, 238));
-        idText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        idText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         idText.setForeground(new java.awt.Color(0, 0, 0));
         idText.setText(" Lorem ipsum dolor sit gravida.");
         idText.setBorder(null);
         idText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         idText.setFocusable(false);
         jPanel1.add(idText);
-        idText.setBounds(930, 750, 331, 32);
+        idText.setBounds(930, 740, 550, 54);
 
         nameText.setBackground(new java.awt.Color(255, 248, 238));
-        nameText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        nameText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         nameText.setForeground(new java.awt.Color(0, 0, 0));
         nameText.setText(" Lorem ipsum dolor sit gravida.");
         nameText.setBorder(null);
         nameText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nameText.setFocusable(false);
         jPanel1.add(nameText);
-        nameText.setBounds(930, 690, 331, 32);
+        nameText.setBounds(930, 680, 550, 54);
 
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
         LogoutButton.setBorder(null);
@@ -292,24 +312,24 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         LogoutButton.setBounds(1300, 570, 75, 75);
 
         mailText.setBackground(new java.awt.Color(255, 248, 238));
-        mailText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        mailText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         mailText.setForeground(new java.awt.Color(0, 0, 0));
         mailText.setText(" Lorem ipsum dolor sit gravida.");
         mailText.setBorder(null);
         mailText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         mailText.setFocusable(false);
         jPanel1.add(mailText);
-        mailText.setBounds(930, 810, 331, 32);
+        mailText.setBounds(930, 800, 550, 54);
 
         phoneText.setBackground(new java.awt.Color(255, 248, 238));
-        phoneText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        phoneText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         phoneText.setForeground(new java.awt.Color(0, 0, 0));
         phoneText.setText(" Lorem ipsum dolor sit gravida.");
         phoneText.setBorder(null);
         phoneText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         phoneText.setFocusable(false);
         jPanel1.add(phoneText);
-        phoneText.setBounds(930, 870, 331, 32);
+        phoneText.setBounds(930, 860, 550, 54);
 
         Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
         jPanel1.add(Cornice);
@@ -326,6 +346,10 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel5);
         jLabel5.setBounds(1580, 0, 340, 55);
+
+        Propic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Propic.png"))); // NOI18N
+        jPanel1.add(Propic);
+        Propic.setBounds(880, 165, 460, 460);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
@@ -407,8 +431,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     }//GEN-LAST:event_CongedoParentaleActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
+        LC.DisposeWindow(this);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     /**
@@ -442,7 +465,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageImpiegato().setVisible(true);
+                new HomepageImpiegato(null,null,null,null,null,null,null).setVisible(true);
             }
         });
     }
@@ -456,6 +479,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private javax.swing.JButton NotificationButton;
     private javax.swing.JButton PasswordButton;
     private javax.swing.JButton Permesso;
+    private javax.swing.JLabel Propic;
     private javax.swing.JButton RequestButton;
     private javax.swing.JButton RequestButton1;
     private javax.swing.JButton ScheduleButton;
