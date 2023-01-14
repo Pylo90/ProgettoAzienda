@@ -432,9 +432,9 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         char c = evt.getKeyChar();
 
         if (Character.isWhitespace(c)) {
-            jTextField5.setEditable(true);
-        } else
             jTextField5.setEditable(false);
+        } else
+            jTextField5.setEditable(true);
     }//GEN-LAST:event_jTextField5KeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
