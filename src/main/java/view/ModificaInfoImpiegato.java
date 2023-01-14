@@ -362,7 +362,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         } else {
             updatePropic = false;
         }
-        ALC.submitForm(name, surname, mail, cf, numero, livello, disability, in, matricola, updatePropic);
+        ALC.compileForm(name, surname, mail, cf, numero, livello, disability, in, matricola, updatePropic);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 

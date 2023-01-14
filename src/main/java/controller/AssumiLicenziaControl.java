@@ -175,7 +175,7 @@ public class AssumiLicenziaControl {
 
     }
 
-    public void submitForm(String name, String surname, String mail, String cf, String numero, int livello, boolean disability, InputStream in, String matricola, boolean updatePropic) {
+    public void compileForm(String name, String surname, String mail, String cf, String numero, int livello, boolean disability, InputStream in, String matricola, boolean updatePropic) {
 
         DBMS.updateQuery("UPDATE Impiegato SET "
                 + "cognome = '" + surname + "',"
