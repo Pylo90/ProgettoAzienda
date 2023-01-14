@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.CambiaPasswordControl;
 import controller.FirmaControl;
 import controller.LoginControl;
 import controller.OrariStipendiControl;
@@ -22,6 +23,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private RichiesteControl RicC;
     private OrariStipendiControl OSC;
     private LoginControl LC;
+    private CambiaPasswordControl CPC;
     
     
 
@@ -57,6 +59,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         RequestButton = new javax.swing.JButton();
         Permesso = new javax.swing.JButton();
         Ferie = new javax.swing.JButton();
+        ComunicazioneMalattia = new javax.swing.JButton();
         CongedoParentale = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         RequestButton1 = new javax.swing.JButton();
@@ -90,7 +93,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         BankButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BankButton.setIconTextGap(0);
         BankButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        BankButton.setPreferredSize(new java.awt.Dimension(100, 100));
         BankButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BankButtonActionPerformed(evt);
@@ -106,7 +108,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         ScheduleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ScheduleButton.setIconTextGap(0);
         ScheduleButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        ScheduleButton.setPreferredSize(new java.awt.Dimension(100, 100));
         ScheduleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ScheduleButtonActionPerformed(evt);
@@ -122,7 +123,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         PasswordButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PasswordButton.setIconTextGap(0);
         PasswordButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        PasswordButton.setPreferredSize(new java.awt.Dimension(100, 100));
         PasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordButtonActionPerformed(evt);
@@ -138,7 +138,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         NotificationButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         NotificationButton.setIconTextGap(0);
         NotificationButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        NotificationButton.setPreferredSize(new java.awt.Dimension(100, 100));
         NotificationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NotificationButtonActionPerformed(evt);
@@ -154,7 +153,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         RequestButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         RequestButton.setIconTextGap(0);
         RequestButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        RequestButton.setPreferredSize(new java.awt.Dimension(100, 100));
         RequestButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RequestButtonActionPerformed(evt);
@@ -207,6 +205,28 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         jPanel1.add(Ferie);
         Ferie.setBounds(223, 72, 177, 60);
 
+        ComunicazioneMalattia.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        ComunicazioneMalattia.setForeground(new java.awt.Color(255, 255, 255));
+        ComunicazioneMalattia.setText("Comunicazione Malattia");
+        ComunicazioneMalattia.setAlignmentY(0.0F);
+        ComunicazioneMalattia.setBorder(null);
+        ComunicazioneMalattia.setBorderPainted(false);
+        ComunicazioneMalattia.setContentAreaFilled(false);
+        ComunicazioneMalattia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ComunicazioneMalattia.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        ComunicazioneMalattia.setIconTextGap(0);
+        ComunicazioneMalattia.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        ComunicazioneMalattia.setMaximumSize(new java.awt.Dimension(177, 55));
+        ComunicazioneMalattia.setMinimumSize(new java.awt.Dimension(177, 55));
+        ComunicazioneMalattia.setPreferredSize(new java.awt.Dimension(177, 55));
+        ComunicazioneMalattia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComunicazioneMalattiaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ComunicazioneMalattia);
+        ComunicazioneMalattia.setBounds(223, 178, 370, 60);
+
         CongedoParentale.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         CongedoParentale.setForeground(new java.awt.Color(255, 255, 255));
         CongedoParentale.setText("Congedo Parentale");
@@ -231,7 +251,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(200, 0, 450, 220);
+        jLabel4.setBounds(200, 0, 450, 270);
 
         RequestButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         RequestButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -242,7 +262,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         RequestButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         RequestButton1.setIconTextGap(0);
         RequestButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        RequestButton1.setPreferredSize(new java.awt.Dimension(350, 100));
         RequestButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RequestButton1ActionPerformed(evt);
@@ -376,7 +395,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void PasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            //CPC.CPButtonPressed(this);
+            CPC.CPButtonPressed(this);
         }
 
     }//GEN-LAST:event_PasswordButtonActionPerformed
@@ -434,6 +453,10 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         LC.DisposeWindow(this);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    private void ComunicazioneMalattiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComunicazioneMalattiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComunicazioneMalattiaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -472,6 +495,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BankButton;
+    private javax.swing.JButton ComunicazioneMalattia;
     private javax.swing.JButton CongedoParentale;
     private javax.swing.JLabel Cornice;
     private javax.swing.JButton Ferie;
