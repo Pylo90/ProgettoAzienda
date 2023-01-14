@@ -54,6 +54,11 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
+        permessoButton = new javax.swing.JButton();
+        ferieButton = new javax.swing.JButton();
+        MalattiaButton = new javax.swing.JButton();
+        congedoButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         passwordButton = new javax.swing.JButton();
         salaryButton = new javax.swing.JButton();
@@ -61,11 +66,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         requestButton = new javax.swing.JButton();
         scheduleButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        requestPanel = new javax.swing.JPanel();
-        congedoButton = new javax.swing.JButton();
-        permessoButton = new javax.swing.JButton();
-        ferieButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         ritardoLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         impSalaryButton = new javax.swing.JButton();
@@ -99,6 +99,81 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         mainPanel.setMinimumSize(new java.awt.Dimension(1024, 768));
         mainPanel.setPreferredSize(new java.awt.Dimension(1920, 1080));
         mainPanel.setLayout(null);
+
+        permessoButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        permessoButton.setForeground(new java.awt.Color(255, 248, 238));
+        permessoButton.setText("Permesso");
+        permessoButton.setBorder(null);
+        permessoButton.setBorderPainted(false);
+        permessoButton.setContentAreaFilled(false);
+        permessoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        permessoButton.setFocusPainted(false);
+        permessoButton.setFocusable(false);
+        permessoButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        permessoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                permessoButtonActionPerformed(evt);
+            }
+        });
+        mainPanel.add(permessoButton);
+        permessoButton.setBounds(220, 20, 170, 50);
+
+        ferieButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ferieButton.setForeground(new java.awt.Color(255, 248, 238));
+        ferieButton.setText("Ferie");
+        ferieButton.setBorder(null);
+        ferieButton.setBorderPainted(false);
+        ferieButton.setContentAreaFilled(false);
+        ferieButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ferieButton.setFocusable(false);
+        ferieButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ferieButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ferieButtonActionPerformed(evt);
+            }
+        });
+        mainPanel.add(ferieButton);
+        ferieButton.setBounds(220, 80, 180, 48);
+
+        MalattiaButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        MalattiaButton.setForeground(new java.awt.Color(255, 248, 238));
+        MalattiaButton.setText("Comunica Malattia");
+        MalattiaButton.setBorder(null);
+        MalattiaButton.setBorderPainted(false);
+        MalattiaButton.setContentAreaFilled(false);
+        MalattiaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MalattiaButton.setFocusable(false);
+        MalattiaButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MalattiaButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        MalattiaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MalattiaButtonActionPerformed(evt);
+            }
+        });
+        mainPanel.add(MalattiaButton);
+        MalattiaButton.setBounds(220, 200, 310, 50);
+
+        congedoButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        congedoButton.setForeground(new java.awt.Color(255, 248, 238));
+        congedoButton.setText("Congedo parentale");
+        congedoButton.setBorder(null);
+        congedoButton.setBorderPainted(false);
+        congedoButton.setContentAreaFilled(false);
+        congedoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        congedoButton.setFocusable(false);
+        congedoButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        congedoButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        congedoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                congedoButtonActionPerformed(evt);
+            }
+        });
+        mainPanel.add(congedoButton);
+        congedoButton.setBounds(220, 140, 310, 50);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
+        mainPanel.add(jLabel3);
+        jLabel3.setBounds(200, 0, 450, 270);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setFocusable(false);
@@ -183,72 +258,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         mainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 200, 875);
-
-        requestPanel.setBackground(new java.awt.Color(255, 248, 238));
-        requestPanel.setMaximumSize(new java.awt.Dimension(450, 220));
-        requestPanel.setMinimumSize(new java.awt.Dimension(0, 0));
-        requestPanel.setPreferredSize(new java.awt.Dimension(450, 220));
-        requestPanel.setLayout(null);
-
-        congedoButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        congedoButton.setForeground(new java.awt.Color(255, 248, 238));
-        congedoButton.setText("Congedo parentale");
-        congedoButton.setBorder(null);
-        congedoButton.setBorderPainted(false);
-        congedoButton.setContentAreaFilled(false);
-        congedoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        congedoButton.setFocusable(false);
-        congedoButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        congedoButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        congedoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                congedoButtonActionPerformed(evt);
-            }
-        });
-        requestPanel.add(congedoButton);
-        congedoButton.setBounds(30, 150, 310, 50);
-
-        permessoButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        permessoButton.setForeground(new java.awt.Color(255, 248, 238));
-        permessoButton.setText("Permesso");
-        permessoButton.setBorder(null);
-        permessoButton.setBorderPainted(false);
-        permessoButton.setContentAreaFilled(false);
-        permessoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        permessoButton.setFocusPainted(false);
-        permessoButton.setFocusable(false);
-        permessoButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        permessoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                permessoButtonActionPerformed(evt);
-            }
-        });
-        requestPanel.add(permessoButton);
-        permessoButton.setBounds(30, 10, 170, 50);
-
-        ferieButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        ferieButton.setForeground(new java.awt.Color(255, 248, 238));
-        ferieButton.setText("Ferie");
-        ferieButton.setBorder(null);
-        ferieButton.setBorderPainted(false);
-        ferieButton.setContentAreaFilled(false);
-        ferieButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ferieButton.setFocusable(false);
-        ferieButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        ferieButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ferieButtonActionPerformed(evt);
-            }
-        });
-        requestPanel.add(ferieButton);
-        ferieButton.setBounds(30, 80, 180, 48);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
-        requestPanel.add(jLabel3);
-        jLabel3.setBounds(0, 0, 450, 220);
-
-        mainPanel.add(requestPanel);
-        requestPanel.setBounds(200, 0, 450, 220);
 
         ritardoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         ritardoLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -615,6 +624,10 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         LC.DisposeWindow(this);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    private void MalattiaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MalattiaButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MalattiaButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -629,6 +642,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Cornice;
     private javax.swing.JButton LogoutButton;
+    private javax.swing.JButton MalattiaButton;
     private javax.swing.JLabel Propic;
     private javax.swing.JButton assumiButton;
     private javax.swing.JButton congedoButton;
@@ -657,7 +671,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private javax.swing.JButton permessoButton;
     private javax.swing.JTextField phoneText;
     private javax.swing.JButton requestButton;
-    private javax.swing.JPanel requestPanel;
     private javax.swing.JLabel ritardoLabel;
     private javax.swing.JButton salaryButton;
     private javax.swing.JButton scheduleButton;
