@@ -38,6 +38,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     ArrayList<InfoBoxCard> infoBoxList;
     Image foto;
     ImageIcon proPicToSend;
+     private ArrayList<InfoBoxCard> impiegati = new ArrayList<InfoBoxCard>();
 
     public ListaImpiegati(Object controller, ResultSet rs, String f) {
         if (controller instanceof OrariStipendiControl) {
@@ -86,6 +87,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         InfoBoxCard infoBox = new InfoBoxCard(matricolaImpiegato, nomeImpiegato, cognomeImpiegato, livello, propic, this);
         infoBoxList.add(infoBox);
         listPanel.add(infoBox);
+        impiegati.add(infoBox);
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
         listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
@@ -103,8 +105,8 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
                 System.out.println("B");
 
                 break;
-            case "LicenziaIpiegato":
-                System.out.println("B");
+            case "LicenziaImpiegato":
+                ALC.SelectWorker(this, matricola);
 
                 break;
             case "ModificaImpiegato":
@@ -387,6 +389,10 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
     public void setClickable(boolean clickable) {
         this.clickable = clickable;
+    }
+
+    public ArrayList<InfoBoxCard> getImpiegati() {
+        return impiegati;
     }
 
 }

@@ -28,10 +28,13 @@ public class InfoBoxCard extends javax.swing.JPanel {
     String matricola;
     ListaImpiegati li;
 
+    private boolean clickable;
+
     public InfoBoxCard(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello, ImageIcon proPic, ListaImpiegati li) {
+        setClickable(true);
         initComponents();
         this.matricola = matricolaImpiegato;
-        this.li=li;
+        this.li = li;
 
         nameField.setText(nomeImpiegato);
         surnameField.setText(cognomeImpiegato);
@@ -135,8 +138,9 @@ public class InfoBoxCard extends javax.swing.JPanel {
 
     /*UTILIZZARE QUESTO METODO PER GESTIRE IL CLICK SULL'IMPIEGATO DALLA LISTA*/
     private void useThisToHandleClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_useThisToHandleClick
-        
+        if (isClickable()) {
             li.getFromInfoBox(matricola);
+        }
     }//GEN-LAST:event_useThisToHandleClick
 
 
@@ -165,6 +169,14 @@ public class InfoBoxCard extends javax.swing.JPanel {
 
     public JTextField getSurnameField() {
         return surnameField;
+    }
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
     }
 
 }

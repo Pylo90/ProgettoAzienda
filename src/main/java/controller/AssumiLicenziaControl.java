@@ -43,20 +43,21 @@ public class AssumiLicenziaControl {
     public AssumiLicenziaControl() {
     }
 
-    public void ModificaInfoImpiegatoButtonPressed(HomepageDatore HPD) {
-        this.HPD = HPD;
+    public void ModificaInfoImpiegatoButtonPressed(JFrame homepage) {
+        if (homepage instanceof HomepageDatore) {
+            this.HPD = (HomepageDatore) homepage;
+        }
+        if (homepage instanceof HomepageAmministratore) {
+            this.HPA = (HomepageAmministratore) homepage;
+        }
         ResultSet rs = DBMSBoundary.getQuery("select * from impiegato;");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ModificaImpiegato");
-        HPD.setClickable(false);
-        ListaImpiegati.setVisible(true);
-        ListaImpiegati.setAlwaysOnTop(true);
-    }
-
-    public void ModificaInfoImpiegatoButtonPressed(HomepageAmministratore HPA) {
-        this.HPA = HPA;
-        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ModificaImpiegato");
-        HPD.setClickable(false);
+        if (HPD != null) {
+            HPD.setClickable(false);
+        }
+        if (HPA != null) {
+            HPA.setClickable(false);
+        }
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
@@ -82,20 +83,42 @@ public class AssumiLicenziaControl {
 
     }
 
-    public void assumiButtonPressed(HomepageDatore HPD) {
-        this.HPD = HPD;
+    public void assumiButtonPressed(JFrame homepage) {
+        if (homepage instanceof HomepageDatore) {
+            this.HPD = (HomepageDatore) homepage;
+        }
+        if (homepage instanceof HomepageAmministratore) {
+            this.HPA = (HomepageAmministratore) homepage;
+        }
         JFrame AssumiImpiegatoBoundary = new AssumiImpiegatoBoundary(this);
-        HPD.setClickable(false);
+        if (HPD != null) {
+            HPD.setClickable(false);
+        }
+        if (HPA != null) {
+            HPA.setClickable(false);
+        }
         AssumiImpiegatoBoundary.setVisible(true);
         AssumiImpiegatoBoundary.setAlwaysOnTop(true);
     }
 
-    public void assumiButtonPressed(HomepageAmministratore HPA) {
-        this.HPA = HPA;
-        JFrame AssumiImpiegatoBoundary = new AssumiImpiegatoBoundary(this);
-        HPA.setClickable(false);
-        AssumiImpiegatoBoundary.setVisible(true);
-        AssumiImpiegatoBoundary.setAlwaysOnTop(true);
+    public void LicenziaButtonPressed(JFrame homepage) {
+        if (homepage instanceof HomepageDatore) {
+            this.HPD = (HomepageDatore) homepage;
+        }
+        if (homepage instanceof HomepageAmministratore) {
+            this.HPA = (HomepageAmministratore) homepage;
+        }
+        ResultSet rs = DBMSBoundary.getQuery("select * from impiegato;");
+        JFrame ListaImpiegati = new ListaImpiegati(this, rs, "LicenziaImpiegato");
+        if (HPD != null) {
+            HPD.setClickable(false);
+        }
+        if (HPA != null) {
+            HPA.setClickable(false);
+        }
+        ListaImpiegati.setVisible(true);
+        ListaImpiegati.setAlwaysOnTop(true);
+        
     }
 
     public void sendData(String name, String surname, String mail, String passw, String cf, ImageIcon foto, String numero, int livello, boolean disability, String path) {
@@ -174,12 +197,23 @@ public class AssumiLicenziaControl {
                 LI.dispose();
             }
         }
+        if(finestra instanceof ProfiloPopup){
+            if (LI != null) {
+                LI.dispose();
+            }
+        }
         finestra.dispose();
         if (HPD != null) {
             HPD.setClickable(true);
         }
         if (HPA != null) {
             HPA.setClickable(true);
+        }
+    }
+    public void disposeProfiloPopup(ProfiloPopup pp){
+        pp.dispose();
+        for (int i = 0; i<LI.getImpiegati().size()  ; ++i) {
+            LI.getImpiegati().get(i).setClickable(true);
         }
     }
 
@@ -227,18 +261,16 @@ public class AssumiLicenziaControl {
         //capire come mandare una mail
     }
 
-    public void LicenziaButtonPressed(HomepageDatore HPD) {
-        this.HPD = HPD;
-        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        JFrame ListaImpiegati = new ListaImpiegati(this, rs, "LicenziaImpiegato");
-        HPD.setClickable(false);
-        ListaImpiegati.setVisible(true);
-        ListaImpiegati.setAlwaysOnTop(true);
-    }
-
-    public void SelectWorker(ListaImpiegati LI, Utente UT) {
-        ProfiloPopup ProfiloPopup = new ProfiloPopup(this, UT);
+    public void SelectWorker(ListaImpiegati LI, String matricola) {
+        rs = null;
+        this.LI = LI;
+        rs = DBMSBoundary.getQuery("select * from impiegato where impiegato.matricola = " + matricola + " ;");
+        JFrame ProfiloPopup = new ProfiloPopup(this, rs);
         LI.setClickable(false);
+        LI.setAlwaysOnTop(false);
+        for (int i = 0; i<LI.getImpiegati().size()  ; ++i) {
+            LI.getImpiegati().get(i).setClickable(false);
+        }
         ProfiloPopup.setVisible(true);
         ProfiloPopup.setAlwaysOnTop(true);
     }
