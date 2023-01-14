@@ -28,7 +28,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
     String matricola;
     ListaImpiegati li;
 
-    public InfoBoxCard(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello, ImageIcon propic, ListaImpiegati li) {
+    public InfoBoxCard(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello, ImageIcon proPic, ListaImpiegati li) {
         initComponents();
         this.matricola = matricolaImpiegato;
         this.li=li;
@@ -36,6 +36,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
         nameField.setText(nomeImpiegato);
         surnameField.setText(cognomeImpiegato);
         levelField.setText(livello);
+        propic.setIcon(proPic);
         /**
          * *****GESTIONE IMMAGINE - DA ATTIVARE******
          */
@@ -56,6 +57,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Cornice = new javax.swing.JLabel();
         useThisToHandleClick = new javax.swing.JLabel();
         surnameField = new javax.swing.JTextField();
         levelField = new javax.swing.JTextField();
@@ -71,6 +73,10 @@ public class InfoBoxCard extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1201, 113));
         setLayout(null);
 
+        Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice105x105.png"))); // NOI18N
+        add(Cornice);
+        Cornice.setBounds(1090, 3, 105, 105);
+
         useThisToHandleClick.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         useThisToHandleClick.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -78,7 +84,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
             }
         });
         add(useThisToHandleClick);
-        useThisToHandleClick.setBounds(0, 0, 1201, 113);
+        useThisToHandleClick.setBounds(0, 0, 1200, 110);
 
         surnameField.setBackground(new java.awt.Color(219, 213, 205));
         surnameField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -122,7 +128,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
 
         propic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagePlaceholder.png"))); // NOI18N
         add(propic);
-        propic.setBounds(1090, 2, 105, 105);
+        propic.setBounds(1090, 3, 105, 105);
         add(jLabel1);
         jLabel1.setBounds(0, 0, 1200, 110);
     }// </editor-fold>//GEN-END:initComponents
@@ -135,6 +141,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Cornice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField levelField;

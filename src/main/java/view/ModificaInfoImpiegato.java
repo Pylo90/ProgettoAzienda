@@ -89,6 +89,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        Cornice = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -117,6 +118,10 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 248, 238));
         jPanel2.setLayout(null);
+
+        Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice400x400.png"))); // NOI18N
+        jPanel2.add(Cornice);
+        Cornice.setBounds(1350, 110, 400, 400);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -352,12 +357,12 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         int livello = jComboBox1.getSelectedIndex();
         boolean disability = jCheckBox1.isSelected();
         boolean updatePropic;
-        if (newPic!=null) {
+        if (newPic != null) {
             updatePropic = true;
         } else {
             updatePropic = false;
         }
-        ALC.submitForm(name, surname, mail, cf, numero, livello, disability, in, matricola,updatePropic);
+        ALC.submitForm(name, surname, mail, cf, numero, livello, disability, in, matricola, updatePropic);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
@@ -440,20 +445,20 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         //chooser.setAcceptAllFileFilterUsed(false);
         chooser.showOpenDialog(this);
         File file = chooser.getSelectedFile();
-        String path = file.getAbsolutePath();
+        if (file != null) {
+            String path = file.getAbsolutePath();
+            Image im = Toolkit.getDefaultToolkit().createImage(path);
+            im = im.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+            ImageIcon ic = new ImageIcon(im);
 
-        Image im = Toolkit.getDefaultToolkit().createImage(path);
-        im = im.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
-        ImageIcon ic = new ImageIcon(im);
-
-        try {
-            in = new FileInputStream(path);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AssumiImpiegatoBoundary.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                in = new FileInputStream(path);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(AssumiImpiegatoBoundary.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            jButton2.setIcon(ic);
+            newPic = ic;
         }
-        jButton2.setIcon(ic);
-        newPic = ic;
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -493,6 +498,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConfirmButton;
+    private javax.swing.JLabel Cornice;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;

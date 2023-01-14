@@ -36,6 +36,8 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     int cardCount;
     boolean searchFieldPlaceholder;
     ArrayList<InfoBoxCard> infoBoxList;
+    Image foto;
+    ImageIcon proPicToSend;
 
     public ListaImpiegati(Object controller, ResultSet rs, String f) {
         if (controller instanceof OrariStipendiControl) {
@@ -64,7 +66,16 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         mainPanel.requestFocus();
         try {
             while (rs.next()) {
-                addInfoPane(rs.getString("matricola"), rs.getString("nome"), rs.getString("cognome"), rs.getString("livello"), null);
+                if (rs.getBlob("propic") != null) {
+                    byte[] propicBytes = rs.getBytes("propic");
+                    ImageIcon format = new ImageIcon(propicBytes);
+                    foto = format.getImage();
+                    Image foto2 = foto.getScaledInstance(105, 105, Image.SCALE_SMOOTH);
+                    proPicToSend = new ImageIcon(foto2);
+                } else {
+                    proPicToSend = new javax.swing.ImageIcon(getClass().getResource("/ImagePlaceholder.png"));
+                }
+                addInfoPane(rs.getString("matricola"), rs.getString("nome"), rs.getString("cognome"), rs.getString("livello"), proPicToSend);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ListaImpiegati.class.getName()).log(Level.SEVERE, null, ex);
