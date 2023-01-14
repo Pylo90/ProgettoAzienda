@@ -2,6 +2,7 @@ package misc;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -69,6 +70,27 @@ public class DBMSBoundary {
     }
     
     public static void updatePropic(String matricola, FileInputStream image) {
+        ResultSet rs = getQuery("SELECT COUNT(matricola) FROM Impiegato WHERE matricola = " + matricola);
+        try {
+            rs.next();
+            if(rs.getInt(1) == 0) {
+                return;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return;
+        }
+        
+        try {
+            PreparedStatement ps = con.prepareStatement("UPDATE Impiegato SET propic = ? WHERE matricola = ?");
+            ps.setBinaryStream(1, image);
+            ps.setString(2, matricola);
+            ps.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static void updatePropic(String matricola, InputStream image) {
         ResultSet rs = getQuery("SELECT COUNT(matricola) FROM Impiegato WHERE matricola = " + matricola);
         try {
             rs.next();

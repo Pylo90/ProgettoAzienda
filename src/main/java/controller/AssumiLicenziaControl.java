@@ -64,16 +64,11 @@ public class AssumiLicenziaControl {
     public void workerSelected(ListaImpiegati LI, String matricola) {
         rs = null;
         this.LI = LI;
-        rs = DBMSBoundary.getQuery("select * from impiegato where impiegato.matricola = " + matricola);
+        rs = DBMSBoundary.getQuery("select * from impiegato where impiegato.matricola = " + matricola + " ;");
         JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(this, rs);
         LI.setClickable(false);
         ModificaInfoImpiegato.setVisible(true);
         ModificaInfoImpiegato.setAlwaysOnTop(true);
-    }
-
-    public void submitForm(Utente UT) {
-        //Manda i dati nel DBMS (in caso spacchetta prima UT)
-        ;
     }
 
     public void DisposeWindow(JFrame finestra) {
@@ -143,25 +138,42 @@ public class AssumiLicenziaControl {
 
     }
 
-    public void submitForm(String name, String surname, String mail, String passw, String cf, ImageIcon foto, String numero, int livello, boolean disability, String path, String matricola) {
+    public void submitForm(String name, String surname, String mail, String cf, String numero, int livello, boolean disability, InputStream in, String matricola) {
 
- 
         DBMS.updateQuery("UPDATE Impiegato SET "
-                + "cognome = '" +surname + "',"
-                + "nome = '"+name + "',"
-                + "livello = "+livello + ",'"
-                + "email = '" +mail + "','"
-                + "tel = '"+numero + "',"
-                + "_104 = "+disability + ");"); // inserisci impiegato
-        try {
-            DBMS.updatePropic(matricola, new FileInputStream(path));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
+                + "cognome = '" + surname + "',"
+                + "nome = '" + name + "',"
+                + "livello = " + (livello + 1) + ","
+                + "email = '" + mail + "',"
+                + "tel = '" + numero + "',"
+                + "_104 = " + disability + " where Impiegato.matricola = '" + matricola + "';"); // inserisci impiegato
+
+        DBMS.updatePropic(matricola, in);
+
+    }
+
+    public void submitForm(String name, String surname, String mail, String cf, String numero, int livello, boolean disability, InputStream in, String matricola, boolean updatePropic) {
+
+        DBMS.updateQuery("UPDATE Impiegato SET "
+                + "cognome = '" + surname + "',"
+                + "nome = '" + name + "',"
+                + "livello = " + (livello + 1) + ","
+                + "email = '" + mail + "',"
+                + "tel = '" + numero + "',"
+                + "_104 = " + disability + " where Impiegato.matricola = '" + matricola + "';"); // inserisci impiegato
+
+        if (updatePropic) {
+            DBMS.updatePropic(matricola, in);
         }
 
     }
 
     public void disposeWindow(JFrame finestra) {
+        if (finestra instanceof ModificaInfoImpiegato) {
+            if (LI != null) {
+                LI.dispose();
+            }
+        }
         finestra.dispose();
         if (HPD != null) {
             HPD.setClickable(true);
@@ -203,7 +215,8 @@ public class AssumiLicenziaControl {
     }
 
     /**
-     * *****DA UTILIZZARE PER GENERARE L'HASH DI UNA PASSWORD PER SALVARLA NEL DATABASE******
+     * *****DA UTILIZZARE PER GENERARE L'HASH DI UNA PASSWORD PER SALVARLA NEL
+     * DATABASE******
      */
     private String hashPassword(String password) {
         String hash = BCrypt.hashpw(password, BCrypt.gensalt());

@@ -9,11 +9,14 @@ import controller.AssumiLicenziaControl;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -36,37 +39,43 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
      */
     ResultSet r;
     InputStream in;
+    String matricola = null;
+    Image foto;
+    ImageIcon oldPic;
+    ImageIcon newPic;
 
     public ModificaInfoImpiegato(AssumiLicenziaControl ALC, ResultSet r) {
         this.ALC = ALC;
         initComponents();
-        in = null;
+
         try {
             // TODO add your handling code here:
             if (r.next()) {
+                matricola = r.getString("matricola");
                 jTextField1.setText(r.getString("nome"));
-            }
-            jTextField4.setText(r.getString("cognome"));
-            jTextField5.setText(r.getString("email"));
-            jTextField6.setText(r.getString("CF"));
-            jTextField7.setText(r.getString("tel"));
-            jCheckBox1.setSelected(r.getBoolean("_104"));
-            if (r.getBlob("propic") != null) {
-                InputStream in = r.getBlob("propic").getBinaryStream();
-                try {
-                    jButton2.setIcon(new ImageIcon(ImageIO.read(in)));
-                } catch (IOException ex) {
-                    Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
+                jTextField4.setText(r.getString("cognome"));
+                jTextField5.setText(r.getString("email"));
+                jTextField6.setText(r.getString("CF"));
+                jTextField7.setText(r.getString("tel"));
+                jCheckBox1.setSelected(r.getBoolean("_104"));
+                jComboBox1.setSelectedIndex(Integer.valueOf(r.getString("livello")) - 1);
+                if (r.getBlob("propic") != null) {
+                    byte[] propicBytes = r.getBytes("propic");
+                    ImageIcon format = new ImageIcon(propicBytes);
+                    foto = format.getImage();
+                    Image foto2 = foto.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+                    jButton2.setIcon(new ImageIcon(foto2));
+                    oldPic = new ImageIcon(foto);
+
                 }
             }
-            jComboBox1.setSelectedIndex(Integer.valueOf(r.getString("livello")) - 1);
+
         } catch (SQLException ex) {
             Logger.getLogger(ModificaInfoImpiegato.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-    ImageIcon foto;
     FileFilter imageFilter = new FileNameExtensionFilter("Image files", ImageIO.getReaderFileSuffixes());
 
     /**
@@ -342,7 +351,13 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         String numero = jTextField7.getText().trim();
         int livello = jComboBox1.getSelectedIndex();
         boolean disability = jCheckBox1.isSelected();
-        ALC.submitForm(UT);
+        boolean updatePropic;
+        if (newPic!=null) {
+            updatePropic = true;
+        } else {
+            updatePropic = false;
+        }
+        ALC.submitForm(name, surname, mail, cf, numero, livello, disability, in, matricola,updatePropic);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
@@ -429,14 +444,15 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         Image im = Toolkit.getDefaultToolkit().createImage(path);
         im = im.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
-        foto = new ImageIcon(im);
+        ImageIcon ic = new ImageIcon(im);
 
         try {
             in = new FileInputStream(path);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AssumiImpiegatoBoundary.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jButton2.setIcon(foto);
+        jButton2.setIcon(ic);
+        newPic = ic;
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
