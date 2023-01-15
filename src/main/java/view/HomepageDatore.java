@@ -11,7 +11,7 @@ import controller.LoginControl;
 //import controller.MalattiaControl;
 import controller.OrariStipendiControl;
 import controller.RichiesteControl;
-import controller.StraordinariControl;
+//import controller.StraordinariControl;
 import javax.swing.ImageIcon;
 
 /**
@@ -355,7 +355,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            SC.AffidaStraordinariButtonPressed(this); //fare sc
+            //SC.AffidaStraordinariButtonPressed(this); //fare sc
     }//GEN-LAST:event_straordButtonActionPerformed
     }
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
@@ -455,7 +455,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private AssumiLicenziaControl ALC = new AssumiLicenziaControl();
-    private StraordinariControl SC = new StraordinariControl();
+   // private StraordinariControl SC = new StraordinariControl();
     private OrariStipendiControl OSC = new OrariStipendiControl();
     private RichiesteControl RC = new RichiesteControl();
     //private MalattiaControl MC = new MalattiaControl();

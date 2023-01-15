@@ -52,23 +52,24 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         ConfirmButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        AssumiImpiegatoLabel = new javax.swing.JLabel();
+        LivelloLabel = new javax.swing.JLabel();
+        CFLabel = new javax.swing.JLabel();
+        NTelefonicoLabel = new javax.swing.JLabel();
+        MailLabel = new javax.swing.JLabel();
+        CognomeLabel = new javax.swing.JLabel();
+        NomeLabel = new javax.swing.JLabel();
+        CorniceLabel = new javax.swing.JLabel();
+        CostinaHome = new javax.swing.JLabel();
+        LivelloComboBox = new javax.swing.JComboBox<>();
+        CFTextField = new javax.swing.JTextField();
+        NTelefonicoTextField = new javax.swing.JTextField();
+        MailTextField = new javax.swing.JTextField();
+        CognomeTextField = new javax.swing.JTextField();
+        NomeTextField = new javax.swing.JTextField();
+        FotoButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -77,132 +78,6 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
         jPanel1.setLayout(null);
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Assumi Impiegato");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(280, 60, 517, 87);
-
-        jComboBox1.setBackground(new java.awt.Color(219, 213, 205));
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jComboBox1.setOpaque(true);
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(1040, 440, 150, 70);
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Livello");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(881, 432, 135, 64);
-
-        jTextField6.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField6);
-        jTextField6.setBounds(960, 620, 571, 65);
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("CF");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(881, 614, 53, 64);
-
-        jTextField7.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField7KeyPressed(evt);
-            }
-        });
-        jPanel1.add(jTextField7);
-        jTextField7.setBounds(470, 710, 350, 65);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("N. Telefonico");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(174, 705, 278, 64);
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Mail");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(174, 614, 91, 64);
-
-        jTextField5.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField5KeyPressed(evt);
-            }
-        });
-        jPanel1.add(jTextField5);
-        jTextField5.setBounds(280, 620, 540, 65);
-
-        jTextField4.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField4KeyPressed(evt);
-            }
-        });
-        jPanel1.add(jTextField4);
-        jTextField4.setBounds(400, 540, 420, 65);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Cognome");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(174, 523, 207, 90);
-
-        jTextField1.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
-            }
-        });
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(320, 450, 500, 65);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nome");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(174, 432, 140, 80);
 
         ConfirmButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ConfirmButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -239,19 +114,149 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         jPanel1.add(homeButton);
         homeButton.setBounds(40, 40, 100, 100);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(0, 0, 200, 195);
+        AssumiImpiegatoLabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        AssumiImpiegatoLabel.setForeground(new java.awt.Color(0, 0, 0));
+        AssumiImpiegatoLabel.setText("Assumi Impiegato");
+        jPanel1.add(AssumiImpiegatoLabel);
+        AssumiImpiegatoLabel.setBounds(280, 60, 517, 87);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FotoButton.png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        LivelloLabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        LivelloLabel.setForeground(new java.awt.Color(0, 0, 0));
+        LivelloLabel.setText("Livello");
+        jPanel1.add(LivelloLabel);
+        LivelloLabel.setBounds(881, 432, 135, 64);
+
+        CFLabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        CFLabel.setForeground(new java.awt.Color(0, 0, 0));
+        CFLabel.setText("CF");
+        jPanel1.add(CFLabel);
+        CFLabel.setBounds(881, 614, 53, 64);
+
+        NTelefonicoLabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        NTelefonicoLabel.setForeground(new java.awt.Color(0, 0, 0));
+        NTelefonicoLabel.setText("N. Telefonico");
+        jPanel1.add(NTelefonicoLabel);
+        NTelefonicoLabel.setBounds(174, 705, 278, 64);
+
+        MailLabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        MailLabel.setForeground(new java.awt.Color(0, 0, 0));
+        MailLabel.setText("Mail");
+        jPanel1.add(MailLabel);
+        MailLabel.setBounds(174, 614, 91, 64);
+
+        CognomeLabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        CognomeLabel.setForeground(new java.awt.Color(0, 0, 0));
+        CognomeLabel.setText("Cognome");
+        jPanel1.add(CognomeLabel);
+        CognomeLabel.setBounds(174, 523, 207, 90);
+
+        NomeLabel.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        NomeLabel.setForeground(new java.awt.Color(0, 0, 0));
+        NomeLabel.setText("Nome");
+        jPanel1.add(NomeLabel);
+        NomeLabel.setBounds(174, 432, 140, 80);
+
+        CorniceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice400x400.png"))); // NOI18N
+        jPanel1.add(CorniceLabel);
+        CorniceLabel.setBounds(1350, 110, 400, 400);
+
+        CostinaHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
+        jPanel1.add(CostinaHome);
+        CostinaHome.setBounds(0, 0, 200, 195);
+
+        LivelloComboBox.setBackground(new java.awt.Color(219, 213, 205));
+        LivelloComboBox.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        LivelloComboBox.setForeground(new java.awt.Color(0, 0, 0));
+        LivelloComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        LivelloComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LivelloComboBox.setOpaque(true);
+        LivelloComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                LivelloComboBoxActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(1350, 110, 400, 400);
+        jPanel1.add(LivelloComboBox);
+        LivelloComboBox.setBounds(1040, 440, 150, 70);
+
+        CFTextField.setBackground(new java.awt.Color(219, 213, 205));
+        CFTextField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        CFTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CFTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(CFTextField);
+        CFTextField.setBounds(960, 620, 571, 65);
+
+        NTelefonicoTextField.setBackground(new java.awt.Color(219, 213, 205));
+        NTelefonicoTextField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        NTelefonicoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NTelefonicoTextFieldActionPerformed(evt);
+            }
+        });
+        NTelefonicoTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                NTelefonicoTextFieldKeyPressed(evt);
+            }
+        });
+        jPanel1.add(NTelefonicoTextField);
+        NTelefonicoTextField.setBounds(470, 710, 350, 65);
+
+        MailTextField.setBackground(new java.awt.Color(219, 213, 205));
+        MailTextField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        MailTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MailTextFieldActionPerformed(evt);
+            }
+        });
+        MailTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MailTextFieldKeyPressed(evt);
+            }
+        });
+        jPanel1.add(MailTextField);
+        MailTextField.setBounds(280, 620, 540, 65);
+
+        CognomeTextField.setBackground(new java.awt.Color(219, 213, 205));
+        CognomeTextField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        CognomeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CognomeTextFieldActionPerformed(evt);
+            }
+        });
+        CognomeTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CognomeTextFieldKeyPressed(evt);
+            }
+        });
+        jPanel1.add(CognomeTextField);
+        CognomeTextField.setBounds(400, 540, 420, 65);
+
+        NomeTextField.setBackground(new java.awt.Color(219, 213, 205));
+        NomeTextField.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        NomeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NomeTextFieldActionPerformed(evt);
+            }
+        });
+        NomeTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                NomeTextFieldKeyPressed(evt);
+            }
+        });
+        jPanel1.add(NomeTextField);
+        NomeTextField.setBounds(320, 450, 500, 65);
+
+        FotoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Propic400x400.png"))); // NOI18N
+        FotoButton.setContentAreaFilled(false);
+        FotoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FotoButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(FotoButton);
+        FotoButton.setBounds(1350, 110, 400, 400);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1920, 1080);
@@ -259,26 +264,26 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void NomeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_NomeTextFieldActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void LivelloComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LivelloComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_LivelloComboBoxActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void CFTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CFTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_CFTextFieldActionPerformed
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
-        String name = jTextField1.getText().trim();
-        String surname = jTextField4.getText().trim();
-        String mail = jTextField5.getText().trim();       //aggiungere verifica mail
+        String name = NomeTextField.getText().trim();
+        String surname = CognomeTextField.getText().trim();
+        String mail = MailTextField.getText().trim();       //aggiungere verifica mail
         ALC.verifyMail(mail, this);
-        String cf = jTextField6.getText().trim();
-        String numero = jTextField7.getText().trim();
-        int livello = jComboBox1.getSelectedIndex()+1;
+        String cf = CFTextField.getText().trim();
+        String numero = NTelefonicoTextField.getText().trim();
+        int livello = LivelloComboBox.getSelectedIndex()+1;
         ALC.sendData(name, surname, mail, cf, foto, numero, livello,path);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
@@ -288,89 +293,69 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         ALC.disposeWindow(this);
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void NTelefonicoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NTelefonicoTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_NTelefonicoTextFieldActionPerformed
 
-    private void jTextField7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyPressed
+    private void NTelefonicoTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NTelefonicoTextFieldKeyPressed
         // TODO add your handling code here:
-        String numero = jTextField7.getText();
+        String numero = NTelefonicoTextField.getText();
         int length = numero.length();
         char c = evt.getKeyChar();
         //controllo i numeri da 0 a 9
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
             if (length < 10) {                                        //il numero non deve essere più lungo di 10 righe
-                jTextField7.setEditable(true);
+                NTelefonicoTextField.setEditable(true);
             } else {
-                jTextField7.setEditable(false);
+                NTelefonicoTextField.setEditable(false);
             }
         } else {
             if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) { //non conta spazi e cancella nei 10 char
-                jTextField7.setEditable(true);
+                NTelefonicoTextField.setEditable(true);
             } else {
-                jTextField7.setEditable(false);
+                NTelefonicoTextField.setEditable(false);
             }
         }
-    }//GEN-LAST:event_jTextField7KeyPressed
+    }//GEN-LAST:event_NTelefonicoTextFieldKeyPressed
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void NomeTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NomeTextFieldKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         
         if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
-            jTextField1.setEditable(true);
-        }else jTextField1.setEditable(false);
-    }//GEN-LAST:event_jTextField1KeyPressed
+            NomeTextField.setEditable(true);
+        }else NomeTextField.setEditable(false);
+    }//GEN-LAST:event_NomeTextFieldKeyPressed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void CognomeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CognomeTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_CognomeTextFieldActionPerformed
 
-    private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
+    private void CognomeTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CognomeTextFieldKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         
         if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
-            jTextField4.setEditable(true);
-        }else jTextField4.setEditable(false);
-    }//GEN-LAST:event_jTextField4KeyPressed
+            CognomeTextField.setEditable(true);
+        }else CognomeTextField.setEditable(false);
+    }//GEN-LAST:event_CognomeTextFieldKeyPressed
 
-    private void jTextField5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyPressed
+    private void MailTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MailTextFieldKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         
         if(Character.isWhitespace(c)){
-            jTextField5.setEditable(false);
-        }else jTextField5.setEditable(true);
-    }//GEN-LAST:event_jTextField5KeyPressed
+            MailTextField.setEditable(false);
+        }else MailTextField.setEditable(true);
+    }//GEN-LAST:event_MailTextFieldKeyPressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void MailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MailTextFieldActionPerformed
         // TODO add your handling code here:
-        JFileChooser chooser = new JFileChooser();
-        chooser.setFileFilter(imageFilter);
-        //chooser.addChoosableFileFilter(new ImageFilter()); // alternativa che ha bisogno però della classe ausiliaria ImageFilter
-        //chooser.setAcceptAllFileFilterUsed(false);
-        chooser.showOpenDialog(this);
-        File file = chooser.getSelectedFile();
-        this.path = file.getAbsolutePath();
-        
-        Image im = Toolkit.getDefaultToolkit().createImage(path);
-        im = im.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
-        foto = new ImageIcon(im);
-        
-        try {
-            in = new FileInputStream(path);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AssumiImpiegatoBoundary.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        jButton1.setIcon(foto);
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_MailTextFieldActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void FotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FotoButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_FotoButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,24 +393,25 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AssumiImpiegatoLabel;
+    private javax.swing.JLabel CFLabel;
+    private javax.swing.JTextField CFTextField;
+    private javax.swing.JLabel CognomeLabel;
+    private javax.swing.JTextField CognomeTextField;
     private javax.swing.JButton ConfirmButton;
+    private javax.swing.JLabel CorniceLabel;
+    private javax.swing.JLabel CostinaHome;
+    private javax.swing.JButton FotoButton;
+    private javax.swing.JComboBox<String> LivelloComboBox;
+    private javax.swing.JLabel LivelloLabel;
+    private javax.swing.JLabel MailLabel;
+    private javax.swing.JTextField MailTextField;
+    private javax.swing.JLabel NTelefonicoLabel;
+    private javax.swing.JTextField NTelefonicoTextField;
+    private javax.swing.JLabel NomeLabel;
+    private javax.swing.JTextField NomeTextField;
     private javax.swing.JButton homeButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 
     AssumiLicenziaControl ALC;

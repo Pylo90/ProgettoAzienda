@@ -5,7 +5,7 @@
 package view;
 
 import controller.RichiesteControl;
-import controller.StraordinariControl;
+//import controller.StraordinariControl;
 import misc.Utente;
 import javax.swing.JButton;
 
@@ -25,13 +25,13 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         MonthLabel.setText(mesi[meseIndex]);
     }
     
-    public CalendarioInterattivoMotivazione(StraordinariControl SC, Utente UT) {
+    /*public CalendarioInterattivoMotivazione(StraordinariControl SC, Utente UT) {
         this.SC = SC;
         this.UT = UT; //Utente serve a prendere il suo orario e annerire i giorni in cui non lavora
         initComponents();
         meseIndex = 0;
         MonthLabel.setText(mesi[meseIndex]);
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -990,7 +990,7 @@ private javax.swing.JButton selectedButton;
     int meseIndex;
 
     RichiesteControl RC;
-    StraordinariControl SC;
+    //StraordinariControl SC;
     Utente UT;
     
     private boolean clickable;

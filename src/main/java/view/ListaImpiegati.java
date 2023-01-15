@@ -5,7 +5,7 @@ import controller.OrariStipendiControl;
 import view.style.InfoBoxCard;
 import controller.RichiesteControl;
 //import controller.MalattiaControl;
-import controller.StraordinariControl;
+//import controller.StraordinariControl;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -30,7 +30,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     OrariStipendiControl OSC;
     RichiesteControl RC;
     AssumiLicenziaControl ALC;
-    StraordinariControl SC;
+    //StraordinariControl SC;
     String funzione = null;
     int cardCount;
     boolean searchFieldPlaceholder;
@@ -49,9 +49,9 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         if (controller instanceof AssumiLicenziaControl) {
             this.ALC = (AssumiLicenziaControl) controller;
         }
-        if (controller instanceof StraordinariControl) {
+        /*if (controller instanceof StraordinariControl) {
             this.SC = (StraordinariControl) controller;
-        }
+        }*/
         setClickable(true);
         initComponents();
         this.funzione = f;
@@ -298,9 +298,9 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         if (isClickable() && (this.ALC != null)) {
             ALC.DisposeWindow(this);
         }
-        if (isClickable() && (this.SC != null)) {
+        /*if (isClickable() && (this.SC != null)) {
             SC.DisposeWindow(this);
-        }
+        }*/
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void searchFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFieldFocusGained

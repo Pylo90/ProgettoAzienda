@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.StraordinariControl;
+//import controller.StraordinariControl;
 import javax.swing.JButton;
 import misc.Utente;
 
@@ -27,7 +27,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     }
     
-    public CalendarioOreInterattivo(StraordinariControl SC, Utente UT, int giorno, boolean ora) {
+    /*public CalendarioOreInterattivo(StraordinariControl SC, Utente UT, int giorno, boolean ora) {
         this.ora = ora;
         this.giorno = giorno;
         this.SC = SC;
@@ -52,7 +52,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         if(ora == false){
             ConfirmButton2.setVisible(false);
         }
-    }
+    }*/
     
     
 
@@ -408,7 +408,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
         
-        SC.DisposeWindow(this);
+        //SC.DisposeWindow(this);
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
@@ -429,14 +429,14 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
         
         if(ora == false){
             inizio = hour;
-            SC.startingHourSelected(UT, giorno, ora, inizio);
+            //SC.startingHourSelected(UT, giorno, ora, inizio);
         } else {
             inizio = inizioStraordinario;
             fineStraordinario = hour;
-            SC.endingHourSelected(UT, giorno, inizio, fineStraordinario);
+            //SC.endingHourSelected(UT, giorno, inizio, fineStraordinario);
         }
         
-        SC.DisposeWindow(this);
+        //SC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
     private void Turno1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Turno1ButtonActionPerformed
@@ -528,9 +528,9 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
 
     private void ConfirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton2ActionPerformed
         // TODO add your handling code here:
-        CI = new CalendarioInterattivo(SC, UT);
+        /*CI = new CalendarioInterattivo(SC, UT);
         SC.daySelected(CI, UT, giorno);
-        SC.DisposeWindow(this);
+        SC.DisposeWindow(this);*/
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 
     /**
@@ -628,7 +628,7 @@ public class CalendarioOreInterattivo extends javax.swing.JFrame {
     int fineStraordinario;
     boolean ora;
     int giorno;
-    StraordinariControl SC;
+    //StraordinariControl SC;
     CalendarioInterattivo CI;
     Utente UT;
 

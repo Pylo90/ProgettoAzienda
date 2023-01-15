@@ -27,7 +27,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         homeButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        HomeCostina = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
@@ -73,9 +73,9 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         jPanel1.add(homeButton);
         homeButton.setBounds(40, 40, 100, 100);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 200, 195);
+        HomeCostina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
+        jPanel1.add(HomeCostina);
+        HomeCostina.setBounds(0, 0, 200, 195);
 
         jScrollPane1.setBorder(null);
 
@@ -269,9 +269,9 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel HomeCostina;
     private javax.swing.JButton confirmButton;
     private javax.swing.JButton homeButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
