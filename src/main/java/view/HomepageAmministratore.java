@@ -1,12 +1,12 @@
 package view;
 
-import controller.AssumiLicenziaControl;
-import controller.CambiaPasswordControl;
-import controller.LoginControl;
-import controller.MalattiaControl;
-import controller.OrariStipendiControl;
-import controller.RichiesteControl;
-import controller.StraordinariControl;
+import controller.GestionePersonale.AssumiLicenziaControl;
+import controller.AreaPersonale.CambiaPasswordControl;
+import controller.Autenticazione.LoginControl;
+//import controller.MalattiaControl;
+import controller.AreaPersonale.OrariStipendiControl;
+import controller.AreaPersonale.RichiesteControl;
+//import controller.StraordinariControl;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,25 +23,25 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private OrariStipendiControl OSC;
     private CambiaPasswordControl CPC;
     private RichiesteControl RicC;
-    private MalattiaControl MC;
-    private StraordinariControl SC;
+    //private MalattiaControl MC;
+    //private StraordinariControl SC;
     private AssumiLicenziaControl ALC;
     private LoginControl LC;
 
-    public HomepageAmministratore(String nome, String cognome, String matricola, String tel,String mail, ImageIcon propic,LoginControl logC) {
+    public HomepageAmministratore(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
         initComponents();
-        
+
         jLabel3.setVisible(false);
         permessoButton.setVisible(false);
         ferieButton.setVisible(false);
         congedoButton.setVisible(false);
         setClickable(true);
-        nameText.setText(nome+ " "+cognome);
+        nameText.setText(nome + " " + cognome);
         idText.setText(matricola);
         mailText.setText(mail);
         phoneText.setText(tel);
         this.Propic.setIcon(propic);
-        LC=logC;
+        LC = logC;
     }
 
     /**
@@ -58,6 +58,9 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         ferieButton = new javax.swing.JButton();
         MalattiaButton = new javax.swing.JButton();
         congedoButton = new javax.swing.JButton();
+        assumiButton = new javax.swing.JButton();
+        licenziaButton = new javax.swing.JButton();
+        scioperoLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         passwordButton = new javax.swing.JButton();
@@ -75,9 +78,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         editButton = new javax.swing.JButton();
         straordButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        scioperoLabel = new javax.swing.JLabel();
-        assumiButton = new javax.swing.JButton();
-        licenziaButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -93,6 +93,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 1050));
+        setUndecorated(true);
+        getContentPane().setLayout(null);
 
         mainPanel.setBackground(new java.awt.Color(255, 248, 238));
         mainPanel.setFocusable(false);
@@ -170,6 +172,49 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         });
         mainPanel.add(congedoButton);
         congedoButton.setBounds(220, 140, 310, 50);
+
+        assumiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AssumiButton.png"))); // NOI18N
+        assumiButton.setBorder(null);
+        assumiButton.setContentAreaFilled(false);
+        assumiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        assumiButton.setIconTextGap(0);
+        assumiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assumiButtonActionPerformed(evt);
+            }
+        });
+        mainPanel.add(assumiButton);
+        assumiButton.setBounds(1610, 70, 100, 100);
+
+        licenziaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LicenziaButton.png"))); // NOI18N
+        licenziaButton.setBorder(null);
+        licenziaButton.setContentAreaFilled(false);
+        licenziaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        licenziaButton.setIconTextGap(0);
+        licenziaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                licenziaButtonActionPerformed(evt);
+            }
+        });
+        mainPanel.add(licenziaButton);
+        licenziaButton.setBounds(1610, 200, 100, 100);
+
+        scioperoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        scioperoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        scioperoLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        scioperoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina-flipped.png"))); // NOI18N
+        scioperoLabel.setText("Indici sciopero");
+        scioperoLabel.setToolTipText("");
+        scioperoLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        scioperoLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        scioperoLabel.setIconTextGap(0);
+        scioperoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                scioperoLabelMouseClicked(evt);
+            }
+        });
+        mainPanel.add(scioperoLabel);
+        scioperoLabel.setBounds(1570, 942, 350, 100);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
         mainPanel.add(jLabel3);
@@ -274,7 +319,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
             }
         });
         mainPanel.add(ritardoLabel);
-        ritardoLabel.setBounds(0, 912, 350, 90);
+        ritardoLabel.setBounds(0, 942, 350, 100);
 
         jPanel3.setBackground(new java.awt.Color(255, 248, 238));
         jPanel3.setLayout(null);
@@ -289,7 +334,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel3.add(impSalaryButton);
-        impSalaryButton.setBounds(50, 20, 100, 100);
+        impSalaryButton.setBounds(70, 20, 100, 100);
 
         impScheduleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrariImpiegatoButton.png"))); // NOI18N
         impScheduleButton.setBorder(null);
@@ -301,7 +346,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel3.add(impScheduleButton);
-        impScheduleButton.setBounds(50, 150, 100, 100);
+        impScheduleButton.setBounds(70, 150, 100, 100);
 
         healthButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MalattiaButton.png"))); // NOI18N
         healthButton.setBorder(null);
@@ -313,7 +358,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel3.add(healthButton);
-        healthButton.setBounds(50, 280, 100, 100);
+        healthButton.setBounds(70, 280, 100, 100);
 
         switchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SwitchButton.png"))); // NOI18N
         switchButton.setBorder(null);
@@ -325,7 +370,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel3.add(switchButton);
-        switchButton.setBounds(50, 410, 100, 100);
+        switchButton.setBounds(70, 410, 100, 100);
 
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EditButton.png"))); // NOI18N
         editButton.setBorder(null);
@@ -337,7 +382,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel3.add(editButton);
-        editButton.setBounds(50, 540, 100, 100);
+        editButton.setBounds(70, 540, 100, 100);
 
         straordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StraordinariButton.png"))); // NOI18N
         straordButton.setBorder(null);
@@ -349,57 +394,14 @@ public class HomepageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel3.add(straordButton);
-        straordButton.setBounds(50, 670, 100, 100);
+        straordButton.setBounds(70, 670, 100, 100);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaDXAmministratore.png"))); // NOI18N
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(0, -60, 200, 880);
+        jLabel5.setBounds(20, -50, 200, 880);
 
         mainPanel.add(jPanel3);
-        jPanel3.setBounds(1704, 55, 200, 819);
-
-        scioperoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        scioperoLabel.setForeground(new java.awt.Color(255, 255, 255));
-        scioperoLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        scioperoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina-flipped.png"))); // NOI18N
-        scioperoLabel.setText("Indici sciopero");
-        scioperoLabel.setToolTipText("");
-        scioperoLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        scioperoLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        scioperoLabel.setIconTextGap(0);
-        scioperoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                scioperoLabelMouseClicked(evt);
-            }
-        });
-        mainPanel.add(scioperoLabel);
-        scioperoLabel.setBounds(1554, 912, 350, 90);
-
-        assumiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AssumiButton.png"))); // NOI18N
-        assumiButton.setBorder(null);
-        assumiButton.setContentAreaFilled(false);
-        assumiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        assumiButton.setIconTextGap(0);
-        assumiButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assumiButtonActionPerformed(evt);
-            }
-        });
-        mainPanel.add(assumiButton);
-        assumiButton.setBounds(1554, 73, 100, 100);
-
-        licenziaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LicenziaButton.png"))); // NOI18N
-        licenziaButton.setBorder(null);
-        licenziaButton.setContentAreaFilled(false);
-        licenziaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        licenziaButton.setIconTextGap(0);
-        licenziaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                licenziaButtonActionPerformed(evt);
-            }
-        });
-        mainPanel.add(licenziaButton);
-        licenziaButton.setBounds(1554, 203, 100, 100);
+        jPanel3.setBounds(1704, 55, 230, 840);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -413,21 +415,21 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("ID :");
         mainPanel.add(jLabel11);
-        jLabel11.setBounds(860, 740, 53, 48);
+        jLabel11.setBounds(800, 740, 53, 48);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MailIcon.png"))); // NOI18N
         jLabel12.setText(":");
         mainPanel.add(jLabel12);
-        jLabel12.setBounds(850, 800, 60, 48);
+        jLabel12.setBounds(790, 800, 60, 48);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhoneIcon.png"))); // NOI18N
         jLabel13.setText(":");
         mainPanel.add(jLabel13);
-        jLabel13.setBounds(850, 860, 60, 48);
+        jLabel13.setBounds(790, 860, 60, 48);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -435,7 +437,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         jLabel8.setText(":");
         jLabel8.setToolTipText("");
         mainPanel.add(jLabel8);
-        jLabel8.setBounds(850, 680, 60, 48);
+        jLabel8.setBounds(790, 680, 60, 48);
 
         idText.setBackground(new java.awt.Color(255, 248, 238));
         idText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
@@ -445,7 +447,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         idText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         idText.setFocusable(false);
         mainPanel.add(idText);
-        idText.setBounds(930, 740, 550, 54);
+        idText.setBounds(870, 740, 550, 54);
 
         nameText.setBackground(new java.awt.Color(255, 248, 238));
         nameText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
@@ -455,7 +457,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         nameText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nameText.setFocusable(false);
         mainPanel.add(nameText);
-        nameText.setBounds(930, 680, 550, 54);
+        nameText.setBounds(870, 680, 550, 54);
 
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
         LogoutButton.setBorder(null);
@@ -477,7 +479,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         mailText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         mailText.setFocusable(false);
         mainPanel.add(mailText);
-        mailText.setBounds(930, 800, 550, 54);
+        mailText.setBounds(870, 800, 550, 54);
 
         phoneText.setBackground(new java.awt.Color(255, 248, 238));
         phoneText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
@@ -487,7 +489,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         phoneText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         phoneText.setFocusable(false);
         mainPanel.add(phoneText);
-        phoneText.setBounds(930, 860, 550, 54);
+        phoneText.setBounds(870, 860, 550, 54);
 
         Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
         mainPanel.add(Cornice);
@@ -497,21 +499,26 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         mainPanel.add(Propic);
         Propic.setBounds(880, 165, 460, 460);
 
-        getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
+        getContentPane().add(mainPanel);
+        mainPanel.setBounds(0, 0, 1920, 1080);
 
         setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ferieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferieButtonActionPerformed
         // TODO add your handling code here:
+        if (isClickable()) {
+            RicC = new RichiesteControl();
+            RicC.RichiestaFerieButtonPressed(this);
+        }
     }//GEN-LAST:event_ferieButtonActionPerformed
 
     private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
+        /*if (isClickable()) {
             SC = new StraordinariControl();
             SC.AffidaStraordinariButtonPressed(this); //fare sc
-    }
+    }*/
     }//GEN-LAST:event_straordButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
@@ -519,7 +526,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         if (isClickable()) {
             ALC = new AssumiLicenziaControl();
             ALC.ModificaInfoImpiegatoButtonPressed(this);
-    }
+        }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void salaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryButtonActionPerformed
@@ -551,7 +558,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (isClickable()) {
             RicC = new RichiesteControl();
-            RicC.ConsultaListaRichiesteButtonPressed(this);
+            RicC.ConsultazioneListaRichiesteButtonPressed(this);
         }
     }//GEN-LAST:event_notificationButtonActionPerformed
 
@@ -565,10 +572,17 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        if (isClickable()) {
+            ALC.assumiImpiegatoButtonPressed(this);
+        }
     }//GEN-LAST:event_assumiButtonActionPerformed
 
     private void licenziaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licenziaButtonActionPerformed
         // TODO add your handling code here:
+        if (isClickable()) {
+            ALC.licenziaImpiegatoButtonPressed(this);
+        }
     }//GEN-LAST:event_licenziaButtonActionPerformed
 
     private void impSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impSalaryButtonActionPerformed
@@ -589,10 +603,10 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
+        /*if (isClickable()) {
             MC = new MalattiaControl();
             MC.InserimentoMalattiaButtonPressed(this); //fare mc
-        }
+        }*/
     }//GEN-LAST:event_healthButtonActionPerformed
 
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
@@ -613,10 +627,18 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void permessoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permessoButtonActionPerformed
         // TODO add your handling code here:
+        if (isClickable()) {
+            RicC = new RichiesteControl();
+            RicC.RichiestaPermessoButtonPressed(this);
+        }
     }//GEN-LAST:event_permessoButtonActionPerformed
 
     private void congedoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_congedoButtonActionPerformed
         // TODO add your handling code here:
+        if (isClickable()) {
+            RicC = new RichiesteControl();
+            RicC.RichiestaCongedoParentaleButtonPressed(this);
+        }
     }//GEN-LAST:event_congedoButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -626,6 +648,10 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void MalattiaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MalattiaButtonActionPerformed
         // TODO add your handling code here:
+        if (isClickable()) {
+            RicC = new RichiesteControl();
+            RicC.ComunicazioneMalattiaButtonPressed(this);
+        }
     }//GEN-LAST:event_MalattiaButtonActionPerformed
 
     /**
@@ -634,7 +660,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageAmministratore(null,null,null,null,null,null,null).setVisible(true);
+                new HomepageAmministratore(null, null, null, null, null, null, null).setVisible(true);
             }
         });
     }
