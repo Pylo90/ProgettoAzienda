@@ -29,11 +29,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
                 nameText.setText(rs.getString("nome") + " " + rs.getString("cognome"));
                 jLabel11.setText("ID: " +rs.getString("matricola"));
                 nameText1.setText(rs.getString("tel"));
-                if (rs.getBoolean("_104")) {
-                    jLabel12.setText("104: Sì");
-                } else {
-                    jLabel12.setText("104: No");
-                }
+                
                 jLabel13.setText("Livello: " +rs.getString("livello"));
                 if (rs.getBlob("propic") != null) {
                     byte[] propicBytes = rs.getBytes("propic");
@@ -66,7 +62,6 @@ public class ProfiloPopup extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         nameText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -140,17 +135,11 @@ public class ProfiloPopup extends javax.swing.JFrame {
         jPanel1.add(jLabel11);
         jLabel11.setBounds(47, 476, 420, 48);
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("104:");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(40, 595, 450, 48);
-
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Livello:");
         jPanel1.add(jLabel13);
-        jLabel13.setBounds(40, 654, 490, 48);
+        jLabel13.setBounds(40, 600, 490, 48);
 
         nameText.setEditable(false);
         nameText.setBackground(new java.awt.Color(255, 248, 238));
@@ -172,7 +161,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ore Lavorate:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(39, 713, 480, 40);
+        jLabel1.setBounds(40, 660, 480, 40);
 
         ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ConfirmButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -283,7 +272,6 @@ public class ProfiloPopup extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;

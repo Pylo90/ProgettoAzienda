@@ -121,7 +121,7 @@ public class AssumiLicenziaControl {
         
     }
 
-    public void sendData(String name, String surname, String mail, String passw, String cf, ImageIcon foto, String numero, int livello, boolean disability, String path) {
+    public void sendData(String name, String surname, String mail, String cf, ImageIcon foto, String numero, int livello, String path) {
         int number = 0;
 
         ResultSet r = DBMS.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
@@ -136,11 +136,12 @@ public class AssumiLicenziaControl {
         }
 
         String matricola = this.generateMatricola(livello, number);
+        String passw = hashPassword(generatePlainPassword());
 
         long PINtemporaneo = this.generatePIN(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
 
-        this.sendPinToMail(PINtemporaneo, mail);
+        this.sendMail(PINtemporaneo, mail);
         DBMS.updateQuery("insert into impiegato values('"
                 + matricola + "','"
                 + surname + "',"
@@ -150,7 +151,7 @@ public class AssumiLicenziaControl {
                 + livello + ",'"
                 + mail + "','"
                 + numero + "',"
-                + disability + ","
+                + null + ","
                 + null + ","
                 + livello + ");"); // inserisci impiegato
         try {
@@ -161,7 +162,7 @@ public class AssumiLicenziaControl {
 
     }
 
-    public void submitForm(String name, String surname, String mail, String cf, String numero, int livello, boolean disability, InputStream in, String matricola) {
+    public void submitForm(String name, String surname, String mail, String cf, String numero, int livello, InputStream in, String matricola, boolean updatePropic) {
 
         DBMS.updateQuery("UPDATE Impiegato SET "
                 + "cognome = '" + surname + "',"
@@ -169,21 +170,7 @@ public class AssumiLicenziaControl {
                 + "livello = " + (livello + 1) + ","
                 + "email = '" + mail + "',"
                 + "tel = '" + numero + "',"
-                + "_104 = " + disability + " where Impiegato.matricola = '" + matricola + "';"); // inserisci impiegato
-
-        DBMS.updatePropic(matricola, in);
-
-    }
-
-    public void compileForm(String name, String surname, String mail, String cf, String numero, int livello, boolean disability, InputStream in, String matricola, boolean updatePropic) {
-
-        DBMS.updateQuery("UPDATE Impiegato SET "
-                + "cognome = '" + surname + "',"
-                + "nome = '" + name + "',"
-                + "livello = " + (livello + 1) + ","
-                + "email = '" + mail + "',"
-                + "tel = '" + numero + "',"
-                + "_104 = " + disability + " where Impiegato.matricola = '" + matricola + "';"); // inserisci impiegato
+                + "_104 = " + null + " where Impiegato.matricola = '" + matricola + "';"); // inserisci impiegato
 
         if (updatePropic) {
             DBMS.updatePropic(matricola, in);
@@ -257,7 +244,7 @@ public class AssumiLicenziaControl {
         return hash;
     }
 
-    public void sendPinToMail(long pin, String mail) {
+    public void sendMail(long pin, String mail) {
         //capire come mandare una mail
     }
 

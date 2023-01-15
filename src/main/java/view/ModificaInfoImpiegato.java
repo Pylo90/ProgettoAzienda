@@ -57,7 +57,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
                 jTextField5.setText(r.getString("email"));
                 jTextField6.setText(r.getString("CF"));
                 jTextField7.setText(r.getString("tel"));
-                jCheckBox1.setSelected(r.getBoolean("_104"));
                 jComboBox1.setSelectedIndex(Integer.valueOf(r.getString("livello")) - 1);
                 if (r.getBlob("propic") != null) {
                     byte[] propicBytes = r.getBytes("propic");
@@ -93,8 +92,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel5 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
@@ -118,8 +115,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 248, 238));
         jPanel2.setLayout(null);
-
-        Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice400x400.png"))); // NOI18N
         jPanel2.add(Cornice);
         Cornice.setBounds(1350, 110, 400, 400);
 
@@ -146,22 +141,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         jLabel3.setText("Livello");
         jPanel2.add(jLabel3);
         jLabel3.setBounds(881, 432, 135, 64);
-
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jCheckBox1);
-        jCheckBox1.setBounds(1000, 530, 50, 50);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("104");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(881, 523, 78, 64);
 
         jTextField6.setBackground(new java.awt.Color(219, 213, 205));
         jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -293,7 +272,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         jPanel2.add(ConfirmButton);
         ConfirmButton.setBounds(1330, 710, 195, 50);
 
-        homeButton.setForeground(new java.awt.Color(0, 0, 0));
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
         homeButton.setBorder(null);
         homeButton.setBorderPainted(false);
@@ -355,14 +333,13 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         //String passw = jTextField2.getText().trim();
         String numero = jTextField7.getText().trim();
         int livello = jComboBox1.getSelectedIndex();
-        boolean disability = jCheckBox1.isSelected();
         boolean updatePropic;
         if (newPic != null) {
             updatePropic = true;
         } else {
             updatePropic = false;
         }
-        ALC.compileForm(name, surname, mail, cf, numero, livello, disability, in, matricola, updatePropic);
+        ALC.submitForm(name, surname, mail, cf, numero, livello,in, matricola, updatePropic);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
@@ -394,10 +371,6 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         //
     }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        //
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         //
@@ -501,14 +474,12 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     private javax.swing.JLabel Cornice;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
