@@ -5,7 +5,12 @@
 package view;
 
 import controller.AssumiLicenziaControl;
-import misc.Utente;
+import java.awt.Image;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,10 +21,32 @@ public class ProfiloPopup extends javax.swing.JFrame {
     /**
      * Creates new form ProfiloPopup
      */
-    public ProfiloPopup(AssumiLicenziaControl ALC, Utente UT) {
-        this.UT = UT;
+    public ProfiloPopup(AssumiLicenziaControl ALC, ResultSet rs) {
         this.ALC = ALC;
         initComponents();
+        try {
+            if (rs.next()) {
+                nameText.setText(rs.getString("nome") + " " + rs.getString("cognome"));
+                jLabel11.setText("ID: " +rs.getString("matricola"));
+                nameText1.setText(rs.getString("tel"));
+                if (rs.getBoolean("_104")) {
+                    jLabel12.setText("104: Sì");
+                } else {
+                    jLabel12.setText("104: No");
+                }
+                jLabel13.setText("Livello: " +rs.getString("livello"));
+                if (rs.getBlob("propic") != null) {
+                    byte[] propicBytes = rs.getBytes("propic");
+                    ImageIcon format = new ImageIcon(propicBytes);
+                    Image foto = format.getImage();
+                    Image foto2 = foto.getScaledInstance(195, 195, Image.SCALE_SMOOTH);
+                    jLabel3.setIcon(new ImageIcon(foto2));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfiloPopup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -31,41 +58,33 @@ public class ProfiloPopup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        cornice = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         nameText = new javax.swing.JTextField();
-        idText = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        idText1 = new javax.swing.JTextField();
         ConfirmButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        nameText1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/progetto/PersonIcon.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(67, 128, 0, 33);
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(141, 237, 48, 48);
-
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(null);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
+        jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +93,7 @@ public class ProfiloPopup extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(481, 56, 81, 82);
+        jButton2.setBounds(481, 56, 75, 75);
 
         jScrollPane2.setBackground(new java.awt.Color(255, 248, 238));
         jScrollPane2.setBorder(null);
@@ -97,37 +116,47 @@ public class ProfiloPopup extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextArea2);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(50, 50, 430, 98);
+        jScrollPane2.setBounds(45, 56, 430, 140);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fabrizio.png"))); // NOI18N
+        cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice195x195.png"))); // NOI18N
+        jPanel1.add(cornice);
+        cornice.setBounds(200, 200, 195, 195);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Propic195x195.png"))); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(202, 200, 195, 195);
-
-        jPanel5.setBackground(new java.awt.Color(255, 248, 238));
-        jPanel5.setFocusable(false);
+        jLabel3.setBounds(200, 200, 195, 195);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PersonIcon.png"))); // NOI18N
         jLabel8.setText(":");
         jLabel8.setToolTipText("");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(40, 416, 60, 48);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("ID :");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(47, 476, 420, 48);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("104:");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(40, 595, 450, 48);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Livello:");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(40, 654, 490, 48);
 
+        nameText.setEditable(false);
         nameText.setBackground(new java.awt.Color(255, 248, 238));
-        nameText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        nameText.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         nameText.setForeground(new java.awt.Color(0, 0, 0));
-        nameText.setText(" Lorem ipsum dolor sit gravida.");
+        nameText.setText(" Lorem ipsum ");
         nameText.setBorder(null);
         nameText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nameText.setFocusable(false);
@@ -136,117 +165,14 @@ public class ProfiloPopup extends javax.swing.JFrame {
                 nameTextActionPerformed(evt);
             }
         });
-
-        idText.setBackground(new java.awt.Color(255, 248, 238));
-        idText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        idText.setForeground(new java.awt.Color(0, 0, 0));
-        idText.setText(" Lorem ipsum dolor sit gravida.");
-        idText.setBorder(null);
-        idText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        idText.setFocusable(false);
-        idText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idTextActionPerformed(evt);
-            }
-        });
-
-        jTextField1.setBackground(new java.awt.Color(255, 248, 238));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("Numero");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jTextField2.setBackground(new java.awt.Color(255, 248, 238));
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("Si/No");
-        jTextField2.setBorder(null);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel11)
-                                .addGap(18, 18, 18)
-                                .addComponent(idText))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(nameText))))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        jPanel1.add(jPanel5);
-        jPanel5.setBounds(40, 416, 414, 216);
+        jPanel1.add(nameText);
+        nameText.setBounds(105, 412, 440, 54);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ore Lavorate:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(40, 620, 220, 70);
-
-        idText1.setBackground(new java.awt.Color(255, 248, 238));
-        idText1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        idText1.setForeground(new java.awt.Color(0, 0, 0));
-        idText1.setText("X");
-        idText1.setBorder(null);
-        idText1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        idText1.setFocusable(false);
-        idText1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idText1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(idText1);
-        idText1.setBounds(260, 630, 110, 48);
+        jLabel1.setBounds(39, 713, 480, 40);
 
         ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ConfirmButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -266,7 +192,31 @@ public class ProfiloPopup extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ConfirmButton1);
-        ConfirmButton1.setBounds(202, 750, 195, 50);
+        ConfirmButton1.setBounds(202, 794, 195, 50);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PhoneIcon.png"))); // NOI18N
+        jLabel9.setText(":");
+        jLabel9.setToolTipText("");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(40, 535, 60, 48);
+
+        nameText1.setEditable(false);
+        nameText1.setBackground(new java.awt.Color(255, 248, 238));
+        nameText1.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        nameText1.setForeground(new java.awt.Color(0, 0, 0));
+        nameText1.setText(" Lorem ipsum ");
+        nameText1.setBorder(null);
+        nameText1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        nameText1.setFocusable(false);
+        nameText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameText1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(nameText1);
+        nameText1.setBounds(105, 532, 440, 54);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 600, 880);
@@ -275,14 +225,8 @@ public class ProfiloPopup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ALC.disposeWindow(this);
+        ALC.disposeProfiloPopup(this);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void idText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idText1ActionPerformed
-        // TODO add your handling code here:
-        idText1.setText(Integer.toString(UT.getOre_lavorate()));
-        idText1.setEditable(false);
-    }//GEN-LAST:event_idText1ActionPerformed
 
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
         // TODO add your handling code here:
@@ -291,29 +235,12 @@ public class ProfiloPopup extends javax.swing.JFrame {
 
     private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
         // TODO add your handling code here:
-        nameText.setText(UT.getNome() + " " + UT.getCognome());
-        nameText.setEditable(false);
+
     }//GEN-LAST:event_nameTextActionPerformed
 
-    private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
+    private void nameText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameText1ActionPerformed
         // TODO add your handling code here:
-        idText.setText(UT.getMatricola());
-        idText.setEditable(false);
-    }//GEN-LAST:event_idTextActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-        if(UT.isDisability()){
-            jTextField2.setText("Si");
-        }else jTextField2.setText("No");
-        jTextField2.setEditable(false);
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-        jTextField1.setText(Integer.toString(UT.getLivello()));
-        jTextField1.setEditable(false);
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_nameText1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,27 +279,22 @@ public class ProfiloPopup extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConfirmButton1;
-    private javax.swing.JTextField idText;
-    private javax.swing.JTextField idText1;
+    private javax.swing.JLabel cornice;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField nameText;
+    private javax.swing.JTextField nameText1;
     // End of variables declaration//GEN-END:variables
-    
-    Utente UT;
+
     AssumiLicenziaControl ALC = new AssumiLicenziaControl();
 
 }

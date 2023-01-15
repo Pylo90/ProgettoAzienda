@@ -19,18 +19,35 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     ResultSet rs;
     RichiesteControl RC = null;
 
-    public InfoReqBoxCard(RichiesteControl RC, ResultSet rs) {
+    String nome;
+    String cognome;
+    String tipo;
+    String data;
+    String dati;
+
+    private boolean clickable;
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
+
+    public InfoReqBoxCard(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
+        setClickable(true);
+        nome = nomeMittente;
+        cognome = cognomeMittente;
+        tipo = tipoRichiesta;
+        data = dataScadenza;
+        this.dati = dati;
+
         initComponents();
         this.RC = RC;
-        try {
-            this.rs = rs;
-            nameField.setText(rs.getString("nome") + " " + rs.getString("cognome"));
-            typeField.setText(rs.getString("livello"));
-            dateField.setText(rs.getString("data_scadenza"));
-        } catch (SQLException ex) {
-            Logger.getLogger(InfoReqBoxCard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        nameField.setText(nomeMittente + " " + cognomeMittente);
+        typeField.setText(tipoRichiesta);
+        dateField.setText(dataScadenza);
 
     }
 
@@ -58,14 +75,14 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
         setLayout(null);
 
         nameField.setBackground(new java.awt.Color(219, 213, 205));
-        nameField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        nameField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         nameField.setForeground(new java.awt.Color(0, 0, 0));
         nameField.setText("Nome Cognome");
         nameField.setBorder(null);
         nameField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nameField.setFocusable(false);
         add(nameField);
-        nameField.setBounds(140, 10, 460, 40);
+        nameField.setBounds(180, -10, 410, 80);
 
         typeField.setBackground(new java.awt.Color(219, 213, 205));
         typeField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -78,14 +95,14 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
         typeField.setBounds(830, 10, 280, 40);
 
         jTextField3.setBackground(new java.awt.Color(219, 213, 205));
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(0, 0, 0));
         jTextField3.setText("Mittente:");
         jTextField3.setBorder(null);
         jTextField3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextField3.setFocusable(false);
         add(jTextField3);
-        jTextField3.setBounds(30, 10, 100, 40);
+        jTextField3.setBounds(30, 10, 150, 40);
 
         dateField.setBackground(new java.awt.Color(219, 213, 205));
         dateField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -133,7 +150,9 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        RC.showRichiesta(rs);
+        if (isClickable()) {
+            RC.showRichiesta(nome, cognome, tipo, data, dati);
+        }
     }//GEN-LAST:event_selectButtonActionPerformed
 
 

@@ -18,12 +18,12 @@ import java.util.Map;
  * @author Davide
  */
 public class LoginForm extends javax.swing.JFrame {
-    LoginControl lc;
+    LoginControl LC;
     
-    public LoginForm(LoginControl lc) {
+    public LoginForm(LoginControl LC) {
         initComponents();
         this.setSize(1920,1080);
-        this.lc = lc;
+        this.LC = LC;
         this.getContentPane().setBackground(this.getBackground());
         Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
         fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
@@ -85,7 +85,6 @@ public class LoginForm extends javax.swing.JFrame {
         confermaButton.setFocusable(false);
         confermaButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         confermaButton.setMaximumSize(new java.awt.Dimension(3, 161));
-        confermaButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton-selected.png"))); // NOI18N
         confermaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confermaButtonActionPerformed(evt);
@@ -112,7 +111,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Password:");
+        jLabel2.setText("Matricola:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(464, 507, 210, 64);
 
@@ -138,7 +137,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Matricola:");
+        jLabel3.setText("Password:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(464, 597, 210, 64);
 
@@ -148,6 +147,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         jButton45.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
+        jButton45.setBorder(null);
         jButton45.setContentAreaFilled(false);
         jButton45.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton45.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -166,11 +166,11 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confermaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confermaButtonActionPerformed
-        lc.dataSubmit();
+        LC.dataSubmit(getEmailField().getText(),getMatricolaField().getText(),String.valueOf(getPasswordField().getPassword()),this);
     }//GEN-LAST:event_confermaButtonActionPerformed
 
     private void forgotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotButtonActionPerformed
-        lc.RPButtonPressed();
+        LC.RPButtonPressed();
     }//GEN-LAST:event_forgotButtonActionPerformed
 
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed

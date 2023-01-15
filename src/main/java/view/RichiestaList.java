@@ -1,12 +1,15 @@
 package view;
 
+import com.mysql.cj.protocol.Resultset;
 import view.style.InfoReqBoxCard;
 import controller.RichiesteControl;
 import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 import view.style.ScrollBarCustom;
 
 /*
@@ -20,17 +23,34 @@ import view.style.ScrollBarCustom;
 public class RichiestaList extends javax.swing.JFrame {
 
     int cardCount;
+    RichiesteControl RC;
+    ResultSet rs;
+    private boolean clickable;
+    private ArrayList<InfoReqBoxCard> richieste = new ArrayList<InfoReqBoxCard>();
 
-    public RichiestaList(RichiesteControl RC, ResultSet rs) {
+    public boolean isClickable() {
+        return clickable;
+    }
 
-        this.RC = RC;
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
 
+    public ArrayList<InfoReqBoxCard> getRichieste() {
+        return richieste;
+    }
+
+    public RichiestaList(RichiesteControl RiC, ResultSet rst) {
+
+        this.RC = RiC;
+        this.rs = rst;
+        setClickable(true);
         initComponents();
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         try {
-            if (rs.next()){
-                addInfoPane(RC,rs);
+            while (rs.next()) {
+                addInfoPane(RC, rs.getString("nome"), rs.getString("cognome"), rs.getString("tipo"), rs.getString("data_scadenza"), rs.getString("dati_richiesta"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiestaList.class.getName()).log(Level.SEVERE, null, ex);
@@ -40,7 +60,7 @@ public class RichiestaList extends javax.swing.JFrame {
     /**
      * *****TEST - DA ELIMINARE******
      */
-   /* public void addInfoPane() {
+    /* public void addInfoPane() {
         listPanel.add(new InfoReqBoxCard("NomeProvaLungo CognomeProvaLungo", "NomeTipoLungo", "12/12/22"));
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
@@ -48,13 +68,14 @@ public class RichiestaList extends javax.swing.JFrame {
         //System.out.println("Dopo: " + jPanel5.getSize().height);
         listPanel.revalidate();
     }*/
-
     /**
      * ******************************
      */
-    public void addInfoPane(RichiesteControl RC, ResultSet rs) {
-        InfoReqBoxCard infoBox= new InfoReqBoxCard(RC, rs);
+    public void addInfoPane(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
+        this.RC = RC;
+        InfoReqBoxCard infoBox = new InfoReqBoxCard(RC, nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati);
         listPanel.add(infoBox);
+        richieste.add(infoBox);
         cardCount++;
         //System.out.println("Prima: " + jPanel5.getSize().height);
         listPanel.setPreferredSize(new Dimension(listPanel.getPreferredSize().width, cardCount * 123));
@@ -180,7 +201,7 @@ public class RichiestaList extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        if (RC != null) {
+        if (RC != null && isClickable()) {
             RC.DisposeWindow(this);
         }
     }//GEN-LAST:event_homeButtonActionPerformed
@@ -189,7 +210,7 @@ public class RichiestaList extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new RichiestaList(null,null).setVisible(true);
+        new RichiestaList(null, null).setVisible(true);
 
     }
 
@@ -206,6 +227,8 @@ public class RichiestaList extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 
-    RichiesteControl RC;
+    public JPanel getListPanel() {
+        return listPanel;
+    }
 
 }
