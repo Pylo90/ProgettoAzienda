@@ -44,7 +44,7 @@ public class LoginControl {
             ex.printStackTrace();
         }*/
 
-        ResultSet imp = DBMSBoundary.getQuery("SELECT COUNT(matricola), psw FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "'");
+        ResultSet imp = DBMSBoundary.getQuery("SELECT COUNT(matricola), psw, nome, cognome, matricola, email, tel, propic, livello FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "'");
 
         try {
             imp.next();
@@ -59,7 +59,7 @@ public class LoginControl {
                 wrongData();
                 return;
             }
-            correctData(); //DA CORREGGERE
+            correctData(imp, LF);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
