@@ -1,16 +1,5 @@
 package view.style;
 
-import controller.AssumiLicenziaControl;
-import controller.MalattiaControl;
-import controller.OrariStipendiControl;
-import controller.RichiesteControl;
-import controller.StraordinariControl;
-import java.awt.Image;
-import java.io.FileInputStream;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
