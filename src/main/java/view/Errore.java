@@ -1,11 +1,11 @@
 package view;
 
-import controller.AssumiLicenziaControl;
-import controller.CambiaPasswordControl;
-import controller.FirmaControl;
-import controller.LoginControl;
-import controller.RecuperaPasswordControl;
-import controller.RistabilisciConnessioneControl;
+import controller.GestionePersonale.AssumiLicenziaControl;
+import controller.AreaPersonale.CambiaPasswordControl;
+import controller.AreaPersonale.FirmaControl;
+import controller.Autenticazione.LoginControl;
+import controller.Autenticazione.RecuperaPasswordControl;
+import misc.RistabilisciConnessioneControl;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

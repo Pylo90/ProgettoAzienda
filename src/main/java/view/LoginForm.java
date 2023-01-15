@@ -8,7 +8,7 @@ package view;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import controller.LoginControl;
+import controller.Autenticazione.LoginControl;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.util.HashMap;

@@ -1,9 +1,9 @@
 package view;
 
-import controller.AssumiLicenziaControl;
-import controller.OrariStipendiControl;
+import controller.GestionePersonale.AssumiLicenziaControl;
+import controller.AreaPersonale.OrariStipendiControl;
 import view.style.InfoBoxCard;
-import controller.RichiesteControl;
+import controller.AreaPersonale.RichiesteControl;
 //import controller.MalattiaControl;
 //import controller.StraordinariControl;
 import java.awt.Color;

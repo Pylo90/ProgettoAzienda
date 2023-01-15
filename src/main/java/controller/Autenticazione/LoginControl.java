@@ -1,4 +1,4 @@
-package controller;
+package controller.Autenticazione;
 
 import java.awt.Image;
 import java.sql.ResultSet;

@@ -5,7 +5,7 @@
 package view;
 
 import com.mysql.cj.protocol.Resultset;
-import controller.AssumiLicenziaControl;
+import controller.GestionePersonale.AssumiLicenziaControl;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;

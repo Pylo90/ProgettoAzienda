@@ -2,7 +2,7 @@ package view;
 
 import com.mysql.cj.protocol.Resultset;
 import view.style.InfoReqBoxCard;
-import controller.RichiesteControl;
+import controller.AreaPersonale.RichiesteControl;
 import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;

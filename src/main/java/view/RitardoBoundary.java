@@ -1,6 +1,6 @@
 package view;
 
-import controller.FirmaControl;
+import controller.AreaPersonale.FirmaControl;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

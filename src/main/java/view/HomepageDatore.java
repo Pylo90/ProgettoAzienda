@@ -4,13 +4,13 @@
  */
 package view;
 
-import controller.AssumiLicenziaControl;
-import controller.CambiaPasswordControl;
-import controller.FirmaControl;
-import controller.LoginControl;
+import controller.GestionePersonale.AssumiLicenziaControl;
+import controller.AreaPersonale.CambiaPasswordControl;
+import controller.AreaPersonale.FirmaControl;
+import controller.Autenticazione.LoginControl;
 //import controller.MalattiaControl;
-import controller.OrariStipendiControl;
-import controller.RichiesteControl;
+import controller.AreaPersonale.OrariStipendiControl;
+import controller.AreaPersonale.RichiesteControl;
 //import controller.StraordinariControl;
 import javax.swing.ImageIcon;
 

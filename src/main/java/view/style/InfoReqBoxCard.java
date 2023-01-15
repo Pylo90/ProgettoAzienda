@@ -1,6 +1,6 @@
 package view.style;
 
-import controller.RichiesteControl;
+import controller.AreaPersonale.RichiesteControl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;

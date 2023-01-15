@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controller;
+package controller.AreaPersonale;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import misc.DBMSBoundary;
 import misc.Utente;
 import view.CalendarioInterattivo;
+import view.CalendarioInterattivoMotivazione;
 import view.CongedoForm;
 import view.HomepageAmministratore;
 import view.HomepageImpiegato;
@@ -34,6 +35,7 @@ public class RichiesteControl {
     RichiestaForm RF;
     ListaImpiegati LI;
     CalendarioInterattivo CI;
+    CalendarioInterattivoMotivazione CIM;
     ResultSet rs;
 
     public RichiesteControl() {
@@ -63,10 +65,23 @@ public class RichiesteControl {
             this.HPA = (HomepageAmministratore) homepage;
             this.HPA.setClickable(false);
         }
-        HPI.setClickable(false);
         CI = new CalendarioInterattivo(this);
         CI.setVisible(true);
         CI.setAlwaysOnTop(true);
+    }
+    
+    public void ComunicazioneMalattiaButtonPressed(JFrame homepage){
+        if (homepage instanceof HomepageImpiegato) {
+            this.HPI = (HomepageImpiegato) homepage;
+            this.HPI.setClickable(false);
+        }
+        if (homepage instanceof HomepageAmministratore) {
+            this.HPA = (HomepageAmministratore) homepage;
+            this.HPA.setClickable(false);
+        }
+        CIM = new CalendarioInterattivoMotivazione(this);
+        CIM.setVisible(true);
+        CIM.setAlwaysOnTop(true);
     }
 
     public void RichiestaCongedoParentaleButtonPressed(JFrame homepage) {

@@ -1,6 +1,6 @@
 package view;
 
-import controller.RecuperaPasswordControl;
+import controller.Autenticazione.RecuperaPasswordControl;
 
 /**
  *

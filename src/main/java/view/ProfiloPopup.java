@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.AssumiLicenziaControl;
+import controller.GestionePersonale.AssumiLicenziaControl;
 import java.awt.Image;
 import java.sql.ResultSet;
 import java.sql.SQLException;

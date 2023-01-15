@@ -1,4 +1,4 @@
-package controller;
+package controller.AreaPersonale;
 
 import javax.swing.JFrame;
 import view.FirmaForm;

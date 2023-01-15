@@ -4,11 +4,11 @@
  */
 package view;
 
-import controller.CambiaPasswordControl;
-import controller.FirmaControl;
-import controller.LoginControl;
-import controller.OrariStipendiControl;
-import controller.RichiesteControl;
+import controller.AreaPersonale.CambiaPasswordControl;
+import controller.AreaPersonale.FirmaControl;
+import controller.Autenticazione.LoginControl;
+import controller.AreaPersonale.OrariStipendiControl;
+import controller.AreaPersonale.RichiesteControl;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -19,27 +19,25 @@ import javax.swing.JLabel;
  */
 public class HomepageImpiegato extends javax.swing.JFrame {
 
-    private FirmaControl FirC ;
+    private FirmaControl FirC;
     private RichiesteControl RicC;
     private OrariStipendiControl OSC;
     private LoginControl LC;
     private CambiaPasswordControl CPC;
-    
-    
 
-    public HomepageImpiegato(String nome, String cognome, String matricola, String tel,String mail, ImageIcon propic, LoginControl logC) {
+    public HomepageImpiegato(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
         initComponents();
         jLabel4.setVisible(false);
         Permesso.setVisible(false);
         Ferie.setVisible(false);
         CongedoParentale.setVisible(false);
         setClickable(true);
-        nameText.setText(nome+ " "+cognome);
+        nameText.setText(nome + " " + cognome);
         idText.setText(matricola);
         mailText.setText(mail);
         phoneText.setText(tel);
         this.Propic.setIcon(propic);
-        this.LC=logC;
+        this.LC = logC;
     }
 
     /**
@@ -450,11 +448,16 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     }//GEN-LAST:event_CongedoParentaleActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        LC.DisposeWindow(this);
+        if (isClickable()) {
+            LC.DisposeWindow(this);
+        }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void ComunicazioneMalattiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComunicazioneMalattiaActionPerformed
-        // TODO add your handling code here:
+        if (isClickable()) {
+            RicC = new RichiesteControl();
+            RicC.ComunicazioneMalattiaButtonPressed(this);
+        }
     }//GEN-LAST:event_ComunicazioneMalattiaActionPerformed
 
     /**
@@ -488,7 +491,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageImpiegato(null,null,null,null,null,null,null).setVisible(true);
+                new HomepageImpiegato(null, null, null, null, null, null, null).setVisible(true);
             }
         });
     }

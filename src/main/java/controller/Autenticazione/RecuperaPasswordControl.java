@@ -1,4 +1,4 @@
-package controller;
+package controller.Autenticazione;
 
 import javax.swing.JFrame;
 import view.LoginForm;

@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.FirmaControl;
+import controller.AreaPersonale.FirmaControl;
 
 /**
  *

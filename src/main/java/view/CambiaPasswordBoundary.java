@@ -1,6 +1,6 @@
 package view;
 
-import controller.CambiaPasswordControl;
+import controller.AreaPersonale.CambiaPasswordControl;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

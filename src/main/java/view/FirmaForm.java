@@ -1,6 +1,6 @@
 package view;
 
-import controller.FirmaControl;
+import controller.AreaPersonale.FirmaControl;
 import java.awt.Color;
 
 /**

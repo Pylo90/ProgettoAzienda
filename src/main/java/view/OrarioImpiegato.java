@@ -4,7 +4,7 @@
  */
 package view;
 
-import controller.OrariStipendiControl;
+import controller.AreaPersonale.OrariStipendiControl;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 
@@ -86,6 +86,7 @@ public class OrarioImpiegato extends javax.swing.JFrame {
 
         jButton32.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
+        jButton32.setBorder(null);
         jButton32.setContentAreaFilled(false);
         jButton32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton32.setPreferredSize(new java.awt.Dimension(65, 65));

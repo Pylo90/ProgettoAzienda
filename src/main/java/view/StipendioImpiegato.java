@@ -1,6 +1,6 @@
 package view;
 
-import controller.OrariStipendiControl;
+import controller.AreaPersonale.OrariStipendiControl;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -80,8 +80,9 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         CloseButton.setBackground(new java.awt.Color(255, 248, 238));
-        CloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
+        CloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
         CloseButton.setBorder(null);
+        CloseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         CloseButton.setPreferredSize(new java.awt.Dimension(59, 59));
         CloseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
