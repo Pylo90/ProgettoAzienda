@@ -81,6 +81,11 @@ public class InfoBoxCard extends javax.swing.JPanel {
         surnameField.setBorder(null);
         surnameField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         surnameField.setFocusable(false);
+        surnameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                surnameFieldActionPerformed(evt);
+            }
+        });
         add(surnameField);
         surnameField.setBounds(50, 50, 560, 50);
 
@@ -91,6 +96,11 @@ public class InfoBoxCard extends javax.swing.JPanel {
         levelField.setBorder(null);
         levelField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         levelField.setFocusable(false);
+        levelField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                levelFieldActionPerformed(evt);
+            }
+        });
         add(levelField);
         levelField.setBounds(730, 40, 30, 40);
 
@@ -125,6 +135,14 @@ public class InfoBoxCard extends javax.swing.JPanel {
     private void useThisToHandleClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_useThisToHandleClick
         System.out.println("culo");
     }//GEN-LAST:event_useThisToHandleClick
+
+    private void levelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_levelFieldActionPerformed
+
+    private void surnameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_surnameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_surnameFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
