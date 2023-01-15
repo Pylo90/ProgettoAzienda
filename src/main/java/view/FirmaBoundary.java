@@ -107,7 +107,7 @@ public class FirmaBoundary extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void FirmaEntrataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirmaEntrataActionPerformed
-        FC.badgeINButtonPressed();
+        FC.firmaINButtonPressed();
     }//GEN-LAST:event_FirmaEntrataActionPerformed
 
     private void FirmaUscitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirmaUscitaActionPerformed

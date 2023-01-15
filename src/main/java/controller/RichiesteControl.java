@@ -99,7 +99,7 @@ public class RichiesteControl {
         DBMSBoundary.updateQuery("insert into richiesta values(" + id + "," + 1 + ",'culo','400005','200006');");
     }
 
-    public void ConsultaListaRichiesteButtonPressed(JFrame homepage) {
+    public void ConsultazioneListaRichiesteButtonPressed(JFrame homepage) {
         Utente.setMatricola("000");
         if (homepage instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) homepage;
@@ -123,7 +123,7 @@ public class RichiesteControl {
 
     }
 
-    public void RichiesteButtonPressed(HomepageImpiegato HPI) {
+    public void MostraRichiesteButtonPressed(HomepageImpiegato HPI) {
         if (!HPI.getjLabel4().isVisible()) {
             HPI.getjLabel4().setVisible(true);
             HPI.getPermesso().setVisible(true);

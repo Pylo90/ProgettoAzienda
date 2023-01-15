@@ -83,7 +83,7 @@ public class AssumiLicenziaControl {
 
     }
 
-    public void assumiButtonPressed(JFrame homepage) {
+    public void assumiImpiegatoButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageDatore) {
             this.HPD = (HomepageDatore) homepage;
         }
@@ -101,7 +101,7 @@ public class AssumiLicenziaControl {
         AssumiImpiegatoBoundary.setAlwaysOnTop(true);
     }
 
-    public void LicenziaButtonPressed(JFrame homepage) {
+    public void licenziaImpiegatoButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageDatore) {
             this.HPD = (HomepageDatore) homepage;
         }
@@ -138,7 +138,7 @@ public class AssumiLicenziaControl {
         String matricola = this.generateMatricola(livello, number);
         String passw = hashPassword(generatePlainPassword());
 
-        long PINtemporaneo = this.generatePIN(); //deve essere di 6 cifre e randomico
+        long PINtemporaneo = this.generatePin(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
 
         this.sendMail(PINtemporaneo, mail);
@@ -208,7 +208,7 @@ public class AssumiLicenziaControl {
         return String.valueOf(livello * 100000 + numero_impiegati);
     }
 
-    public long generatePIN() {
+    public long generatePin() {
         SecureRandom r = new SecureRandom();
         long low = 100000;
         long high = 999999;
@@ -216,7 +216,7 @@ public class AssumiLicenziaControl {
         ResultSet controllo = DBMSBoundary.getQuery("select pin from impiegato where impiegato.pin =" + PINtemp + ";");
         try {
             if (controllo.next()) {
-                generatePIN();
+                generatePin();
 
             }
         } catch (SQLException ex) {
@@ -262,7 +262,7 @@ public class AssumiLicenziaControl {
         ProfiloPopup.setAlwaysOnTop(true);
     }
 
-    public void decisionTaken() { //ha l'impiegato fantoccio
+    public void decisionTaken(String matricola) { //ha l'impiegato fantoccio
         DBMS.updateQuery(null);       //licenzia l'impiegato
         //distruggere profilopopup e listaimpiegati
     }

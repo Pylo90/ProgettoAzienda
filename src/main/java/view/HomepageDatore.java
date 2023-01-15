@@ -8,7 +8,7 @@ import controller.AssumiLicenziaControl;
 import controller.CambiaPasswordControl;
 import controller.FirmaControl;
 import controller.LoginControl;
-import controller.MalattiaControl;
+//import controller.MalattiaControl;
 import controller.OrariStipendiControl;
 import controller.RichiesteControl;
 import controller.StraordinariControl;
@@ -24,16 +24,16 @@ public class HomepageDatore extends javax.swing.JFrame {
      * Creates new form HomepageDatore
      */
     private LoginControl LC;
-    
-    public HomepageDatore(String nome, String cognome, String matricola, String tel,String mail, ImageIcon propic,LoginControl logC) {
+
+    public HomepageDatore(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
         initComponents();
         setClickable(true);
-        nameText.setText(nome+ " "+cognome);
+        nameText.setText(nome + " " + cognome);
         idText.setText(matricola);
         mailText.setText(mail);
         phoneText.setText(tel);
         this.propic.setIcon(propic);
-        LC=logC;
+        LC = logC;
     }
 
     /**
@@ -336,10 +336,10 @@ public class HomepageDatore extends javax.swing.JFrame {
     }
     private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
-            MC.InserimentoMalattiaButtonPressed(this); //fare mc
+        //if (isClickable()) {
+        //MC.InserimentoMalattiaButtonPressed(this); //fare mc
     }//GEN-LAST:event_healthButtonActionPerformed
-    }
+
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
@@ -361,13 +361,13 @@ public class HomepageDatore extends javax.swing.JFrame {
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            ALC.assumiButtonPressed(this);
+            ALC.assumiImpiegatoButtonPressed(this);
     }//GEN-LAST:event_assumiButtonActionPerformed
     }
     private void licenziaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licenziaButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            ALC.LicenziaButtonPressed(this);
+            ALC.licenziaImpiegatoButtonPressed(this);
     }//GEN-LAST:event_licenziaButtonActionPerformed
     }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -379,7 +379,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordButtonActionPerformed
 
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
-        RC.ConsultaListaRichiesteButtonPressed(this);
+        RC.ConsultazioneListaRichiesteButtonPressed(this);
     }//GEN-LAST:event_notificationButtonActionPerformed
 
     /**
@@ -396,23 +396,31 @@ public class HomepageDatore extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomepageDatore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomepageDatore.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomepageDatore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomepageDatore.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomepageDatore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomepageDatore.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomepageDatore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomepageDatore.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageDatore(null,null,null,null,null,null,null).setVisible(true);
+                new HomepageDatore(null, null, null, null, null, null, null).setVisible(true);
             }
         });
     }
@@ -450,7 +458,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private StraordinariControl SC = new StraordinariControl();
     private OrariStipendiControl OSC = new OrariStipendiControl();
     private RichiesteControl RC = new RichiesteControl();
-    private MalattiaControl MC = new MalattiaControl();
+    //private MalattiaControl MC = new MalattiaControl();
     private boolean clickable;
 
     public boolean isClickable() {

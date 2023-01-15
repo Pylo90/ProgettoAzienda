@@ -14,7 +14,7 @@ public class FirmaControl {
     public FirmaControl() {;
     }
 
-    public void badgeINButtonPressed() {
+    public void firmaINButtonPressed() {
         JFrame firmaForm = new FirmaForm(this);
         firmaForm.setVisible(true);
         firmaForm.setAlwaysOnTop(true);

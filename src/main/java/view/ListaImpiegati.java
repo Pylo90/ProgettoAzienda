@@ -4,7 +4,7 @@ import controller.AssumiLicenziaControl;
 import controller.OrariStipendiControl;
 import view.style.InfoBoxCard;
 import controller.RichiesteControl;
-import controller.MalattiaControl;
+//import controller.MalattiaControl;
 import controller.StraordinariControl;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -30,7 +30,6 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     OrariStipendiControl OSC;
     RichiesteControl RC;
     AssumiLicenziaControl ALC;
-    MalattiaControl MC;
     StraordinariControl SC;
     String funzione = null;
     int cardCount;
@@ -49,9 +48,6 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         }
         if (controller instanceof AssumiLicenziaControl) {
             this.ALC = (AssumiLicenziaControl) controller;
-        }
-        if (controller instanceof MalattiaControl) {
-            this.MC = (MalattiaControl) controller;
         }
         if (controller instanceof StraordinariControl) {
             this.SC = (StraordinariControl) controller;
@@ -301,9 +297,6 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         }
         if (isClickable() && (this.ALC != null)) {
             ALC.DisposeWindow(this);
-        }
-        if (isClickable() && (this.MC != null)) {
-            MC.DisposeWindow(this);
         }
         if (isClickable() && (this.SC != null)) {
             SC.DisposeWindow(this);

@@ -404,7 +404,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (isClickable()) {
             RicC = new RichiesteControl();
-            RicC.ConsultaListaRichiesteButtonPressed(this);
+            RicC.ConsultazioneListaRichiesteButtonPressed(this);
         }
     }//GEN-LAST:event_NotificationButtonActionPerformed
 
@@ -412,7 +412,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (isClickable()) {
             RicC = new RichiesteControl();
-            RicC.RichiesteButtonPressed(this);
+            RicC.MostraRichiesteButtonPressed(this);
         }
     }//GEN-LAST:event_RequestButtonActionPerformed
 
