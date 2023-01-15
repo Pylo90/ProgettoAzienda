@@ -20,7 +20,6 @@ import view.LoginForm;
  */
 public class LoginControl {
 
-
     public LoginControl() {
         super();
     }
@@ -33,7 +32,7 @@ public class LoginControl {
         String mat = matricola;
         String psw = password;
 
-        imp = DBMSBoundary.getQuery("SELECT nome, cognome, matricola,email,tel,propic,livello FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "' AND psw = '" + psw + "';");
+        /*imp = DBMSBoundary.getQuery("SELECT nome, cognome, matricola,email,tel,propic,livello FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "' AND psw = '" + psw + "';");
 
         try {
             if (imp.next()) {
@@ -41,6 +40,26 @@ public class LoginControl {
             } else {
                 wrongData();
             }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }*/
+
+        ResultSet imp = DBMSBoundary.getQuery("SELECT COUNT(matricola), psw FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "'");
+
+        try {
+            imp.next();
+            if (imp.getInt(1) == 0) {
+                wrongData();
+                return;
+            }
+
+            String hash = imp.getString("psw");
+
+            if (!BCrypt.checkpw(psw, hash)) {
+                wrongData();
+                return;
+            }
+            correctData(); //DA CORREGGERE
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -83,33 +102,33 @@ public class LoginControl {
         }
 
         switch (livello) {
-            case 0 : 
-                HomepageDatore HPD = new HomepageDatore(nome, cognome, matricola, tel, mail, proPicToSend,this);
+            case 0:
+                HomepageDatore HPD = new HomepageDatore(nome, cognome, matricola, tel, mail, proPicToSend, this);
                 HPD.setVisible(true);
                 DisposeWindow(LF);
                 break;
-            case 1 : 
-                HomepageAmministratore HPA = new HomepageAmministratore(nome, cognome, matricola, tel, mail, proPicToSend,this);
+            case 1:
+                HomepageAmministratore HPA = new HomepageAmministratore(nome, cognome, matricola, tel, mail, proPicToSend, this);
                 HPA.setVisible(true);
                 DisposeWindow(LF);
                 break;
-            case 2 : 
-                HomepageImpiegato HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend,this);
+            case 2:
+                HomepageImpiegato HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
                 HPI.setVisible(true);
                 DisposeWindow(LF);
                 break;
-            case 3 :  
-                 HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend,this);
+            case 3:
+                HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
                 HPI.setVisible(true);
                 DisposeWindow(LF);
                 break;
-            case 4 :  
-                 HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend,this);
+            case 4:
+                HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
                 HPI.setVisible(true);
                 DisposeWindow(LF);
                 break;
         } //DEBUG
-        
+
     }
 
     /**
@@ -144,9 +163,9 @@ public class LoginControl {
         finestra.dispose();
         LF.setClickable(true);
     }
-    
-    public void DisposeWindow(JFrame window){
-        if(window instanceof HomepageImpiegato || window instanceof HomepageDatore ||window instanceof HomepageAmministratore){
+
+    public void DisposeWindow(JFrame window) {
+        if (window instanceof HomepageImpiegato || window instanceof HomepageDatore || window instanceof HomepageAmministratore) {
             createLogin();
         }
         window.dispose();
