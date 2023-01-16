@@ -623,6 +623,10 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void scioperoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scioperoLabelMouseClicked
         // TODO add your handling code here:
+        if(isClickable()){
+            RicC = new RichiesteControl();
+            RicC.ComunicazioneScioperoButtonPressed(this);
+        }
     }//GEN-LAST:event_scioperoLabelMouseClicked
 
     private void permessoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permessoButtonActionPerformed
