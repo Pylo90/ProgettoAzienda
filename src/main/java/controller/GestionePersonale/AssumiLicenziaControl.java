@@ -22,6 +22,11 @@ import view.AssumiImpiegatoBoundary;
 import view.ProfiloPopup;
 import misc.DBMSBoundary;
 import misc.Utente;
+import static org.passay.AllowedCharacterRule.ERROR_CODE;
+import org.passay.CharacterData;
+import org.passay.CharacterRule;
+import org.passay.EnglishCharacterData;
+import org.passay.PasswordGenerator;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import view.Errore;
 
@@ -124,7 +129,7 @@ public class AssumiLicenziaControl {
     public void sendData(String name, String surname, String mail, String cf, ImageIcon foto, String numero, int livello, String path) {
         int number = 0;
 
-        ResultSet r = DBMS.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
+        ResultSet r = DBMSBoundary.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
         try {
             if (r.next()) {
                 number = r.getInt(1);
@@ -136,13 +141,13 @@ public class AssumiLicenziaControl {
         }
 
         String matricola = this.generateMatricola(livello, number);
-        String passw = hashPassword(generatePlainPassword());
+        String passw = hashPassword(generatePlainPassword(12));
 
         long PINtemporaneo = this.generatePin(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
 
         this.sendMail(PINtemporaneo, mail);
-        DBMS.updateQuery("insert into impiegato values('"
+        DBMSBoundary.updateQuery("insert into impiegato values('"
                 + matricola + "','"
                 + surname + "',"
                 + PINtemporaneo + ",'"
@@ -155,7 +160,7 @@ public class AssumiLicenziaControl {
                 + null + ","
                 + livello + ");"); // inserisci impiegato
         try {
-            DBMS.updatePropic(matricola, new FileInputStream(path));
+            DBMSBoundary.updatePropic(matricola, new FileInputStream(path));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -164,7 +169,7 @@ public class AssumiLicenziaControl {
 
     public void submitForm(String name, String surname, String mail, String cf, String numero, int livello, InputStream in, String matricola, boolean updatePropic) {
 
-        DBMS.updateQuery("UPDATE Impiegato SET "
+        DBMSBoundary.updateQuery("UPDATE Impiegato SET "
                 + "cognome = '" + surname + "',"
                 + "nome = '" + name + "',"
                 + "livello = " + (livello + 1) + ","
@@ -173,7 +178,7 @@ public class AssumiLicenziaControl {
                 + "_104 = " + null + " where Impiegato.matricola = '" + matricola + "';"); // inserisci impiegato
 
         if (updatePropic) {
-            DBMS.updatePropic(matricola, in);
+            DBMSBoundary.updatePropic(matricola, in);
         }
 
     }
@@ -229,10 +234,37 @@ public class AssumiLicenziaControl {
     /**
      * *****DA UTILIZZARE PER GENERARE UNA PASSWORD CASUALE******
      */
-    private String generatePlainPassword() {
-        byte[] psw = new byte[16];
-        new SecureRandom().nextBytes(psw);
-        return new String(psw);
+    private String generatePlainPassword(int lenght) {
+        PasswordGenerator gen = new PasswordGenerator();
+        CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
+        CharacterRule lowerCaseRule = new CharacterRule(lowerCaseChars);
+        lowerCaseRule.setNumberOfCharacters(2);
+
+        CharacterData upperCaseChars = EnglishCharacterData.UpperCase;
+        CharacterRule upperCaseRule = new CharacterRule(upperCaseChars);
+        upperCaseRule.setNumberOfCharacters(2);
+
+        CharacterData digitChars = EnglishCharacterData.Digit;
+        CharacterRule digitRule = new CharacterRule(digitChars);
+        digitRule.setNumberOfCharacters(2);
+
+        CharacterData specialChars;
+        specialChars = new CharacterData() {
+            @Override
+            public String getErrorCode() {
+                return ERROR_CODE;
+            }
+
+            @Override
+            public String getCharacters() {
+                return "!@#$%^&*()_+";
+            }
+        };
+        CharacterRule splCharRule = new CharacterRule(specialChars);
+        splCharRule.setNumberOfCharacters(2);
+
+        return gen.generatePassword(lenght, splCharRule, lowerCaseRule,
+                upperCaseRule, digitRule);
     }
 
     /**
