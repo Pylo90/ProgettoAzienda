@@ -18,13 +18,15 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
     /**
      * Creates new form CalendarioInterattivo
      */
-    public CalendarioInterattivoMotivazione(RichiesteControl RC) {
+    String funzione;
+    public CalendarioInterattivoMotivazione(RichiesteControl RC, String f) {
+        funzione = f;
         this.RC = RC;
         initComponents();
         meseIndex = 0;
         MonthLabel.setText(mesi[meseIndex]);
     }
-    
+
     /*public CalendarioInterattivoMotivazione(StraordinariControl SC, Utente UT) {
         this.SC = SC;
         this.UT = UT; //Utente serve a prendere il suo orario e annerire i giorni in cui non lavora
@@ -32,7 +34,6 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         meseIndex = 0;
         MonthLabel.setText(mesi[meseIndex]);
     }*/
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -874,6 +875,23 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
+        String motivazione = MotivazioneSciopero.getText();
+        if (motivazione == "Scrivere Motivazione (facoltativo)"){
+            motivazione = null; 
+        }
+        switch (funzione) {
+            case "ComunicazioneSciopero":
+                RC.selectGiornoSciopero(Integer.parseInt(selectedButton.getText()), meseIndex + 1,motivazione);
+                break;
+            case "RichiestaFerie":
+                RC.selectGiornoFerie(Integer.parseInt(selectedButton.getText()), meseIndex + 1, "RichiestaFerie", motivazione);
+                RC.DisposeWindow(this);
+            case "ComuncazioneMalattia":
+                RC.selectGiornoMalattia(Integer.parseInt(selectedButton.getText()), meseIndex + 1, motivazione);
+                RC.DisposeWindow(this);
+                        
+                break;
+        }
         RC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
@@ -991,8 +1009,7 @@ private javax.swing.JButton selectedButton;
 
     RichiesteControl RC;
     //StraordinariControl SC;
-    Utente UT;
-    
+
     private boolean clickable;
 
     public boolean isClickable() {

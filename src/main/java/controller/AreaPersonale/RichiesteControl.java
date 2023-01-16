@@ -39,11 +39,13 @@ public class RichiesteControl {
     CalendarioInterattivoMotivazione CIM;
     ResultSet rs;
     String funzione;
-    
-    String firstG=null;
-    String secondG=null;
-    String firstM=null;
-    String secondM=null;
+
+    String firstG = null;
+    String secondG = null;
+    String firstM = null;
+    String secondM = null;
+    String id_1 = null;
+    String id_2 = null;
 
     public RichiesteControl() {
     }
@@ -110,6 +112,17 @@ public class RichiesteControl {
         CF.setAlwaysOnTop(true);
     }
 
+    public void ComunicazioneScioperoButtonPressed(HomepageAmministratore HPA) {
+
+        this.HPA = HPA;
+        this.HPA.setClickable(false);
+
+        funzione = "ComunicazioneSciopero";
+        CIM = new CalendarioInterattivoMotivazione(this, funzione);
+        CIM.setVisible(true);
+        CIM.setAlwaysOnTop(true);
+    }
+
     public void sendSelection(int mesi) {
         ResultSet idSet;
         int id = 1;
@@ -141,7 +154,7 @@ public class RichiesteControl {
         }
         ResultSet rs = DBMSBoundary.getQuery("select * "
                 + "from richiesta R, impiegato MITT "
-                + "where R.dest_matricola = " + Utente.getMatricola() + " AND R.mittente_matricola = MITT.matricola;");
+                + "where R.destinatario = " + Utente.getMatricola() + " AND R.mittente = MITT.matricola;");
 
         RL = new RichiestaList(this, rs);
         RL.setVisible(true);
@@ -227,11 +240,11 @@ public class RichiesteControl {
     public void selectGiornoPermesso(int g, int m) {
         String giorno = String.format("%02d", g);
         String mese = String.format("%01d", m);
-        DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente_matricola,dest_matricola)"
+        DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
                 + "VALUES('5','" + giorno + " " + mese + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','000');");
     }
 
-    public void selectGiornoFerie(int giorno, int mese, String FS) {
+    public void selectGiornoFerie(int giorno, int mese, String FS, String motivazione) {
 
         if (FS.equals("F")) {
             firstG = String.format("%02d", giorno);
@@ -242,22 +255,49 @@ public class RichiesteControl {
             if (HPA != null) {
                 this.HPA.setClickable(false);
             }
-            funzione = "RichiestaFerieF";
-            CI = new CalendarioInterattivo(this, funzione);
-            CI.setVisible(true);
-            CI.setAlwaysOnTop(true);
+            funzione = "RichiestaFerie";
+            CIM = new CalendarioInterattivoMotivazione(this, funzione);
+            CIM.setVisible(true);
+            CIM.setAlwaysOnTop(true);
         }
-        if (FS.equals("RichiestaFerieF")) {
+        if (FS.equals("RichiestaFerie")) {
             secondG = String.format("%02d", giorno);
             secondM = String.format("%02d", mese);
-            DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente_matricola,dest_matricola)"
-                    + "VALUES('4','" + firstG + " " + firstM +"-"+ secondG + " " + secondM + "','" + Year.now().getValue() + "-" + firstM + "-" + firstG + "','" + Utente.getMatricola() + "','000');");
+            DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
+                    + "VALUES('4','" + firstG + " " + firstM + "-" + secondG + " " + secondM + "-" + motivazione + "','" + Year.now().getValue() + "-" + firstM + "-" + firstG + "','" + Utente.getMatricola() + "','000');");
         }
 
     }
 
-    public void selectGiornoMalattia(int giorno, int mese) {
+    public void selectGiornoMalattia(int g, int m, String motivazione) {
+        String giorno = String.format("%02d", g);
+        String mese = String.format("%01d", m);
+        ResultSet rs = DBMSBoundary.getQuery("SELECT _data, IMPIEGATO_matricola from turno where "
+                + "impiegato = '" + Utente.getMatricola() + "' AND _data = ' " + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
+        try {
+            if (rs.next()) {
+                DBMSBoundary.updateQuery("INSERT INTO assenza values ("
+                        + "'" + Year.now().getValue() + "-" + mese + "-" + giorno + "-" + motivazione + "'," + "'" + Year.now().getValue() + "-" + mese + "-" + giorno + "','malattia',null,'" + Utente.getMatricola() + "');");
+            } else {
+                System.out.println("non c'è un turno per il giorno slezionato");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
+    public void selectGiornoSciopero(int g, int m, String motivazione) {
+        String giorno = String.format("%02d", g);
+        String mese = String.format("%01d", m);
+        ResultSet rs = DBMSBoundary.getQuery("SELECT impiegato from turno T, assegnazione_turno AT WHERE AT.turno = T.id AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
+        try {
+            while (rs.next()) {
+                DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
+                        + "VALUES ('3','" + giorno + " " + mese + "-" + motivazione + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','" + rs.getString("impiegato") + "';");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

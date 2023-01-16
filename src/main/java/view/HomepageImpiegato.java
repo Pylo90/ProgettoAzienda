@@ -493,7 +493,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageImpiegato("E", "C", "200002", "3", "coso", null, null).setVisible(true);
+                new HomepageImpiegato(null,null,null,null,null,null,null);
             }
         });
     }

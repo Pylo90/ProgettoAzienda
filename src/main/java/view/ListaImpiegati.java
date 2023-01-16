@@ -110,6 +110,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
                 break;
 
+
         }
         System.out.println(matricola);
     }

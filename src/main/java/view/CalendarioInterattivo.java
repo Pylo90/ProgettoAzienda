@@ -936,18 +936,18 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
         switch (f) {
             case "RichiestaPermesso":
                 RC.selectGiornoPermesso(Integer.parseInt(selectedButton.getText()), meseIndex + 1);
+                RC.DisposeWindow(this);
                 break;
             case "RichiestaFerie":
-                RC.selectGiornoFerie(Integer.parseInt(selectedButton.getText()), meseIndex + 1, "F");
+                RC.selectGiornoFerie(Integer.parseInt(selectedButton.getText()), meseIndex + 1, "F",null);
                 RC.DisposeWindow(this);
                 break;
-            case "RichiestaFerieF":
-                RC.DisposeWindow(this);
-                RC.selectGiornoFerie(Integer.parseInt(selectedButton.getText()), meseIndex + 1, "RichiestaFerieF");
+            
                 
-                break;
+      
             case "ComunicazioneMalattia":
-                //RC.selectGiornoMalattia();
+                RC.selectGiornoMalattia(Integer.parseInt(selectedButton.getText()), meseIndex + 1,null);
+                RC.DisposeWindow(this);
                 break;
         }
     }//GEN-LAST:event_ConfirmButtonActionPerformed
