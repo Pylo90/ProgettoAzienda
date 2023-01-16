@@ -6,6 +6,7 @@ package controller.AreaPersonale;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Year;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -37,6 +38,12 @@ public class RichiesteControl {
     CalendarioInterattivo CI;
     CalendarioInterattivoMotivazione CIM;
     ResultSet rs;
+    String funzione;
+    
+    String firstG=null;
+    String secondG=null;
+    String firstM=null;
+    String secondM=null;
 
     public RichiesteControl() {
     }
@@ -50,10 +57,11 @@ public class RichiesteControl {
             this.HPA = (HomepageAmministratore) homepage;
             this.HPA.setClickable(false);
         }
-
-        CI = new CalendarioInterattivo(this);
+        funzione = "RichiestaPermesso";
+        CI = new CalendarioInterattivo(this, funzione);
         CI.setVisible(true);
         CI.setAlwaysOnTop(true);
+
     }
 
     public void RichiestaFerieButtonPressed(JFrame homepage) {
@@ -65,12 +73,14 @@ public class RichiesteControl {
             this.HPA = (HomepageAmministratore) homepage;
             this.HPA.setClickable(false);
         }
-        CI = new CalendarioInterattivo(this);
+        funzione = "RichiestaFerie";
+        CI = new CalendarioInterattivo(this, funzione);
         CI.setVisible(true);
         CI.setAlwaysOnTop(true);
+
     }
-    
-    public void ComunicazioneMalattiaButtonPressed(JFrame homepage){
+
+    public void ComunicazioneMalattiaButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) homepage;
             this.HPI.setClickable(false);
@@ -79,9 +89,11 @@ public class RichiesteControl {
             this.HPA = (HomepageAmministratore) homepage;
             this.HPA.setClickable(false);
         }
-        CIM = new CalendarioInterattivoMotivazione(this);
-        CIM.setVisible(true);
-        CIM.setAlwaysOnTop(true);
+        funzione = "ComunicazioneMalattia";
+
+        CI = new CalendarioInterattivo(this, funzione);
+        CI.setVisible(true);
+        CI.setAlwaysOnTop(true);
     }
 
     public void RichiestaCongedoParentaleButtonPressed(JFrame homepage) {
@@ -115,7 +127,6 @@ public class RichiesteControl {
     }
 
     public void ConsultazioneListaRichiesteButtonPressed(JFrame homepage) {
-        Utente.setMatricola("000");
         if (homepage instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) homepage;
             this.HPI.setClickable(false);
@@ -179,10 +190,11 @@ public class RichiesteControl {
         }
 
     }
-    public void DisposeForm(JFrame form){
-        form.dispose();        
+
+    public void DisposeForm(JFrame form) {
+        form.dispose();
         RL.setClickable(true);
-        for (int i = 0; i<RL.getRichieste().size()  ; ++i) {
+        for (int i = 0; i < RL.getRichieste().size(); ++i) {
             RL.getRichieste().get(i).setClickable(true);
         }
     }
@@ -197,7 +209,7 @@ public class RichiesteControl {
             this.HPD.setClickable(false);
         }
         ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
-        LI = new ListaImpiegati(this, rs,"ScambiaOrari");
+        LI = new ListaImpiegati(this, rs, "ScambiaOrari");
         LI.setVisible(true);
         LI.setAlwaysOnTop(true);
     }
@@ -205,10 +217,46 @@ public class RichiesteControl {
     public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
         RL.setAlwaysOnTop(false);
         RL.setClickable(false);
-        for (int i = 0; i<RL.getRichieste().size()  ; ++i) {
+        for (int i = 0; i < RL.getRichieste().size(); ++i) {
             RL.getRichieste().get(i).setClickable(false);
         }
-        RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati,this);
+        RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati, this);
+
+    }
+
+    public void selectGiornoPermesso(int g, int m) {
+        String giorno = String.format("%02d", g);
+        String mese = String.format("%01d", m);
+        DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente_matricola,dest_matricola)"
+                + "VALUES('5','" + giorno + " " + mese + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','000');");
+    }
+
+    public void selectGiornoFerie(int giorno, int mese, String FS) {
+
+        if (FS.equals("F")) {
+            firstG = String.format("%02d", giorno);
+            firstM = String.format("%02d", mese);
+            if (HPI != null) {
+                this.HPI.setClickable(false);
+            }
+            if (HPA != null) {
+                this.HPA.setClickable(false);
+            }
+            funzione = "RichiestaFerieF";
+            CI = new CalendarioInterattivo(this, funzione);
+            CI.setVisible(true);
+            CI.setAlwaysOnTop(true);
+        }
+        if (FS.equals("RichiestaFerieF")) {
+            secondG = String.format("%02d", giorno);
+            secondM = String.format("%02d", mese);
+            DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente_matricola,dest_matricola)"
+                    + "VALUES('4','" + firstG + " " + firstM +"-"+ secondG + " " + secondM + "','" + Year.now().getValue() + "-" + firstM + "-" + firstG + "','" + Utente.getMatricola() + "','000');");
+        }
+
+    }
+
+    public void selectGiornoMalattia(int giorno, int mese) {
 
     }
 

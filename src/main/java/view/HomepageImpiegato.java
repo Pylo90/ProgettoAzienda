@@ -12,6 +12,7 @@ import controller.AreaPersonale.RichiesteControl;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import misc.Utente;
 
 /**
  *
@@ -26,6 +27,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private CambiaPasswordControl CPC;
 
     public HomepageImpiegato(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
+        Utente.setMatricola(matricola);
         initComponents();
         jLabel4.setVisible(false);
         Permesso.setVisible(false);
@@ -491,7 +493,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageImpiegato(null, null, null, null, null, null, null).setVisible(true);
+                new HomepageImpiegato("E", "C", "200002", "3", "coso", null, null).setVisible(true);
             }
         });
     }
