@@ -16,7 +16,7 @@ import javax.mail.internet.MimeMessage;
 public class MailSender {
 
     public static void main(String[] args) {
-        sendMail("darioromano212@gmail.com", "test-mail", "test");
+        sendMail("davide2000_09@hotmail.com", "test-mail", "test");
     }
     /*******UTILIZZARE PER INVIARE UNA E-MAIL*******
      * @param to INDIRIZZO E-MAIL DI DESTINAZIONE
@@ -38,6 +38,7 @@ public class MailSender {
         properties.put("mail.smtp.port", "465");
         properties.put("mail.smtp.ssl.enable", "true");
         properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.ssl.trust", "*");
 
         // Get the Session object.// and pass username and password
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
