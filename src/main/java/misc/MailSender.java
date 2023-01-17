@@ -15,7 +15,9 @@ import javax.mail.internet.MimeMessage;
  */
 public class MailSender {
 
-    
+    public static void main(String[] args) {
+        sendMail("darioromano212@gmail.com", "test-mail", "test");
+    }
     /*******UTILIZZARE PER INVIARE UNA E-MAIL*******
      * @param to INDIRIZZO E-MAIL DI DESTINAZIONE
      * @param subject OGGETTO DELLA E-MAIL
