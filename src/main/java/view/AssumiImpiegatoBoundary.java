@@ -19,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import misc.MailSender;
 import misc.Utente;
 
 /**
@@ -32,13 +33,13 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
      */
     InputStream in;
     String path;
-    
+
     public AssumiImpiegatoBoundary(AssumiLicenziaControl ALC) {
         this.ALC = ALC;
         initComponents();
         in = null;
     }
-    
+
     ImageIcon foto;
     FileFilter imageFilter = new FileNameExtensionFilter("Image files", ImageIO.getReaderFileSuffixes());
 
@@ -157,6 +158,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         NomeLabel.setBounds(174, 432, 140, 80);
 
         CorniceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice400x400.png"))); // NOI18N
+        CorniceLabel.setFocusable(false);
         jPanel1.add(CorniceLabel);
         CorniceLabel.setBounds(1350, 110, 400, 400);
 
@@ -283,8 +285,8 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         ALC.verifyMail(mail, this);
         String cf = CFTextField.getText().trim();
         String numero = NTelefonicoTextField.getText().trim();
-        int livello = LivelloComboBox.getSelectedIndex()+1;
-        ALC.sendData(name, surname, mail, cf, foto, numero, livello,path);
+        int livello = LivelloComboBox.getSelectedIndex() + 1;
+        ALC.sendData(name, surname, mail, cf, foto, numero, livello, path);
         ALC.disposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
@@ -321,10 +323,11 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private void NomeTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NomeTextFieldKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+
+        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
             NomeTextField.setEditable(true);
-        }else NomeTextField.setEditable(false);
+        } else
+            NomeTextField.setEditable(false);
     }//GEN-LAST:event_NomeTextFieldKeyPressed
 
     private void CognomeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CognomeTextFieldActionPerformed
@@ -334,19 +337,21 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private void CognomeTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CognomeTextFieldKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+
+        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
             CognomeTextField.setEditable(true);
-        }else CognomeTextField.setEditable(false);
+        } else
+            CognomeTextField.setEditable(false);
     }//GEN-LAST:event_CognomeTextFieldKeyPressed
 
     private void MailTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MailTextFieldKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        
-        if(Character.isWhitespace(c)){
+
+        if (Character.isWhitespace(c)) {
             MailTextField.setEditable(false);
-        }else MailTextField.setEditable(true);
+        } else
+            MailTextField.setEditable(true);
     }//GEN-LAST:event_MailTextFieldKeyPressed
 
     private void MailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MailTextFieldActionPerformed
@@ -355,6 +360,25 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
 
     private void FotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FotoButtonActionPerformed
         // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileFilter(imageFilter);
+        //chooser.addChoosableFileFilter(new ImageFilter()); // alternativa che ha bisogno però della classe ausiliaria ImageFilter
+        //chooser.setAcceptAllFileFilterUsed(false);
+        chooser.showOpenDialog(this);
+        File file = chooser.getSelectedFile();
+        if (file != null) {
+            String path = file.getAbsolutePath();
+            Image im = Toolkit.getDefaultToolkit().createImage(path);
+            im = im.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+            ImageIcon ic = new ImageIcon(im);
+
+            try {
+                in = new FileInputStream(path);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(AssumiImpiegatoBoundary.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           FotoButton.setIcon(ic);
+        }
     }//GEN-LAST:event_FotoButtonActionPerformed
 
     /**
@@ -415,7 +439,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     AssumiLicenziaControl ALC;
-    
+
     private boolean clickable;
 
     public boolean isClickable() {

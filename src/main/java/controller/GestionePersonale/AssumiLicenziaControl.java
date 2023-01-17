@@ -21,6 +21,7 @@ import view.ModificaInfoImpiegato;
 import view.AssumiImpiegatoBoundary;
 import view.ProfiloPopup;
 import misc.DBMSBoundary;
+import misc.MailSender;
 import misc.Utente;
 import static org.passay.AllowedCharacterRule.ERROR_CODE;
 import org.passay.CharacterData;
@@ -123,7 +124,7 @@ public class AssumiLicenziaControl {
         }
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
-        
+
     }
 
     public void sendData(String name, String surname, String mail, String cf, ImageIcon foto, String numero, int livello, String path) {
@@ -141,12 +142,14 @@ public class AssumiLicenziaControl {
         }
 
         String matricola = this.generateMatricola(livello, number);
-        String passw = hashPassword(generatePlainPassword(12));
+        String plainPW = generatePlainPassword (12);
+        String passw = hashPassword(plainPW);
 
         long PINtemporaneo = this.generatePin(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
 
-        this.sendMail(PINtemporaneo, mail);
+        
+        MailSender.sendMail(path, "Password e Pin", "Password : "+passw + ", Pin : "+ PINtemporaneo);
         DBMSBoundary.updateQuery("insert into impiegato values('"
                 + matricola + "','"
                 + surname + "',"
@@ -157,8 +160,9 @@ public class AssumiLicenziaControl {
                 + mail + "','"
                 + numero + "',"
                 + null + ","
-                + null + ","
-                + livello + ");"); // inserisci impiegato
+                + livello + ","
+                + 1 + ",'"
+                + cf + ");"); // inserisci impiegato
         try {
             DBMSBoundary.updatePropic(matricola, new FileInputStream(path));
         } catch (FileNotFoundException ex) {
@@ -189,7 +193,7 @@ public class AssumiLicenziaControl {
                 LI.dispose();
             }
         }
-        if(finestra instanceof ProfiloPopup){
+        if (finestra instanceof ProfiloPopup) {
             if (LI != null) {
                 LI.dispose();
             }
@@ -202,9 +206,10 @@ public class AssumiLicenziaControl {
             HPA.setClickable(true);
         }
     }
-    public void disposeProfiloPopup(ProfiloPopup pp){
+
+    public void disposeProfiloPopup(ProfiloPopup pp) {
         pp.dispose();
-        for (int i = 0; i<LI.getImpiegati().size()  ; ++i) {
+        for (int i = 0; i < LI.getImpiegati().size(); ++i) {
             LI.getImpiegati().get(i).setClickable(true);
         }
     }
@@ -276,9 +281,9 @@ public class AssumiLicenziaControl {
         return hash;
     }
 
-    public void sendMail(long pin, String mail) {
-        //capire come mandare una mail
+    public static void main(String[] args) {
     }
+
 
     public void SelectWorker(ListaImpiegati LI, String matricola) {
         rs = null;
@@ -287,7 +292,7 @@ public class AssumiLicenziaControl {
         JFrame ProfiloPopup = new ProfiloPopup(this, rs);
         LI.setClickable(false);
         LI.setAlwaysOnTop(false);
-        for (int i = 0; i<LI.getImpiegati().size()  ; ++i) {
+        for (int i = 0; i < LI.getImpiegati().size(); ++i) {
             LI.getImpiegati().get(i).setClickable(false);
         }
         ProfiloPopup.setVisible(true);

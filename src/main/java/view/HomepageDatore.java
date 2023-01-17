@@ -13,6 +13,7 @@ import controller.AreaPersonale.OrariStipendiControl;
 import controller.AreaPersonale.RichiesteControl;
 //import controller.StraordinariControl;
 import javax.swing.ImageIcon;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 /**
  *
@@ -34,6 +35,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         phoneText.setText(tel);
         this.propic.setIcon(propic);
         LC = logC;
+        System.out.println(BCrypt.hashpw("password", BCrypt.gensalt()));
     }
 
     /**
