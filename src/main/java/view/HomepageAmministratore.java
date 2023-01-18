@@ -73,10 +73,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         impSalaryButton = new javax.swing.JButton();
         impScheduleButton = new javax.swing.JButton();
-        healthButton = new javax.swing.JButton();
         switchButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
-        straordButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -348,18 +346,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         jPanel3.add(impScheduleButton);
         impScheduleButton.setBounds(70, 150, 100, 100);
 
-        healthButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MalattiaButton.png"))); // NOI18N
-        healthButton.setBorder(null);
-        healthButton.setContentAreaFilled(false);
-        healthButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        healthButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                healthButtonActionPerformed(evt);
-            }
-        });
-        jPanel3.add(healthButton);
-        healthButton.setBounds(70, 280, 100, 100);
-
         switchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SwitchButton.png"))); // NOI18N
         switchButton.setBorder(null);
         switchButton.setContentAreaFilled(false);
@@ -370,7 +356,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel3.add(switchButton);
-        switchButton.setBounds(70, 410, 100, 100);
+        switchButton.setBounds(70, 280, 100, 100);
 
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EditButton.png"))); // NOI18N
         editButton.setBorder(null);
@@ -382,23 +368,11 @@ public class HomepageAmministratore extends javax.swing.JFrame {
             }
         });
         jPanel3.add(editButton);
-        editButton.setBounds(70, 540, 100, 100);
-
-        straordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StraordinariButton.png"))); // NOI18N
-        straordButton.setBorder(null);
-        straordButton.setContentAreaFilled(false);
-        straordButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        straordButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                straordButtonActionPerformed(evt);
-            }
-        });
-        jPanel3.add(straordButton);
-        straordButton.setBounds(70, 670, 100, 100);
+        editButton.setBounds(70, 410, 100, 100);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaDXAmministratore.png"))); // NOI18N
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(20, -50, 200, 880);
+        jLabel5.setBounds(20, -300, 200, 880);
 
         mainPanel.add(jPanel3);
         jPanel3.setBounds(1704, 55, 230, 840);
@@ -513,14 +487,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ferieButtonActionPerformed
 
-    private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
-        // TODO add your handling code here:
-        /*if (isClickable()) {
-            SC = new StraordinariControl();
-            SC.AffidaStraordinariButtonPressed(this); //fare sc
-    }*/
-    }//GEN-LAST:event_straordButtonActionPerformed
-
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
@@ -601,14 +567,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_impScheduleButtonActionPerformed
 
-    private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
-        // TODO add your handling code here:
-        /*if (isClickable()) {
-            MC = new MalattiaControl();
-            MC.InserimentoMalattiaButtonPressed(this); //fare mc
-        }*/
-    }//GEN-LAST:event_healthButtonActionPerformed
-
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
@@ -678,7 +636,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private javax.swing.JButton congedoButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton ferieButton;
-    private javax.swing.JButton healthButton;
     private javax.swing.JTextField idText;
     private javax.swing.JButton impSalaryButton;
     private javax.swing.JButton impScheduleButton;
@@ -705,7 +662,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private javax.swing.JButton salaryButton;
     private javax.swing.JButton scheduleButton;
     private javax.swing.JLabel scioperoLabel;
-    private javax.swing.JButton straordButton;
     private javax.swing.JButton switchButton;
     // End of variables declaration//GEN-END:variables
 
