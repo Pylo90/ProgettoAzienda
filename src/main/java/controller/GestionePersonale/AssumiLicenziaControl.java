@@ -149,7 +149,7 @@ public class AssumiLicenziaControl {
         //entrambi i metodi diventano campi del fantoccio
 
         
-        MailSender.sendMail(path, "Password e Pin", "Password : "+passw + ", Pin : "+ PINtemporaneo);
+        MailSender.sendMail(mail, "Password e Pin", "Password: "+plainPW + "   , Pin: "+ PINtemporaneo);
         DBMSBoundary.updateQuery("insert into impiegato values('"
                 + matricola + "','"
                 + surname + "',"
@@ -162,7 +162,7 @@ public class AssumiLicenziaControl {
                 + null + ","
                 + livello + ","
                 + 1 + ",'"
-                + cf + ");"); // inserisci impiegato
+                + cf + "');"); // inserisci impiegato
         try {
             DBMSBoundary.updatePropic(matricola, new FileInputStream(path));
         } catch (FileNotFoundException ex) {

@@ -51,9 +51,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         mainPanel = new javax.swing.JPanel();
         ImpScheduleButton = new javax.swing.JButton();
         ImpSalaryButton = new javax.swing.JButton();
-        healthButton = new javax.swing.JButton();
         switchButton = new javax.swing.JButton();
-        editButton = new javax.swing.JButton();
         straordButton = new javax.swing.JButton();
         passwordButton = new javax.swing.JButton();
         notificationButton = new javax.swing.JButton();
@@ -111,18 +109,6 @@ public class HomepageDatore extends javax.swing.JFrame {
         mainPanel.add(ImpSalaryButton);
         ImpSalaryButton.setBounds(1770, 100, 100, 100);
 
-        healthButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MalattiaButton.png"))); // NOI18N
-        healthButton.setBorder(null);
-        healthButton.setContentAreaFilled(false);
-        healthButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        healthButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                healthButtonActionPerformed(evt);
-            }
-        });
-        mainPanel.add(healthButton);
-        healthButton.setBounds(1770, 580, 100, 100);
-
         switchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SwitchButton.png"))); // NOI18N
         switchButton.setBorder(null);
         switchButton.setContentAreaFilled(false);
@@ -133,19 +119,7 @@ public class HomepageDatore extends javax.swing.JFrame {
             }
         });
         mainPanel.add(switchButton);
-        switchButton.setBounds(1770, 700, 100, 100);
-
-        editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EditButton.png"))); // NOI18N
-        editButton.setBorder(null);
-        editButton.setContentAreaFilled(false);
-        editButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        editButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editButtonActionPerformed(evt);
-            }
-        });
-        mainPanel.add(editButton);
-        editButton.setBounds(1770, 820, 100, 100);
+        switchButton.setBounds(1770, 580, 100, 100);
 
         straordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StraordinariButton.png"))); // NOI18N
         straordButton.setBorder(null);
@@ -157,7 +131,7 @@ public class HomepageDatore extends javax.swing.JFrame {
             }
         });
         mainPanel.add(straordButton);
-        straordButton.setBounds(1770, 940, 100, 100);
+        straordButton.setBounds(1770, 700, 100, 100);
 
         passwordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PasswordButton.png"))); // NOI18N
         passwordButton.setBorder(null);
@@ -235,7 +209,7 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaDatore.png"))); // NOI18N
         mainPanel.add(jLabel5);
-        jLabel5.setBounds(1720, 0, 200, 1080);
+        jLabel5.setBounds(1720, -225, 200, 1080);
 
         Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
         mainPanel.add(Cornice);
@@ -336,29 +310,11 @@ public class HomepageDatore extends javax.swing.JFrame {
             OSC.ConsultaOrariImpiegatiButtonPressed(this);
     }//GEN-LAST:event_ImpScheduleButtonActionPerformed
     }
-    private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
-        // TODO add your handling code here:
-        //if (isClickable()) {
-        //MC.InserimentoMalattiaButtonPressed(this); //fare mc
-    }//GEN-LAST:event_healthButtonActionPerformed
-
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
             RC.ScambiaOrariButtonPressed(this);
     }//GEN-LAST:event_switchButtonActionPerformed
-    }
-    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
-        if (isClickable()) {
-            ALC.ModificaInfoImpiegatoButtonPressed(this);
-    }//GEN-LAST:event_editButtonActionPerformed
-    }
-    private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
-        // TODO add your handling code here:
-        if (isClickable()) {
-            //SC.AffidaStraordinariButtonPressed(this); //fare sc
-    }//GEN-LAST:event_straordButtonActionPerformed
     }
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
         // TODO add your handling code here:
@@ -383,6 +339,13 @@ public class HomepageDatore extends javax.swing.JFrame {
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
         RC.ConsultazioneListaRichiesteButtonPressed(this);
     }//GEN-LAST:event_notificationButtonActionPerformed
+
+    private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
+        // TODO add your handling code here:
+        if (isClickable()) {
+            //SC.AffidaStraordinariButtonPressed(this); //fare sc
+    }//GEN-LAST:event_straordButtonActionPerformed
+    }
 
     /**
      * @param args the command line arguments
@@ -433,8 +396,6 @@ public class HomepageDatore extends javax.swing.JFrame {
     private javax.swing.JButton ImpScheduleButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton assumiButton;
-    private javax.swing.JButton editButton;
-    private javax.swing.JButton healthButton;
     private javax.swing.JTextField idText;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -457,7 +418,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private AssumiLicenziaControl ALC = new AssumiLicenziaControl();
-   // private StraordinariControl SC = new StraordinariControl();
+    // private StraordinariControl SC = new StraordinariControl();
     private OrariStipendiControl OSC = new OrariStipendiControl();
     private RichiesteControl RC = new RichiesteControl();
     //private MalattiaControl MC = new MalattiaControl();

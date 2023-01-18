@@ -367,7 +367,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         chooser.showOpenDialog(this);
         File file = chooser.getSelectedFile();
         if (file != null) {
-            String path = file.getAbsolutePath();
+            path = file.getAbsolutePath();
             Image im = Toolkit.getDefaultToolkit().createImage(path);
             im = im.getScaledInstance(400, 400, Image.SCALE_SMOOTH);
             ImageIcon ic = new ImageIcon(im);
