@@ -5,9 +5,13 @@
 package controller.AreaPersonale;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import misc.DBMSBoundary;
 import misc.Utente;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import view.HomepageImpiegato;
 import view.CambiaPasswordBoundary;
 import view.Errore;
@@ -35,7 +39,6 @@ public class CambiaPasswordControl {
         ModificaPassword.setAlwaysOnTop(true);
     }
 
-
     public void CPButtonPressed(HomepageAmministratore HPA) {
         this.HPA = HPA;
         JFrame ModificaPassword = new CambiaPasswordBoundary(this);
@@ -54,11 +57,29 @@ public class CambiaPasswordControl {
         }
 
     }
-    
-    public void submitForm(char vp, char np, char cp) {
+
+    public void submitForm(String vp, String np, String cp) {
         ResultSet pwSet;
-        char pswSet;
-        pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" +UT.getMatricola()+ ";"); 
+        pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" + UT.getMatricola() + ";");
+        try {
+            if (pwSet.next()) {
+
+                String hash = pwSet.getString("psw");
+
+                if (!BCrypt.checkpw(vp, hash)) {
+                    System.out.println("errato");// errore: vecchia password errata
+                    return;
+                }
+                if(np!=cp){
+                    System.out.println("errato"); // errore: vecchia password e nuova non coincicono
+                    return;
+                }
+                System.out.println("corretto");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     public void MostraErrore(String messaggio) {

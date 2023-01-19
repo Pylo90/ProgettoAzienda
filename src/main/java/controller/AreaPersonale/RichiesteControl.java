@@ -6,7 +6,10 @@ package controller.AreaPersonale;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Month;
 import java.time.Year;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -124,19 +127,16 @@ public class RichiesteControl {
     }
 
     public void sendSelection(int mesi) {
-        ResultSet idSet;
-        int id = 1;
-        idSet = DBMSBoundary.getQuery("select max(id) from richiesta;");
-        try {
-            if (idSet.next()) {
-                id = idSet.getInt(1) + 1;
-            } else {
-                id = 1;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        DBMSBoundary.updateQuery("insert into richiesta values(" + id + "," + 1 + ",'culo','400005','200006');");
+        
+        DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario) "
+                + "VALUES('1','"
+                + mesi + "','"
+                + String.valueOf(Calendar.getInstance().get(Calendar.YEAR))
+                + "-" + String.format("%02d",Calendar.getInstance().get(Calendar.MONTH)+1)
+                + "-" + String.format("%02d",Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
+                + "','"
+                + Utente.getMatricola()
+                + "','0');");
     }
 
     public void ConsultazioneListaRichiesteButtonPressed(JFrame homepage) {
@@ -168,11 +168,15 @@ public class RichiesteControl {
             HPI.getPermesso().setVisible(true);
             HPI.getFerie().setVisible(true);
             HPI.getCongedoParentale().setVisible(true);
+
+            HPI.getComunicazioneMalattia().setVisible(true);
         } else {
             HPI.getjLabel4().setVisible(false);
             HPI.getPermesso().setVisible(false);
             HPI.getFerie().setVisible(false);
             HPI.getCongedoParentale().setVisible(false);
+            HPI.getComunicazioneMalattia().setVisible(false);
+
         }
     }
 
@@ -239,9 +243,9 @@ public class RichiesteControl {
 
     public void selectGiornoPermesso(int g, int m) {
         String giorno = String.format("%02d", g);
-        String mese = String.format("%01d", m);
+        String mese = String.format("%02d", m);
         DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
-                + "VALUES('5','" + giorno + " " + mese + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','000');");
+                + "VALUES('5','" + giorno + " " + mese + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','0');");
     }
 
     public void selectGiornoFerie(int giorno, int mese, String FS, String motivazione) {
@@ -263,8 +267,19 @@ public class RichiesteControl {
         if (FS.equals("RichiestaFerie")) {
             secondG = String.format("%02d", giorno);
             secondM = String.format("%02d", mese);
-            DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
-                    + "VALUES('4','" + firstG + " " + firstM + "-" + secondG + " " + secondM + "-" + motivazione + "','" + Year.now().getValue() + "-" + firstM + "-" + firstG + "','" + Utente.getMatricola() + "','000');");
+            DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario,testo) "
+                    + "VALUES('4','"
+                    + firstG + " "
+                    + firstM + "-"
+                    + secondG + " "
+                    + secondM + "','"
+                    + Year.now().getValue()
+                    + "-" + firstM
+                    + "-" + firstG
+                    + "','"
+                    + Utente.getMatricola()
+                    + "','0','" + motivazione
+                    + "');");
         }
 
     }
