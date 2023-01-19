@@ -6,7 +6,7 @@ package view;
 
 import controller.AreaPersonale.RichiesteControl;
 //import controller.StraordinariControl;
-import misc.Utente;
+import model.Utente;
 import javax.swing.JButton;
 
 /**

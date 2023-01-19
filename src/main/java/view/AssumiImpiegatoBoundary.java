@@ -20,7 +20,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import misc.MailSender;
-import misc.Utente;
+import model.Utente;
 
 /**
  *

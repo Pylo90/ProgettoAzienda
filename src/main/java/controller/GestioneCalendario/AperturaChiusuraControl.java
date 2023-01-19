@@ -2,7 +2,7 @@ package controller.GestioneCalendario;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import misc.DBMSBoundary;
+import model.DBMSBoundary;
 
 /**
  *

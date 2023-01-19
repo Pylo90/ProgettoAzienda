@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import misc.DBMSBoundary;
+import model.DBMSBoundary;
 import view.style.ScrollBarCustom;
 
 /**

@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import misc.DBMSBoundary;
+import model.DBMSBoundary;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import view.HomepageAmministratore;
 import view.HomepageDatore;

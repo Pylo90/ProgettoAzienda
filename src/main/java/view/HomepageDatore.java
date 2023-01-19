@@ -13,7 +13,7 @@ import controller.AreaPersonale.OrariStipendiControl;
 import controller.AreaPersonale.RichiesteControl;
 //import controller.StraordinariControl;
 import javax.swing.ImageIcon;
-import misc.Utente;
+import model.Utente;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 /**

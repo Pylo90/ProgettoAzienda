@@ -1,4 +1,4 @@
-package misc;
+package model;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

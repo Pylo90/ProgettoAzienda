@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import misc.DBMSBoundary;
+import model.DBMSBoundary;
 import view.FirmaForm;
 import view.HomepageImpiegato;
 import view.RitardoBoundary;

@@ -12,7 +12,7 @@ import controller.AreaPersonale.RichiesteControl;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import misc.Utente;
+import model.Utente;
 
 /**
  *
