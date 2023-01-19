@@ -8,6 +8,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 /**
  *
@@ -16,7 +17,8 @@ import javax.mail.internet.MimeMessage;
 public class MailSender {
 
     public static void main(String[] args) {
-        sendMail("davide2000_09@hotmail.com", "test-mail", "test");
+        String hash = BCrypt.hashpw("password", BCrypt.gensalt());
+        sendMail("davide2000_09@hotmail.com", "test-mail", hash);
     }
     /*******UTILIZZARE PER INVIARE UNA E-MAIL*******
      * @param to INDIRIZZO E-MAIL DI DESTINAZIONE
