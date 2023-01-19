@@ -24,6 +24,7 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         this.RC = RC;
         initComponents();
         meseIndex = 0;
+        setSelectedButton(jButton1);
         MonthLabel.setText(mesi[meseIndex]);
     }
 
@@ -876,8 +877,8 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
         String motivazione = MotivazioneSciopero.getText();
-        if (motivazione == "Scrivere Motivazione (facoltativo)"){
-            motivazione = null; 
+        if (motivazione.equals("Scrivere Motivazione (facoltativo)")){
+            motivazione = "n/a"; 
         }
         switch (funzione) {
             case "ComunicazioneSciopero":
@@ -886,6 +887,7 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
             case "RichiestaFerie":
                 RC.selectGiornoFerie(Integer.parseInt(selectedButton.getText()), meseIndex + 1, "RichiestaFerie", motivazione);
                 RC.DisposeWindow(this);
+                break;
             case "ComuncazioneMalattia":
                 RC.selectGiornoMalattia(Integer.parseInt(selectedButton.getText()), meseIndex + 1, motivazione);
                 RC.DisposeWindow(this);

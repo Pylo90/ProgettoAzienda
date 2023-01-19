@@ -207,7 +207,7 @@ public class OrariStipendiControl {
         if(homepage instanceof HomepageAmministratore){
         this.HPA = (HomepageAmministratore) homepage;
         }
-        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato;");
+        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola!='0';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs,"ConsultaStipendi");
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
@@ -221,7 +221,7 @@ public class OrariStipendiControl {
         if(homepage instanceof HomepageAmministratore){
         this.HPA = HPA;
         }
-        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato;");
+        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegatowhere matricola != '0';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs,"ConsultaOrari");
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);

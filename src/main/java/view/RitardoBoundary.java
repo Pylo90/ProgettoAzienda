@@ -201,7 +201,11 @@ public class RitardoBoundary extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        FC.DisposeWindow(this);
+        String nome = jTextField1.getText();
+        String cognome= jTextField2.getText();
+        String matricola= jTextField3.getText();
+        String motivazione= jTextArea1.getText();
+        FC.submitForm(nome,cognome,matricola,motivazione);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

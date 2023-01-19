@@ -33,6 +33,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         Permesso.setVisible(false);
         Ferie.setVisible(false);
         CongedoParentale.setVisible(false);
+        ComunicazioneMalattia.setVisible(false);
         setClickable(true);
         nameText.setText(nome + " " + cognome);
         idText.setText(matricola);
@@ -395,6 +396,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private void PasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
+            CPC = new CambiaPasswordControl();
             CPC.CPButtonPressed(this);
         }
 
@@ -451,7 +453,11 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         if (isClickable()) {
-            LC.DisposeWindow(this);
+            if (LC != null) {
+                LC.DisposeWindow(this);
+            } else {
+                this.dispose();
+            }
         }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
@@ -493,7 +499,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageImpiegato(null,null,null,null,null,null,null);
+                new HomepageImpiegato("mar", "mar", "300001", "8", "darioromano212@gmail.com", null, null).setVisible(true);
+                
             }
         });
     }
@@ -551,6 +558,10 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     public JLabel getjLabel4() {
         return jLabel4;
+    }
+
+    public JButton getComunicazioneMalattia() {
+        return ComunicazioneMalattia;
     }
 
 }
