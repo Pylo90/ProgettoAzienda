@@ -160,7 +160,7 @@ public class AssumiLicenziaControl {
                 + mail + "','"
                 + numero + "',"
                 + null + ","
-                + livello + ","
+                + null + ","
                 + 1 + ",'"
                 + cf + "');"); // inserisci impiegato
         try {
