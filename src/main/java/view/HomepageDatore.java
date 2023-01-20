@@ -28,6 +28,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private LoginControl LC;
 
     public HomepageDatore(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
+        Utente.setMatricola(matricola);
         initComponents();
         setClickable(true);
         nameText.setText(nome + " " + cognome);
@@ -37,6 +38,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         this.propic.setIcon(propic);
         LC = logC;
         System.out.println(BCrypt.hashpw("password", BCrypt.gensalt()));
+        
     }
 
     /**
@@ -386,7 +388,8 @@ public class HomepageDatore extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageDatore(null, null, null, null, null, null, null).setVisible(true);
+                
+                new HomepageDatore(null, null, "0", null, null, null, null).setVisible(true);
             }
         });
     }

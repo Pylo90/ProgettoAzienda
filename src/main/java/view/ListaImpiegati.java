@@ -109,10 +109,16 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
                 ALC.workerSelected(this, matricola);
 
                 break;
+            case "ScambiaOrari":
+                RC.selectWorker(matricola, "1");
+                break;
+            case "ScambiaOrari2":
+                RC.selectWorker(matricola, "2");
+                break;
 
 
         }
-        System.out.println(matricola);
+        
     }
 
     private void adaptListPanel() {

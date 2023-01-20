@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -49,6 +50,11 @@ public class RichiesteControl {
     String secondM = null;
     String id_1 = null;
     String id_2 = null;
+
+    String matScambio1 = null;
+    String matScambio2 = null;
+    ResultSet orarioScambio1 = null;
+    ResultSet orarioScambio2 = null;
 
     public RichiesteControl() {
     }
@@ -127,13 +133,13 @@ public class RichiesteControl {
     }
 
     public void sendSelection(int mesi) {
-        
+
         DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario) "
                 + "VALUES('1','"
                 + mesi + "','"
                 + String.valueOf(Calendar.getInstance().get(Calendar.YEAR))
-                + "-" + String.format("%02d",Calendar.getInstance().get(Calendar.MONTH)+1)
-                + "-" + String.format("%02d",Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
+                + "-" + String.format("%02d", Calendar.getInstance().get(Calendar.MONTH) + 1)
+                + "-" + String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
                 + "','"
                 + Utente.getMatricola()
                 + "','0');");
@@ -225,7 +231,7 @@ public class RichiesteControl {
             this.HPD = (HomepageDatore) homepage;
             this.HPD.setClickable(false);
         }
-        ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
+        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
         LI = new ListaImpiegati(this, rs, "ScambiaOrari");
         LI.setVisible(true);
         LI.setAlwaysOnTop(true);
@@ -286,9 +292,9 @@ public class RichiesteControl {
 
     public void selectGiornoMalattia(int g, int m, String motivazione) {
         String giorno = String.format("%02d", g);
-        String mese = String.format("%01d", m);
-        ResultSet rs = DBMSBoundary.getQuery("SELECT _data, IMPIEGATO_matricola from turno where "
-                + "impiegato = '" + Utente.getMatricola() + "' AND _data = ' " + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
+        String mese = String.format("%02d", m);
+        ResultSet rs = DBMSBoundary.getQuery("SELECT _data, matricola from turno T, assegnazione_turno AT where "
+                + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data = ' " + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
         try {
             if (rs.next()) {
                 DBMSBoundary.updateQuery("INSERT INTO assenza values ("
@@ -303,7 +309,7 @@ public class RichiesteControl {
 
     public void selectGiornoSciopero(int g, int m, String motivazione) {
         String giorno = String.format("%02d", g);
-        String mese = String.format("%01d", m);
+        String mese = String.format("%02d", m);
         ResultSet rs = DBMSBoundary.getQuery("SELECT impiegato from turno T, assegnazione_turno AT WHERE AT.turno = T.id AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
         try {
             while (rs.next()) {
@@ -312,6 +318,76 @@ public class RichiesteControl {
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void selectWorker(String matricola, String iterata) {
+        switch (iterata) {
+            case "1":
+                matScambio1 = matricola;
+                CI = new CalendarioInterattivo(this, "ScambiaOrari");
+                CI.setVisible(true);
+                CI.setAlwaysOnTop(true);
+                break;
+            case "2":
+                matScambio2 = matricola;
+                CI = new CalendarioInterattivo(this, "ScambiaOrari2");
+                CI.setVisible(true);
+                CI.setAlwaysOnTop(true);
+                break;
+        }
+
+    }
+
+    public void selectGiornoScambio(int g, int m, String iterata) {
+        String giorno = String.format("%02d", g);
+        String mese = String.format("%02d", m);
+        switch (iterata) {
+            case "1":
+
+                orarioScambio1 = DBMSBoundary.getQuery(
+                        "SELECT impiegato, T._data, T.id "
+                        + "FROM assegnazione_turno AT, turno T, impiegato I "
+                        + "WHERE AT.impiegato ='" + matScambio1 + "'AND AT.turno = T.id AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
+                try {
+                    if (orarioScambio1.next()) {
+                        LI.dispose();
+                        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0' AND matricola != '" + matScambio1 + "';");
+                        LI = new ListaImpiegati(this, rs, "ScambiaOrari2");
+                        LI.setVisible(true);
+                        LI.setAlwaysOnTop(true);
+                    }
+                } catch (SQLException sQLException) {
+                }
+
+                break;
+            case "2":
+                orarioScambio2 = DBMSBoundary.getQuery(
+                        "SELECT impiegato, T._data, T.id "
+                        + "FROM assegnazione_turno AT, turno T, impiegato I "
+                        + "WHERE AT.impiegato ='" + matScambio2 + "'AND AT.turno = T.id AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
+                try {
+                    if (orarioScambio2.next()) {
+                        Date d1 = orarioScambio1.getDate("_data");
+                        Date d2 = orarioScambio2.getDate("_data");
+                        Date datadefinitiva = null;
+                        if (d1.after(d2)) {
+                            datadefinitiva = d2;
+                        } else {
+                            datadefinitiva = d1;
+                        }
+
+                        DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario) "
+                                + "VALUES ('6','" + orarioScambio2.getString("impiegato") + " " + orarioScambio2.getString("id") +" " + orarioScambio2.getString("_data") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio1 + "');");
+                        DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
+                                + "VALUES ('6','" + orarioScambio1.getString("impiegato") + " " + orarioScambio1.getString("id") +" " + orarioScambio1.getString("_data") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio2 + "');");
+
+                        LI.dispose();
+
+                    }
+                } catch (SQLException sQLException) {
+                }
+                break;
         }
     }
 

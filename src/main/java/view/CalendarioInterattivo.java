@@ -943,7 +943,14 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
                 RC.DisposeWindow(this);
                 break;
             
-                
+            case "ScambiaOrari":
+                RC.selectGiornoScambio(Integer.parseInt(selectedButton.getText()), meseIndex + 1, "1");
+                RC.DisposeWindow(this);
+                break;
+            case "ScambiaOrari2":
+                RC.selectGiornoScambio(Integer.parseInt(selectedButton.getText()), meseIndex + 1, "2");
+                RC.DisposeWindow(this);
+                break;
       
             case "ComunicazioneMalattia":
                 RC.selectGiornoMalattia(Integer.parseInt(selectedButton.getText()), meseIndex + 1,null);
