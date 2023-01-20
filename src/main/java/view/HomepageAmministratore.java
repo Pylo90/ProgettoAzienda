@@ -652,7 +652,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     }//GEN-LAST:event_requestButton1ActionPerformed
 
     private void editButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButton1ActionPerformed
-        // TODO add your handling code here:
+        OSC.consultazioneRitardiImpiegatiButtonPressed(this);
     }//GEN-LAST:event_editButton1ActionPerformed
 
     /**

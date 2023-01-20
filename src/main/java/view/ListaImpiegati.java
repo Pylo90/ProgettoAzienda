@@ -98,7 +98,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
                 break;
 
             case "ConsultaOrari":
-                System.out.println("B");
+                OSC.sendSelectionTimeTables(matricola,this);
 
                 break;
             case "LicenziaImpiegato":
