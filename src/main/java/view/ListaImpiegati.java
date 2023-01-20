@@ -37,7 +37,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     ArrayList<InfoBoxCard> infoBoxList;
     Image foto;
     ImageIcon proPicToSend;
-     private ArrayList<InfoBoxCard> impiegati = new ArrayList<InfoBoxCard>();
+    private ArrayList<InfoBoxCard> impiegati = new ArrayList<InfoBoxCard>();
 
     public ListaImpiegati(Object controller, ResultSet rs, String f) {
         if (controller instanceof OrariStipendiControl) {
@@ -115,10 +115,12 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
             case "ScambiaOrari2":
                 RC.selectWorker(matricola, "2");
                 break;
-
+            case "ConsultaRitardi":
+                OSC.sendSelectionDelay(matricola);
+                break;
 
         }
-        
+
     }
 
     private void adaptListPanel() {

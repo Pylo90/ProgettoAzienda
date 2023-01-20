@@ -645,7 +645,10 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     }//GEN-LAST:event_MalattiaButtonActionPerformed
 
     private void requestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton1ActionPerformed
-        // TODO add your handling code here:
+        if(isClickable()){
+            OSC = new OrariStipendiControl();
+            OSC.consultazioneRitardiButtonPressed(this);
+        }
     }//GEN-LAST:event_requestButton1ActionPerformed
 
     private void editButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButton1ActionPerformed

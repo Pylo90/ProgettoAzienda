@@ -13,12 +13,14 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.table.TableCellRenderer;
 import model.DBMSBoundary;
+import model.Utente;
 import view.HomepageAmministratore;
 import view.HomepageImpiegato;
 import view.OrarioImpiegato;
 import view.StipendioImpiegato;
 import view.HomepageDatore;
 import view.ListaImpiegati;
+import view.RitardoForm;
 
 /**
  *
@@ -198,36 +200,41 @@ public class OrariStipendiControl {
         if (HPD != null) {
             HPD.setClickable(true);
         }
+        if (LI!=null){
+            LI.setClickable(true);
+            for (int i = 0; i < LI.getImpiegati().size(); ++i) {
+            LI.getImpiegati().get(i).setClickable(true);
+        }
+        }
     }
 
     public void ConsultaStipendiImpiegatiButtonPressed(JFrame homepage) {
-        if(homepage instanceof HomepageDatore){
-        this.HPD = (HomepageDatore) homepage;
+        if (homepage instanceof HomepageDatore) {
+            this.HPD = (HomepageDatore) homepage;
         }
-        if(homepage instanceof HomepageAmministratore){
-        this.HPA = (HomepageAmministratore) homepage;
+        if (homepage instanceof HomepageAmministratore) {
+            this.HPA = (HomepageAmministratore) homepage;
         }
         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola!='0';");
-        JFrame ListaImpiegati = new ListaImpiegati(this, rs,"ConsultaStipendi");
+        JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaStipendi");
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
 
     public void ConsultaOrariImpiegatiButtonPressed(JFrame homepage) {
-        if(homepage instanceof HomepageDatore){
-        this.HPD = HPD;
+        if (homepage instanceof HomepageDatore) {
+            this.HPD = (HomepageDatore) homepage;
         }
-        if(homepage instanceof HomepageAmministratore){
-        this.HPA = HPA;
+        if (homepage instanceof HomepageAmministratore) {
+            this.HPA = (HomepageAmministratore) homepage;
         }
         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegatowhere matricola != '0';");
-        JFrame ListaImpiegati = new ListaImpiegati(this, rs,"ConsultaOrari");
+        JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaOrari");
         HPD.setClickable(false);
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
-
 
     public void sendSelectionSalary(String matricola) {
         this.LI = LI;
@@ -245,6 +252,61 @@ public class OrariStipendiControl {
         LI.setClickable(false);
         OrarioImpiegatoDatore.setVisible(true);
         OrarioImpiegatoDatore.setAlwaysOnTop(true);
+    }
+
+    public void consultazioneRitardiButtonPressed(JFrame homepage) {
+        if (homepage instanceof HomepageDatore) {
+            this.HPI = (HomepageImpiegato) homepage;
+        }
+        if (homepage instanceof HomepageAmministratore) {
+            this.HPA = (HomepageAmministratore) homepage;
+        }
+        ResultSet rs = DBMSBoundary.getQuery(
+                "SELECT I.nome, I.cognome, R._data, R.motivo "
+                + "FROM ritardo R, impiegato I "
+                + "WHERE R.impiegato = I.matricola AND I.matricola = '" + Utente.getMatricola() + "';"
+        );
+        RitardoForm RT = new RitardoForm(rs, this);
+        if (HPI != null) {
+            HPI.setClickable(false);
+        }
+        if (HPA != null) {
+            HPA.setClickable(false);
+        }
+        RT.setVisible(true);
+        RT.setAlwaysOnTop(true);
+    }
+
+    public void consultazioneRitardiImpiegatiButtonPressed(JFrame homepage) {
+        if (homepage instanceof HomepageDatore) {
+            this.HPD = (HomepageDatore) homepage;
+        }
+        if (homepage instanceof HomepageAmministratore) {
+            this.HPA = (HomepageAmministratore) homepage;
+        }
+        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
+        JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaRitardi");
+        HPD.setClickable(false);
+        ListaImpiegati.setVisible(true);
+        ListaImpiegati.setAlwaysOnTop(true);
+    }
+    
+    public void sendSelectionDelay(String matricola){
+        ResultSet rs = DBMSBoundary.getQuery(
+                "SELECT I.nome, I.cognome, R._data, R.motivo "
+                + "FROM ritardo R, impiegato I "
+                + "WHERE R.impiegato = I.matricola AND I.matricola = '" + matricola + "';"
+        );
+        RitardoForm RT = new RitardoForm(rs, this);
+        if (HPD != null) {
+            HPD.setClickable(false);
+        }
+        LI.setClickable(false);
+        for (int i = 0; i < LI.getImpiegati().size(); ++i) {
+            LI.getImpiegati().get(i).setClickable(false);
+        }
+        RT.setVisible(true);
+        RT.setAlwaysOnTop(true);
     }
 
 }

@@ -485,6 +485,10 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void requestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton1ActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
+            OSC = new OrariStipendiControl();
+            OSC.consultazioneRitardiButtonPressed(this);
+        }
     }//GEN-LAST:event_requestButton1ActionPerformed
 
     /**

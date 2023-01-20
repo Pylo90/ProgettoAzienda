@@ -125,7 +125,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         mainPanel.add(switchButton);
         switchButton.setBounds(1770, 580, 100, 100);
 
-        straordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StraordinariButton.png"))); // NOI18N
+        straordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EditButton.png"))); // NOI18N
         straordButton.setBorder(null);
         straordButton.setContentAreaFilled(false);
         straordButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -356,16 +356,16 @@ public class HomepageDatore extends javax.swing.JFrame {
         RC.ConsultazioneListaRichiesteButtonPressed(this);
     }//GEN-LAST:event_notificationButtonActionPerformed
 
+    private void straordButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButton1ActionPerformed
+        OSC.consultazioneRitardiImpiegatiButtonPressed(this);
+    }//GEN-LAST:event_straordButton1ActionPerformed
+
     private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
-            //SC.AffidaStraordinariButtonPressed(this); //fare sc
+            ALC.ModificaInfoImpiegatoButtonPressed(this);
         }
     }//GEN-LAST:event_straordButtonActionPerformed
-
-    private void straordButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_straordButton1ActionPerformed
 
     /**
      * @param args the command line arguments

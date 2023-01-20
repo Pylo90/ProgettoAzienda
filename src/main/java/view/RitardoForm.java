@@ -1,8 +1,11 @@
 package view;
 
+import controller.AreaPersonale.OrariStipendiControl;
 import controller.AreaPersonale.RichiesteControl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,20 +23,51 @@ public class RitardoForm extends javax.swing.JFrame {
      * Creates new form RichiestaFrom
      */
     ResultSet rs;
-    RichiesteControl RC;
+    OrariStipendiControl OSC;
 
-    public RitardoForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, RichiesteControl RC) {
+    String nome;
+    String cognome;
+    int n = -1;
+    int d = 0;
+    ArrayList<Date> date = new ArrayList<Date>();
+    ArrayList<String> motivi = new ArrayList<String>();
+    Date dataselezionata = null;
+    String motivoselezionato = null;
+
+    public RitardoForm(ResultSet rs, OrariStipendiControl OSC) {
         this.rs = rs;
-        this.RC = RC;
+        this.OSC = OSC;
         initComponents();
-
+        try {
+            while (rs.next()) {
+                nome = rs.getString("nome");
+                cognome = rs.getString("cognome");
+                date.add(rs.getDate("_data"));
+                motivi.add(rs.getString("motivo"));
+                d++;
+                n = 0;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RitardoForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(true);
         this.setAlwaysOnTop(true);
 
-        jLabel1.setText("mittente: " + nomeMittente + " " + cognomeMittente);
-        jLabel2.setText("Tipo di richiesta: " + tipoRichiesta);
-        jLabel3.setText("Scadenza: " + dataScadenza);
-        jTextPane1.setText(dati);
+        if (d != 0) {
+            dataselezionata = date.get(n);
+            motivoselezionato = motivi.get(n);
+            denLabel.setText(String.valueOf(d));
+            numLabel.setText(String.valueOf(n+1));
+            jLabel1.setText("Impiegato: " + nome + " " + cognome);
+            jLabel3.setText("Data: " + dataselezionata);
+            jTextPane1.setText(motivoselezionato);
+        } else {
+            denLabel.setText("n/a");
+            numLabel.setText("n/a");
+            jLabel1.setText("Impiegato: " + nome + " " + cognome);
+            jLabel3.setText("Data: n/a");
+            jTextPane1.setText("nessun ritardo effettuato");
+        }
 
     }
 
@@ -54,9 +88,9 @@ public class RitardoForm extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jLabel3 = new javax.swing.JLabel();
         prevMonthButton = new javax.swing.JButton();
-        MonthLabel = new javax.swing.JLabel();
+        denLabel = new javax.swing.JLabel();
         MonthLabel1 = new javax.swing.JLabel();
-        MonthLabel2 = new javax.swing.JLabel();
+        numLabel = new javax.swing.JLabel();
         nextMonthButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,7 +107,7 @@ public class RitardoForm extends javax.swing.JFrame {
         jLabel1.setText("Mittente : Nome Cognome");
         jLabel1.setPreferredSize(new java.awt.Dimension(413, 48));
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(17, 16, 413, 48);
+        jLabel1.setBounds(50, 50, 413, 48);
 
         jButton1.setBackground(new java.awt.Color(255, 248, 238));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
@@ -101,10 +135,10 @@ public class RitardoForm extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 34)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Scadenza : Data");
+        jLabel3.setText("Data : Data");
         jLabel3.setPreferredSize(new java.awt.Dimension(413, 48));
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(17, 64, 413, 49);
+        jLabel3.setBounds(50, 90, 413, 49);
 
         prevMonthButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         prevMonthButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -127,13 +161,13 @@ public class RitardoForm extends javax.swing.JFrame {
         jPanel1.add(prevMonthButton);
         prevMonthButton.setBounds(50, 150, 45, 45);
 
-        MonthLabel.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        MonthLabel.setForeground(new java.awt.Color(0, 0, 0));
-        MonthLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MonthLabel.setText("14");
-        MonthLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(MonthLabel);
-        MonthLabel.setBounds(150, 150, 86, 43);
+        denLabel.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        denLabel.setForeground(new java.awt.Color(0, 0, 0));
+        denLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        denLabel.setText("14");
+        denLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(denLabel);
+        denLabel.setBounds(160, 150, 86, 43);
 
         MonthLabel1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         MonthLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -143,13 +177,13 @@ public class RitardoForm extends javax.swing.JFrame {
         jPanel1.add(MonthLabel1);
         MonthLabel1.setBounds(125, 150, 86, 43);
 
-        MonthLabel2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        MonthLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        MonthLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MonthLabel2.setText("01");
-        MonthLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(MonthLabel2);
-        MonthLabel2.setBounds(100, 150, 86, 43);
+        numLabel.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        numLabel.setForeground(new java.awt.Color(0, 0, 0));
+        numLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        numLabel.setText("01");
+        numLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(numLabel);
+        numLabel.setBounds(90, 150, 86, 43);
 
         nextMonthButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         nextMonthButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -190,18 +224,27 @@ public class RitardoForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        RC.DisposeForm(this);
+        OSC.DisposeWindow(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
         // TODO add your handling code here:
-        meseIndex = (((meseIndex - 1) % 12) + 12) % 12;
-        MonthLabel.setText(mesi[meseIndex]);
+        n = (((n - 1) % (d+1)) + (d+1)) % (d+1);
+        dataselezionata = date.get(n);
+        motivoselezionato = motivi.get(n);
+        jLabel3.setText("Data: " + dataselezionata);
+        jTextPane1.setText(motivoselezionato);
+        numLabel.setText(String.valueOf(n+1));
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
     private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
-        meseIndex = (meseIndex + 1) % 12;
-        MonthLabel.setText(mesi[meseIndex]);
+        n = (n + 1) % d;
+        dataselezionata = date.get(n);
+        motivoselezionato = motivi.get(n);
+        jLabel3.setText("Data: " + dataselezionata);
+        jTextPane1.setText(motivoselezionato);
+        numLabel.setText(String.valueOf(n+1));
+
     }//GEN-LAST:event_nextMonthButtonActionPerformed
 
     /**
@@ -249,10 +292,9 @@ public class RitardoForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel MonthLabel;
     private javax.swing.JLabel MonthLabel1;
-    private javax.swing.JLabel MonthLabel2;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel denLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -260,6 +302,7 @@ public class RitardoForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JButton nextMonthButton;
+    private javax.swing.JLabel numLabel;
     private javax.swing.JButton prevMonthButton;
     // End of variables declaration//GEN-END:variables
 }
