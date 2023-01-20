@@ -68,6 +68,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         notificationButton = new javax.swing.JButton();
         requestButton = new javax.swing.JButton();
         scheduleButton = new javax.swing.JButton();
+        requestButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         ritardoLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -75,6 +76,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         impScheduleButton = new javax.swing.JButton();
         switchButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
+        editButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -295,9 +297,23 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         jPanel1.add(scheduleButton);
         scheduleButton.setBounds(50, 170, 100, 100);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaSXAmministratore.png"))); // NOI18N
+        requestButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardiButton.png"))); // NOI18N
+        requestButton1.setBorder(null);
+        requestButton1.setBorderPainted(false);
+        requestButton1.setContentAreaFilled(false);
+        requestButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        requestButton1.setFocusable(false);
+        requestButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(requestButton1);
+        requestButton1.setBounds(50, 650, 100, 100);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaImpiegato.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, -10, 200, 690);
+        jLabel1.setBounds(0, 0, 200, 800);
 
         mainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 200, 875);
@@ -370,9 +386,21 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         jPanel3.add(editButton);
         editButton.setBounds(70, 410, 100, 100);
 
+        editButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardiImpiegatoButton.png"))); // NOI18N
+        editButton1.setBorder(null);
+        editButton1.setContentAreaFilled(false);
+        editButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(editButton1);
+        editButton1.setBounds(70, 540, 100, 100);
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaDXAmministratore.png"))); // NOI18N
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(20, -300, 200, 880);
+        jLabel5.setBounds(20, -185, 200, 880);
 
         mainPanel.add(jPanel3);
         jPanel3.setBounds(1704, 55, 230, 840);
@@ -616,6 +644,14 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_MalattiaButtonActionPerformed
 
+    private void requestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_requestButton1ActionPerformed
+
+    private void editButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -635,6 +671,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private javax.swing.JButton assumiButton;
     private javax.swing.JButton congedoButton;
     private javax.swing.JButton editButton;
+    private javax.swing.JButton editButton1;
     private javax.swing.JButton ferieButton;
     private javax.swing.JTextField idText;
     private javax.swing.JButton impSalaryButton;
@@ -658,6 +695,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private javax.swing.JButton permessoButton;
     private javax.swing.JTextField phoneText;
     private javax.swing.JButton requestButton;
+    private javax.swing.JButton requestButton1;
     private javax.swing.JLabel ritardoLabel;
     private javax.swing.JButton salaryButton;
     private javax.swing.JButton scheduleButton;

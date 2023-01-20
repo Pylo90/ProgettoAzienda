@@ -73,6 +73,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         LogoutButton = new javax.swing.JButton();
         mailText = new javax.swing.JTextField();
         phoneText = new javax.swing.JTextField();
+        requestButton1 = new javax.swing.JButton();
         Cornice = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -351,13 +352,27 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         jPanel1.add(phoneText);
         phoneText.setBounds(930, 860, 550, 54);
 
+        requestButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardiButton.png"))); // NOI18N
+        requestButton1.setBorder(null);
+        requestButton1.setBorderPainted(false);
+        requestButton1.setContentAreaFilled(false);
+        requestButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        requestButton1.setFocusable(false);
+        requestButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(requestButton1);
+        requestButton1.setBounds(50, 650, 100, 100);
+
         Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
         jPanel1.add(Cornice);
         Cornice.setBounds(880, 165, 460, 460);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaImpiegato.png"))); // NOI18N
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(0, -10, 200, 690);
+        jLabel6.setBounds(0, -10, 200, 800);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -468,6 +483,10 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ComunicazioneMalattiaActionPerformed
 
+    private void requestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_requestButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -531,6 +550,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private javax.swing.JTextField mailText;
     private javax.swing.JTextField nameText;
     private javax.swing.JTextField phoneText;
+    private javax.swing.JButton requestButton1;
     // End of variables declaration//GEN-END:variables
 
 //    private CambiaPasswordControl CPC = new CambiaPasswordControl();

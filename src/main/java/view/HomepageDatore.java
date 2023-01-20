@@ -38,7 +38,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         this.propic.setIcon(propic);
         LC = logC;
         System.out.println(BCrypt.hashpw("password", BCrypt.gensalt()));
-        
+
     }
 
     /**
@@ -57,6 +57,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         switchButton = new javax.swing.JButton();
         straordButton = new javax.swing.JButton();
         passwordButton = new javax.swing.JButton();
+        straordButton1 = new javax.swing.JButton();
         notificationButton = new javax.swing.JButton();
         assumiButton = new javax.swing.JButton();
         licenziaButton = new javax.swing.JButton();
@@ -150,6 +151,18 @@ public class HomepageDatore extends javax.swing.JFrame {
         mainPanel.add(passwordButton);
         passwordButton.setBounds(1770, 340, 100, 100);
 
+        straordButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardiImpiegatoButton.png"))); // NOI18N
+        straordButton1.setBorder(null);
+        straordButton1.setContentAreaFilled(false);
+        straordButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        straordButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                straordButton1ActionPerformed(evt);
+            }
+        });
+        mainPanel.add(straordButton1);
+        straordButton1.setBounds(1770, 830, 100, 100);
+
         notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/NotificationButton.png"))); // NOI18N
         notificationButton.setBorder(null);
         notificationButton.setBorderPainted(false);
@@ -212,7 +225,7 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CostinaDatore.png"))); // NOI18N
         mainPanel.add(jLabel5);
-        jLabel5.setBounds(1720, -225, 200, 1080);
+        jLabel5.setBounds(1720, -110, 200, 1080);
 
         Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice.png"))); // NOI18N
         mainPanel.add(Cornice);
@@ -347,8 +360,12 @@ public class HomepageDatore extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (isClickable()) {
             //SC.AffidaStraordinariButtonPressed(this); //fare sc
+        }
     }//GEN-LAST:event_straordButtonActionPerformed
-    }
+
+    private void straordButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_straordButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -388,7 +405,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
                 new HomepageDatore(null, null, "0", null, null, null, null).setVisible(true);
             }
         });
@@ -418,6 +435,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private javax.swing.JTextField phoneText;
     private javax.swing.JLabel propic;
     private javax.swing.JButton straordButton;
+    private javax.swing.JButton straordButton1;
     private javax.swing.JButton switchButton;
     // End of variables declaration//GEN-END:variables
 
