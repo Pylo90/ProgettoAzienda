@@ -953,7 +953,11 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
                 break;
       
             case "ComunicazioneMalattia":
-                RC.selectGiornoMalattia(Integer.parseInt(selectedButton.getText()), meseIndex + 1,null);
+                RC.selectGiornoMalattia(Integer.parseInt(selectedButton.getText()), meseIndex + 1,null,"normale");
+                RC.DisposeWindow(this);
+                break;
+            case "ComunicazioneMalattia2":
+                RC.selectGiornoMalattia(Integer.parseInt(selectedButton.getText()), meseIndex + 1,null,"fine");
                 RC.DisposeWindow(this);
                 break;
         }

@@ -37,7 +37,7 @@ public class StipendioImpiegato extends javax.swing.JFrame {
     ArrayList<Double> congedo = new ArrayList<Double>();
     int i;
 
-    public String[] mesi = new String[]{"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+    public String[] mesi = new String[]{"","Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
     String mat;
 
     public StipendioImpiegato(OrariStipendiControl OSC, ResultSet rs) {
@@ -52,7 +52,7 @@ public class StipendioImpiegato extends javax.swing.JFrame {
                 M.add(rs.getString("mese"));
                 base.add(rs.getDouble("base"));
                 bonus.add(rs.getDouble("bonus"));
-                straordinari.add(rs.getDouble("straordinari"));
+                straordinari.add(rs.getDouble("straord"));
                 malattia.add(rs.getDouble("malattia"));
                 congedo.add(rs.getDouble("congedo"));
                 N = rs.getString("nome");
@@ -72,9 +72,9 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         StipendioMalattia.setText(String.valueOf(malattia.get(i)));
         StipendioCongedoParentale.setText(String.valueOf(congedo.get(i)));
         StipendioTotale.setText(String.valueOf(base.get(i) + bonus.get(i) + straordinari.get(i) + malattia.get(i) + congedo.get(i)));
-        meseIndex = Integer.parseInt(Y.get(i));
+        meseIndex = Integer.parseInt(M.get(i));
         MonthLabel.setText(mesi[meseIndex]);
-        annoIndex = Integer.parseInt(M.get(i));
+        annoIndex = Integer.parseInt(Y.get(i));
         YearLabel.setText(String.valueOf(annoIndex));
 
     }
@@ -129,6 +129,7 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         CloseButton.setBackground(new java.awt.Color(255, 248, 238));
         CloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
         CloseButton.setBorder(null);
+        CloseButton.setContentAreaFilled(false);
         CloseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         CloseButton.setPreferredSize(new java.awt.Dimension(59, 59));
         CloseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -351,9 +352,9 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         StipendioMalattia.setText(String.valueOf(malattia.get(i)));
         StipendioCongedoParentale.setText(String.valueOf(congedo.get(i)));
         StipendioTotale.setText(String.valueOf(base.get(i) + bonus.get(i) + straordinari.get(i) + malattia.get(i) + congedo.get(i)));
-        meseIndex = Integer.parseInt(Y.get(i));
+        meseIndex = Integer.parseInt(M.get(i));
         MonthLabel.setText(mesi[meseIndex]);
-        annoIndex = Integer.parseInt(M.get(i));
+        annoIndex = Integer.parseInt(Y.get(i));
         YearLabel.setText(String.valueOf(annoIndex));
 
 
@@ -371,9 +372,9 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         StipendioMalattia.setText(String.valueOf(malattia.get(i)));
         StipendioCongedoParentale.setText(String.valueOf(congedo.get(i)));
         StipendioTotale.setText(String.valueOf(base.get(i) + bonus.get(i) + straordinari.get(i) + malattia.get(i) + congedo.get(i)));
-        meseIndex = Integer.parseInt(Y.get(i));
+        meseIndex = Integer.parseInt(M.get(i));
         MonthLabel.setText(mesi[meseIndex]);
-        annoIndex = Integer.parseInt(M.get(i));
+        annoIndex = Integer.parseInt(Y.get(i));
         YearLabel.setText(String.valueOf(annoIndex));
 
 

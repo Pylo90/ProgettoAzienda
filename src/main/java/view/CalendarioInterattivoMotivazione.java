@@ -889,7 +889,7 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
                 RC.DisposeWindow(this);
                 break;
             case "ComuncazioneMalattia":
-                RC.selectGiornoMalattia(Integer.parseInt(selectedButton.getText()), meseIndex + 1, motivazione);
+                RC.selectGiornoMalattia(Integer.parseInt(selectedButton.getText()), meseIndex + 1, motivazione,"motivazione");
                 RC.DisposeWindow(this);
                         
                 break;

@@ -173,9 +173,10 @@ public class OrariStipendiControl {
     public void ConsultaStipendioButtonPressed(HomepageImpiegato HP) {
         HPI = HP;
         ResultSet rs = DBMSBoundary.getQuery(
-                "SELECT nome, cognome, anno, mese, sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
-                + "FROM impiegato I, stipendio S"
-                + "WHERE I.matricola=S.impiegato AND I.matricola='" + Utente.getMatricola() + "';");
+                "SELECT matricola, nome, cognome, anno, mese, base, bonus, straord, malattia, congedo "
+                + "FROM impiegato I, stipendio S "
+                + "WHERE I.matricola=S.impiegato AND I.matricola='" + Utente.getMatricola() + "' "
+                + "ORDER BY anno DESC, mese;");
         StipendioImpiegato StipendioImpiegato = new StipendioImpiegato(this, rs);
         HPI.setClickable(false);
         StipendioImpiegato.setVisible(true);
@@ -187,9 +188,10 @@ public class OrariStipendiControl {
     public void ConsultaStipendioButtonPressed(HomepageAmministratore HP) {
         HPA = HP;
         ResultSet rs = DBMSBoundary.getQuery(
-                "SELECT nome, cognome, anno, mese, sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
-                + "FROM impiegato I, stipendio S"
-                + "WHERE I.matricola=S.impiegato AND I.matricola='" + Utente.getMatricola() + "';");
+                "SELECT matricola, nome, cognome, anno, mese, base, bonus, straord, malattia, congedo "
+                + "FROM impiegato I, stipendio S "
+                + "WHERE I.matricola=S.impiegato AND I.matricola='" + Utente.getMatricola() + "'"
+                + "ORDER BY anno DESC, mese;");
         StipendioImpiegato StipendioImpiegato = new StipendioImpiegato(this, rs);
         HPA.setClickable(false);
         StipendioImpiegato.setVisible(true);
@@ -254,9 +256,10 @@ public class OrariStipendiControl {
         }
 
         ResultSet rs = DBMSBoundary.getQuery(
-                "SELECT nome, cognome, anno, mese, sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
-                + "FROM impiegato I, stipendio S"
-                + "WHERE I.matricola=S.impiegato AND I.matricola='" + matricola + "';");
+                "SELECT matricola, nome, cognome, anno, mese, base, bonus, straord, malattia, congedo "
+                + "FROM impiegato I, stipendio S "
+                + "WHERE I.matricola=S.impiegato AND I.matricola='" + matricola + "'"
+                + "ORDER BY anno DESC, mese;");
         StipendioImpiegato = new StipendioImpiegato(this, rs);
         LI.setClickable(false);
         StipendioImpiegato.setVisible(true);

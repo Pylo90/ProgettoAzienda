@@ -50,6 +50,11 @@ public class RichiesteControl {
     String secondM = null;
     String id_1 = null;
     String id_2 = null;
+    
+    String giorno1;
+    String giorno2;
+    String mese1;
+    String mese2;
 
     String matScambio1 = null;
     String matScambio2 = null;
@@ -290,20 +295,43 @@ public class RichiesteControl {
 
     }
 
-    public void selectGiornoMalattia(int g, int m, String motivazione) {
-        String giorno = String.format("%02d", g);
-        String mese = String.format("%02d", m);
-        ResultSet rs = DBMSBoundary.getQuery("SELECT _data, matricola from turno T, assegnazione_turno AT where "
-                + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data = ' " + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
-        try {
-            if (rs.next()) {
-                DBMSBoundary.updateQuery("INSERT INTO assenza values ("
-                        + "'" + Year.now().getValue() + "-" + mese + "-" + giorno + "-" + motivazione + "'," + "'" + Year.now().getValue() + "-" + mese + "-" + giorno + "','malattia',null,'" + Utente.getMatricola() + "');");
-            } else {
-                System.out.println("non c'è un turno per il giorno slezionato");
+    public void selectGiornoMalattia(int g, int m, String motivazione, String FS) {
+        if (FS == "normale") {
+            String giorno1 = String.format("%02d", g);
+            String mese1 = String.format("%02d", m);
+            funzione = "fine";
+
+            CI = new CalendarioInterattivo(this, funzione);
+            CI.setVisible(true);
+            CI.setAlwaysOnTop(true);
+        }
+        if (FS == "fine") {
+            String giorno2 = String.format("%02d", g);
+            String mese2 = String.format("%02d", m);
+
+            ResultSet rs = DBMSBoundary.getQuery("SELECT _data, matricola,T.id from turno T, assegnazione_turno AT where "
+                    + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T._data <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 +"';");
+            try {
+                if (rs.next()) {
+                    rs.first();
+                    String primaData = rs.getString("_data");
+                    rs.last();
+                    String ultimaData = rs.getString("_data");
+                    
+                    DBMSBoundary.updateQuery("INSERT INTO assenza values ("
+                            + "'" + primaData + "','" + ultimaData + "','malattia','" + Utente.getMatricola() + "');");
+                    rs.beforeFirst();
+                    while(rs.next()){
+                        String idTurno = rs.getString("id");
+                        DBMSBoundary.updateQuery("delete from assegnazione_turno AT where AT.turno = '"+idTurno+"' AND AT.impiegato = '"+Utente.getMatricola()+"';");
+                    }
+                    
+                }else {
+                    //lancia errore
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -378,9 +406,9 @@ public class RichiesteControl {
                         }
 
                         DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario) "
-                                + "VALUES ('6','" + orarioScambio2.getString("impiegato") + " " + orarioScambio2.getString("id") +" " + orarioScambio2.getString("_data") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio1 + "');");
+                                + "VALUES ('6','" + orarioScambio2.getString("impiegato") + " " + orarioScambio2.getString("id") + " " + orarioScambio2.getString("_data") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio1 + "');");
                         DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
-                                + "VALUES ('6','" + orarioScambio1.getString("impiegato") + " " + orarioScambio1.getString("id") +" " + orarioScambio1.getString("_data") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio2 + "');");
+                                + "VALUES ('6','" + orarioScambio1.getString("impiegato") + " " + orarioScambio1.getString("id") + " " + orarioScambio1.getString("_data") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio2 + "');");
 
                         LI.dispose();
 
