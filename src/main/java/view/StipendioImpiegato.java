@@ -1,6 +1,14 @@
 package view;
 
 import controller.AreaPersonale.OrariStipendiControl;
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import view.style.InfoBoxCard;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -17,17 +25,58 @@ public class StipendioImpiegato extends javax.swing.JFrame {
      */
     int meseIndex;
     int annoIndex;
-    public String[] mesi = new String[]{"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+    ArrayList<String> Y = new ArrayList<String>();
+    ArrayList<String> M = new ArrayList<String>();
+    String N;
+    String C;
+    ArrayList<Double> base = new ArrayList<Double>();
+    ArrayList<Double> bonus = new ArrayList<Double>();
+    ArrayList<Double> straordinari = new ArrayList<Double>();
+    ArrayList<Double> malattia = new ArrayList<Double>();
+    ArrayList<Double> congedo = new ArrayList<Double>();
+    int i;
 
-    public StipendioImpiegato(OrariStipendiControl OSC) {
+    public String[] mesi = new String[]{"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+    String mat;
+
+    public StipendioImpiegato(OrariStipendiControl OSC, ResultSet rs) {
+
         this.OSC = OSC;
         initComponents();
-        meseIndex = 0;
-        MonthLabel.setText(mesi[meseIndex]);
-        annoIndex = 2023;
 
-        ImpiegatoLabel.setVisible(false);
-        MatricolaLabel.setVisible(false);
+        MonthLabel.setText(mesi[meseIndex]);
+        try {
+            while (rs.next()) {
+                Y.add(rs.getString("anno"));
+                M.add(rs.getString("mese"));
+                base.add(rs.getDouble("base"));
+                bonus.add(rs.getDouble("bonus"));
+                straordinari.add(rs.getDouble("straordinari"));
+                malattia.add(rs.getDouble("malattia"));
+                congedo.add(rs.getDouble("congedo"));
+                N = rs.getString("nome");
+                C = rs.getString("cognome");
+                mat = rs.getString("matricola");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StipendioImpiegato.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ImpiegatoLabel.setText("Impiegato selezionato: " + N + " " + C);
+        ImpiegatoLabel.setText("Matricola: " + mat);
+        ImpiegatoLabel.setVisible(true);
+        MatricolaLabel.setVisible(true);
+        i = 0;
+        StipendioBase.setText(String.valueOf(base.get(i)));
+        StipendioBonus.setText(String.valueOf(bonus.get(i)));
+        StipendioStraordinari.setText(String.valueOf(straordinari.get(i)));
+        StipendioMalattia.setText(String.valueOf(malattia.get(i)));
+        StipendioCongedoParentale.setText(String.valueOf(congedo.get(i)));
+        StipendioTotale.setText(String.valueOf(base.get(i) + bonus.get(i) + straordinari.get(i) + malattia.get(i) + congedo.get(i)));
+        meseIndex = Integer.parseInt(Y.get(i));
+        MonthLabel.setText(mesi[meseIndex]);
+        annoIndex = Integer.parseInt(M.get(i));
+        YearLabel.setText(String.valueOf(annoIndex));
+
     }
 
     public StipendioImpiegato(OrariStipendiControl OSC, String nome, String cognome, String matricola) {
@@ -63,11 +112,9 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         StipendioMalattia = new javax.swing.JLabel();
         StipendioCongedoParentale = new javax.swing.JLabel();
         Separatore = new javax.swing.JSeparator();
-        prevMonthButton = new javax.swing.JButton();
-        nextMonthButton = new javax.swing.JButton();
+        prevButton = new javax.swing.JButton();
         MonthLabel = new javax.swing.JLabel();
-        prevYearButton = new javax.swing.JButton();
-        nextYearButton = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
         YearLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -205,48 +252,26 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         jPanel1.add(Separatore);
         Separatore.setBounds(160, 570, 1120, 3);
 
-        prevMonthButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        prevMonthButton.setForeground(new java.awt.Color(0, 0, 0));
-        prevMonthButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/40x40ButtonBeige.png"))); // NOI18N
-        prevMonthButton.setText("←");
-        prevMonthButton.setAlignmentY(0.0F);
-        prevMonthButton.setBorder(null);
-        prevMonthButton.setBorderPainted(false);
-        prevMonthButton.setContentAreaFilled(false);
-        prevMonthButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        prevMonthButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        prevMonthButton.setIconTextGap(0);
-        prevMonthButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        prevMonthButton.setPreferredSize(new java.awt.Dimension(45, 45));
-        prevMonthButton.addActionListener(new java.awt.event.ActionListener() {
+        prevButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        prevButton.setForeground(new java.awt.Color(0, 0, 0));
+        prevButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/40x40ButtonBeige.png"))); // NOI18N
+        prevButton.setText("←");
+        prevButton.setAlignmentY(0.0F);
+        prevButton.setBorder(null);
+        prevButton.setBorderPainted(false);
+        prevButton.setContentAreaFilled(false);
+        prevButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        prevButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        prevButton.setIconTextGap(0);
+        prevButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        prevButton.setPreferredSize(new java.awt.Dimension(45, 45));
+        prevButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prevMonthButtonActionPerformed(evt);
+                prevButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(prevMonthButton);
-        prevMonthButton.setBounds(160, 680, 45, 45);
-
-        nextMonthButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        nextMonthButton.setForeground(new java.awt.Color(0, 0, 0));
-        nextMonthButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/40x40ButtonBeige.png"))); // NOI18N
-        nextMonthButton.setText("→");
-        nextMonthButton.setAlignmentY(0.0F);
-        nextMonthButton.setBorder(null);
-        nextMonthButton.setBorderPainted(false);
-        nextMonthButton.setContentAreaFilled(false);
-        nextMonthButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        nextMonthButton.setDisplayedMnemonicIndex(0);
-        nextMonthButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        nextMonthButton.setIconTextGap(0);
-        nextMonthButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        nextMonthButton.setPreferredSize(new java.awt.Dimension(45, 45));
-        nextMonthButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextMonthButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(nextMonthButton);
-        nextMonthButton.setBounds(349, 680, 45, 45);
+        jPanel1.add(prevButton);
+        prevButton.setBounds(160, 680, 45, 45);
 
         MonthLabel.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         MonthLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -255,55 +280,34 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         jPanel1.add(MonthLabel);
         MonthLabel.setBounds(161, 680, 228, 43);
 
-        prevYearButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        prevYearButton.setForeground(new java.awt.Color(0, 0, 0));
-        prevYearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/40x40ButtonBeige.png"))); // NOI18N
-        prevYearButton.setText("←");
-        prevYearButton.setAlignmentY(0.0F);
-        prevYearButton.setBorder(null);
-        prevYearButton.setBorderPainted(false);
-        prevYearButton.setContentAreaFilled(false);
-        prevYearButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        prevYearButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        prevYearButton.setIconTextGap(0);
-        prevYearButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        prevYearButton.setPreferredSize(new java.awt.Dimension(45, 45));
-        prevYearButton.addActionListener(new java.awt.event.ActionListener() {
+        nextButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        nextButton.setForeground(new java.awt.Color(0, 0, 0));
+        nextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/40x40ButtonBeige.png"))); // NOI18N
+        nextButton.setText("→");
+        nextButton.setAlignmentY(0.0F);
+        nextButton.setBorder(null);
+        nextButton.setBorderPainted(false);
+        nextButton.setContentAreaFilled(false);
+        nextButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        nextButton.setDisplayedMnemonicIndex(0);
+        nextButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        nextButton.setIconTextGap(0);
+        nextButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        nextButton.setPreferredSize(new java.awt.Dimension(45, 45));
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prevYearButtonActionPerformed(evt);
+                nextButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(prevYearButton);
-        prevYearButton.setBounds(470, 680, 45, 45);
-
-        nextYearButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        nextYearButton.setForeground(new java.awt.Color(0, 0, 0));
-        nextYearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/40x40ButtonBeige.png"))); // NOI18N
-        nextYearButton.setText("→");
-        nextYearButton.setAlignmentY(0.0F);
-        nextYearButton.setBorder(null);
-        nextYearButton.setBorderPainted(false);
-        nextYearButton.setContentAreaFilled(false);
-        nextYearButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        nextYearButton.setDisplayedMnemonicIndex(0);
-        nextYearButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        nextYearButton.setIconTextGap(0);
-        nextYearButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        nextYearButton.setPreferredSize(new java.awt.Dimension(45, 45));
-        nextYearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextYearButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(nextYearButton);
-        nextYearButton.setBounds(650, 680, 45, 45);
+        jPanel1.add(nextButton);
+        nextButton.setBounds(470, 680, 45, 45);
 
         YearLabel.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         YearLabel.setForeground(new java.awt.Color(0, 0, 0));
         YearLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         YearLabel.setText("cottu");
         jPanel1.add(YearLabel);
-        YearLabel.setBounds(470, 680, 228, 43);
+        YearLabel.setBounds(290, 680, 228, 43);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -335,29 +339,45 @@ public class StipendioImpiegato extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CloseButtonActionPerformed
 
-    private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
+    private void prevButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevButtonActionPerformed
         // TODO add your handling code here:
-        meseIndex = (((meseIndex - 1) % 12) + 12) % 12;
+        i--;
+        if (i == -1) {
+            i = Y.size() - 1;
+        }
+        StipendioBase.setText(String.valueOf(base.get(i)));
+        StipendioBonus.setText(String.valueOf(bonus.get(i)));
+        StipendioStraordinari.setText(String.valueOf(straordinari.get(i)));
+        StipendioMalattia.setText(String.valueOf(malattia.get(i)));
+        StipendioCongedoParentale.setText(String.valueOf(congedo.get(i)));
+        StipendioTotale.setText(String.valueOf(base.get(i) + bonus.get(i) + straordinari.get(i) + malattia.get(i) + congedo.get(i)));
+        meseIndex = Integer.parseInt(Y.get(i));
         MonthLabel.setText(mesi[meseIndex]);
-    }//GEN-LAST:event_prevMonthButtonActionPerformed
-
-    private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
-        meseIndex = (meseIndex + 1) % 12;
-        MonthLabel.setText(mesi[meseIndex]);
-    }//GEN-LAST:event_nextMonthButtonActionPerformed
-
-    private void prevYearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevYearButtonActionPerformed
-        annoIndex = annoIndex - 1;
-        YearLabel.setText(String.valueOf(annoIndex));
-    }//GEN-LAST:event_prevYearButtonActionPerformed
-
-    private void nextYearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextYearButtonActionPerformed
-        // TODO add your handling code here:
-        annoIndex = annoIndex + 1;
+        annoIndex = Integer.parseInt(M.get(i));
         YearLabel.setText(String.valueOf(annoIndex));
 
 
-    }//GEN-LAST:event_nextYearButtonActionPerformed
+    }//GEN-LAST:event_prevButtonActionPerformed
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        // TODO add your handling code here:
+        i++;
+        if (i == Y.size()) {
+            i = 0;
+        }
+        StipendioBase.setText(String.valueOf(base.get(i)));
+        StipendioBonus.setText(String.valueOf(bonus.get(i)));
+        StipendioStraordinari.setText(String.valueOf(straordinari.get(i)));
+        StipendioMalattia.setText(String.valueOf(malattia.get(i)));
+        StipendioCongedoParentale.setText(String.valueOf(congedo.get(i)));
+        StipendioTotale.setText(String.valueOf(base.get(i) + bonus.get(i) + straordinari.get(i) + malattia.get(i) + congedo.get(i)));
+        meseIndex = Integer.parseInt(Y.get(i));
+        MonthLabel.setText(mesi[meseIndex]);
+        annoIndex = Integer.parseInt(M.get(i));
+        YearLabel.setText(String.valueOf(annoIndex));
+
+
+    }//GEN-LAST:event_nextButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -415,10 +435,8 @@ public class StipendioImpiegato extends javax.swing.JFrame {
     private javax.swing.JLabel TotaleLabel;
     private javax.swing.JLabel YearLabel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton nextMonthButton;
-    private javax.swing.JButton nextYearButton;
-    private javax.swing.JButton prevMonthButton;
-    private javax.swing.JButton prevYearButton;
+    private javax.swing.JButton nextButton;
+    private javax.swing.JButton prevButton;
     // End of variables declaration//GEN-END:variables
 
     private OrariStipendiControl OSC = new OrariStipendiControl();

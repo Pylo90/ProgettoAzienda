@@ -13,6 +13,7 @@ import static java.lang.String.valueOf;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -94,7 +95,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     public void getFromInfoBox(String matricola) {
         switch (funzione) {
             case "ConsultaStipendi":
-                System.out.println("A");
+                OSC.sendSelectionSalary(matricola);
                 break;
 
             case "ConsultaOrari":

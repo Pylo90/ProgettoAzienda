@@ -29,6 +29,7 @@ public class OrariStipendiControl {
     HomepageAmministratore HPA;
     HomepageDatore HPD;
     ListaImpiegati LI;
+    JFrame StipendioImpiegato;
 
     public OrariStipendiControl() {
     }
@@ -42,14 +43,14 @@ public class OrariStipendiControl {
 
         ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(_data) "
                 + "from impiegato I, turno T, assegnazione_turno AT "
-                + "where AT.impiegato = I.matricola AND I.matricola='"+Utente.getMatricola()+"' AND AT.turno = T.id;");
+                + "where AT.impiegato = I.matricola AND I.matricola='" + Utente.getMatricola() + "' AND AT.turno = T.id;");
         int turno = 0;
         int giorno = 0;
         try {
             if (OI.next()) {
-                turno = ((OI.getInt(1)/8)+1);
-                giorno = (((OI.getInt(2)-2)%7)+7)%7;
-               
+                turno = ((OI.getInt(1) / 8) + 1);
+                giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrariStipendiControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -110,14 +111,14 @@ public class OrariStipendiControl {
 
         ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(_data) "
                 + "from impiegato I, turno T, assegnazione_turno AT "
-                + "where AT.impiegato = I.matricola AND I.matricola='"+Utente.getMatricola()+"' AND AT.turno = T.id;");
+                + "where AT.impiegato = I.matricola AND I.matricola='" + Utente.getMatricola() + "' AND AT.turno = T.id;");
         int turno = 0;
         int giorno = 0;
         try {
             if (OI.next()) {
-                turno = ((OI.getInt(1)/8)+1);
-                giorno = (((OI.getInt(2)-2)%7)+7)%7;
-               
+                turno = ((OI.getInt(1) / 8) + 1);
+                giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrariStipendiControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -171,7 +172,11 @@ public class OrariStipendiControl {
 
     public void ConsultaStipendioButtonPressed(HomepageImpiegato HP) {
         HPI = HP;
-        JFrame StipendioImpiegato = new StipendioImpiegato(this);
+        ResultSet rs = DBMSBoundary.getQuery(
+                "SELECT sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
+                + "FROM impiegato I, stipendio S"
+                + "WHERE I.matricola=S.impiegato AND I.matricola='" + Utente.getMatricola() + "';");
+        JFrame StipendioImpiegato = new StipendioImpiegato(this, rs);
         HPI.setClickable(false);
         StipendioImpiegato.setVisible(true);
         StipendioImpiegato.setAlwaysOnTop(true);
@@ -179,7 +184,11 @@ public class OrariStipendiControl {
 
     public void ConsultaStipendioButtonPressed(HomepageAmministratore HP) {
         HPA = HP;
-        JFrame StipendioImpiegato = new StipendioImpiegato(this);
+        ResultSet rs = DBMSBoundary.getQuery(
+                "SELECT sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
+                + "FROM impiegato I, stipendio S"
+                + "WHERE I.matricola=S.impiegato AND I.matricola='" + Utente.getMatricola() + "';");
+        JFrame StipendioImpiegato = new StipendioImpiegato(this, rs);
         HPA.setClickable(false);
         StipendioImpiegato.setVisible(true);
         StipendioImpiegato.setAlwaysOnTop(true);
@@ -196,11 +205,11 @@ public class OrariStipendiControl {
         if (HPD != null) {
             HPD.setClickable(true);
         }
-        if (LI!=null){
+        if (LI != null) {
             LI.setClickable(true);
             for (int i = 0; i < LI.getImpiegati().size(); ++i) {
-            LI.getImpiegati().get(i).setClickable(true);
-        }
+                LI.getImpiegati().get(i).setClickable(true);
+            }
         }
     }
 
@@ -233,12 +242,21 @@ public class OrariStipendiControl {
     }
 
     public void sendSelectionSalary(String matricola) {
-        this.LI = LI;
-        //chiedi il salario al dbms
-        JFrame StipendioImpiegatoDatore = new StipendioImpiegato(this);
+        if (LI != null) {
+            this.LI = LI;
+        }
+        if (StipendioImpiegato != null) {
+            StipendioImpiegato.dispose();
+        }
+
+        ResultSet rs = DBMSBoundary.getQuery(
+                "SELECT nome, cognome, anno, mese, sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
+                + "FROM impiegato I, stipendio S"
+                + "WHERE I.matricola=S.impiegato AND I.matricola='" + matricola + "';");
+        StipendioImpiegato = new StipendioImpiegato(this, rs);
         LI.setClickable(false);
-        StipendioImpiegatoDatore.setVisible(true);
-        StipendioImpiegatoDatore.setAlwaysOnTop(true);
+        StipendioImpiegato.setVisible(true);
+        StipendioImpiegato.setAlwaysOnTop(true);
     }
 
     public void sendSelectionTimeTables(String matricola, ListaImpiegati LI) {
@@ -249,14 +267,14 @@ public class OrariStipendiControl {
         OrarioImpiegati.setAlwaysOnTop(true);
         ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(_data) "
                 + "from impiegato I, turno T, assegnazione_turno AT "
-                + "where AT.impiegato = I.matricola AND I.matricola='"+matricola+"' AND AT.turno = T.id;");
+                + "where AT.impiegato = I.matricola AND I.matricola='" + matricola + "' AND AT.turno = T.id;");
         int turno = 0;
         int giorno = 0;
         try {
             if (OI.next()) {
-                turno = ((OI.getInt(1)/8)+1);
-                giorno = (((OI.getInt(2)-2)%7)+7)%7;
-               
+                turno = ((OI.getInt(1) / 8) + 1);
+                giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrariStipendiControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -344,8 +362,8 @@ public class OrariStipendiControl {
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
-    
-    public void sendSelectionDelay(String matricola){
+
+    public void sendSelectionDelay(String matricola) {
         ResultSet rs = DBMSBoundary.getQuery(
                 "SELECT I.nome, I.cognome, R._data, R.motivo "
                 + "FROM ritardo R, impiegato I "
@@ -362,7 +380,5 @@ public class OrariStipendiControl {
         RT.setVisible(true);
         RT.setAlwaysOnTop(true);
     }
-    
-
 
 }
