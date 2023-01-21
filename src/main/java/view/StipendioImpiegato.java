@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import view.style.InfoBoxCard;
 
 /*
@@ -63,8 +64,7 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         }
         ImpiegatoLabel.setText("Impiegato selezionato: " + N + " " + C);
         ImpiegatoLabel.setText("Matricola: " + mat);
-        ImpiegatoLabel.setVisible(true);
-        MatricolaLabel.setVisible(true);
+        
         i = 0;
         StipendioBase.setText(String.valueOf(base.get(i)));
         StipendioBonus.setText(String.valueOf(bonus.get(i)));
@@ -440,5 +440,13 @@ public class StipendioImpiegato extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private OrariStipendiControl OSC = new OrariStipendiControl();
+
+    public JLabel getImpiegatoLabel() {
+        return ImpiegatoLabel;
+    }
+
+    public JLabel getMatricolaLabel() {
+        return MatricolaLabel;
+    }
 
 }

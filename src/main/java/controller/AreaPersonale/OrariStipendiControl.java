@@ -173,25 +173,29 @@ public class OrariStipendiControl {
     public void ConsultaStipendioButtonPressed(HomepageImpiegato HP) {
         HPI = HP;
         ResultSet rs = DBMSBoundary.getQuery(
-                "SELECT sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
+                "SELECT nome, cognome, anno, mese, sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
                 + "FROM impiegato I, stipendio S"
                 + "WHERE I.matricola=S.impiegato AND I.matricola='" + Utente.getMatricola() + "';");
-        JFrame StipendioImpiegato = new StipendioImpiegato(this, rs);
+        StipendioImpiegato StipendioImpiegato = new StipendioImpiegato(this, rs);
         HPI.setClickable(false);
         StipendioImpiegato.setVisible(true);
         StipendioImpiegato.setAlwaysOnTop(true);
+        StipendioImpiegato.getImpiegatoLabel().setVisible(false);
+        StipendioImpiegato.getMatricolaLabel().setVisible(false);
     }
 
     public void ConsultaStipendioButtonPressed(HomepageAmministratore HP) {
         HPA = HP;
         ResultSet rs = DBMSBoundary.getQuery(
-                "SELECT sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
+                "SELECT nome, cognome, anno, mese, sum(base) as base, sum(bonus) as bonus, sum(straord) as straordinari, sum (malattia) as malattia, sum(congedo) as congedo "
                 + "FROM impiegato I, stipendio S"
                 + "WHERE I.matricola=S.impiegato AND I.matricola='" + Utente.getMatricola() + "';");
-        JFrame StipendioImpiegato = new StipendioImpiegato(this, rs);
+        StipendioImpiegato StipendioImpiegato = new StipendioImpiegato(this, rs);
         HPA.setClickable(false);
         StipendioImpiegato.setVisible(true);
         StipendioImpiegato.setAlwaysOnTop(true);
+        StipendioImpiegato.getImpiegatoLabel().setVisible(false);
+        StipendioImpiegato.getMatricolaLabel().setVisible(false);
     }
 
     public void DisposeWindow(JFrame finestra) {
