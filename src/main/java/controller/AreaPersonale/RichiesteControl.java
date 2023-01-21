@@ -50,7 +50,7 @@ public class RichiesteControl {
     String secondM = null;
     String id_1 = null;
     String id_2 = null;
-    
+
     String giorno1;
     String giorno2;
     String mese1;
@@ -255,8 +255,18 @@ public class RichiesteControl {
     public void selectGiornoPermesso(int g, int m) {
         String giorno = String.format("%02d", g);
         String mese = String.format("%02d", m);
-        DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
-                + "VALUES('5','" + giorno + " " + mese + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','0');");
+        ResultSet check = DBMSBoundary.getQuery("select * from turno T, assegnazione_turno AT where "
+                + "T.id = AT.turno AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "';");
+        try {
+            if (check.next()) {
+                DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
+                        + "VALUES('5','" + giorno + " " + mese + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','0');");
+            } else {
+                //lancia errore
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void selectGiornoFerie(int giorno, int mese, String FS, String motivazione) {
@@ -278,19 +288,29 @@ public class RichiesteControl {
         if (FS.equals("RichiestaFerie")) {
             secondG = String.format("%02d", giorno);
             secondM = String.format("%02d", mese);
-            DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario,testo) "
-                    + "VALUES('4','"
-                    + firstG + " "
-                    + firstM + "-"
-                    + secondG + " "
-                    + secondM + "','"
-                    + Year.now().getValue()
-                    + "-" + firstM
-                    + "-" + firstG
-                    + "','"
-                    + Utente.getMatricola()
-                    + "','0','" + motivazione
-                    + "');");
+            ResultSet check = DBMSBoundary.getQuery("SELECT _data, matricola,T.id from turno T, assegnazione_turno AT where "
+                    + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data >= ' " + Year.now().getValue() + "-" + firstM + "-" + firstG + "'AND T._data <= ' " + Year.now().getValue() + "-" + secondM + "-" + secondG + "';");
+            try {
+                if (check.next()) {
+                    DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario,testo) "
+                            + "VALUES('4','"
+                            + firstG + " "
+                            + firstM + "-"
+                            + secondG + " "
+                            + secondM + "','"
+                            + Year.now().getValue()
+                            + "-" + firstM
+                            + "-" + firstG
+                            + "','"
+                            + Utente.getMatricola()
+                            + "','0','" + motivazione
+                            + "');");
+                }else{
+                    //lancia errore
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
@@ -310,23 +330,23 @@ public class RichiesteControl {
             String mese2 = String.format("%02d", m);
 
             ResultSet rs = DBMSBoundary.getQuery("SELECT _data, matricola,T.id from turno T, assegnazione_turno AT where "
-                    + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T._data <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 +"';");
+                    + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T._data <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 + "';");
             try {
                 if (rs.next()) {
                     rs.first();
                     String primaData = rs.getString("_data");
                     rs.last();
                     String ultimaData = rs.getString("_data");
-                    
+
                     DBMSBoundary.updateQuery("INSERT INTO assenza values ("
                             + "'" + primaData + "','" + ultimaData + "','malattia','" + Utente.getMatricola() + "');");
                     rs.beforeFirst();
-                    while(rs.next()){
+                    while (rs.next()) {
                         String idTurno = rs.getString("id");
-                        DBMSBoundary.updateQuery("delete from assegnazione_turno AT where AT.turno = '"+idTurno+"' AND AT.impiegato = '"+Utente.getMatricola()+"';");
+                        DBMSBoundary.updateQuery("delete from assegnazione_turno AT where AT.turno = '" + idTurno + "' AND AT.impiegato = '" + Utente.getMatricola() + "';");
                     }
-                    
-                }else {
+
+                } else {
                     //lancia errore
                 }
             } catch (SQLException ex) {
@@ -385,6 +405,9 @@ public class RichiesteControl {
                         LI.setVisible(true);
                         LI.setAlwaysOnTop(true);
                     }
+                    else{
+                        //lancia errore
+                    }
                 } catch (SQLException sQLException) {
                 }
 
@@ -412,6 +435,8 @@ public class RichiesteControl {
 
                         LI.dispose();
 
+                    }else{
+                        //lancia errore
                     }
                 } catch (SQLException sQLException) {
                 }
