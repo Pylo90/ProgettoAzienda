@@ -24,6 +24,7 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     String tipo;
     String data;
     String dati;
+    String matricola;
 
     private boolean clickable;
 
@@ -35,14 +36,14 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
         this.clickable = clickable;
     }
 
-    public InfoReqBoxCard(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
+    public InfoReqBoxCard(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati,String id) {
         setClickable(true);
         nome = nomeMittente;
         cognome = cognomeMittente;
         tipo = tipoRichiesta;
         data = dataScadenza;
         this.dati = dati;
-
+        this.matricola=matricola;
         initComponents();
         this.RC = RC;
         nameField.setText(nomeMittente + " " + cognomeMittente);
@@ -151,7 +152,7 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         if (isClickable()) {
-            RC.showRichiesta(nome, cognome, tipo, data, dati);
+            RC.showRichiesta(nome, cognome, tipo, data, dati,matricola);
         }
     }//GEN-LAST:event_selectButtonActionPerformed
 

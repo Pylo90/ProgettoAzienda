@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import model.Utente;
 
 /**
  *
@@ -30,7 +31,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     public HomepageAmministratore(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
         initComponents();
-
+Utente.setMatricola(matricola);
         jLabel3.setVisible(false);
         permessoButton.setVisible(false);
         ferieButton.setVisible(false);
@@ -661,7 +662,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageAmministratore(null, null, null, null, null, null, null).setVisible(true);
+                new HomepageAmministratore(null, null, "100003", null, null, null, null).setVisible(true);
             }
         });
     }

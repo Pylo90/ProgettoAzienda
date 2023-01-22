@@ -6,8 +6,6 @@ package controller.AreaPersonale;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.Month;
 import java.time.Year;
 import java.util.Calendar;
 import java.util.Date;
@@ -62,6 +60,46 @@ public class RichiesteControl {
     ResultSet orarioScambio2 = null;
 
     public RichiesteControl() {
+    }
+
+    public void accettaRichiesta(String idRichiesta) {
+        ResultSet richiesta = DBMSBoundary.getQuery("select * from richiesta where id = '" + idRichiesta + "';");
+        try {
+            if (richiesta.next()) {
+                int tipo = richiesta.getInt("tipo");
+                String dati = richiesta.getString("dati_richiesta");
+                String matDest = richiesta.getString("destinatario");
+                switch (tipo) {
+
+                    case 3:
+                        //caso sciopero
+                        ResultSet turnoId = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T._data ='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "';");
+                        if (turnoId.next()) {
+                            DBMSBoundary.updateQuery("delete from assegnazione_turno where turno = '" + turnoId.getString("id") + "';");
+                        }
+                        break;
+                    case 4:
+                        //caso ferie
+                        ResultSet turniSet = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T._data >='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "'AND T._data <='" + Year.now().getValue() + "-" + dati.substring(9, 10) + "-" + dati.substring(6, 7) + "';");
+                        while (turniSet.next()) {
+                            DBMSBoundary.updateQuery("delete from assegnazione_turno where turno = '" + turniSet.getString("id") + "';");
+                        }
+                        break;
+                    case 5:
+                        //caso permesso
+                        ResultSet idTurno = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T._data ='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "';");
+                        if (idTurno.next()) {
+                            DBMSBoundary.updateQuery("delete from assegnazione_turno where turno = '" + idTurno.getString("id") + "';");
+                        }
+                        break;
+                    case 6:
+                        //caso scambio turni
+                        break;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void RichiestaPermessoButtonPressed(JFrame homepage) {
@@ -139,15 +177,35 @@ public class RichiesteControl {
 
     public void sendSelection(int mesi) {
 
-        DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario) "
-                + "VALUES('1','"
-                + mesi + "','"
-                + String.valueOf(Calendar.getInstance().get(Calendar.YEAR))
-                + "-" + String.format("%02d", Calendar.getInstance().get(Calendar.MONTH) + 1)
-                + "-" + String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
-                + "','"
-                + Utente.getMatricola()
-                + "','0');");
+        String giorno1 = String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        String mese1 = String.format("%02d", Calendar.getInstance().get(Calendar.MONTH));
+
+        String giorno2 = String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        String mese2 = String.format("%02d", Calendar.getInstance().get(Calendar.MONTH) + mesi);
+
+        ResultSet rs = DBMSBoundary.getQuery("SELECT _data, matricola,T.id from turno T, assegnazione_turno AT where "
+                + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T._data <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 + "';");
+        try {
+            if (rs.next()) {
+                rs.first();
+                String primaData = rs.getString("_data");
+                rs.last();
+                String ultimaData = rs.getString("_data");
+
+                DBMSBoundary.updateQuery("INSERT INTO assenza values ("
+                        + "'" + primaData + "','" + ultimaData + "','malattia','" + Utente.getMatricola() + "');");
+                rs.beforeFirst();
+                while (rs.next()) {
+                    String idTurno = rs.getString("id");
+                    DBMSBoundary.updateQuery("delete from assegnazione_turno AT where AT.turno = '" + idTurno + "' AND AT.impiegato = '" + Utente.getMatricola() + "';");
+                }
+
+            } else {
+                //lancia errore
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void ConsultazioneListaRichiesteButtonPressed(JFrame homepage) {
@@ -242,13 +300,13 @@ public class RichiesteControl {
         LI.setAlwaysOnTop(true);
     }
 
-    public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati) {
+    public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String matricola) {
         RL.setAlwaysOnTop(false);
         RL.setClickable(false);
         for (int i = 0; i < RL.getRichieste().size(); ++i) {
             RL.getRichieste().get(i).setClickable(false);
         }
-        RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati, this);
+        RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati, this, matricola);
 
     }
 
@@ -305,7 +363,7 @@ public class RichiesteControl {
                             + Utente.getMatricola()
                             + "','0','" + motivazione
                             + "');");
-                }else{
+                } else {
                     //lancia errore
                 }
             } catch (SQLException ex) {
@@ -361,8 +419,8 @@ public class RichiesteControl {
         ResultSet rs = DBMSBoundary.getQuery("SELECT impiegato from turno T, assegnazione_turno AT WHERE AT.turno = T.id AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
         try {
             while (rs.next()) {
-                DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
-                        + "VALUES ('3','" + giorno + " " + mese + "-" + motivazione + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','" + rs.getString("impiegato") + "';");
+                DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario) "
+                        + "VALUES ('3','" + giorno + " " + mese + " - " + motivazione + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','" + rs.getString("impiegato") + "');");
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -404,8 +462,7 @@ public class RichiesteControl {
                         LI = new ListaImpiegati(this, rs, "ScambiaOrari2");
                         LI.setVisible(true);
                         LI.setAlwaysOnTop(true);
-                    }
-                    else{
+                    } else {
                         //lancia errore
                     }
                 } catch (SQLException sQLException) {
@@ -435,7 +492,7 @@ public class RichiesteControl {
 
                         LI.dispose();
 
-                    }else{
+                    } else {
                         //lancia errore
                     }
                 } catch (SQLException sQLException) {
