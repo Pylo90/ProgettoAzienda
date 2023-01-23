@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.AreaPersonale.RichiesteControl;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -16,7 +17,11 @@ public class ScioperoForm extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public ScioperoForm() {
+    
+    RichiesteControl RC;
+    
+    public ScioperoForm(RichiesteControl RC) {
+        this.RC = RC;
         initComponents();
         meseIndex = 0;
         MonthLabel.setText(mesi[meseIndex]);
@@ -1090,7 +1095,7 @@ public class ScioperoForm extends javax.swing.JFrame {
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
-        System.out.println(MotivazioneSciopero.getText());
+        RC.selectGiornoSciopero(Integer.parseInt(this.selectedButton.getText()), Integer.parseInt(mesi[meseIndex]), MotivazioneSciopero.getText(), Integer.parseInt(selectedLevel.getText()));
         this.dispose();
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
@@ -1127,7 +1132,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ScioperoForm().setVisible(true);
+                new ScioperoForm(new RichiesteControl()).setVisible(true);
             }
 
         });

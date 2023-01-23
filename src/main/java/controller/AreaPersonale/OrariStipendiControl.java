@@ -41,7 +41,7 @@ public class OrariStipendiControl {
         OrarioImpiegati.setVisible(true);
         OrarioImpiegati.setAlwaysOnTop(true);
 
-        ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(_data) "
+        ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(data_) "
                 + "from impiegato I, turno T, assegnazione_turno AT "
                 + "where AT.impiegato = I.matricola AND I.matricola='" + Utente.getMatricola() + "' AND AT.turno = T.id;");
         int turno = 0;
@@ -109,7 +109,7 @@ public class OrariStipendiControl {
         OrarioImpiegati.setVisible(true);
         OrarioImpiegati.setAlwaysOnTop(true);
 
-        ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(_data) "
+        ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(data_) "
                 + "from impiegato I, turno T, assegnazione_turno AT "
                 + "where AT.impiegato = I.matricola AND I.matricola='" + Utente.getMatricola() + "' AND AT.turno = T.id;");
         int turno = 0;
@@ -252,7 +252,7 @@ public class OrariStipendiControl {
             this.LI = LI;
         }
         if (StipendioImpiegato != null) {
-            StipendioImpiegato.dispose();
+            this.DisposeWindow(StipendioImpiegato);
         }
 
         ResultSet rs = DBMSBoundary.getQuery(
@@ -272,7 +272,7 @@ public class OrariStipendiControl {
         LI.setClickable(false);
         OrarioImpiegati.setVisible(true);
         OrarioImpiegati.setAlwaysOnTop(true);
-        ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(_data) "
+        ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(data_) "
                 + "from impiegato I, turno T, assegnazione_turno AT "
                 + "where AT.impiegato = I.matricola AND I.matricola='" + matricola + "' AND AT.turno = T.id;");
         int turno = 0;
@@ -341,7 +341,7 @@ public class OrariStipendiControl {
             this.HPA = (HomepageAmministratore) homepage;
         }
         ResultSet rs = DBMSBoundary.getQuery(
-                "SELECT I.nome, I.cognome, R._data, R.motivo "
+                "SELECT I.nome, I.cognome, R.data_, R.motivo "
                 + "FROM ritardo R, impiegato I "
                 + "WHERE R.impiegato = I.matricola AND I.matricola = '" + Utente.getMatricola() + "';"
         );
@@ -372,7 +372,7 @@ public class OrariStipendiControl {
 
     public void sendSelectionDelay(String matricola) {
         ResultSet rs = DBMSBoundary.getQuery(
-                "SELECT I.nome, I.cognome, R._data, R.motivo "
+                "SELECT I.nome, I.cognome, R.data_, R.motivo "
                 + "FROM ritardo R, impiegato I "
                 + "WHERE R.impiegato = I.matricola AND I.matricola = '" + matricola + "';"
         );

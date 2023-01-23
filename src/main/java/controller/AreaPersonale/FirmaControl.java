@@ -59,6 +59,13 @@ public class FirmaControl {
         RB.setClickable(true);
     }
 
+    
+    
+    
+    public void submitBadgeIn(String nome, String cognome, String matricola){
+        
+    }
+    
     public void submitForm(String nome, String cognome, String matricola, String motivazione) {
         ResultSet rs;
         rs = DBMSBoundary.getQuery(

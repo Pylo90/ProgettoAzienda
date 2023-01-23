@@ -204,7 +204,7 @@ public class FirmaForm extends javax.swing.JFrame {
     }//GEN-LAST:event_matFieldFocusLost
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        this.dispose();
+        FC.DisposeWindow(this);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed

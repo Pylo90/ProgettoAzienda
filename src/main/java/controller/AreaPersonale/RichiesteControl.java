@@ -23,6 +23,7 @@ import view.HomepageDatore;
 import view.ListaImpiegati;
 import view.RichiestaForm;
 import view.RichiestaList;
+import view.ScioperoForm;
 
 /**
  *
@@ -41,6 +42,7 @@ public class RichiesteControl {
     CalendarioInterattivoMotivazione CIM;
     ResultSet rs;
     String funzione;
+    ScioperoForm SF;
 
     String firstG = null;
     String secondG = null;
@@ -74,7 +76,7 @@ public class RichiesteControl {
 
                     case 3:
                         //caso sciopero
-                        ResultSet turnoId = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T._data ='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "';");
+                        ResultSet turnoId = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T.data_ ='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "';");
                         if (turnoId.next()) {
                             DBMSBoundary.updateQuery("delete from assegnazione_turno where turno = '" + turnoId.getString("id") + "';");
 
@@ -83,7 +85,7 @@ public class RichiesteControl {
                         break;
                     case 4:
                         //caso ferie
-                        ResultSet turniSet = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T._data >='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "'AND T._data <='" + Year.now().getValue() + "-" + dati.substring(9, 10) + "-" + dati.substring(6, 7) + "';");
+                        ResultSet turniSet = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T.data_ >='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "'AND T.data_ <='" + Year.now().getValue() + "-" + dati.substring(9, 10) + "-" + dati.substring(6, 7) + "';");
                         while (turniSet.next()) {
                             DBMSBoundary.updateQuery("delete from assegnazione_turno where turno = '" + turniSet.getString("id") + "';");
                         }
@@ -91,7 +93,7 @@ public class RichiesteControl {
                         break;
                     case 5:
                         //caso permesso
-                        ResultSet idTurno = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T._data ='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "';");
+                        ResultSet idTurno = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T.data_ ='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "';");
                         if (idTurno.next()) {
                             DBMSBoundary.updateQuery("delete from assegnazione_turno where turno = '" + idTurno.getString("id") + "';");
                             DBMSBoundary.updateQuery("delete from richiesta where id ='" + idRichiesta + "';");
@@ -111,8 +113,8 @@ public class RichiesteControl {
                             String id2 = ID1.getString("dati_richiesta").substring(7, 8);
                             DBMSBoundary.updateQuery("update assegnazione_turno set impiegato ='" + matS + "' where turno ='" + id1 + "';");
                             DBMSBoundary.updateQuery("update assegnazione_turno set impiegato ='" + matF + "' where turno ='" + id2 + "';");
-                            DBMSBoundary.updateQuery("delete from richiesta where id =" + Integer.parseInt(id1) + ";");
-                            DBMSBoundary.updateQuery("delete from richiesta where id =" + Integer.parseInt(id2) + ";");
+                            DBMSBoundary.updateQuery("delete from richiesta where id =" + ID1.getInt("id") + ";");
+                            DBMSBoundary.updateQuery("delete from richiesta where id =" + ID2.getInt("id") + ";");
                         } else {
                             // cambia i dati_richiesta di ID1 affinchè ci sia S alla fine dei dati
                             DBMSBoundary.updateQuery("update richiesta "
@@ -199,9 +201,9 @@ public class RichiesteControl {
         this.HPA.setClickable(false);
 
         funzione = "ComunicazioneSciopero";
-        CIM = new CalendarioInterattivoMotivazione(this, funzione);
-        CIM.setVisible(true);
-        CIM.setAlwaysOnTop(true);
+        SF = new ScioperoForm(this);
+        SF.setVisible(true);
+        SF.setAlwaysOnTop(true);
     }
 
     public void sendSelection(int mesi) {
@@ -212,14 +214,14 @@ public class RichiesteControl {
         String giorno2 = String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
         String mese2 = String.format("%02d", Calendar.getInstance().get(Calendar.MONTH) + mesi);
 
-        ResultSet rs = DBMSBoundary.getQuery("SELECT _data, matricola,T.id from turno T, assegnazione_turno AT where "
-                + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T._data <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 + "';");
+        ResultSet rs = DBMSBoundary.getQuery("SELECT data_, matricola,T.id from turno T, assegnazione_turno AT where "
+                + "AT.impiegato = '" + Utente.getMatricola() + "' AND T.data_ >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T.data_ <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 + "';");
         try {
             if (rs.next()) {
                 rs.first();
-                String primaData = rs.getString("_data");
+                String primaData = rs.getString("data_");
                 rs.last();
-                String ultimaData = rs.getString("_data");
+                String ultimaData = rs.getString("data_");
 
                 DBMSBoundary.updateQuery("INSERT INTO assenza values ("
                         + "'" + primaData + "','" + ultimaData + "','malattia','" + Utente.getMatricola() + "');");
@@ -343,7 +345,7 @@ public class RichiesteControl {
         String giorno = String.format("%02d", g);
         String mese = String.format("%02d", m);
         ResultSet check = DBMSBoundary.getQuery("select * from turno T, assegnazione_turno AT where "
-                + "T.id = AT.turno AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "';");
+                + "T.id = AT.turno AND T.data_ = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "';");
         try {
             if (check.next()) {
                 DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
@@ -375,8 +377,8 @@ public class RichiesteControl {
         if (FS.equals("RichiestaFerie")) {
             secondG = String.format("%02d", giorno);
             secondM = String.format("%02d", mese);
-            ResultSet check = DBMSBoundary.getQuery("SELECT _data, matricola,T.id from turno T, assegnazione_turno AT where "
-                    + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data >= ' " + Year.now().getValue() + "-" + firstM + "-" + firstG + "'AND T._data <= ' " + Year.now().getValue() + "-" + secondM + "-" + secondG + "';");
+            ResultSet check = DBMSBoundary.getQuery("SELECT data_, matricola,T.id from turno T, assegnazione_turno AT where "
+                    + "AT.impiegato = '" + Utente.getMatricola() + "' AND T.data_ >= ' " + Year.now().getValue() + "-" + firstM + "-" + firstG + "'AND T.data_ <= ' " + Year.now().getValue() + "-" + secondM + "-" + secondG + "';");
             try {
                 if (check.next()) {
                     DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario,testo) "
@@ -416,14 +418,14 @@ public class RichiesteControl {
             String giorno2 = String.format("%02d", g);
             String mese2 = String.format("%02d", m);
 
-            ResultSet rs = DBMSBoundary.getQuery("SELECT _data, matricola,T.id from turno T, assegnazione_turno AT where "
-                    + "AT.impiegato = '" + Utente.getMatricola() + "' AND T._data >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T._data <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 + "';");
+            ResultSet rs = DBMSBoundary.getQuery("SELECT data_, matricola,T.id from turno T, assegnazione_turno AT where "
+                    + "AT.impiegato = '" + Utente.getMatricola() + "' AND T.data_ >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T.data_ <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 + "';");
             try {
                 if (rs.next()) {
                     rs.first();
-                    String primaData = rs.getString("_data");
+                    String primaData = rs.getString("data_");
                     rs.last();
-                    String ultimaData = rs.getString("_data");
+                    String ultimaData = rs.getString("data_");
 
                     DBMSBoundary.updateQuery("INSERT INTO assenza values ("
                             + "'" + primaData + "','" + ultimaData + "','malattia','" + Utente.getMatricola() + "');");
@@ -442,10 +444,10 @@ public class RichiesteControl {
         }
     }
 
-    public void selectGiornoSciopero(int g, int m, String motivazione) {
+    public void selectGiornoSciopero(int g, int m, String motivazione, int livello) {
         String giorno = String.format("%02d", g);
         String mese = String.format("%02d", m);
-        ResultSet rs = DBMSBoundary.getQuery("SELECT impiegato from turno T, assegnazione_turno AT WHERE AT.turno = T.id AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
+        ResultSet rs = DBMSBoundary.getQuery("SELECT impiegato from turno T, assegnazione_turno AT, impiegato I WHERE AT.turno = T.id AND T.data_ = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "' AND AT.impiegato = I.matricola AND I.livello =" + livello + ";");
         try {
             while (rs.next()) {
                 DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario) "
@@ -481,12 +483,12 @@ public class RichiesteControl {
             case "1":
 
                 orarioScambio1 = DBMSBoundary.getQuery(
-                        "SELECT impiegato, T._data, T.id "
+                        "SELECT impiegato, T.data_, T.id "
                         + "FROM assegnazione_turno AT, turno T, impiegato I "
-                        + "WHERE AT.impiegato ='" + matScambio1 + "'AND AT.turno = T.id AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
+                        + "WHERE AT.impiegato ='" + matScambio1 + "'AND AT.turno = T.id AND T.data_ = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
                 try {
                     if (orarioScambio1.next()) {
-                        LI.dispose();
+                        DisposeWindow(this.LI);
                         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0' AND matricola != '" + matScambio1 + "';");
                         LI = new ListaImpiegati(this, rs, "ScambiaOrari2");
                         LI.setVisible(true);
@@ -500,13 +502,13 @@ public class RichiesteControl {
                 break;
             case "2":
                 orarioScambio2 = DBMSBoundary.getQuery(
-                        "SELECT impiegato, T._data, T.id "
+                        "SELECT impiegato, T.data_, T.id "
                         + "FROM assegnazione_turno AT, turno T, impiegato I "
-                        + "WHERE AT.impiegato ='" + matScambio2 + "'AND AT.turno = T.id AND T._data = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
+                        + "WHERE AT.impiegato ='" + matScambio2 + "'AND AT.turno = T.id AND T.data_ = '" + Year.now().getValue() + "-" + mese + "-" + giorno + "';");
                 try {
                     if (orarioScambio2.next()) {
-                        Date d1 = orarioScambio1.getDate("_data");
-                        Date d2 = orarioScambio2.getDate("_data");
+                        Date d1 = orarioScambio1.getDate("data_");
+                        Date d2 = orarioScambio2.getDate("data_");
                         Date datadefinitiva = null;
                         if (d1.after(d2)) {
                             datadefinitiva = d2;
@@ -515,11 +517,11 @@ public class RichiesteControl {
                         }
 
                         DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario) "
-                                + "VALUES ('6','" + orarioScambio2.getString("impiegato") + " " + orarioScambio2.getString("id") + " " + orarioScambio2.getString("_data") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio1 + "');");
+                                + "VALUES ('6','" + orarioScambio2.getString("impiegato") + " " + orarioScambio2.getString("id") + " " + orarioScambio2.getString("data_") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio1 + "');");
                         DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
-                                + "VALUES ('6','" + orarioScambio1.getString("impiegato") + " " + orarioScambio1.getString("id") + " " + orarioScambio1.getString("_data") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio2 + "');");
+                                + "VALUES ('6','" + orarioScambio1.getString("impiegato") + " " + orarioScambio1.getString("id") + " " + orarioScambio1.getString("data_") + "','" + datadefinitiva.toString() + "','" + Utente.getMatricola() + "','" + matScambio2 + "');");
 
-                        LI.dispose();
+                        DisposeWindow(this.LI);
 
                     } else {
                         //lancia errore

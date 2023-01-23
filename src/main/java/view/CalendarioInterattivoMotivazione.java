@@ -913,9 +913,7 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
             motivazione = "n/a"; 
         }
         switch (funzione) {
-            case "ComunicazioneSciopero":
-                RC.selectGiornoSciopero(Integer.parseInt(selectedButton.getText()), meseIndex + 1,motivazione);
-                break;
+            
             case "RichiestaFerie":
                 RC.selectGiornoFerie(Integer.parseInt(selectedButton.getText()), meseIndex + 1, "RichiestaFerie", motivazione);
                 RC.DisposeWindow(this);

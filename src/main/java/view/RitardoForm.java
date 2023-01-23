@@ -42,7 +42,7 @@ public class RitardoForm extends javax.swing.JFrame {
             while (rs.next()) {
                 nome = rs.getString("nome");
                 cognome = rs.getString("cognome");
-                date.add(rs.getDate("_data"));
+                date.add(rs.getDate("data_"));
                 motivi.add(rs.getString("motivo"));
                 d++;
                 n = 0;

@@ -43,7 +43,6 @@ public class LoginControl {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }*/
-
         ResultSet imp = DBMSBoundary.getQuery("SELECT COUNT(matricola), psw, nome, cognome, matricola, email, tel, propic, livello FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "'");
 
         try {
@@ -155,12 +154,13 @@ public class LoginControl {
     }
 
     public void SubmitError(JFrame finestra) {
-        finestra.dispose();
+        DisposeWindow(finestra);
+
         LF.setClickable(true);
     }
 
     public void SubmitNotice(JFrame finestra) {
-        finestra.dispose();
+        DisposeWindow(finestra);
         LF.setClickable(true);
     }
 

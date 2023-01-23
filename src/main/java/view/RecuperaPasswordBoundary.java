@@ -257,7 +257,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        this.dispose();
+        rc.disposeWindow(this);
         rc.showLoginForm();
     }//GEN-LAST:event_homeButtonActionPerformed
 
