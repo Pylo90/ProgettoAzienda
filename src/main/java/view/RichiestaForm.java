@@ -22,13 +22,13 @@ public class RichiestaForm extends javax.swing.JFrame {
     RichiesteControl RC;
     String tipoRichiesta;
     String dati;
-    String id;
+    String idRichiesta;
 
-    public RichiestaForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, RichiesteControl RC, String id) {
+    public RichiestaForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, RichiesteControl RC, String idRichiesta) {
         this.RC = RC;
         this.tipoRichiesta=tipoRichiesta;
         this.dati = dati;
-        this.id = id;
+        this.idRichiesta = idRichiesta;
         
         initComponents();
 
@@ -210,10 +210,14 @@ public class RichiestaForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        RC.accettaRichiesta(idRichiesta);
+        RC.DisposeForm(this);
+        System.out.println(idRichiesta);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        RC.rifiutaRichiesta(idRichiesta);
         RC.DisposeForm(this);
     }//GEN-LAST:event_jButton4ActionPerformed
 

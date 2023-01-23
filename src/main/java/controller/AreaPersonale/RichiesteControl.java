@@ -66,6 +66,7 @@ public class RichiesteControl {
         ResultSet richiesta = DBMSBoundary.getQuery("select * from richiesta where id = '" + idRichiesta + "';");
         try {
             if (richiesta.next()) {
+                System.out.println("prova");
                 int tipo = richiesta.getInt("tipo");
                 String dati = richiesta.getString("dati_richiesta");
                 String matDest = richiesta.getString("destinatario");
@@ -76,7 +77,9 @@ public class RichiesteControl {
                         ResultSet turnoId = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T._data ='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "';");
                         if (turnoId.next()) {
                             DBMSBoundary.updateQuery("delete from assegnazione_turno where turno = '" + turnoId.getString("id") + "';");
+
                         }
+                        DBMSBoundary.updateQuery("delete from richiesta where id ='" + idRichiesta + "';");
                         break;
                     case 4:
                         //caso ferie
@@ -84,29 +87,48 @@ public class RichiesteControl {
                         while (turniSet.next()) {
                             DBMSBoundary.updateQuery("delete from assegnazione_turno where turno = '" + turniSet.getString("id") + "';");
                         }
+                        DBMSBoundary.updateQuery("delete from richiesta where id ='" + idRichiesta + "';");
                         break;
                     case 5:
                         //caso permesso
                         ResultSet idTurno = DBMSBoundary.getQuery("select id from assegnazine_turno AT, turno T, where AT.turno = T.id and AT.impiegato = '" + matDest + "' AND T._data ='" + Year.now().getValue() + "-" + dati.substring(3, 4) + "-" + dati.substring(0, 1) + "';");
                         if (idTurno.next()) {
                             DBMSBoundary.updateQuery("delete from assegnazione_turno where turno = '" + idTurno.getString("id") + "';");
+                            DBMSBoundary.updateQuery("delete from richiesta where id ='" + idRichiesta + "';");
                         }
                         break;
                     case 6:
-                        ResultSet ID1 = DBMSBoundary.getQuery("select mittente, tipo, dati_richiesta, data_scadenza from richiesta where id ='" + idRichiesta + "';");
-                        ResultSet ID2 = DBMSBoundary.getQuery("select dati_richiesta from richiesta where data_scadenza ='" + ID1.getString("data_scadenza") + "' AND destinatario ='"+ID1.getString("dati_richiesta").substring(0,5)+"' AND tipo ="+ID1.getInt("tipo")+" AND mittente ='"+ID1.getString("mittente")+";");
-                        if(ID2.getString("dati_richiesta").substring(ID2.getString("dati_richiesta").length()-1)=="S"){
+                        //caso scambio turni
+                        ResultSet ID1 = DBMSBoundary.getQuery("select * from richiesta where id ='" + idRichiesta + "';");
+                        ID1.next();
+                        ResultSet ID2 = DBMSBoundary.getQuery("select * from richiesta where data_scadenza ='" + ID1.getString("data_scadenza") + "' AND destinatario ='" + ID1.getString("dati_richiesta").substring(0, 6) + "' AND tipo =" + ID1.getInt("tipo") + " AND mittente ='" + ID1.getString("mittente") + "';");
+                        ID2.next();
+                        if ("S".equals(ID2.getString("dati_richiesta").substring(ID2.getString("dati_richiesta").length() - 1))) {
                             //esegui scambio
-                        } else{
+                            String matF = ID1.getString("destinatario");
+                            String matS = ID2.getString("destinatario");
+                            String id1 = ID2.getString("dati_richiesta").substring(7, 8);
+                            String id2 = ID1.getString("dati_richiesta").substring(7, 8);
+                            DBMSBoundary.updateQuery("update assegnazione_turno set impiegato ='" + matS + "' where turno ='" + id1 + "';");
+                            DBMSBoundary.updateQuery("update assegnazione_turno set impiegato ='" + matF + "' where turno ='" + id2 + "';");
+                            DBMSBoundary.updateQuery("delete from richiesta where id =" + Integer.parseInt(id1) + ";");
+                            DBMSBoundary.updateQuery("delete from richiesta where id =" + Integer.parseInt(id2) + ";");
+                        } else {
                             // cambia i dati_richiesta di ID1 affinchè ci sia S alla fine dei dati
+                            DBMSBoundary.updateQuery("update richiesta "
+                                    + "SET dati_richiesta = '" + ID1.getString("dati_richiesta") + " S' where id ='" + idRichiesta + "';");
                         }
-//caso scambio turni
+
                         break;
                 }
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void rifiutaRichiesta(String idRichiesta) {
+        DBMSBoundary.updateQuery("delete from richiesta where id ='" + idRichiesta + "';");
     }
 
     public void RichiestaPermessoButtonPressed(JFrame homepage) {
@@ -307,13 +329,13 @@ public class RichiesteControl {
         LI.setAlwaysOnTop(true);
     }
 
-    public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String matricola) {
+    public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String idRichiesta) {
         RL.setAlwaysOnTop(false);
         RL.setClickable(false);
         for (int i = 0; i < RL.getRichieste().size(); ++i) {
             RL.getRichieste().get(i).setClickable(false);
         }
-        RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati, this, matricola);
+        RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati, this, idRichiesta);
 
     }
 
