@@ -29,6 +29,8 @@ public class LoginForm extends javax.swing.JFrame {
         fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
         Font underline = new Font("Segoe UI",Font.PLAIN, 18).deriveFont(fontAttributes);
         this.forgotButton.setFont(underline);
+         this.setVisible(true);
+         this.setAlwaysOnTop(true);
     }
 
     /** This method is called from within the constructor to
