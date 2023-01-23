@@ -19,6 +19,8 @@ public class CongedoForm extends javax.swing.JFrame {
         this.RC = RC;
 
         initComponents();
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     /**

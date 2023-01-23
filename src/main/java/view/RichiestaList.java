@@ -55,6 +55,8 @@ public class RichiestaList extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(RichiestaList.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     /**

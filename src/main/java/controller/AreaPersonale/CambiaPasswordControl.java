@@ -16,6 +16,8 @@ import view.HomepageImpiegato;
 import view.CambiaPasswordBoundary;
 import view.Errore;
 import view.HomepageAmministratore;
+import view.HomepageDatore;
+import view.Notifica;
 
 /**
  *
@@ -25,26 +27,27 @@ public class CambiaPasswordControl {
 
     HomepageImpiegato HPI;
     HomepageAmministratore HPA;
-    CambiaPasswordBoundary MP;
-    Utente UT;
+    HomepageDatore HPD;
+    CambiaPasswordBoundary CPB;
 
     public CambiaPasswordControl() {
     }
 
-    public void CPButtonPressed(HomepageImpiegato HPI) {
-        this.HPI = HPI;
+    public void CPButtonPressed(JFrame HP) {
+        if (HP instanceof HomepageImpiegato) {
+            HPI = (HomepageImpiegato) HP;
+            HPI.setClickable(false);
+        }
+        if (HP instanceof HomepageAmministratore) {
+            HPA = (HomepageAmministratore) HP;
+            HPA.setClickable(false);
+        }
+        if (HP instanceof HomepageDatore) {
+            HPD = (HomepageDatore) HP;
+            HPD.setClickable(false);
+        }
         JFrame ModificaPassword = new CambiaPasswordBoundary(this);
-        HPI.setClickable(false);
-        ModificaPassword.setVisible(true);
-        ModificaPassword.setAlwaysOnTop(true);
-    }
-
-    public void CPButtonPressed(HomepageAmministratore HPA) {
-        this.HPA = HPA;
-        JFrame ModificaPassword = new CambiaPasswordBoundary(this);
-        HPA.setClickable(false);
-        ModificaPassword.setVisible(true);
-        ModificaPassword.setAlwaysOnTop(true);
+        
     }
 
     public void DisposeWindow(JFrame finestra) {
@@ -55,12 +58,14 @@ public class CambiaPasswordControl {
         if (HPA != null) {
             HPA.setClickable(true);
         }
-
+        if (HPD != null) {
+            HPD.setClickable(true);
+        }
     }
 
     public void submitForm(String vp, String np, String cp) {
         ResultSet pwSet;
-        pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" + UT.getMatricola() + ";");
+        pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" + Utente.getMatricola() + ";");
         try {
             if (pwSet.next()) {
 
@@ -70,11 +75,13 @@ public class CambiaPasswordControl {
                     System.out.println("errato");// errore: vecchia password errata
                     return;
                 }
-                if(np!=cp){
+                if (np != cp) {
                     System.out.println("errato"); // errore: vecchia password e nuova non coincicono
                     return;
                 }
                 System.out.println("corretto");
+            }else{
+                //lancia errore
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -84,18 +91,23 @@ public class CambiaPasswordControl {
 
     public void MostraErrore(String messaggio) {
         Errore error = new Errore(messaggio, this);
-        MP.setClickable(false);
-        error.setVisible(true);
-        error.setAlwaysOnTop(true);
+        CPB.setClickable(false);
+        
     }
+    public void MostraNotifica(String messaggio) {
+        Notifica nontice = new Notifica(messaggio, this);
+        CPB.setClickable(false);
+        
+    }
+
 
     public void SubmitError(JFrame finestra) {
         finestra.dispose();
-        MP.setClickable(true);
+        CPB.setClickable(true);
     }
 
     public void SubmitNotice(JFrame finestra) {
         finestra.dispose();
-        MP.setClickable(true);
+        CPB.setClickable(true);
     }
 }

@@ -12,12 +12,16 @@ public class FirmaForm extends javax.swing.JFrame {
     boolean nameFieldPlaceHolder;
     boolean surnameFieldPlaceHolder;
     boolean matFieldPlaceHolder;
+    String f;
 
-    public FirmaForm(FirmaControl FC) {
+    public FirmaForm(FirmaControl FC, String funzione) {
+        f = funzione;
         this.FC = FC;
         initComponents();
         nameFieldPlaceHolder = surnameFieldPlaceHolder = matFieldPlaceHolder = true;
         mainPanel.requestFocus();
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     /**
@@ -152,7 +156,15 @@ public class FirmaForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        //fc.submitBadgeIn();
+        switch (f) {
+            case "in":
+                FC.submitBadgeIn(nameField.getText(), surnameField.getText(), matField.getText());
+                break;
+            case "out":
+                FC.submitBadgeOut(nameField.getText(), surnameField.getText(), matField.getText());
+                break;
+        }
+
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void nameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFieldFocusGained
@@ -232,7 +244,7 @@ public class FirmaForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     FirmaControl FC;
-    
+
     private boolean clickable;
 
     public boolean isClickable() {

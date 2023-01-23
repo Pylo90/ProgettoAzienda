@@ -17,6 +17,9 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
      */
     public CambiaPasswordBoundary(CambiaPasswordControl CPC) {
         this.CPC = CPC;
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
+        this.setClickable (true);
         initComponents();
     }
 
@@ -166,12 +169,16 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
+        if(isClickable()){
         CPC.DisposeWindow(this);
+        }
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        CPC.submitForm(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()), String.valueOf(jPasswordField2.getPassword()));
+        if (isClickable()) {
+            CPC.submitForm(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()), String.valueOf(jPasswordField2.getPassword()));
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -231,11 +238,16 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     CambiaPasswordControl CPC;
-    
+
     private boolean clickable;
-    
+
     public void setClickable(boolean clickable) {
         this.clickable = clickable;
     }
+
+    public boolean isClickable() {
+        return clickable;
+    }
+    
 
 }

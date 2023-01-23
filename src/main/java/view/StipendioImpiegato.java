@@ -46,6 +46,8 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         initComponents();
 
         MonthLabel.setText(mesi[meseIndex]);
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
         try {
             while (rs.next()) {
                 Y.add(rs.getString("anno"));

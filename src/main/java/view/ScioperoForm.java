@@ -25,6 +25,8 @@ public class ScioperoForm extends javax.swing.JFrame {
         initComponents();
         meseIndex = 0;
         MonthLabel.setText(mesi[meseIndex]);
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     /**

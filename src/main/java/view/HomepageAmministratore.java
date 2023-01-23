@@ -31,7 +31,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     public HomepageAmministratore(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
         initComponents();
-Utente.setMatricola(matricola);
+        Utente.setMatricola(matricola);
         jLabel3.setVisible(false);
         permessoButton.setVisible(false);
         ferieButton.setVisible(false);
@@ -610,7 +610,7 @@ Utente.setMatricola(matricola);
 
     private void scioperoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scioperoLabelMouseClicked
         // TODO add your handling code here:
-        if(isClickable()){
+        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.ComunicazioneScioperoButtonPressed(this);
         }
@@ -634,7 +634,9 @@ Utente.setMatricola(matricola);
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         // TODO add your handling code here:
-        LC.DisposeWindow(this);
+        if (isClickable()) {
+            LC.DisposeWindow(this);
+        }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void MalattiaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MalattiaButtonActionPerformed
@@ -646,14 +648,16 @@ Utente.setMatricola(matricola);
     }//GEN-LAST:event_MalattiaButtonActionPerformed
 
     private void requestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton1ActionPerformed
-        if(isClickable()){
+        if (isClickable()) {
             OSC = new OrariStipendiControl();
             OSC.consultazioneRitardiButtonPressed(this);
         }
     }//GEN-LAST:event_requestButton1ActionPerformed
 
     private void editButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButton1ActionPerformed
-        OSC.consultazioneRitardiImpiegatiButtonPressed(this);
+        if (isClickable()) {
+            OSC.consultazioneRitardiImpiegatiButtonPressed(this);
+        }
     }//GEN-LAST:event_editButton1ActionPerformed
 
     /**

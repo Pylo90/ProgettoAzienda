@@ -144,8 +144,6 @@ public class RichiesteControl {
         }
         funzione = "RichiestaPermesso";
         CI = new CalendarioInterattivo(this, funzione);
-        CI.setVisible(true);
-        CI.setAlwaysOnTop(true);
 
     }
 
@@ -160,8 +158,6 @@ public class RichiesteControl {
         }
         funzione = "RichiestaFerie";
         CI = new CalendarioInterattivo(this, funzione);
-        CI.setVisible(true);
-        CI.setAlwaysOnTop(true);
 
     }
 
@@ -177,8 +173,7 @@ public class RichiesteControl {
         funzione = "ComunicazioneMalattia";
 
         CI = new CalendarioInterattivo(this, funzione);
-        CI.setVisible(true);
-        CI.setAlwaysOnTop(true);
+
     }
 
     public void RichiestaCongedoParentaleButtonPressed(JFrame homepage) {
@@ -191,8 +186,7 @@ public class RichiesteControl {
             this.HPA.setClickable(false);
         }
         CF = new CongedoForm(this);
-        CF.setVisible(true);
-        CF.setAlwaysOnTop(true);
+
     }
 
     public void ComunicazioneScioperoButtonPressed(HomepageAmministratore HPA) {
@@ -202,8 +196,7 @@ public class RichiesteControl {
 
         funzione = "ComunicazioneSciopero";
         SF = new ScioperoForm(this);
-        SF.setVisible(true);
-        SF.setAlwaysOnTop(true);
+
     }
 
     public void sendSelection(int mesi) {
@@ -257,8 +250,6 @@ public class RichiesteControl {
                 + "where R.destinatario = " + Utente.getMatricola() + " AND R.mittente = MITT.matricola;");
 
         RL = new RichiestaList(this, rs);
-        RL.setVisible(true);
-        RL.setAlwaysOnTop(true);
 
     }
 
@@ -327,8 +318,7 @@ public class RichiesteControl {
         }
         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
         LI = new ListaImpiegati(this, rs, "ScambiaOrari");
-        LI.setVisible(true);
-        LI.setAlwaysOnTop(true);
+
     }
 
     public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String idRichiesta) {
@@ -405,7 +395,7 @@ public class RichiesteControl {
     }
 
     public void selectGiornoMalattia(int g, int m, String motivazione, String FS) {
-        if (FS == "normale") {
+        if ("normale".equals(FS)) {
             String giorno1 = String.format("%02d", g);
             String mese1 = String.format("%02d", m);
             funzione = "fine";
@@ -414,7 +404,7 @@ public class RichiesteControl {
             CI.setVisible(true);
             CI.setAlwaysOnTop(true);
         }
-        if (FS == "fine") {
+        if ("fine".equals(FS)) {
             String giorno2 = String.format("%02d", g);
             String mese2 = String.format("%02d", m);
 
@@ -463,14 +453,12 @@ public class RichiesteControl {
             case "1":
                 matScambio1 = matricola;
                 CI = new CalendarioInterattivo(this, "ScambiaOrari");
-                CI.setVisible(true);
-                CI.setAlwaysOnTop(true);
+
                 break;
             case "2":
                 matScambio2 = matricola;
                 CI = new CalendarioInterattivo(this, "ScambiaOrari2");
-                CI.setVisible(true);
-                CI.setAlwaysOnTop(true);
+
                 break;
         }
 
@@ -491,8 +479,7 @@ public class RichiesteControl {
                         DisposeWindow(this.LI);
                         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0' AND matricola != '" + matScambio1 + "';");
                         LI = new ListaImpiegati(this, rs, "ScambiaOrari2");
-                        LI.setVisible(true);
-                        LI.setAlwaysOnTop(true);
+
                     } else {
                         //lancia errore
                     }

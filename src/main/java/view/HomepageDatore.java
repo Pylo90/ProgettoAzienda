@@ -26,6 +26,7 @@ public class HomepageDatore extends javax.swing.JFrame {
      * Creates new form HomepageDatore
      */
     private LoginControl LC;
+    CambiaPasswordControl CPC;
 
     public HomepageDatore(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
         Utente.setMatricola(matricola);
@@ -345,19 +346,29 @@ public class HomepageDatore extends javax.swing.JFrame {
     }//GEN-LAST:event_licenziaButtonActionPerformed
     }
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        LC.DisposeWindow(this);
+        if (isClickable()) {
+            LC.DisposeWindow(this);
+        }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void passwordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordButtonActionPerformed
         // TODO add your handling code here:
+        if (isClickable()) {
+            CPC = new CambiaPasswordControl();
+            CPC.CPButtonPressed(this);
+        }
     }//GEN-LAST:event_passwordButtonActionPerformed
 
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
-        RC.ConsultazioneListaRichiesteButtonPressed(this);
+        if (isClickable()) {
+            RC.ConsultazioneListaRichiesteButtonPressed(this);
+        }
     }//GEN-LAST:event_notificationButtonActionPerformed
 
     private void straordButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButton1ActionPerformed
-        OSC.consultazioneRitardiImpiegatiButtonPressed(this);
+        if (isClickable()) {
+            OSC.consultazioneRitardiImpiegatiButtonPressed(this);
+        }
     }//GEN-LAST:event_straordButton1ActionPerformed
 
     private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
@@ -440,10 +451,8 @@ public class HomepageDatore extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private AssumiLicenziaControl ALC = new AssumiLicenziaControl();
-    // private StraordinariControl SC = new StraordinariControl();
     private OrariStipendiControl OSC = new OrariStipendiControl();
     private RichiesteControl RC = new RichiesteControl();
-    //private MalattiaControl MC = new MalattiaControl();
     private boolean clickable;
 
     public boolean isClickable() {
