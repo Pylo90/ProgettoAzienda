@@ -64,13 +64,13 @@ public class FirmaControl {
         rs = DBMSBoundary.getQuery(
                 "SELECT T.ora"
                 + "FROM impiegato I, assegnazione_turno AT, turno T"
-                + "WHERE I.matricola=" + matricola + " && I.nome =" + nome + " && I.cognome=" + cognome + " && I.matricola = AT.impiegato && T.id = AT.turno;"
+                + "WHERE I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno;"
         );
         try {
             if (rs.next()) {
                 DBMSBoundary.updateQuery(
                         "INSERT INTO ritardo"
-                        + "VALUES (" + matricola
+                        + "VALUES ('" + matricola
                         + "','"
                         + String.valueOf(Calendar.getInstance().get(Calendar.YEAR))
                         + "-" + String.format("%02d", Calendar.getInstance().get(Calendar.MONTH) + 1)
