@@ -588,9 +588,15 @@ class FirmaCheck implements Runnable {
             try {
                 rs.next();
                 
-                if(rs.getInt("firstHour") != LocalTime.now().getHour()) continue;
+                if(rs.getInt("firstHour") != LocalTime.now().getHour()){
+                    firmaButton.setVisible(false);
+                    continue;
+                }
                 
-                if(LocalTime.now().getMinute() >= 10) continue;
+                if(LocalTime.now().getMinute() >= 10) {
+                    firmaButton.setVisible(true);
+                    continue;
+                }
                 
                 firmaButton.setVisible(true);
             } catch (SQLException ex) {
