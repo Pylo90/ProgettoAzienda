@@ -93,7 +93,14 @@ public class RichiesteControl {
                         }
                         break;
                     case 6:
-                        //caso scambio turni
+                        ResultSet ID1 = DBMSBoundary.getQuery("select mittente, tipo, dati_richiesta, data_scadenza from richiesta where id ='" + idRichiesta + "';");
+                        ResultSet ID2 = DBMSBoundary.getQuery("select dati_richiesta from richiesta where data_scadenza ='" + ID1.getString("data_scadenza") + "' AND destinatario ='"+ID1.getString("dati_richiesta").substring(0,5)+"' AND tipo ="+ID1.getInt("tipo")+" AND mittente ='"+ID1.getString("mittente")+";");
+                        if(ID2.getString("dati_richiesta").substring(ID2.getString("dati_richiesta").length()-1)=="S"){
+                            //esegui scambio
+                        } else{
+                            // cambia i dati_richiesta di ID1 affinchè ci sia S alla fine dei dati
+                        }
+//caso scambio turni
                         break;
                 }
             }
