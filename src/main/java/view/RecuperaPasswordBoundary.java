@@ -1,6 +1,7 @@
 package view;
 
 import controller.Autenticazione.RecuperaPasswordControl;
+import javax.swing.JTextField;
 
 /**
  *
@@ -291,4 +292,22 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
     private javax.swing.JTextField pinField;
     private javax.swing.JTextField surnameField;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getMatField() {
+        return matField;
+    }
+
+    public JTextField getNameField() {
+        return nameField;
+    }
+
+    public JTextField getPinField() {
+        return pinField;
+    }
+
+    public JTextField getSurnameField() {
+        return surnameField;
+    }
+
+    
 }
