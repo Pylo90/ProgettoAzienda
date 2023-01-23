@@ -48,7 +48,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         phoneText.setText(tel);
         this.Propic.setIcon(propic);
         this.LC = logC;
-        
+        new Thread(new FirmaCheck(RequestButton1)).start();
     }
 
     /**
@@ -594,7 +594,7 @@ class FirmaCheck implements Runnable {
                 }
                 
                 if(LocalTime.now().getMinute() >= 10) {
-                    firmaButton.setVisible(true);
+                    firmaButton.setVisible(false);
                     continue;
                 }
                 
