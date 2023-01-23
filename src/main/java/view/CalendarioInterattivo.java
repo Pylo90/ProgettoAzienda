@@ -27,6 +27,8 @@ public class CalendarioInterattivo extends javax.swing.JFrame {
         setSelectedButton(jButton1);
         MonthLabel.setText(mesi[meseIndex]);
         f = funzione;
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     /*public CalendarioInterattivo(StraordinariControl SC, Utente UT) {

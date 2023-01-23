@@ -25,7 +25,6 @@ public class Notifica extends javax.swing.JFrame {
     private LoginControl LC;
     private RecuperaPasswordControl RPC;
     private RistabilisciConnessioneControl RCC;
-    //private MalattiaControl MC;
 
     public Notifica(String messaggio, Object controller) {
         if (controller instanceof CambiaPasswordControl) {
@@ -52,6 +51,8 @@ public class Notifica extends javax.swing.JFrame {
 
     public void setMessaggio(String messaggio) {
         jTextField1.setText(messaggio);
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     /**
@@ -151,9 +152,6 @@ public class Notifica extends javax.swing.JFrame {
         if (this.FC != null) {
             FC.SubmitNotice(this);
         }
-       /* if (this.MC != null) {
-            MC.SubmitNotice(this);
-        }*/
         if (this.LC != null) {
             LC.SubmitNotice(this);
         }

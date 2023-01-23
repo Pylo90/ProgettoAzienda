@@ -47,11 +47,9 @@ public class Errore extends javax.swing.JFrame {
             this.ALC = (AssumiLicenziaControl) controller;
         }
         initComponents();
-        setMessaggio(messaggio);
-    }
-
-    public void setMessaggio(String messaggio) {
         jTextField1.setText(messaggio);
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     /**

@@ -53,7 +53,9 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         /*if (controller instanceof StraordinariControl) {
             this.SC = (StraordinariControl) controller;
         }*/
-        setClickable(true);
+        this.setClickable(true);
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
         initComponents();
         this.funzione = f;
         searchField.getDocument().addDocumentListener(this);

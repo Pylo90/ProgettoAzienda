@@ -43,7 +43,7 @@ public class LoginControl {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }*/
-        ResultSet imp = DBMSBoundary.getQuery("SELECT COUNT(matricola), psw, nome, cognome, matricola, email, tel, propic, livello FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "'");
+        imp = DBMSBoundary.getQuery("SELECT COUNT(matricola), psw, nome, cognome, matricola, email, tel, propic, livello FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "'");
 
         try {
             imp.next();
@@ -135,6 +135,7 @@ public class LoginControl {
      */
     private void wrongData() {
         System.out.println("WRONG"); //DEBUG
+        // lancia errore
     }
 
     /* TODO */
@@ -150,7 +151,7 @@ public class LoginControl {
 
     public void createLogin() {
         LF = new LoginForm(this);
-        LF.setVisible(true);
+       
     }
 
     public void SubmitError(JFrame finestra) {

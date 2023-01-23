@@ -37,6 +37,8 @@ public class RitardoForm extends javax.swing.JFrame {
     public RitardoForm(ResultSet rs, OrariStipendiControl OSC) {
         this.rs = rs;
         this.OSC = OSC;
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
         initComponents();
         try {
             while (rs.next()) {
@@ -57,7 +59,7 @@ public class RitardoForm extends javax.swing.JFrame {
             dataselezionata = date.get(n);
             motivoselezionato = motivi.get(n);
             denLabel.setText(String.valueOf(d));
-            numLabel.setText(String.valueOf(n+1));
+            numLabel.setText(String.valueOf(n + 1));
             jLabel1.setText("Impiegato: " + nome + " " + cognome);
             jLabel3.setText("Data: " + dataselezionata);
             jTextPane1.setText(motivoselezionato);
@@ -229,12 +231,12 @@ public class RitardoForm extends javax.swing.JFrame {
 
     private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
         // TODO add your handling code here:
-        n = (((n - 1) % (d+1)) + (d+1)) % (d+1);
+        n = (((n - 1) % (d + 1)) + (d + 1)) % (d + 1);
         dataselezionata = date.get(n);
         motivoselezionato = motivi.get(n);
         jLabel3.setText("Data: " + dataselezionata);
         jTextPane1.setText(motivoselezionato);
-        numLabel.setText(String.valueOf(n+1));
+        numLabel.setText(String.valueOf(n + 1));
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
     private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
@@ -243,7 +245,7 @@ public class RitardoForm extends javax.swing.JFrame {
         motivoselezionato = motivi.get(n);
         jLabel3.setText("Data: " + dataselezionata);
         jTextPane1.setText(motivoselezionato);
-        numLabel.setText(String.valueOf(n+1));
+        numLabel.setText(String.valueOf(n + 1));
 
     }//GEN-LAST:event_nextMonthButtonActionPerformed
 

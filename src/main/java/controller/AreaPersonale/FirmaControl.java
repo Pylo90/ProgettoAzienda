@@ -8,34 +8,40 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
 import view.FirmaForm;
+import view.HomepageAmministratore;
 import view.HomepageImpiegato;
 import view.RitardoBoundary;
 
 public class FirmaControl {
 
     HomepageImpiegato HPI;
+    HomepageAmministratore HPA;
     FirmaForm FF;
     RitardoBoundary RB;
+    String funzione;
 
     public FirmaControl() {;
     }
 
     public void firmaINButtonPressed() {
-        JFrame firmaForm = new FirmaForm(this);
-        firmaForm.setVisible(true);
-        firmaForm.setAlwaysOnTop(true);
+        funzione = "in";
+        JFrame firmaForm = new FirmaForm(this, funzione);
 
     }
 
     public void firmaOUTButtonPressed() {
-        JFrame firmaForm = new FirmaForm(this);
-        firmaForm.setVisible(true);
-        firmaForm.setAlwaysOnTop(true);
+        funzione = "out";
+        JFrame firmaForm = new FirmaForm(this, funzione);
 
     }
 
-    public void firmaRitardoButtonPressed(HomepageImpiegato HPI) {
-        this.HPI = HPI;
+    public void firmaRitardoButtonPressed(JFrame HP) {
+        if (HP instanceof HomepageImpiegato) {
+            this.HPI = (HomepageImpiegato) HP;
+        }
+        if (HP instanceof HomepageAmministratore) {
+            this.HPA = (HomepageAmministratore) HP;
+        }
         HPI.setClickable(false);
         JFrame RitardoBoundary = new RitardoBoundary(this);
         RitardoBoundary.setVisible(true);
@@ -49,29 +55,68 @@ public class FirmaControl {
 
     public void SubmitError(JFrame finestra) {
         finestra.dispose();
-        FF.setClickable(true);
-        RB.setClickable(true);
+        if (FF != null) {
+            FF.setClickable(true);
+        }
+        if (RB != null) {
+            RB.setClickable(true);
+        }
     }
 
     public void SubmitNotice(JFrame finestra) {
         finestra.dispose();
-        FF.setClickable(true);
-        RB.setClickable(true);
+        if (FF != null) {
+            FF.setClickable(true);
+        }
+        if (RB != null) {
+            RB.setClickable(true);
+        }
     }
 
-    
-    
-    
-    public void submitBadgeIn(String nome, String cognome, String matricola){
-        
+    public void submitBadgeIn(String nome, String cognome, String matricola) {
+        ResultSet rs;
+        rs = DBMSBoundary.getQuery(
+                "SELECT T.ora, T.livello"
+                + "FROM impiegato I, assegnazione_turno AT, turno T"
+                + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno;"
+        );
+        try {
+            if (rs.next()) {
+
+                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
+            } else {
+                //lancia errore
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
+
+    public void submitBadgeOut(String nome, String cognome, String matricola) {
+        ResultSet rs;
+        rs = DBMSBoundary.getQuery(
+                "SELECT T.ora, T.livello"
+                + "FROM impiegato I, assegnazione_turno AT, turno T"
+                + "WHERE I.servizio_firmato is not null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno;"
+        );
+        try {
+            if (rs.next()) {
+
+                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
+            } else {
+                //lancia errore
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public void submitForm(String nome, String cognome, String matricola, String motivazione) {
         ResultSet rs;
         rs = DBMSBoundary.getQuery(
-                "SELECT T.ora"
+                "SELECT T.ora, T.livello"
                 + "FROM impiegato I, assegnazione_turno AT, turno T"
-                + "WHERE I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno;"
+                + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno;"
         );
         try {
             if (rs.next()) {
@@ -85,6 +130,7 @@ public class FirmaControl {
                         + "','" + rs.getString("ora")
                         + "','" + motivazione + "';"
                 );
+                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
             }
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
