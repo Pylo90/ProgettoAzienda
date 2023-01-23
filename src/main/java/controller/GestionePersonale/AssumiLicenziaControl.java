@@ -130,17 +130,6 @@ public class AssumiLicenziaControl {
     public void sendData(String name, String surname, String mail, String cf, ImageIcon foto, String numero, int livello, String path) {
         int number = 0;
 
-        ResultSet r = DBMSBoundary.getQuery("select count(matricola) from impiegato;"); //metti in input il numero degli impiegati nell'azienda
-        try {
-            if (r.next()) {
-                number = r.getInt(1);
-            } else {
-                number = 0;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
         String matricola = this.generateMatricola(livello, number);
         String plainPW = generatePlainPassword (12);
         String passw = hashPassword(plainPW);
@@ -152,8 +141,8 @@ public class AssumiLicenziaControl {
         MailSender.sendMail(mail, "Password e Pin", "Password: "+plainPW + "   , Pin: "+ PINtemporaneo);
         DBMSBoundary.updateQuery("insert into impiegato values('"
                 + matricola + "','"
-                + surname + "',"
-                + PINtemporaneo + ",'"
+                + surname + "','"
+                + PINtemporaneo + "','"
                 + passw + "','"
                 + name + "',"
                 + livello + ",'"
