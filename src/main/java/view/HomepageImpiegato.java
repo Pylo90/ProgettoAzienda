@@ -9,9 +9,16 @@ import controller.AreaPersonale.FirmaControl;
 import controller.Autenticazione.LoginControl;
 import controller.AreaPersonale.OrariStipendiControl;
 import controller.AreaPersonale.RichiesteControl;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import model.DBMSBoundary;
 import model.Utente;
 
 /**
@@ -41,6 +48,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         phoneText.setText(tel);
         this.Propic.setIcon(propic);
         this.LC = logC;
+        
     }
 
     /**
@@ -495,39 +503,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomepageImpiegato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomepageImpiegato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomepageImpiegato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomepageImpiegato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HomepageImpiegato("mar", "mar", "400002", "8", "darioromano212@gmail.com", null, null).setVisible(true);
-                
-            }
-        });
+        new HomepageImpiegato("mar", "mar", "400002", "8", "darioromano212@gmail.com", null, null).setVisible(true);
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BankButton;
     private javax.swing.JButton ComunicazioneMalattia;
@@ -588,4 +565,43 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         return ComunicazioneMalattia;
     }
 
+}
+
+class FirmaCheck implements Runnable {
+    
+    private JButton firmaButton;
+    
+    public FirmaCheck(JButton firmaButton) {
+        this.firmaButton = firmaButton;
+    }
+    
+    @Override
+    public void run(){
+        ResultSet rs;
+        while(true) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(FirmaCheck.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rs = DBMSBoundary.getQuery("SELECT MIN(ora) as firstHour FROM turno JOIN assegnazione_turno ON id = turno WHERE impiegato = '" + Utente.getMatricola() + "' AND data_ = '" + LocalDate.now().toString());
+            try {
+                rs.next();
+                
+                if(rs.getInt("firstHour") != LocalTime.now().getHour()){
+                    firmaButton.setVisible(false);
+                    continue;
+                }
+                
+                if(LocalTime.now().getMinute() >= 10) {
+                    firmaButton.setVisible(true);
+                    continue;
+                }
+                
+                firmaButton.setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(FirmaCheck.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }
