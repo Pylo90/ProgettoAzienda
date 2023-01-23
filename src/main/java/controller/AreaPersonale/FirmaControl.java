@@ -1,7 +1,10 @@
 package controller.AreaPersonale;
 
+import controller.GestioneCalendario.AperturaChiusuraControl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,33 +79,38 @@ public class FirmaControl {
     public void submitBadgeIn(String nome, String cognome, String matricola) {
         ResultSet rs;
         rs = DBMSBoundary.getQuery(
-                "SELECT T.ora, T.livello"
+                "SELECT T.livello"
                 + "FROM impiegato I, assegnazione_turno AT, turno T"
-                + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno;"
+                + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno "
+                + "AND T.data_ = '" + LocalDate.now().toString() + "' AND T.ora = " + LocalTime.now().getHour() + "ORDER BY T.ora ASC"
         );
         try {
             if (rs.next()) {
 
-                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
+                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "'");
+                AperturaChiusuraControl.checkEmployees();
             } else {
                 //lancia errore
             }
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     public void submitBadgeOut(String nome, String cognome, String matricola) {
         ResultSet rs;
         rs = DBMSBoundary.getQuery(
-                "SELECT T.ora, T.livello"
+                "SELECT T.livello"
                 + "FROM impiegato I, assegnazione_turno AT, turno T"
-                + "WHERE I.servizio_firmato is not null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno;"
+                + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno "
+                + "AND T.data_ = '" + LocalDate.now().toString() + "' AND T.ora = " + LocalTime.now().getHour() + "ORDER BY T.ora ASC"
         );
         try {
             if (rs.next()) {
 
-                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
+                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "'");
+                AperturaChiusuraControl.checkEmployees();
             } else {
                 //lancia errore
             }
@@ -131,9 +139,11 @@ public class FirmaControl {
                         + "','" + motivazione + "';"
                 );
                 DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
+                AperturaChiusuraControl.checkEmployees();
             }
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 }
