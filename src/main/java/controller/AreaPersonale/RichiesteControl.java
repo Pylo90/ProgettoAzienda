@@ -121,8 +121,8 @@ public class RichiesteControl {
                                 DBMSBoundary.updateQuery("update richiesta "
                                         + "SET dati_richiesta = '" + ID1.getString("dati_richiesta") + " S' where id ='" + idRichiesta + "';");
                             }
-                        }else{
-                            //lancia errore
+                        } else {
+                            //lancia errore: manca la seconda richiesta perchè è stata rifiutata
                         }
 
                         break;
@@ -204,7 +204,7 @@ public class RichiesteControl {
     }
 
     public void sendSelection(int mesi) {
-
+        //congedo parentale
         String giorno1 = String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
         String mese1 = String.format("%02d", Calendar.getInstance().get(Calendar.MONTH));
 
@@ -229,7 +229,7 @@ public class RichiesteControl {
                 }
 
             } else {
-                //lancia errore
+                //lancia errore: non sono stati trovati turni lavorativi nell'intervallo selezionato
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);

@@ -131,6 +131,7 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         CloseButton.setBackground(new java.awt.Color(255, 248, 238));
         CloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
         CloseButton.setBorder(null);
+        CloseButton.setBorderPainted(false);
         CloseButton.setContentAreaFilled(false);
         CloseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         CloseButton.setPreferredSize(new java.awt.Dimension(59, 59));

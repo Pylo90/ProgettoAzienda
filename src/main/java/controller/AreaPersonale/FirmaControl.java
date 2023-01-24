@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
+import view.Errore;
 import view.FirmaForm;
 import view.HomepageAmministratore;
 import view.HomepageImpiegato;
@@ -92,7 +93,7 @@ public class FirmaControl {
                 DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "';");
                 AperturaChiusuraControl.checkEmployees();
             } else {
-                //lancia errore
+                new Errore("Non è stato trovato un turno da firmare",this);
             }
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,7 +117,7 @@ public class FirmaControl {
                 AperturaChiusuraControl.checkEmployees();
 
             } else {
-                //lancia errore
+                new Errore("Non è stata trovata una firma in entrata, impossibile firmare l'uscita", this);
             }
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -145,6 +146,8 @@ public class FirmaControl {
                 );
                 DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
                 AperturaChiusuraControl.checkEmployees();
+            } else{
+                //lancia errore
             }
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);

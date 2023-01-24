@@ -82,7 +82,7 @@ public class CambiaPasswordControl {
                 }
                 System.out.println("corretto");
             }else{
-                //lancia errore
+                new Errore("credenziali errate", this);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
