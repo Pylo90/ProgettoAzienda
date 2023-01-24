@@ -17,6 +17,7 @@ import model.Utente;
 import view.CalendarioInterattivo;
 import view.CalendarioInterattivoMotivazione;
 import view.CongedoForm;
+import view.Errore;
 import view.HomepageAmministratore;
 import view.HomepageImpiegato;
 import view.HomepageDatore;
@@ -122,7 +123,8 @@ public class RichiesteControl {
                                         + "SET dati_richiesta = '" + ID1.getString("dati_richiesta") + " S' where id ='" + idRichiesta + "';");
                             }
                         } else {
-                            //lancia errore: manca la seconda richiesta perchè è stata rifiutata
+                            MostraErrore("La persona con cui è stato proposto lo scambio ha rifiutato la richiesta");
+                            DBMSBoundary.updateQuery("delete from richiesta where id ='" + idRichiesta + "';");
                         }
 
                         break;
@@ -137,6 +139,57 @@ public class RichiesteControl {
         DBMSBoundary.updateQuery("delete from richiesta where id ='" + idRichiesta + "';");
     }
 
+    public void MostraErrore(String messaggio){
+        if(CF != null){
+            CF.setClickable(false);
+        }
+        if(CI != null){
+            CI.setClickable(false);
+        }
+        if(CIM != null){
+            CIM.setClickable(false);
+        }
+        if(LI != null){
+            LI.setClickable(false);
+        }
+        if(RF != null){
+            RF.setClickable(false);
+        }
+        if(RL != null){
+            RL.setClickable(false);
+        }
+        if(SF != null){
+            SF.setClickable(false);
+        }
+        
+        new Errore(messaggio,this);
+    }
+    
+    public void SubmitError(JFrame finestra) {
+        if(CF != null){
+            CF.setClickable(true);
+        }
+        if(CI != null){
+            CI.setClickable(true);
+        }
+        if(CIM != null){
+            CIM.setClickable(true);
+        }
+        if(LI != null){
+            LI.setClickable(true);
+        }
+        if(RF != null){
+            RF.setClickable(true);
+        }
+        if(RL != null){
+            RL.setClickable(true);
+        }
+        if(SF != null){
+            SF.setClickable(true);
+        }
+        finestra.dispose();
+    }
+    
     public void RichiestaPermessoButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) homepage;
@@ -226,10 +279,11 @@ public class RichiesteControl {
                 while (rs.next()) {
                     String idTurno = rs.getString("id");
                     DBMSBoundary.updateQuery("delete from assegnazione_turno AT where AT.turno = '" + idTurno + "' AND AT.impiegato = '" + Utente.getMatricola() + "';");
+                    
                 }
 
             } else {
-                //lancia errore: non sono stati trovati turni lavorativi nell'intervallo selezionato
+                MostraErrore("Non sono stati trovati turni lavorativi nell'intervallo selezionato");
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -345,7 +399,7 @@ public class RichiesteControl {
                 DBMSBoundary.updateQuery("INSERT INTO RICHIESTA (tipo,dati_richiesta,data_scadenza,mittente,destinatario)"
                         + "VALUES('5','" + giorno + " " + mese + "','" + Year.now().getValue() + "-" + mese + "-" + giorno + "','" + Utente.getMatricola() + "','0');");
             } else {
-                //lancia errore
+                MostraErrore("Non sono previsti turni lavorativi per la giornata selezionata");
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -389,7 +443,7 @@ public class RichiesteControl {
                             + "','0','" + motivazione
                             + "');");
                 } else {
-                    //lancia errore
+                    MostraErrore("Non sono presenti turni lavorativi nell'intervallo selezionato");
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -430,7 +484,8 @@ public class RichiesteControl {
                     }
 
                 } else {
-                    //lancia errore
+                    MostraErrore("Non sono presenti turni lavorativi nell'intervallo selezionato");
+
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -490,7 +545,7 @@ public class RichiesteControl {
                         LI = new ListaImpiegati(this, rs, "ScambiaOrari2");
 
                     } else {
-                        //lancia errore
+                        MostraErrore("Impossibile torvare un turno lavorativo nel giorno selezionato");
                     }
                 } catch (SQLException sQLException) {
                 }
@@ -520,7 +575,7 @@ public class RichiesteControl {
                         DisposeWindow(this.LI);
 
                     } else {
-                        //lancia errore
+                        MostraErrore("Impossibile torvare un turno lavorativo nel giorno selezionato");
                     }
                 } catch (SQLException sQLException) {
                 }

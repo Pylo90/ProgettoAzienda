@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import view.Errore;
 import view.HomepageAmministratore;
 import view.HomepageDatore;
 import view.HomepageImpiegato;
@@ -134,8 +135,7 @@ public class LoginControl {
      * *****IMPLEMENTARE AZIONE IN CASO DI CREDENZIALI ERRATE******
      */
     private void wrongData() {
-        System.out.println("WRONG"); //DEBUG
-        // lancia errore
+        new Errore("Dati errati", this);
     }
 
     /* TODO */
@@ -152,6 +152,13 @@ public class LoginControl {
     public void createLogin() {
         LF = new LoginForm(this);
        
+    }
+    
+    public void MostraErrore(String messaggio){
+        if (LF!=null){
+            LF.setClickable(false);
+        }
+        new Errore(messaggio, this);
     }
 
     public void SubmitError(JFrame finestra) {

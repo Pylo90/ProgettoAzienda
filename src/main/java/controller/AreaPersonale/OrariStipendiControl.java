@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
 import model.Utente;
+import view.Errore;
 import view.HomepageAmministratore;
 import view.HomepageImpiegato;
 import view.OrarioImpiegato;
@@ -56,7 +57,7 @@ public class OrariStipendiControl {
                 turno = ((OI.getInt(1) / 8) + 1);
                 giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
             }else{
-                //lancia errore: turni non trovati
+                new Errore("Turni non trovati",this);
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrariStipendiControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -126,6 +127,21 @@ public class OrariStipendiControl {
         
         StipendioImpiegato.getImpiegatoLabel().setVisible(false);
         StipendioImpiegato.getMatricolaLabel().setVisible(false);
+    }
+    
+    
+    public void mostraErrore(String messaggio){
+        if(LI != null){
+            LI.setClickable(false);
+        }
+        new Errore(messaggio, this);
+    }
+    
+    public void SubmitError(JFrame finestra) {
+        if(LI != null){
+            LI.setClickable(true);
+        }
+        finestra.dispose();
     }
 
     public void DisposeWindow(JFrame finestra) {
@@ -210,7 +226,7 @@ public class OrariStipendiControl {
                 turno = ((OI.getInt(1) / 8) + 1);
                 giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
             }else{
-                //lancia errore: orari non trovati
+                new Errore("Turni non trovati",this);
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrariStipendiControl.class.getName()).log(Level.SEVERE, null, ex);

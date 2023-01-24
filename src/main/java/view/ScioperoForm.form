@@ -296,9 +296,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -321,9 +318,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -346,9 +340,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
@@ -371,9 +362,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
@@ -396,9 +384,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
@@ -421,9 +406,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
@@ -446,9 +428,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
@@ -471,9 +450,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
@@ -496,9 +472,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
@@ -521,9 +494,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
@@ -546,9 +516,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton11ActionPerformed"/>
@@ -571,9 +538,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
@@ -596,9 +560,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton13ActionPerformed"/>
@@ -621,9 +582,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton14ActionPerformed"/>
@@ -646,9 +604,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton15ActionPerformed"/>
@@ -671,9 +626,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton16ActionPerformed"/>
@@ -696,9 +648,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton17ActionPerformed"/>
@@ -721,9 +670,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton18ActionPerformed"/>
@@ -746,9 +692,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton19ActionPerformed"/>
@@ -771,9 +714,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton20ActionPerformed"/>
@@ -796,9 +736,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton21ActionPerformed"/>
@@ -821,9 +758,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton22ActionPerformed"/>
@@ -846,9 +780,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton23ActionPerformed"/>
@@ -871,9 +802,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton24ActionPerformed"/>
@@ -896,9 +824,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton25ActionPerformed"/>
@@ -921,9 +846,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton26ActionPerformed"/>
@@ -946,9 +868,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton27ActionPerformed"/>
@@ -971,9 +890,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton28ActionPerformed"/>
@@ -996,9 +912,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton29ActionPerformed"/>
@@ -1021,9 +934,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton30ActionPerformed"/>
@@ -1046,9 +956,6 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[65, 65]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton31ActionPerformed"/>

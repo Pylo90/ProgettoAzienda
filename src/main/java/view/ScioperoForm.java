@@ -19,6 +19,8 @@ public class ScioperoForm extends javax.swing.JFrame {
      */
     RichiesteControl RC;
 
+    private boolean clickable;
+
     public ScioperoForm(RichiesteControl RC) {
         this.RC = RC;
         initComponents();
@@ -934,208 +936,286 @@ public class ScioperoForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton1);
+        if (isClickable()) {
+            setSelectedButton(jButton1);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton2);
+        if (isClickable()) {
+            setSelectedButton(jButton2);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton3);
+        if (isClickable()) {
+            setSelectedButton(jButton3);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton4);
+        if (isClickable()) {
+            setSelectedButton(jButton4);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton5);
+        if (isClickable()) {
+            setSelectedButton(jButton5);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton6);
+        if (isClickable()) {
+            setSelectedButton(jButton6);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton7);
+        if (isClickable()) {
+            setSelectedButton(jButton7);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton8);
+        if (isClickable()) {
+            setSelectedButton(jButton8);
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton9);
+        if (isClickable()) {
+            setSelectedButton(jButton9);
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton10);
+        if (isClickable()) {
+            setSelectedButton(jButton10);
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton11);
+        if (isClickable()) {
+            setSelectedButton(jButton11);
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton12);
+        if (isClickable()) {
+            setSelectedButton(jButton12);
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton13);
+        if (isClickable()) {
+            setSelectedButton(jButton13);
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton14);
+        if (isClickable()) {
+            setSelectedButton(jButton14);
+        }
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton15);
+        if (isClickable()) {
+            setSelectedButton(jButton15);
+        }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton16);
+        if (isClickable()) {
+            setSelectedButton(jButton16);
+        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton17);
+        if (isClickable()) {
+            setSelectedButton(jButton17);
+        }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton18);
+        if (isClickable()) {
+            setSelectedButton(jButton18);
+        }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton19);
+        if (isClickable()) {
+            setSelectedButton(jButton19);
+        }
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton20);
+        if (isClickable()) {
+            setSelectedButton(jButton20);
+        }
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton21);
+        if (isClickable()) {
+            setSelectedButton(jButton21);
+        }
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton22);
+        if (isClickable()) {
+            setSelectedButton(jButton22);
+        }
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton23);
+        if (isClickable()) {
+            setSelectedButton(jButton23);
+        }
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton24);
+        if (isClickable()) {
+            setSelectedButton(jButton24);
+        }
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton25);
+        if (isClickable()) {
+            setSelectedButton(jButton25);
+        }
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton26);
+        if (isClickable()) {
+            setSelectedButton(jButton26);
+        }
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton27);
+        if (isClickable()) {
+            setSelectedButton(jButton27);
+        }
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton28);
+        if (isClickable()) {
+            setSelectedButton(jButton28);
+        }
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton29);
+        if (isClickable()) {
+            setSelectedButton(jButton29);
+        }
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton30);
+        if (isClickable()) {
+            setSelectedButton(jButton30);
+        }
     }//GEN-LAST:event_jButton30ActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         // TODO add your handling code here:
-        setSelectedButton(jButton31);
+        if (isClickable()) {
+            setSelectedButton(jButton31);
+        }
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void nextMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMonthButtonActionPerformed
-        meseIndex = (meseIndex + 1) % 12;
-        MonthLabel.setText(mesi[meseIndex]);
+        if (isClickable()) {
+            meseIndex = (meseIndex + 1) % 12;
+            MonthLabel.setText(mesi[meseIndex]);
+        }
     }//GEN-LAST:event_nextMonthButtonActionPerformed
 
     private void prevMonthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevMonthButtonActionPerformed
         // TODO add your handling code here:
-        meseIndex = (((meseIndex - 1) % 12) + 12) % 12;
-        MonthLabel.setText(mesi[meseIndex]);
+        if (isClickable()) {
+            meseIndex = (((meseIndex - 1) % 12) + 12) % 12;
+            MonthLabel.setText(mesi[meseIndex]);
+        }
     }//GEN-LAST:event_prevMonthButtonActionPerformed
 
     private void Level2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Level2ButtonActionPerformed
         // TODO add your handling code here:
-        setSelectedLevel(Level2Button);
+        if (isClickable()) {
+            setSelectedLevel(Level2Button);
+        }
 
     }//GEN-LAST:event_Level2ButtonActionPerformed
 
     private void Level1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Level1ButtonActionPerformed
         // TODO add your handling code here:
-        setSelectedLevel(Level1Button);
+        if (isClickable()) {
+            setSelectedLevel(Level1Button);
+        }
     }//GEN-LAST:event_Level1ButtonActionPerformed
 
     private void Level3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Level3ButtonActionPerformed
         // TODO add your handling code here:
-        setSelectedLevel(Level3Button);
+        if (isClickable()) {
+            setSelectedLevel(Level3Button);
+        }
 
     }//GEN-LAST:event_Level3ButtonActionPerformed
 
     private void Level4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Level4ButtonActionPerformed
         // TODO add your handling code here:
-        setSelectedLevel(Level4Button);
+        if (isClickable()) {
+            setSelectedLevel(Level4Button);
+        }
 
     }//GEN-LAST:event_Level4ButtonActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        if (isClickable()) {
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
-        String mot;
-        if ("Scrivere Motivazione".equals(MotivazioneSciopero.getText())) {
-            mot = "Nessuna motivazione";
-        } else {
-            mot = MotivazioneSciopero.getText();
+        if (isClickable()) {
+            String mot;
+            if ("Scrivere Motivazione".equals(MotivazioneSciopero.getText())) {
+                mot = "Nessuna motivazione";
+            } else {
+                mot = MotivazioneSciopero.getText();
+            }
+            RC.selectGiornoSciopero(Integer.parseInt(this.selectedButton.getText()), meseIndex + 1, mot, Integer.parseInt(selectedLevel.getText()));
+            RC.DisposeWindow(this);
         }
-        RC.selectGiornoSciopero(Integer.parseInt(this.selectedButton.getText()), meseIndex + 1, mot, Integer.parseInt(selectedLevel.getText()));
-        RC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     /**
@@ -1152,16 +1232,24 @@ public class ScioperoForm extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ScioperoForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ScioperoForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ScioperoForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ScioperoForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ScioperoForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ScioperoForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ScioperoForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ScioperoForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -1267,6 +1355,14 @@ public class ScioperoForm extends javax.swing.JFrame {
             this.selectedLevel = selectedLevel;
             this.selectedLevel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LivRed.png")));
         }
+    }
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
     }
 
     public String[] mesi = new String[]{"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};

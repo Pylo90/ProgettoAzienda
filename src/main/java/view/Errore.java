@@ -3,6 +3,8 @@ package view;
 import controller.GestionePersonale.AssumiLicenziaControl;
 import controller.AreaPersonale.CambiaPasswordControl;
 import controller.AreaPersonale.FirmaControl;
+import controller.AreaPersonale.OrariStipendiControl;
+import controller.AreaPersonale.RichiesteControl;
 import controller.Autenticazione.LoginControl;
 import controller.Autenticazione.RecuperaPasswordControl;
 import misc.RistabilisciConnessioneControl;
@@ -22,6 +24,8 @@ public class Errore extends javax.swing.JFrame {
      */
     private CambiaPasswordControl CPC;
     private FirmaControl FC;
+    private OrariStipendiControl OSC;
+    private RichiesteControl RC;
     private LoginControl LC;
     private RecuperaPasswordControl RPC;
     private RistabilisciConnessioneControl RCC;
@@ -33,6 +37,12 @@ public class Errore extends javax.swing.JFrame {
         }
         if (controller instanceof FirmaControl) {
             this.FC = (FirmaControl) controller;
+        }
+        if (controller instanceof OrariStipendiControl) {
+            this.OSC = (OrariStipendiControl) controller;
+        }
+        if (controller instanceof RichiesteControl) {
+            this.RC = (RichiesteControl) controller;
         }
         if (controller instanceof LoginControl) {
             this.LC = (LoginControl) controller;
@@ -173,6 +183,12 @@ public class Errore extends javax.swing.JFrame {
         }
         if (this.ALC != null) {
             ALC.SubmitError(this);
+        }
+        if (this.OSC != null) {
+            OSC.SubmitError(this);
+        }
+        if (this.RC != null) {
+            RC.SubmitError(this);
         }
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
 

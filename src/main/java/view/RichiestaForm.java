@@ -24,6 +24,7 @@ public class RichiestaForm extends javax.swing.JFrame {
     String tipoRichiesta;
     String dati;
     String idRichiesta;
+    private boolean clickable;
 
     public RichiestaForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, RichiesteControl RC, String idRichiesta, String testo) {
         this.RC = RC;
@@ -83,7 +84,7 @@ public class RichiestaForm extends javax.swing.JFrame {
                         Logger.getLogger(RichiestaForm.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                jTextPane1.setText("Ti è stato proposto di sostituire l'impiegato "+nome+" "+cognome+" il giorno "+ day + "/" + month +" al "+shift+"° turno");
+                jTextPane1.setText("Ti è stato proposto di sostituire l'impiegato " + nome + " " + cognome + " il giorno " + day + "/" + month + " al " + shift + "° turno");
                 break;
 
         }
@@ -258,19 +259,25 @@ public class RichiestaForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        RC.accettaRichiesta(idRichiesta);
-        RC.DisposeForm(this);
-        System.out.println(idRichiesta);
+        if (isClickable()) {
+            RC.accettaRichiesta(idRichiesta);
+            RC.DisposeForm(this);
+            System.out.println(idRichiesta);
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        RC.rifiutaRichiesta(idRichiesta);
-        RC.DisposeForm(this);
+        if (isClickable()) {
+            RC.rifiutaRichiesta(idRichiesta);
+            RC.DisposeForm(this);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        RC.DisposeForm(this);
+        if (isClickable()) {
+            RC.DisposeForm(this);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -308,6 +315,15 @@ public class RichiestaForm extends javax.swing.JFrame {
             }
         });*/
     }
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

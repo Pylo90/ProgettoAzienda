@@ -15,6 +15,8 @@ public class CongedoForm extends javax.swing.JFrame {
     /**
      * Creates new form CongedoForm
      */
+    private boolean clickable;
+
     public CongedoForm(RichiesteControl RC) {
         this.RC = RC;
 
@@ -174,13 +176,17 @@ public class CongedoForm extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        RC.sendSelection(Integer.parseInt(jTextField1.getText()));
-        RC.DisposeWindow(this);
+        if (isClickable()) {
+            RC.sendSelection(Integer.parseInt(jTextField1.getText()));
+
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
-        RC.DisposeWindow(this);
+        if (isClickable()) {
+            RC.DisposeWindow(this);
+        }
     }//GEN-LAST:event_jButton32ActionPerformed
 
     /**
@@ -230,4 +236,13 @@ public class CongedoForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     RichiesteControl RC;
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
+
 }

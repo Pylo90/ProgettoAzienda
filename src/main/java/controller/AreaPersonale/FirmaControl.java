@@ -59,6 +59,17 @@ public class FirmaControl {
         HPI.setClickable(true);
     }
 
+    
+    public void MostraErrore(String messaggio){
+        if (FF != null) {
+            FF.setClickable(false);
+        }
+        if (RB != null) {
+            RB.setClickable(false);
+        }
+        new Errore(messaggio, this);
+    }
+    
     public void SubmitError(JFrame finestra) {
         finestra.dispose();
         if (FF != null) {
@@ -82,23 +93,27 @@ public class FirmaControl {
     public void submitBadgeIn(String nome, String cognome, String matricola) {
         //firma in entrata
         ResultSet rs;
-        rs = DBMSBoundary.getQuery(
-                "SELECT T.livello"
-                + "FROM impiegato I, assegnazione_turno AT, turno T"
-                + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno "
-                + "AND T.data_ = '" + LocalDate.now().toString() + "' AND T.ora = " + LocalTime.now().getHour() + "ORDER BY T.ora ASC;");
-        try {
-            if (rs.next()) {
+        if (LocalTime.now().getMinute()<=10) {
+            rs = DBMSBoundary.getQuery(
+                    "SELECT T.livello"
+                    + "FROM impiegato I, assegnazione_turno AT, turno T"
+                    + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno "
+                    + "AND T.data_ = '" + LocalDate.now().toString() + "' AND T.ora = " + LocalTime.now().getHour() + " ORDER BY T.ora ASC;");
+            try {
+                if (rs.next()) {
 
-                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "';");
-                AperturaChiusuraControl.checkEmployees();
-            } else {
-                new Errore("Non è stato trovato un turno da firmare",this);
+                    DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "';");
+                    AperturaChiusuraControl.checkEmployees();
+                } else {
+                    MostraErrore("Non è prevista la presenza dell'impiegato in questo orario o credenziali errate");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
+        }else {
+            MostraErrore("sono passati i primi 10 minuti dall'inizio del turno, firma in ritardo");
+        }
     }
 
     public void submitBadgeOut(String nome, String cognome, String matricola) {
@@ -107,7 +122,7 @@ public class FirmaControl {
         rs = DBMSBoundary.getQuery(
                 "SELECT T.livello"
                 + "FROM impiegato I, assegnazione_turno AT, turno T"
-                + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno "
+                + "WHERE I.servizio_firmato is not null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno "
                 + "AND T.data_ = '" + LocalDate.now().toString() + "' AND T.ora = " + LocalTime.now().getHour() + "ORDER BY T.ora ASC;"
         );
         try {
@@ -117,7 +132,7 @@ public class FirmaControl {
                 AperturaChiusuraControl.checkEmployees();
 
             } else {
-                new Errore("Non è stata trovata una firma in entrata, impossibile firmare l'uscita", this);
+                MostraErrore("Non è stata trovata una firma in entrata, impossibile firmare l'uscita");
             }
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,8 +161,8 @@ public class FirmaControl {
                 );
                 DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
                 AperturaChiusuraControl.checkEmployees();
-            } else{
-                //lancia errore
+            } else {
+                new Errore("Credenziali errate", this);
             }
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);

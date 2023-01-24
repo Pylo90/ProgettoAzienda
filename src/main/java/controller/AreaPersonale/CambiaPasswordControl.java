@@ -73,16 +73,14 @@ public class CambiaPasswordControl {
                 String hash = pwSet.getString("psw");
 
                 if (!BCrypt.checkpw(vp, hash)) {
-                    System.out.println("errato");// errore: vecchia password errata
+                    MostraErrore("Vecchia password errata");
                     return;
                 }
                 if (np != cp) {
-                    System.out.println("errato"); // errore: vecchia password e nuova non coincicono
+                    MostraErrore("Nuova password e conferma non coincidono");
                     return;
                 }
                 System.out.println("corretto");
-            }else{
-                new Errore("credenziali errate", this);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -91,19 +89,23 @@ public class CambiaPasswordControl {
     }
 
     public void MostraErrore(String messaggio) {
-        Errore error = new Errore(messaggio, this);
-        CPB.setClickable(false);
-        
-    }
-    public void MostraNotifica(String messaggio) {
-        Notifica nontice = new Notifica(messaggio, this);
-        CPB.setClickable(false);
-        
+        if (CPB != null) {
+            CPB.setClickable(false);
+        }
+        new Errore(messaggio, this);
     }
 
     public void SubmitError(JFrame finestra) {
+        if (CPB != null) {
+            CPB.setClickable(true);
+        }
         finestra.dispose();
-        CPB.setClickable(true);
+    }
+
+    public void MostraNotifica(String messaggio) {
+        Notifica nontice = new Notifica(messaggio, this);
+        CPB.setClickable(false);
+
     }
 
     public void SubmitNotice(JFrame finestra) {
