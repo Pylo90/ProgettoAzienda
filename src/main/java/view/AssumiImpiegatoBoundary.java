@@ -38,6 +38,8 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         this.ALC = ALC;
         initComponents();
         in = null;
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     ImageIcon foto;

@@ -34,6 +34,7 @@ public class CambiaPasswordControl {
     }
 
     public void CPButtonPressed(JFrame HP) {
+        //reference homepage e apparizione boundary
         if (HP instanceof HomepageImpiegato) {
             HPI = (HomepageImpiegato) HP;
             HPI.setClickable(false);
@@ -47,7 +48,6 @@ public class CambiaPasswordControl {
             HPD.setClickable(false);
         }
         JFrame ModificaPassword = new CambiaPasswordBoundary(this);
-        
     }
 
     public void DisposeWindow(JFrame finestra) {
@@ -64,6 +64,7 @@ public class CambiaPasswordControl {
     }
 
     public void submitForm(String vp, String np, String cp) {
+        //invio modifica password
         ResultSet pwSet;
         pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" + Utente.getMatricola() + ";");
         try {
@@ -99,7 +100,6 @@ public class CambiaPasswordControl {
         CPB.setClickable(false);
         
     }
-
 
     public void SubmitError(JFrame finestra) {
         finestra.dispose();

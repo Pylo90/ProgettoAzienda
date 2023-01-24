@@ -20,6 +20,8 @@ public class RitardoBoundary extends javax.swing.JFrame {
     public RitardoBoundary(FirmaControl FC) {
         this.FC = FC;
         initComponents();
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     /**

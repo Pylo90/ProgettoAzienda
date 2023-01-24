@@ -27,12 +27,14 @@ public class FirmaControl {
     }
 
     public void firmaINButtonPressed() {
+        //firma in ingresso
         funzione = "in";
         JFrame firmaForm = new FirmaForm(this, funzione);
 
     }
 
     public void firmaOUTButtonPressed() {
+        //firma in uscita
         funzione = "out";
         JFrame firmaForm = new FirmaForm(this, funzione);
 
@@ -47,8 +49,7 @@ public class FirmaControl {
         }
         HPI.setClickable(false);
         JFrame RitardoBoundary = new RitardoBoundary(this);
-        RitardoBoundary.setVisible(true);
-        RitardoBoundary.setAlwaysOnTop(true);
+        
     }
 
     public void DisposeWindow(JFrame finestra) {
@@ -77,17 +78,17 @@ public class FirmaControl {
     }
 
     public void submitBadgeIn(String nome, String cognome, String matricola) {
+        //firma in entrata
         ResultSet rs;
         rs = DBMSBoundary.getQuery(
                 "SELECT T.livello"
                 + "FROM impiegato I, assegnazione_turno AT, turno T"
                 + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno "
-                + "AND T.data_ = '" + LocalDate.now().toString() + "' AND T.ora = " + LocalTime.now().getHour() + "ORDER BY T.ora ASC"
-        );
+                + "AND T.data_ = '" + LocalDate.now().toString() + "' AND T.ora = " + LocalTime.now().getHour() + "ORDER BY T.ora ASC;");
         try {
             if (rs.next()) {
 
-                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "'");
+                DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "';");
                 AperturaChiusuraControl.checkEmployees();
             } else {
                 //lancia errore
@@ -99,12 +100,13 @@ public class FirmaControl {
     }
 
     public void submitBadgeOut(String nome, String cognome, String matricola) {
+        //firma in uscita
         ResultSet rs;
         rs = DBMSBoundary.getQuery(
                 "SELECT T.livello"
                 + "FROM impiegato I, assegnazione_turno AT, turno T"
                 + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno "
-                + "AND T.data_ = '" + LocalDate.now().toString() + "' AND T.ora = " + LocalTime.now().getHour() + "ORDER BY T.ora ASC"
+                + "AND T.data_ = '" + LocalDate.now().toString() + "' AND T.ora = " + LocalTime.now().getHour() + "ORDER BY T.ora ASC;"
         );
         try {
             if (rs.next()) {
@@ -120,6 +122,7 @@ public class FirmaControl {
     }
 
     public void submitForm(String nome, String cognome, String matricola, String motivazione) {
+        //firma in ritardo
         ResultSet rs;
         rs = DBMSBoundary.getQuery(
                 "SELECT T.ora, T.livello"

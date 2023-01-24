@@ -21,18 +21,24 @@ public class ProfiloPopup extends javax.swing.JFrame {
     /**
      * Creates new form ProfiloPopup
      */
+    
+    ResultSet impiegato;
+    
     public ProfiloPopup(AssumiLicenziaControl ALC, ResultSet rs) {
         this.ALC = ALC;
         initComponents();
+        impiegato = rs;
         try {
-            if (rs.next()) {
-                nameText.setText(rs.getString("nome") + " " + rs.getString("cognome"));
-                jLabel11.setText("ID: " +rs.getString("matricola"));
-                nameText1.setText(rs.getString("tel"));
-                
-                jLabel13.setText("Livello: " +rs.getString("livello"));
-                if (rs.getBlob("propic") != null) {
-                    byte[] propicBytes = rs.getBytes("propic");
+            if (impiegato.next()) {
+                nameText.setText(impiegato.getString("nome") + " " + impiegato.getString("cognome"));
+                jLabel11.setText("ID: " + impiegato.getString("matricola"));
+                nameText1.setText(impiegato.getString("tel"));
+                this.setVisible(true);
+                this.setAlwaysOnTop(true);
+
+                jLabel13.setText("Livello: " + impiegato.getString("livello"));
+                if (impiegato.getBlob("propic") != null) {
+                    byte[] propicBytes = impiegato.getBytes("propic");
                     ImageIcon format = new ImageIcon(propicBytes);
                     Image foto = format.getImage();
                     Image foto2 = foto.getScaledInstance(195, 195, Image.SCALE_SMOOTH);
@@ -218,8 +224,14 @@ public class ProfiloPopup extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
-        // TODO add your handling code here:
-        ALC.disposeWindow(this);
+        try {
+            // TODO add your handling code here:
+            ALC.decisionTaken(impiegato.getString("matricola"));
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfiloPopup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ALC.disposeProfiloPopup(this);
+
     }//GEN-LAST:event_ConfirmButton1ActionPerformed
 
     private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed

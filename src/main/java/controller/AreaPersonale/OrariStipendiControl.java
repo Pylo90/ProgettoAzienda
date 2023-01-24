@@ -176,6 +176,7 @@ public class OrariStipendiControl {
     }
 
     public void sendSelectionSalary(String matricola) {
+        //ricarica Lista
         if (LI != null) {
             this.LI = LI;
         }
@@ -188,6 +189,7 @@ public class OrariStipendiControl {
                 + "FROM impiegato I, stipendio S "
                 + "WHERE I.matricola=S.impiegato AND I.matricola='" + matricola + "'"
                 + "ORDER BY anno DESC, mese;");
+        
         StipendioImpiegato = new StipendioImpiegato(this, rs);
         LI.setClickable(false);
         

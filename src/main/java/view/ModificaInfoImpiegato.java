@@ -47,6 +47,8 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     public ModificaInfoImpiegato(AssumiLicenziaControl ALC, ResultSet r) {
         this.ALC = ALC;
         initComponents();
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
 
         try {
             // TODO add your handling code here:
