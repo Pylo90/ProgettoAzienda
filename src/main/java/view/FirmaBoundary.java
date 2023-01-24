@@ -5,6 +5,7 @@
 package view;
 
 import controller.AreaPersonale.FirmaControl;
+import controller.GestioneCalendario.AvvisoChiusuraControl;
 
 /**
  *
@@ -17,6 +18,7 @@ public class FirmaBoundary extends javax.swing.JFrame {
      */
     public FirmaBoundary() {
         initComponents();
+        new Thread(new AvvisoChiusuraControl()).start();
     }
 
     /**
