@@ -17,9 +17,8 @@ public class ScioperoForm extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    
     RichiesteControl RC;
-    
+
     public ScioperoForm(RichiesteControl RC) {
         this.RC = RC;
         initComponents();
@@ -98,6 +97,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton1.setText("1");
+        jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -111,6 +111,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton2.setText("2");
+        jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -124,6 +125,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton3.setText("3");
+        jButton3.setBorder(null);
         jButton3.setContentAreaFilled(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -137,6 +139,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton4.setText("4");
+        jButton4.setBorder(null);
         jButton4.setContentAreaFilled(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -150,6 +153,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton5.setText("5");
+        jButton5.setBorder(null);
         jButton5.setContentAreaFilled(false);
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -163,6 +167,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton6.setText("6");
+        jButton6.setBorder(null);
         jButton6.setContentAreaFilled(false);
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -176,6 +181,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton7.setText("7");
+        jButton7.setBorder(null);
         jButton7.setContentAreaFilled(false);
         jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton7.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -189,6 +195,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton8.setForeground(new java.awt.Color(0, 0, 0));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton8.setText("8");
+        jButton8.setBorder(null);
         jButton8.setContentAreaFilled(false);
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton8.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -202,6 +209,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton9.setForeground(new java.awt.Color(0, 0, 0));
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton9.setText("9");
+        jButton9.setBorder(null);
         jButton9.setContentAreaFilled(false);
         jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton9.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -215,6 +223,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton10.setForeground(new java.awt.Color(0, 0, 0));
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton10.setText("10");
+        jButton10.setBorder(null);
         jButton10.setContentAreaFilled(false);
         jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton10.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -228,6 +237,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton11.setForeground(new java.awt.Color(0, 0, 0));
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton11.setText("11");
+        jButton11.setBorder(null);
         jButton11.setContentAreaFilled(false);
         jButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton11.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -241,6 +251,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton12.setForeground(new java.awt.Color(0, 0, 0));
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton12.setText("12");
+        jButton12.setBorder(null);
         jButton12.setContentAreaFilled(false);
         jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton12.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -254,6 +265,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton13.setForeground(new java.awt.Color(0, 0, 0));
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton13.setText("13");
+        jButton13.setBorder(null);
         jButton13.setContentAreaFilled(false);
         jButton13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton13.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -267,6 +279,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton14.setForeground(new java.awt.Color(0, 0, 0));
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton14.setText("14");
+        jButton14.setBorder(null);
         jButton14.setContentAreaFilled(false);
         jButton14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton14.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -280,6 +293,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton15.setForeground(new java.awt.Color(0, 0, 0));
         jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton15.setText("15");
+        jButton15.setBorder(null);
         jButton15.setContentAreaFilled(false);
         jButton15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton15.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -293,6 +307,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton16.setForeground(new java.awt.Color(0, 0, 0));
         jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton16.setText("16");
+        jButton16.setBorder(null);
         jButton16.setContentAreaFilled(false);
         jButton16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton16.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -306,6 +321,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton17.setForeground(new java.awt.Color(0, 0, 0));
         jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton17.setText("17");
+        jButton17.setBorder(null);
         jButton17.setContentAreaFilled(false);
         jButton17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton17.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -319,6 +335,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton18.setForeground(new java.awt.Color(0, 0, 0));
         jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton18.setText("18");
+        jButton18.setBorder(null);
         jButton18.setContentAreaFilled(false);
         jButton18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton18.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -332,6 +349,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton19.setForeground(new java.awt.Color(0, 0, 0));
         jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton19.setText("19");
+        jButton19.setBorder(null);
         jButton19.setContentAreaFilled(false);
         jButton19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton19.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -345,6 +363,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton20.setForeground(new java.awt.Color(0, 0, 0));
         jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton20.setText("20");
+        jButton20.setBorder(null);
         jButton20.setContentAreaFilled(false);
         jButton20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton20.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -358,6 +377,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton21.setForeground(new java.awt.Color(0, 0, 0));
         jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton21.setText("21");
+        jButton21.setBorder(null);
         jButton21.setContentAreaFilled(false);
         jButton21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton21.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -371,6 +391,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton22.setForeground(new java.awt.Color(0, 0, 0));
         jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton22.setText("22");
+        jButton22.setBorder(null);
         jButton22.setContentAreaFilled(false);
         jButton22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton22.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -384,6 +405,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton23.setForeground(new java.awt.Color(0, 0, 0));
         jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton23.setText("23");
+        jButton23.setBorder(null);
         jButton23.setContentAreaFilled(false);
         jButton23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton23.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -397,6 +419,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton24.setForeground(new java.awt.Color(0, 0, 0));
         jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton24.setText("24");
+        jButton24.setBorder(null);
         jButton24.setContentAreaFilled(false);
         jButton24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton24.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -410,6 +433,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton25.setForeground(new java.awt.Color(0, 0, 0));
         jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton25.setText("25");
+        jButton25.setBorder(null);
         jButton25.setContentAreaFilled(false);
         jButton25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton25.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -423,6 +447,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton26.setForeground(new java.awt.Color(0, 0, 0));
         jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton26.setText("26");
+        jButton26.setBorder(null);
         jButton26.setContentAreaFilled(false);
         jButton26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton26.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -436,6 +461,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton27.setForeground(new java.awt.Color(0, 0, 0));
         jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton27.setText("27");
+        jButton27.setBorder(null);
         jButton27.setContentAreaFilled(false);
         jButton27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton27.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -449,6 +475,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton28.setForeground(new java.awt.Color(0, 0, 0));
         jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton28.setText("28");
+        jButton28.setBorder(null);
         jButton28.setContentAreaFilled(false);
         jButton28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton28.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -462,6 +489,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton29.setForeground(new java.awt.Color(0, 0, 0));
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton29.setText("29");
+        jButton29.setBorder(null);
         jButton29.setContentAreaFilled(false);
         jButton29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton29.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -475,6 +503,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton30.setForeground(new java.awt.Color(0, 0, 0));
         jButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton30.setText("30");
+        jButton30.setBorder(null);
         jButton30.setContentAreaFilled(false);
         jButton30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton30.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -488,6 +517,7 @@ public class ScioperoForm extends javax.swing.JFrame {
         jButton31.setForeground(new java.awt.Color(0, 0, 0));
         jButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton31.setText("31");
+        jButton31.setBorder(null);
         jButton31.setContentAreaFilled(false);
         jButton31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton31.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -691,6 +721,7 @@ public class ScioperoForm extends javax.swing.JFrame {
 
         jButton32.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
+        jButton32.setBorder(null);
         jButton32.setContentAreaFilled(false);
         jButton32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton32.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -898,7 +929,7 @@ public class ScioperoForm extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        setBounds(354, 50, 1212, 700);
+        setBounds(354, 50, 1200, 700);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1097,8 +1128,14 @@ public class ScioperoForm extends javax.swing.JFrame {
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
         // TODO add your handling code here:
-        RC.selectGiornoSciopero(Integer.parseInt(this.selectedButton.getText()), Integer.parseInt(mesi[meseIndex]), MotivazioneSciopero.getText(), Integer.parseInt(selectedLevel.getText()));
-        this.dispose();
+        String mot;
+        if ("Scrivere Motivazione".equals(MotivazioneSciopero.getText())) {
+            mot = "Nessuna motivazione";
+        } else {
+            mot = MotivazioneSciopero.getText();
+        }
+        RC.selectGiornoSciopero(Integer.parseInt(this.selectedButton.getText()), meseIndex + 1, mot, Integer.parseInt(selectedLevel.getText()));
+        RC.DisposeWindow(this);
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     /**
@@ -1139,7 +1176,7 @@ public class ScioperoForm extends javax.swing.JFrame {
 
         });
     }
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConfirmButton;

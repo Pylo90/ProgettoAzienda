@@ -50,7 +50,7 @@ public class RichiestaList extends javax.swing.JFrame {
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
         try {
             while (rs.next()) {
-                addInfoPane(RC, rs.getString("nome"), rs.getString("cognome"), rs.getString("tipo"), rs.getString("data_scadenza"), rs.getString("dati_richiesta"),rs.getString("id"));
+                addInfoPane(RC, rs.getString("nome"), rs.getString("cognome"), rs.getString("tipo"), rs.getString("data_scadenza"), rs.getString("dati_richiesta"),rs.getString("id"),rs.getString("testo"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(RichiestaList.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,9 +73,9 @@ public class RichiestaList extends javax.swing.JFrame {
     /**
      * ******************************
      */
-    public void addInfoPane(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String id) {
+    public void addInfoPane(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String id, String motivazione) {
         this.RC = RC;
-        InfoReqBoxCard infoBox = new InfoReqBoxCard(RC, nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati, id);
+        InfoReqBoxCard infoBox = new InfoReqBoxCard(RC, nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati, id, motivazione);
         listPanel.add(infoBox);
         richieste.add(infoBox);
         cardCount++;

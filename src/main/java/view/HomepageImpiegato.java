@@ -503,7 +503,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new HomepageImpiegato("mar", "mar", "400002", "8", "darioromano212@gmail.com", null, null).setVisible(true);
+        new HomepageImpiegato("mar", "mar", "300001", "8", "darioromano212@gmail.com", null, null).setVisible(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BankButton;
@@ -584,7 +584,7 @@ class FirmaCheck implements Runnable {
             } catch (InterruptedException ex) {
                 Logger.getLogger(FirmaCheck.class.getName()).log(Level.SEVERE, null, ex);
             }
-            rs = DBMSBoundary.getQuery("SELECT MIN(ora) as firstHour FROM turno JOIN assegnazione_turno ON id = turno WHERE impiegato = '" + Utente.getMatricola() + "' AND data_ = '" + LocalDate.now().toString());
+            rs = DBMSBoundary.getQuery("SELECT MIN(ora) as firstHour FROM turno JOIN assegnazione_turno ON id = turno WHERE impiegato = '" + Utente.getMatricola() + "' AND data_ = '" + LocalDate.now().toString()+"';");
             try {
                 rs.next();
                 

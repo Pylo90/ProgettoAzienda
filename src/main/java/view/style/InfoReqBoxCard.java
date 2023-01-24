@@ -25,6 +25,7 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     String data;
     String dati;
     String idRichiesta;
+    String testo;
 
     private boolean clickable;
 
@@ -36,18 +37,34 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
         this.clickable = clickable;
     }
 
-    public InfoReqBoxCard(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati,String id) {
+    public InfoReqBoxCard(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String id, String motivazione) {
+        initComponents();
+
         setClickable(true);
         nome = nomeMittente;
         cognome = cognomeMittente;
+        switch (tipoRichiesta) {
+            case "3":
+                typeField.setText("Sciopero");
+                break;
+            case "4":
+                typeField.setText("Ferie");
+                break;
+            case "5":
+                typeField.setText("Permesso");
+                break;
+            case "6":
+                typeField.setText("Scambio Turni");
+                break;
+        }
         tipo = tipoRichiesta;
         data = dataScadenza;
+        testo = motivazione;
         this.dati = dati;
-        this.idRichiesta=id;
-        initComponents();
+        this.idRichiesta = id;
         this.RC = RC;
         nameField.setText(nomeMittente + " " + cognomeMittente);
-        typeField.setText(tipoRichiesta);
+
         dateField.setText(dataScadenza);
 
     }
@@ -92,6 +109,11 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
         typeField.setBorder(null);
         typeField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         typeField.setFocusable(false);
+        typeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeFieldActionPerformed(evt);
+            }
+        });
         add(typeField);
         typeField.setBounds(830, 10, 280, 40);
 
@@ -152,9 +174,13 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         if (isClickable()) {
-            RC.showRichiesta(nome, cognome, tipo, data, dati,idRichiesta);
+            RC.showRichiesta(nome, cognome, tipo, data, dati, idRichiesta, testo);
         }
     }//GEN-LAST:event_selectButtonActionPerformed
+
+    private void typeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

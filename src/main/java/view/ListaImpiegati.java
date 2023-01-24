@@ -53,8 +53,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         /*if (controller instanceof StraordinariControl) {
             this.SC = (StraordinariControl) controller;
         }*/
-        this.setClickable(true);
-        this.setVisible(true);
+        
         this.setAlwaysOnTop(true);
         initComponents();
         this.funzione = f;
@@ -80,6 +79,8 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         } catch (SQLException ex) {
             Logger.getLogger(ListaImpiegati.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.setClickable(true);
+        this.setVisible(true);
     }
 
     public void addInfoPane(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello, ImageIcon propic) {

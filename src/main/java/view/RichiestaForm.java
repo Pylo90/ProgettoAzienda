@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.DBMSBoundary;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -24,21 +25,68 @@ public class RichiestaForm extends javax.swing.JFrame {
     String dati;
     String idRichiesta;
 
-    public RichiestaForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, RichiesteControl RC, String idRichiesta) {
+    public RichiestaForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, RichiesteControl RC, String idRichiesta, String testo) {
         this.RC = RC;
-        this.tipoRichiesta=tipoRichiesta;
+        this.tipoRichiesta = tipoRichiesta;
         this.dati = dati;
         this.idRichiesta = idRichiesta;
-        
+
         initComponents();
 
         this.setVisible(true);
         this.setAlwaysOnTop(true);
 
-        jLabel1.setText("mittente: " + nomeMittente + " " + cognomeMittente);
-        jLabel2.setText("Tipo di richiesta: " + tipoRichiesta);
+        jLabel1.setText("Mittente: " + nomeMittente + " " + cognomeMittente);
         jLabel3.setText("Scadenza: " + dataScadenza);
-        jTextPane1.setText(dati);
+        switch (tipoRichiesta) {
+            case "3":
+                //sciopero
+                jLabel2.setText("Tipo di richiesta: Comunicazione Sciopero");
+                String giorno = dati.substring(0, 2);
+                String mese = dati.substring(3, 5);
+                String motivazione = testo;
+                jTextPane1.setText("E' stato annunciato uno sciopero per il giorno " + giorno + "/" + mese + " con il seguente testo allegato: " + motivazione);
+                break;
+            case "4":
+                //ferie
+                jLabel2.setText("Tipo di richiesta: Richiesta Ferie");
+                String giorno1 = dati.substring(0, 2);
+                String mese1 = dati.substring(3, 5);
+                String giorno2 = dati.substring(6, 8);
+                String mese2 = dati.substring(0, 11);
+                String mot = testo;
+                jTextPane1.setText("L'impiegato ha richiesto un periodo di ferie dal giorno " + giorno1 + "/" + mese1 + " al giorno " + giorno2 + "/" + mese2 + " con il seguente testo allegato: " + mot);
+                break;
+            case "5":
+                //permesso
+                jLabel2.setText("Tipo di richiesta: Richiesta Permesso");
+                String g = dati.substring(0, 2);
+                String m = dati.substring(3, 5);
+                jTextPane1.setText("L'impiegato ha richiesto un giorno di permesso nel giorno " + g + "/" + m);
+                break;
+            case "6":
+                //scambio turni
+                jLabel2.setText("Tipo di richiesta: Richiesta Scambio Turni");
+                String day = dati.substring(17, 19);
+                String month = dati.substring(14, 16);
+                String emp = dati.substring(0, 6);
+                String shift = dati.substring(7, 8);
+                ResultSet rs = DBMSBoundary.getQuery("select nome, cognome from impiegato where matricola = '" + emp + "';");
+                String nome = null;
+                String cognome = null;
+                 {
+                    try {
+                        rs.next();
+                        nome = rs.getString("nome");
+                        cognome = rs.getString("cognome");
+                    } catch (SQLException ex) {
+                        Logger.getLogger(RichiestaForm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                jTextPane1.setText("Ti è stato proposto di sostituire l'impiegato "+nome+" "+cognome+" il giorno "+ day + "/" + month +" al "+shift+"° turno");
+                break;
+
+        }
 
     }
 
@@ -152,12 +200,12 @@ public class RichiestaForm extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50))))
@@ -213,7 +261,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         RC.accettaRichiesta(idRichiesta);
         RC.DisposeForm(this);
         System.out.println(idRichiesta);
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
