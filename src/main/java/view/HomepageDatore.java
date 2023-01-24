@@ -319,32 +319,37 @@ public class HomepageDatore extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (isClickable()) {
             OSC.ConsultaStipendiImpiegatiButtonPressed(this);
+        }
     }//GEN-LAST:event_ImpSalaryButtonActionPerformed
-    }
+    
     private void ImpScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpScheduleButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
             OSC.ConsultaOrariImpiegatiButtonPressed(this);
+        }
     }//GEN-LAST:event_ImpScheduleButtonActionPerformed
-    }
+    
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
             RC.ScambiaOrariButtonPressed(this);
+        }
     }//GEN-LAST:event_switchButtonActionPerformed
-    }
+
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
             ALC.assumiImpiegatoButtonPressed(this);
+        }
     }//GEN-LAST:event_assumiButtonActionPerformed
-    }
+    
     private void licenziaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licenziaButtonActionPerformed
         // TODO add your handling code here:
         if (isClickable()) {
             ALC.licenziaImpiegatoButtonPressed(this);
+        }
     }//GEN-LAST:event_licenziaButtonActionPerformed
-    }
+    
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         if (isClickable()) {
             LC.DisposeWindow(this);

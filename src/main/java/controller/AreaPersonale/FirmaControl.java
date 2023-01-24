@@ -23,7 +23,8 @@ public class FirmaControl {
     RitardoBoundary RB;
     String funzione;
 
-    public FirmaControl() {;
+    public FirmaControl() {
+
     }
 
     public void firmaINButtonPressed() {
@@ -49,7 +50,7 @@ public class FirmaControl {
         }
         HPI.setClickable(false);
         JFrame RitardoBoundary = new RitardoBoundary(this);
-        
+
     }
 
     public void DisposeWindow(JFrame finestra) {
@@ -96,7 +97,7 @@ public class FirmaControl {
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     public void submitBadgeOut(String nome, String cognome, String matricola) {
@@ -113,6 +114,7 @@ public class FirmaControl {
 
                 DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "'");
                 AperturaChiusuraControl.checkEmployees();
+
             } else {
                 //lancia errore
             }
@@ -125,7 +127,7 @@ public class FirmaControl {
         //firma in ritardo
         ResultSet rs;
         rs = DBMSBoundary.getQuery(
-                "SELECT T.ora, T.livello"
+                "SELECT T.ora"
                 + "FROM impiegato I, assegnazione_turno AT, turno T"
                 + "WHERE I.servizio_firmato is null AND I.matricola='" + matricola + "' && I.nome ='" + nome + "' && I.cognome='" + cognome + "' && I.matricola = AT.impiegato && T.id = AT.turno;"
         );
@@ -148,5 +150,5 @@ public class FirmaControl {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }
