@@ -57,7 +57,7 @@ public class OrariStipendiControl {
                 turno = ((OI.getInt(1) / 8) + 1);
                 giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
             }else{
-                new Errore("Turni non trovati",this);
+                MostraErrore("Turni non trovati");
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrariStipendiControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -130,7 +130,7 @@ public class OrariStipendiControl {
     }
     
     
-    public void mostraErrore(String messaggio){
+    public void MostraErrore(String messaggio){
         if(LI != null){
             LI.setClickable(false);
         }
@@ -226,7 +226,7 @@ public class OrariStipendiControl {
                 turno = ((OI.getInt(1) / 8) + 1);
                 giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
             }else{
-                new Errore("Turni non trovati",this);
+                MostraErrore("Turni non trovati");
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrariStipendiControl.class.getName()).log(Level.SEVERE, null, ex);

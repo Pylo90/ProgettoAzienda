@@ -162,7 +162,7 @@ public class FirmaControl {
                 DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
                 AperturaChiusuraControl.checkEmployees();
             } else {
-                new Errore("Credenziali errate", this);
+                MostraErrore("Credenziali errate");
             }
         } catch (SQLException ex) {
             Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);

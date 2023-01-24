@@ -135,7 +135,7 @@ public class LoginControl {
      * *****IMPLEMENTARE AZIONE IN CASO DI CREDENZIALI ERRATE******
      */
     private void wrongData() {
-        new Errore("Dati errati", this);
+        MostraErrore("Dati errati");
     }
 
     /* TODO */
