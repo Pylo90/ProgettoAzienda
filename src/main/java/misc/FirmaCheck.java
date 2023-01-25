@@ -41,6 +41,7 @@ public class FirmaCheck implements Runnable {
                 rs.next();
 
                 if (rs.getInt(1) == 0) {
+                    firmaButton.setVisible(false);
                     continue;
                 }
 
