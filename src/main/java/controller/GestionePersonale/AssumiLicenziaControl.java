@@ -24,7 +24,6 @@ import view.AssumiImpiegatoBoundary;
 import view.ProfiloPopup;
 import model.DBMSBoundary;
 import misc.MailSender;
-import model.Utente;
 import static org.passay.AllowedCharacterRule.ERROR_CODE;
 import org.passay.CharacterData;
 import org.passay.CharacterRule;
