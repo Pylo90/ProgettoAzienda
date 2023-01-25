@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import controller.GestionePersonale.AssumiLicenziaControl;
@@ -12,10 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Utente
- */
 public class ProfiloPopup extends javax.swing.JFrame {
 
     /**

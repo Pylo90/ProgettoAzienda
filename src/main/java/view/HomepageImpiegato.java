@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import controller.AreaPersonale.CambiaPasswordControl;
@@ -16,10 +12,6 @@ import javax.swing.JLabel;
 import misc.FirmaCheck;
 import model.Utente;
 
-/**
- *
- * @author dario
- */
 public class HomepageImpiegato extends javax.swing.JFrame {
 
     private FirmaControl FirC;

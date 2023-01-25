@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import controller.AreaPersonale.RichiesteControl;
@@ -9,10 +5,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-/**
- *
- * @author dario
- */
 public class ScioperoForm extends javax.swing.JFrame {
     public ButtonGroup getButtonGroup1() {
         return buttonGroup1;

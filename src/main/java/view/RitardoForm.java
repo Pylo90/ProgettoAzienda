@@ -10,14 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-/**
- *
- * @author Monica Salluzzo
- */
 public class RitardoForm extends javax.swing.JFrame {
     public ButtonGroup getButtonGroup1() {
         return buttonGroup1;

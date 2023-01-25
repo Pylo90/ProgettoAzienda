@@ -4,10 +4,6 @@ import controller.Autenticazione.RecuperaPasswordControl;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Davide
- */
 public class RecuperaPasswordBoundary extends javax.swing.JFrame {
     RecuperaPasswordControl rc;
     

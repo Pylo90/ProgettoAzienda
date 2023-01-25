@@ -9,14 +9,6 @@ import controller.Autenticazione.LoginControl;
 import controller.Autenticazione.RecuperaPasswordControl;
 import misc.RistabilisciConnessioneControl;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-/**
- *
- * @author Utente
- */
 public class Errore extends javax.swing.JFrame {
 
     /**

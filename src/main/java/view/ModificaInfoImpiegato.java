@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import com.mysql.cj.protocol.Resultset;
@@ -29,10 +25,6 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Utente;
 
-/**
- *
- * @author Utente
- */
 public class ModificaInfoImpiegato extends javax.swing.JFrame {
     public ButtonGroup getButtonGroup1() {
         return buttonGroup1;

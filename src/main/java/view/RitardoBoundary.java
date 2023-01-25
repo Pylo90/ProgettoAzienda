@@ -3,14 +3,6 @@ package view;
 import controller.AreaPersonale.FirmaControl;
 import javax.swing.ButtonGroup;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-/**
- *
- * @author Monica Salluzzo
- */
 public class RitardoBoundary extends javax.swing.JFrame {
 
     FirmaControl FC;

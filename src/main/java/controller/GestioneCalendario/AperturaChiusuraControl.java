@@ -5,10 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import model.DBMSBoundary;
 
-/**
- *
- * @author dario
- */
 public class AperturaChiusuraControl {
 
     /**

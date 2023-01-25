@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller.GestionePersonale;
 
 import java.io.FileInputStream;
@@ -32,10 +28,6 @@ import org.passay.PasswordGenerator;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import view.Errore;
 
-/**
- *
- * @author dario
- */
 public class AssumiLicenziaControl {
 
     HomepageDatore HPD;

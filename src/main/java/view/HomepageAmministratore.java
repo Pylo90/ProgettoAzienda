@@ -16,10 +16,6 @@ import javax.swing.JLabel;
 import misc.FirmaCheck;
 import model.Utente;
 
-/**
- *
- * @author Davide
- */
 public class HomepageAmministratore extends javax.swing.JFrame {
 
     public ButtonGroup getButtonGroup1() {

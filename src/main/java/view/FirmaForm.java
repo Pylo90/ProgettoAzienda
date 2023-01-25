@@ -4,10 +4,6 @@ import controller.AreaPersonale.FirmaControl;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
 
-/**
- *
- * @author Davide
- */
 public class FirmaForm extends javax.swing.JFrame {
     public ButtonGroup getButtonGroup1() {
         return buttonGroup1;

@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import controller.AreaPersonale.FirmaControl;
 import controller.GestioneCalendario.AvvisoChiusuraControl;
 
-/**
- *
- * @author dario
- */
 public class FirmaBoundary extends javax.swing.JFrame {
 
     /**
