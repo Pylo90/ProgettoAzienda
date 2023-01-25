@@ -12,6 +12,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import misc.FirmaCheck;
 import model.Utente;
 
 /**
@@ -46,6 +47,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         phoneText.setText(tel);
         this.Propic.setIcon(propic);
         LC = logC;
+        new Thread(new FirmaCheck(requestButton2)).start();
     }
 
     /**
