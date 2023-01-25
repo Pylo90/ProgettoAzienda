@@ -13,7 +13,9 @@ import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import view.Errore;
 import view.LoginForm;
+import view.Notifica;
 import view.RecuperaPasswordBoundary;
 
 public class RecuperaPasswordControl {
@@ -37,7 +39,7 @@ public class RecuperaPasswordControl {
                     + "' AND pin = '" + recuperaForm.getPinField() + "'");
             rs.next();
             if (rs.getInt(1) == 0) {
-                //ROBA DA FARE IN CASO DI ERRORE
+                MostraErrore("Credenziali errate");
             } else {
                 String psw = generatePlainPassword(12);
                 String hash = hashPassword(psw);
@@ -45,6 +47,7 @@ public class RecuperaPasswordControl {
                 rs.next();
                 DBMSBoundary.updateQuery("UPDATE impiegato SET psw = '" + hash + "' WHERE matricola = '" + recuperaForm.getMatField() + "'");
                 MailSender.sendMail(rs.getString(1), "Recupero password", "Nuova password: " + psw);
+                MostraNotifica("Password modificata correttamente");
                 
             }
         } catch (SQLException ex) {
@@ -56,6 +59,15 @@ public class RecuperaPasswordControl {
         recuperaForm.dispose();
     }
 
+    public void MostraErrore(String messaggio){
+        new Errore(messaggio,this);
+        LF.setClickable(false);
+    }
+    public void MostraNotifica(String messaggio){
+        new Notifica(messaggio,this);
+        LF.setClickable(false);
+    }
+    
     public void SubmitError(JFrame finestra) {
         finestra.dispose();
         LF.setClickable(true);

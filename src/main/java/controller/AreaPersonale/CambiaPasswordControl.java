@@ -80,7 +80,7 @@ public class CambiaPasswordControl {
                     MostraErrore("Nuova password e conferma non coincidono");
                     return;
                 }
-                System.out.println("corretto");
+                MostraNotifica("Password cambiata correttamente");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -103,13 +103,18 @@ public class CambiaPasswordControl {
     }
 
     public void MostraNotifica(String messaggio) {
-        Notifica nontice = new Notifica(messaggio, this);
-        CPB.setClickable(false);
+        if (CPB != null) {
+            CPB.setClickable(false);
+        }
+        new Notifica(messaggio, this);
+        
 
     }
 
     public void SubmitNotice(JFrame finestra) {
         finestra.dispose();
-        CPB.setClickable(true);
+        if (CPB != null) {
+            CPB.setClickable(true);
+        }
     }
 }

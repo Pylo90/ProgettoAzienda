@@ -14,6 +14,7 @@ import view.Errore;
 import view.FirmaForm;
 import view.HomepageAmministratore;
 import view.HomepageImpiegato;
+import view.Notifica;
 import view.RitardoBoundary;
 
 public class FirmaControl {
@@ -59,8 +60,7 @@ public class FirmaControl {
         HPI.setClickable(true);
     }
 
-    
-    public void MostraErrore(String messaggio){
+    public void MostraErrore(String messaggio) {
         if (FF != null) {
             FF.setClickable(false);
         }
@@ -69,7 +69,17 @@ public class FirmaControl {
         }
         new Errore(messaggio, this);
     }
-    
+
+    public void MostraNotifica(String messaggio) {
+        if (FF != null) {
+            FF.setClickable(false);
+        }
+        if (RB != null) {
+            RB.setClickable(false);
+        }
+        new Notifica(messaggio, this);
+    }
+
     public void SubmitError(JFrame finestra) {
         finestra.dispose();
         if (FF != null) {
@@ -93,7 +103,7 @@ public class FirmaControl {
     public void submitBadgeIn(String nome, String cognome, String matricola) {
         //firma in entrata
         ResultSet rs;
-        if (LocalTime.now().getMinute()<=10) {
+        if (LocalTime.now().getMinute() <= 10) {
             rs = DBMSBoundary.getQuery(
                     "SELECT T.livello"
                     + "FROM impiegato I, assegnazione_turno AT, turno T"
@@ -104,6 +114,7 @@ public class FirmaControl {
 
                     DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "';");
                     AperturaChiusuraControl.checkEmployees();
+                    MostraNotifica("Entrata firmato correttamente");
                 } else {
                     MostraErrore("Non è prevista la presenza dell'impiegato in questo orario o credenziali errate");
                 }
@@ -111,7 +122,7 @@ public class FirmaControl {
                 Logger.getLogger(FirmaControl.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        }else {
+        } else {
             MostraErrore("sono passati i primi 10 minuti dall'inizio del turno, firma in ritardo");
         }
     }
@@ -130,6 +141,7 @@ public class FirmaControl {
 
                 DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt(1) + " WHERE matricola = '" + matricola + "'");
                 AperturaChiusuraControl.checkEmployees();
+                MostraNotifica("Uscita firmato correttamente");
 
             } else {
                 MostraErrore("Non è stata trovata una firma in entrata, impossibile firmare l'uscita");
@@ -161,6 +173,8 @@ public class FirmaControl {
                 );
                 DBMSBoundary.updateQuery("update impiegato set servizio_firmato =" + rs.getInt("livello") + ";");
                 AperturaChiusuraControl.checkEmployees();
+                MostraNotifica("Ritardo firmato correttamente");
+
             } else {
                 MostraErrore("Credenziali errate");
             }

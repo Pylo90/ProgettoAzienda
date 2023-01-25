@@ -14,6 +14,7 @@ import view.HomepageAmministratore;
 import view.HomepageDatore;
 import view.HomepageImpiegato;
 import view.LoginForm;
+import view.Notifica;
 
 /**
  *
@@ -127,8 +128,9 @@ public class LoginControl {
                 HPI.setVisible(true);
                 DisposeWindow(LF);
                 break;
-        } //DEBUG
 
+        } //DEBUG
+        MostraNotifica("Login effettuato correttamente");
     }
 
     /**
@@ -151,14 +153,21 @@ public class LoginControl {
 
     public void createLogin() {
         LF = new LoginForm(this);
-       
+
     }
-    
-    public void MostraErrore(String messaggio){
-        if (LF!=null){
+
+    public void MostraErrore(String messaggio) {
+        if (LF != null) {
             LF.setClickable(false);
         }
         new Errore(messaggio, this);
+    }
+
+    public void MostraNotifica(String messaggio) {
+        if (LF != null) {
+            LF.setClickable(false);
+        }
+        new Notifica(messaggio, this);
     }
 
     public void SubmitError(JFrame finestra) {
@@ -175,6 +184,8 @@ public class LoginControl {
     public void DisposeWindow(JFrame window) {
         if (window instanceof HomepageImpiegato || window instanceof HomepageDatore || window instanceof HomepageAmministratore) {
             createLogin();
+
+            MostraNotifica("Logout firmato correttamente");
         }
         window.dispose();
     }
