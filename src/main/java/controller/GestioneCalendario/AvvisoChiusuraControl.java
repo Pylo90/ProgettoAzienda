@@ -12,11 +12,8 @@ public class AvvisoChiusuraControl implements Runnable {
     @Override
     public void run() {
         int mins = LocalTime.now().getMinute(), delay;
-        if(mins > 11) {
-            delay = 71 - LocalTime.now().getMinute();
-        } else {
-            delay = 11 - LocalTime.now().getMinute();
-        }
+        delay = mins > 11 ? (71 - mins) : (11 - mins);
+        
         try {
             Thread.sleep(delay*60*1000);
         } catch (InterruptedException ex) {

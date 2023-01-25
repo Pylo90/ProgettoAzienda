@@ -94,8 +94,8 @@ public class CambiaPasswordControl {
                     return;
                 }
                 String passw = BCrypt.hashpw(np, BCrypt.gensalt());
-                DBMSBoundary.updateQuery("update impiegato set psw ='"+passw+"' where matricola=" + Utente.getMatricola() + ";");
-                
+                DBMSBoundary.updateQuery("update impiegato set psw ='" + passw + "' where matricola=" + Utente.getMatricola() + ";");
+
                 MostraNotifica("Password cambiata correttamente");
             }
         } catch (SQLException ex) {
@@ -110,6 +110,10 @@ public class CambiaPasswordControl {
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(false);
             }
+            CPB.setAlwaysOnTop(false);
+            CPB.getjPasswordField1().setEditable(false);
+            CPB.getjPasswordField2().setEditable(false);
+            CPB.getjTextField1().setEditable(false);
         }
         new Errore(messaggio, this);
     }
@@ -119,7 +123,13 @@ public class CambiaPasswordControl {
             Enumeration<AbstractButton> buttons = CPB.getButtonGroup1().getElements();
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(true);
+
             }
+            CPB.getjPasswordField1().setEditable(true);
+            CPB.getjPasswordField2().setEditable(true);
+            CPB.getjTextField1().setEditable(true);
+            CPB.setAlwaysOnTop(true);
+
         }
         finestra.dispose();
     }
@@ -130,9 +140,13 @@ public class CambiaPasswordControl {
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(false);
             }
+            CPB.setAlwaysOnTop(false);
+            CPB.getjPasswordField1().setEditable(false);
+            CPB.getjPasswordField2().setEditable(false);
+            CPB.getjTextField1().setEditable(false);
         }
-        new Notifica(messaggio, this);
         
+        new Notifica(messaggio, this);
 
     }
 
@@ -143,6 +157,12 @@ public class CambiaPasswordControl {
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(true);
             }
+            CPB.getjPasswordField1().setEditable(true);
+            CPB.getjPasswordField2().setEditable(true);
+            CPB.getjTextField1().setEditable(true);
+            CPB.setAlwaysOnTop(true);
+
+
         }
     }
 }

@@ -2,6 +2,8 @@ package view;
 
 import controller.AreaPersonale.CambiaPasswordControl;
 import javax.swing.ButtonGroup;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class CambiaPasswordBoundary extends javax.swing.JFrame {
 
@@ -240,5 +242,19 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     CambiaPasswordControl CPC;
+
+    public JPasswordField getjPasswordField1() {
+        return jPasswordField1;
+    }
+
+    public JPasswordField getjPasswordField2() {
+        return jPasswordField2;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+    
+    
 
 }
