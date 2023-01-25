@@ -1,6 +1,7 @@
 package view;
 
 import controller.Autenticazione.RecuperaPasswordControl;
+import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
 /**
@@ -25,6 +26,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         mainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         homeButton = new javax.swing.JButton();
@@ -62,6 +64,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
         homeButton.setBorder(null);
         homeButton.setBorderPainted(false);
+        buttonGroup1.add(homeButton);
         homeButton.setContentAreaFilled(false);
         homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         homeButton.setFocusPainted(false);
@@ -217,6 +220,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         confirmButton.setText("Conferma");
         confirmButton.setBorder(null);
         confirmButton.setBorderPainted(false);
+        buttonGroup1.add(confirmButton);
         confirmButton.setContentAreaFilled(false);
         confirmButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         confirmButton.setFocusable(false);
@@ -266,11 +270,12 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new RecuperaPasswordControl().showRecuperaPassowrd();
+        new RecuperaPasswordControl().showRecuperaPassword();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel HomeCostina;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton confirmButton;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel jPanel1;
@@ -307,6 +312,10 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
 
     public JTextField getSurnameField() {
         return surnameField;
+    }
+
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
     }
 
     

@@ -46,14 +46,12 @@ public class Notifica extends javax.swing.JFrame {
             this.MC = (MalattiaControl) controller;
         }*/
         initComponents();
-        setMessaggio(messaggio);
-    }
-
-    public void setMessaggio(String messaggio) {
         jTextField1.setText(messaggio);
         this.setVisible(true);
         this.setAlwaysOnTop(true);
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +72,7 @@ public class Notifica extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -82,6 +81,7 @@ public class Notifica extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(219, 24, 156, 48);
 
+        jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(255, 248, 238));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
@@ -94,7 +94,7 @@ public class Notifica extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(230, 180, 130, 27);
+        jTextField1.setBounds(50, 100, 500, 190);
 
         ConfirmButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ConfirmButton2.setForeground(new java.awt.Color(255, 255, 255));

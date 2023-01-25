@@ -74,8 +74,8 @@ public class Errore extends javax.swing.JFrame {
         ConfirmButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         ConfirmButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         ConfirmButton1.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ConfirmButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
@@ -99,6 +99,7 @@ public class Errore extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 248, 238));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -106,21 +107,6 @@ public class Errore extends javax.swing.JFrame {
         jLabel2.setText("ERRORE!");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(225, 24, 139, 48);
-
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 248, 238));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("testo errore");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(230, 180, 130, 27);
 
         ConfirmButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ConfirmButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,6 +128,21 @@ public class Errore extends javax.swing.JFrame {
         jPanel1.add(ConfirmButton2);
         ConfirmButton2.setBounds(202, 320, 195, 50);
 
+        jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 248, 238));
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setText("testo notifica");
+        jTextField1.setBorder(null);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(50, 100, 500, 190);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,10 +156,6 @@ public class Errore extends javax.swing.JFrame {
 
         setBounds(660, 50, 600, 400);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void ConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButton1ActionPerformed
         // TODO add your handling code here:
@@ -191,6 +188,10 @@ public class Errore extends javax.swing.JFrame {
             RC.SubmitError(this);
         }
     }//GEN-LAST:event_ConfirmButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

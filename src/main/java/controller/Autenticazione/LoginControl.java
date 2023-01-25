@@ -3,8 +3,10 @@ package controller.Autenticazione;
 import java.awt.Image;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
@@ -27,6 +29,13 @@ public class LoginControl {
     }
     ResultSet imp;
     LoginForm LF;
+    String nome = null;
+    String cognome = null;
+    String matricola = null;
+    String mail = null;
+    String tel = null;
+    int livello = 0;
+    ImageIcon proPicToSend = null;
 
     /* TODO */
     public void dataSubmit(String mail, String matricola, String password, LoginForm LF) {
@@ -76,13 +85,7 @@ public class LoginControl {
      */
     private void correctData(ResultSet imp, LoginForm LF) {
         System.out.println("CORRECT"); //DEBUG
-        String nome = null;
-        String cognome = null;
-        String matricola = null;
-        String mail = null;
-        String tel = null;
-        int livello = 0;
-        ImageIcon proPicToSend = null;
+
         try {
             nome = imp.getString("nome");
             cognome = imp.getString("cognome");
@@ -102,6 +105,113 @@ public class LoginControl {
             Logger.getLogger(LoginControl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        switch (livello) {
+            case 0:
+                HomepageDatore HPD = new HomepageDatore(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                MostraNotifica("Login effettuato correttamente");
+                break;
+            case 1:
+                HomepageAmministratore HPA = new HomepageAmministratore(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                MostraNotifica("Login effettuato correttamente");
+                break;
+            case 2:
+                HomepageImpiegato HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                MostraNotifica("Login effettuato correttamente");
+                break;
+            case 3:
+                HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                MostraNotifica("Login effettuato correttamente");
+                break;
+            case 4:
+                HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                MostraNotifica("Login effettuato correttamente");
+                break;
+        } //DEBUG
+        Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
+    }
+
+    /**
+     * *****IMPLEMENTARE AZIONE IN CASO DI CREDENZIALI ERRATE******
+     */
+    private void wrongData() {
+        MostraErrore("Dati errati");
+        
+    }
+
+    /* TODO */
+    public void RPButtonPressed() {
+        new RecuperaPasswordControl().showRecuperaPassword();
+        LF.setAlwaysOnTop(false);
+        Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
+    }
+
+    /* Debug main */
+    public static void main(String[] args) {
+        new LoginControl().createLogin();
+    }
+
+    public void createLogin() {
+        LF = new LoginForm(this);
+
+    }
+
+    public void MostraErrore(String messaggio) {
+        if (LF != null) {
+            LF.getEmailField().setEditable(false);
+            LF.getMatricolaField().setEditable(false);
+            LF.getPasswordField().setEditable(false);
+            LF.setAlwaysOnTop(false);
+            Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
+        }
+        new Errore(messaggio, this);
+    }
+
+    public void MostraNotifica(String messaggio) {
+        if (LF != null) {
+            LF.getEmailField().setEditable(false);
+            LF.getMatricolaField().setEditable(false);
+            LF.getPasswordField().setEditable(false);
+            LF.setAlwaysOnTop(false);
+            
+            Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
+        }
+        new Notifica(messaggio, this);
+    }
+
+    public void SubmitError(JFrame finestra) {
+        DisposeWindow(finestra);
+        LF.getEmailField().setEditable(true);
+        LF.getMatricolaField().setEditable(true);
+        LF.getPasswordField().setEditable(true);
+
+        Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
+        while (buttons.hasMoreElements()) {
+            buttons.nextElement().setEnabled(true);
+        }
+
+    }
+
+    public void SubmitNotice(JFrame finestra) {
+        DisposeWindow(finestra);
+        Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
+        LF.getEmailField().setEditable(true);
+        LF.getMatricolaField().setEditable(true);
+        LF.getPasswordField().setEditable(true);
         switch (livello) {
             case 0:
                 HomepageDatore HPD = new HomepageDatore(nome, cognome, matricola, tel, mail, proPicToSend, this);
@@ -130,62 +240,12 @@ public class LoginControl {
                 break;
 
         } //DEBUG
-        MostraNotifica("Login effettuato correttamente");
-    }
-
-    /**
-     * *****IMPLEMENTARE AZIONE IN CASO DI CREDENZIALI ERRATE******
-     */
-    private void wrongData() {
-        MostraErrore("Dati errati");
-    }
-
-    /* TODO */
-    public void RPButtonPressed() {
-        new RecuperaPasswordControl().showRecuperaPassowrd();
-        //loginFrame.dispose();
-    }
-
-    /* Debug main */
-    public static void main(String[] args) {
-        new LoginControl().createLogin();
-    }
-
-    public void createLogin() {
-        LF = new LoginForm(this);
-
-    }
-
-    public void MostraErrore(String messaggio) {
-        if (LF != null) {
-            LF.setClickable(false);
-        }
-        new Errore(messaggio, this);
-    }
-
-    public void MostraNotifica(String messaggio) {
-        if (LF != null) {
-            LF.setClickable(false);
-        }
-        new Notifica(messaggio, this);
-    }
-
-    public void SubmitError(JFrame finestra) {
-        DisposeWindow(finestra);
-
-        LF.setClickable(true);
-    }
-
-    public void SubmitNotice(JFrame finestra) {
-        DisposeWindow(finestra);
-        LF.setClickable(true);
     }
 
     public void DisposeWindow(JFrame window) {
         if (window instanceof HomepageImpiegato || window instanceof HomepageDatore || window instanceof HomepageAmministratore) {
             createLogin();
 
-            MostraNotifica("Logout firmato correttamente");
         }
         window.dispose();
     }
