@@ -64,6 +64,8 @@ public class InfoBoxCard extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1201, 113));
         setLayout(null);
 
+        useThisToHandleClick.setBorder(null);
+        useThisToHandleClick.setBorderPainted(false);
         useThisToHandleClick.setContentAreaFilled(false);
         useThisToHandleClick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
