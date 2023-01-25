@@ -36,10 +36,17 @@ public class FirmaCheck implements Runnable {
             } catch (InterruptedException ex) {
                 Logger.getLogger(FirmaCheck.class.getName()).log(Level.SEVERE, null, ex);
             }
-            rs = DBMSBoundary.getQuery("SELECT MIN(ora) as firstHour FROM turno JOIN assegnazione_turno ON id = turno WHERE impiegato = '" + Utente.getMatricola() + "' AND data_ = '" + LocalDate.now().toString() + "';");
             try {
-                while (rs.next()) {
+                rs = DBMSBoundary.getQuery("SELECT COUNT(*) FROM Impiegato WHERE matricola = '" + Utente.getMatricola() + "' AND servizio_firmato IS NULL");
+                rs.next();
 
+                if (rs.getInt(1) == 0) {
+                    continue;
+                }
+
+                rs = DBMSBoundary.getQuery("SELECT MIN(ora) as firstHour FROM turno JOIN assegnazione_turno ON id = turno WHERE impiegato = '" + Utente.getMatricola() + "' AND data_ = '" + LocalDate.now().toString() + "';");
+
+                if (rs.next()) {
                     if (rs.getInt("firstHour") != LocalTime.now().getHour()) {
                         firmaButton.setVisible(false);
                         continue;
@@ -51,9 +58,12 @@ public class FirmaCheck implements Runnable {
                     }
 
                     firmaButton.setVisible(true);
+                } else {
+                    firmaButton.setVisible(false);
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(FirmaCheck.class.getName()).log(Level.SEVERE, null, ex);
+                firmaButton.setVisible(false);
+                ex.printStackTrace();
             }
         }
     }
