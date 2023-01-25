@@ -53,8 +53,6 @@ public class OrariStipendiControl {
             }
         }
 
-        OrarioImpiegato OrarioImpiegati = new OrarioImpiegato(this);
-        
         ResultSet OI = DBMSBoundary.getQuery("SELECT T.ora, dayofweek(data_) "
                 + "FROM impiegato I, turno T, assegnazione_turno AT "
                 + "WHERE AT.impiegato = I.matricola AND I.matricola='" + Utente.getMatricola() + "' AND AT.turno = T.id;");
@@ -64,57 +62,59 @@ public class OrariStipendiControl {
             if (OI.next()) {
                 turno = ((OI.getInt(1) / 8) + 1);
                 giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
-            }else{
+                OrarioImpiegato OrarioImpiegati = new OrarioImpiegato(this);
+                switch (turno * 10 + giorno) {
+                    case 10 ->
+                        OrarioImpiegati.getLabel10().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 11 ->
+                        OrarioImpiegati.getLabel11().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 12 ->
+                        OrarioImpiegati.getLabel12().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 13 ->
+                        OrarioImpiegati.getLabel13().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 14 ->
+                        OrarioImpiegati.getLabel14().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 15 ->
+                        OrarioImpiegati.getLabel15().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 16 ->
+                        OrarioImpiegati.getLabel16().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 20 ->
+                        OrarioImpiegati.getLabel20().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 21 ->
+                        OrarioImpiegati.getLabel21().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 22 ->
+                        OrarioImpiegati.getLabel22().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 23 ->
+                        OrarioImpiegati.getLabel23().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 24 ->
+                        OrarioImpiegati.getLabel24().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 25 ->
+                        OrarioImpiegati.getLabel25().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 26 ->
+                        OrarioImpiegati.getLabel26().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 30 ->
+                        OrarioImpiegati.getLabel30().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 31 ->
+                        OrarioImpiegati.getLabel31().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 32 ->
+                        OrarioImpiegati.getLabel32().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 33 ->
+                        OrarioImpiegati.getLabel33().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 34 ->
+                        OrarioImpiegati.getLabel34().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 35 ->
+                        OrarioImpiegati.getLabel35().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                    case 36 ->
+                        OrarioImpiegati.getLabel36().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+
+                }
+            } else {
                 MostraErrore("Turni non trovati");
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrariStipendiControl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        switch (turno * 10 + giorno) {
-            case 10 ->
-                OrarioImpiegati.getLabel10().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 11 ->
-                OrarioImpiegati.getLabel11().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 12 ->
-                OrarioImpiegati.getLabel12().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 13 ->
-                OrarioImpiegati.getLabel13().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 14 ->
-                OrarioImpiegati.getLabel14().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 15 ->
-                OrarioImpiegati.getLabel15().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 16 ->
-                OrarioImpiegati.getLabel16().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 20 ->
-                OrarioImpiegati.getLabel20().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 21 ->
-                OrarioImpiegati.getLabel21().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 22 ->
-                OrarioImpiegati.getLabel22().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 23 ->
-                OrarioImpiegati.getLabel23().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 24 ->
-                OrarioImpiegati.getLabel24().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 25 ->
-                OrarioImpiegati.getLabel25().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 26 ->
-                OrarioImpiegati.getLabel26().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 30 ->
-                OrarioImpiegati.getLabel30().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 31 ->
-                OrarioImpiegati.getLabel31().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 32 ->
-                OrarioImpiegati.getLabel32().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 33 ->
-                OrarioImpiegati.getLabel33().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 34 ->
-                OrarioImpiegati.getLabel34().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 35 ->
-                OrarioImpiegati.getLabel35().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-            case 36 ->
-                OrarioImpiegati.getLabel36().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
 
-        }
     }
 
     public void ConsultaStipendioButtonPressed(JFrame HP) {
@@ -138,25 +138,38 @@ public class OrariStipendiControl {
                 + "WHERE I.matricola=S.impiegato AND I.matricola='" + Utente.getMatricola() + "' "
                 + "ORDER BY anno DESC, mese;");
         StipendioImpiegato StipendioImpiegato = new StipendioImpiegato(this, rs);
-        
+
         StipendioImpiegato.getImpiegatoLabel().setVisible(false);
         StipendioImpiegato.getMatricolaLabel().setVisible(false);
     }
-    
-    
-    public void MostraErrore(String messaggio){
-        if(LI != null){
+
+    public void MostraErrore(String messaggio) {
+        if (LI != null) {
             LI.getHomeButton().setEnabled(false);
-            
+
         }
         new Errore(messaggio, this);
     }
-    
+
     public void SubmitError(JFrame finestra) {
-        if(LI != null){
+        if (LI != null) {
             LI.getHomeButton().setEnabled(false);
         }
         finestra.dispose();
+        if (HPI != null) {
+
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
+        }
+        if (HPA != null) {
+
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
+        }
     }
 
     public void DisposeWindow(JFrame finestra) {
@@ -204,7 +217,7 @@ public class OrariStipendiControl {
         }
         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola!='0';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaStipendi");
-        
+
     }
 
     public void ConsultaOrariImpiegatiButtonPressed(JFrame homepage) {
@@ -224,7 +237,7 @@ public class OrariStipendiControl {
         }
         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaOrari");
-        
+
     }
 
     public void sendSelectionSalary(String matricola) {
@@ -241,17 +254,17 @@ public class OrariStipendiControl {
                 + "FROM impiegato I, stipendio S "
                 + "WHERE I.matricola=S.impiegato AND I.matricola='" + matricola + "'"
                 + "ORDER BY anno DESC, mese;");
-        
+
         StipendioImpiegato = new StipendioImpiegato(this, rs);
         LI.getHomeButton().setEnabled(false);
-        
+
     }
 
     public void sendSelectionTimeTables(String matricola, ListaImpiegati LI) {
         this.LI = LI;
         OrarioImpiegato OrarioImpiegati = new OrarioImpiegato(this);
         LI.getHomeButton().setEnabled(false);
-        
+
         ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(data_) "
                 + "from impiegato I, turno T, assegnazione_turno AT "
                 + "where AT.impiegato = I.matricola AND I.matricola='" + matricola + "' AND AT.turno = T.id;");
@@ -261,7 +274,7 @@ public class OrariStipendiControl {
             if (OI.next()) {
                 turno = ((OI.getInt(1) / 8) + 1);
                 giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
-            }else{
+            } else {
                 MostraErrore("Turni non trovati");
             }
         } catch (SQLException ex) {
@@ -336,7 +349,6 @@ public class OrariStipendiControl {
         );
         RitardoForm RT = new RitardoForm(rs, this);
 
-       
     }
 
     public void consultazioneRitardiImpiegatiButtonPressed(JFrame homepage) {
@@ -356,7 +368,7 @@ public class OrariStipendiControl {
         }
         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaRitardi");
-        
+
     }
 
     public void sendSelectionDelay(String matricola) {
@@ -382,7 +394,7 @@ public class OrariStipendiControl {
         for (int i = 0; i < LI.getImpiegati().size(); ++i) {
             LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
         }
-        
+
     }
 
 }

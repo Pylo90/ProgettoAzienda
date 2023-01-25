@@ -36,12 +36,12 @@ public class RitardoForm extends javax.swing.JFrame {
     ArrayList<String> motivi = new ArrayList<String>();
     Date dataselezionata = null;
     String motivoselezionato = null;
+    boolean found = false;
 
     public RitardoForm(ResultSet rs, OrariStipendiControl OSC) {
         this.rs = rs;
         this.OSC = OSC;
-        this.setVisible(true);
-        this.setAlwaysOnTop(true);
+        
         initComponents();
         try {
             while (rs.next()) {
@@ -49,14 +49,14 @@ public class RitardoForm extends javax.swing.JFrame {
                 cognome = rs.getString("cognome");
                 date.add(rs.getDate("data_"));
                 motivi.add(rs.getString("motivo"));
+                found = true;
+                
                 d++;
                 n = 0;
             }
         } catch (SQLException ex) {
             Logger.getLogger(RitardoForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setVisible(true);
-        this.setAlwaysOnTop(true);
 
         if (d != 0) {
             dataselezionata = date.get(n);
@@ -67,12 +67,11 @@ public class RitardoForm extends javax.swing.JFrame {
             jLabel3.setText("Data: " + dataselezionata);
             jTextPane1.setText(motivoselezionato);
         } else {
-            denLabel.setText("n/a");
-            numLabel.setText("n/a");
-            jLabel1.setText("Impiegato: " + nome + " " + cognome);
-            jLabel3.setText("Data: n/a");
-            jTextPane1.setText("nessun ritardo effettuato");
+            OSC.MostraErrore("Non sono stati effettuati ritardi");
+            return;
         }
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
 
     }
 

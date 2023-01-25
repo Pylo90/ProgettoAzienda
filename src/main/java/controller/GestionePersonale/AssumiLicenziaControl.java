@@ -171,7 +171,9 @@ public class AssumiLicenziaControl {
                 + 1 + ",'"
                 + cf + "');"); // inserisci impiegato
         try {
+            if(path!= null){
             DBMSBoundary.updatePropic(matricola, new FileInputStream(path));
+            }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -130,7 +130,7 @@ public class Errore extends javax.swing.JFrame {
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(255, 248, 238));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("testo notifica");

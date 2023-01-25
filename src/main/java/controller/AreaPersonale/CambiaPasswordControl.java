@@ -83,8 +83,9 @@ public class CambiaPasswordControl {
         }
     }
 
-    public void submitForm(String vp, String np, String cp) {
+    public void submitForm(String vp, String np, String cp, CambiaPasswordBoundary CPB) {
         //invio modifica password
+        this.CPB = CPB;
         ResultSet pwSet;
         pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" + Utente.getMatricola() + ";");
         try {
@@ -96,10 +97,13 @@ public class CambiaPasswordControl {
                     MostraErrore("Vecchia password errata");
                     return;
                 }
-                if (np != cp) {
+                if (!np.equals(cp)) {
                     MostraErrore("Nuova password e conferma non coincidono");
                     return;
                 }
+                String passw = BCrypt.hashpw(np, BCrypt.gensalt());
+                DBMSBoundary.updateQuery("update impiegato set psw ='"+passw+"' where matricola=" + Utente.getMatricola() + ";");
+                
                 MostraNotifica("Password cambiata correttamente");
             }
         } catch (SQLException ex) {

@@ -403,11 +403,15 @@ public class RichiesteControl {
             HPA.getPermesso().setVisible(true);
             HPA.getFerie().setVisible(true);
             HPA.getCongedoParentale().setVisible(true);
+            HPA.getMalattiaButton().setVisible(true);
+
         } else {
             HPA.getjLabel3().setVisible(false);
             HPA.getPermesso().setVisible(false);
             HPA.getFerie().setVisible(false);
             HPA.getCongedoParentale().setVisible(false);
+            HPA.getMalattiaButton().setVisible(false);
+
         }
     }
 

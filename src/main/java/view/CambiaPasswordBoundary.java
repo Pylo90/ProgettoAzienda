@@ -12,17 +12,20 @@ import javax.swing.ButtonGroup;
  * @author Monica Salluzzo
  */
 public class CambiaPasswordBoundary extends javax.swing.JFrame {
+
     public ButtonGroup getButtonGroup1() {
         return buttonGroup1;
     }
+
     /**
      * Creates new form ModificaPassword
      */
     public CambiaPasswordBoundary(CambiaPasswordControl CPC) {
         this.CPC = CPC;
+
+        initComponents();
         this.setVisible(true);
         this.setAlwaysOnTop(true);
-        initComponents();
     }
 
     /**
@@ -76,13 +79,13 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Modifica Password");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(280, 6, 538, 88);
+        jLabel1.setBounds(260, 50, 538, 88);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Vecchia Password :");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(310, 310, 410, 64);
+        jLabel2.setBounds(390, 380, 410, 64);
 
         jPasswordField1.setBackground(new java.awt.Color(219, 213, 205));
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -94,13 +97,13 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(700, 410, 783, 64);
+        jPasswordField1.setBounds(780, 480, 783, 64);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nuova Password :");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(310, 410, 380, 64);
+        jLabel3.setBounds(390, 480, 380, 64);
 
         jTextField1.setBackground(new java.awt.Color(219, 213, 205));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -112,13 +115,13 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(720, 310, 759, 64);
+        jTextField1.setBounds(800, 380, 759, 64);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Conferma Nuova Password :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(310, 500, 620, 64);
+        jLabel4.setBounds(390, 570, 620, 64);
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,14 +141,14 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(750, 650, 195, 50);
+        jButton2.setBounds(830, 720, 195, 50);
 
         jPasswordField2.setBackground(new java.awt.Color(219, 213, 205));
         jPasswordField2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jPasswordField2.setBorder(null);
         jPasswordField2.setPreferredSize(new java.awt.Dimension(65, 64));
         jPanel1.add(jPasswordField2);
-        jPasswordField2.setBounds(920, 500, 563, 64);
+        jPasswordField2.setBounds(1000, 570, 563, 64);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Angolo.png"))); // NOI18N
         jPanel1.add(jLabel5);
@@ -175,16 +178,16 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
-      
+
         CPC.DisposeWindow(this);
-      
+
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-            CPC.submitForm(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()), String.valueOf(jPasswordField2.getPassword()));
-        
+
+        CPC.submitForm(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()), String.valueOf(jPasswordField2.getPassword()), this);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -245,7 +248,5 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     CambiaPasswordControl CPC;
-
-    
 
 }

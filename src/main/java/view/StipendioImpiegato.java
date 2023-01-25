@@ -26,6 +26,7 @@ public class StipendioImpiegato extends javax.swing.JFrame {
      */
     int meseIndex;
     int annoIndex;
+    boolean found = false;
     ArrayList<String> Y = new ArrayList<String>();
     ArrayList<String> M = new ArrayList<String>();
     String N;
@@ -46,8 +47,7 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         initComponents();
 
         MonthLabel.setText(mesi[meseIndex]);
-        this.setVisible(true);
-        this.setAlwaysOnTop(true);
+        
         try {
             while (rs.next()) {
                 Y.add(rs.getString("anno"));
@@ -60,6 +60,7 @@ public class StipendioImpiegato extends javax.swing.JFrame {
                 N = rs.getString("nome");
                 C = rs.getString("cognome");
                 mat = rs.getString("matricola");
+                found = true;
             }
         } catch (SQLException ex) {
             Logger.getLogger(StipendioImpiegato.class.getName()).log(Level.SEVERE, null, ex);
@@ -67,6 +68,7 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         ImpiegatoLabel.setText("Impiegato selezionato: " + N + " " + C);
         ImpiegatoLabel.setText("Matricola: " + mat);
         
+        if(found){
         i = 0;
         StipendioBase.setText(String.valueOf(base.get(i)));
         StipendioBonus.setText(String.valueOf(bonus.get(i)));
@@ -78,6 +80,11 @@ public class StipendioImpiegato extends javax.swing.JFrame {
         MonthLabel.setText(mesi[meseIndex]);
         annoIndex = Integer.parseInt(Y.get(i));
         YearLabel.setText(String.valueOf(annoIndex));
+        this.setVisible(true);
+        this.setAlwaysOnTop(true);
+        } else {
+            OSC.MostraErrore("Stripendi non trovati");
+        }
 
     }
 

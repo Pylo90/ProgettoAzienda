@@ -39,6 +39,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         permessoButton.setVisible(false);
         ferieButton.setVisible(false);
         congedoButton.setVisible(false);
+        MalattiaButton.setVisible(false);
         nameText.setText(nome + " " + cognome);
         idText.setText(matricola);
         mailText.setText(mail);
@@ -64,7 +65,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         congedoButton = new javax.swing.JButton();
         assumiButton = new javax.swing.JButton();
         licenziaButton = new javax.swing.JButton();
-        scioperoLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         passwordButton = new javax.swing.JButton();
@@ -74,7 +74,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         scheduleButton = new javax.swing.JButton();
         requestButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        ritardoLabel = new javax.swing.JLabel();
+        ComunicaSciopero = new javax.swing.JButton();
+        requestButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         impSalaryButton = new javax.swing.JButton();
         impScheduleButton = new javax.swing.JButton();
@@ -211,23 +212,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         mainPanel.add(licenziaButton);
         licenziaButton.setBounds(1610, 200, 100, 100);
 
-        scioperoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        scioperoLabel.setForeground(new java.awt.Color(255, 255, 255));
-        scioperoLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        scioperoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina-flipped.png"))); // NOI18N
-        scioperoLabel.setText("Indici sciopero");
-        scioperoLabel.setToolTipText("");
-        scioperoLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        scioperoLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        scioperoLabel.setIconTextGap(0);
-        scioperoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                scioperoLabelMouseClicked(evt);
-            }
-        });
-        mainPanel.add(scioperoLabel);
-        scioperoLabel.setBounds(1570, 942, 350, 100);
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SecondaCostinaHomepageImpiegato.png"))); // NOI18N
         mainPanel.add(jLabel3);
         jLabel3.setBounds(200, 0, 450, 270);
@@ -336,22 +320,47 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         mainPanel.add(jPanel1);
         jPanel1.setBounds(0, 0, 200, 875);
 
-        ritardoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        ritardoLabel.setForeground(new java.awt.Color(255, 255, 255));
-        ritardoLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        ritardoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina.png"))); // NOI18N
-        ritardoLabel.setText("Firma ritardo");
-        ritardoLabel.setToolTipText("");
-        ritardoLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        ritardoLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ritardoLabel.setIconTextGap(0);
-        ritardoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ritardoLabelMouseClicked(evt);
+        ComunicaSciopero.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ComunicaSciopero.setForeground(new java.awt.Color(255, 255, 255));
+        ComunicaSciopero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina-flipped.png"))); // NOI18N
+        ComunicaSciopero.setText("Indici Sciopero");
+        ComunicaSciopero.setToolTipText("Firma Ritardo");
+        ComunicaSciopero.setBorder(null);
+        ComunicaSciopero.setBorderPainted(false);
+        buttonGroup1.add(ComunicaSciopero);
+        ComunicaSciopero.setContentAreaFilled(false);
+        ComunicaSciopero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ComunicaSciopero.setFocusable(false);
+        ComunicaSciopero.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ComunicaSciopero.setName(""); // NOI18N
+        ComunicaSciopero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComunicaScioperoActionPerformed(evt);
             }
         });
-        mainPanel.add(ritardoLabel);
-        ritardoLabel.setBounds(0, 942, 350, 100);
+        mainPanel.add(ComunicaSciopero);
+        ComunicaSciopero.setBounds(1570, 940, 350, 100);
+
+        requestButton2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        requestButton2.setForeground(new java.awt.Color(255, 255, 255));
+        requestButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina.png"))); // NOI18N
+        requestButton2.setText("Firma Ritardo");
+        requestButton2.setToolTipText("Firma Ritardo");
+        requestButton2.setBorder(null);
+        requestButton2.setBorderPainted(false);
+        buttonGroup1.add(requestButton2);
+        requestButton2.setContentAreaFilled(false);
+        requestButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        requestButton2.setFocusable(false);
+        requestButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        requestButton2.setName(""); // NOI18N
+        requestButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestButton2ActionPerformed(evt);
+            }
+        });
+        mainPanel.add(requestButton2);
+        requestButton2.setBounds(0, 942, 350, 100);
 
         jPanel3.setBackground(new java.awt.Color(255, 248, 238));
         jPanel3.setLayout(null);
@@ -610,16 +619,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     }//GEN-LAST:event_switchButtonActionPerformed
     
 
-    private void ritardoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ritardoLabelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ritardoLabelMouseClicked
-
-    private void scioperoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scioperoLabelMouseClicked
-        // TODO add your handling code here:
-            RicC = new RichiesteControl();
-            RicC.ComunicazioneScioperoButtonPressed(this);
-    }//GEN-LAST:event_scioperoLabelMouseClicked
-
     private void permessoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permessoButtonActionPerformed
         // TODO add your handling code here:
             RicC = new RichiesteControl();
@@ -654,6 +653,16 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     }//GEN-LAST:event_editButton1ActionPerformed
 
+    private void requestButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_requestButton2ActionPerformed
+
+    private void ComunicaScioperoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComunicaScioperoActionPerformed
+        // TODO add your handling code here:
+        RicC = new RichiesteControl();
+            RicC.ComunicazioneScioperoButtonPressed(this);
+    }//GEN-LAST:event_ComunicaScioperoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -666,6 +675,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ComunicaSciopero;
     private javax.swing.JLabel Cornice;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton MalattiaButton;
@@ -699,14 +709,15 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private javax.swing.JTextField phoneText;
     private javax.swing.JButton requestButton;
     private javax.swing.JButton requestButton1;
-    private javax.swing.JLabel ritardoLabel;
+    private javax.swing.JButton requestButton2;
     private javax.swing.JButton salaryButton;
     private javax.swing.JButton scheduleButton;
-    private javax.swing.JLabel scioperoLabel;
     private javax.swing.JButton switchButton;
     // End of variables declaration//GEN-END:variables
 
 
+    
+    
     public JButton getCongedoParentale() {
         return congedoButton;
     }
@@ -722,5 +733,10 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     public JLabel getjLabel3() {
         return jLabel3;
     }
+
+    public JButton getMalattiaButton() {
+        return MalattiaButton;
+    }
+    
 
 }
