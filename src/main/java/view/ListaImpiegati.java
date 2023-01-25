@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import model.DBMSBoundary;
@@ -50,11 +51,8 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         if (controller instanceof AssumiLicenziaControl) {
             this.ALC = (AssumiLicenziaControl) controller;
         }
-        /*if (controller instanceof StraordinariControl) {
-            this.SC = (StraordinariControl) controller;
-        }*/
         
-        this.setAlwaysOnTop(true);
+        
         initComponents();
         this.funzione = f;
         searchField.getDocument().addDocumentListener(this);
@@ -79,7 +77,9 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         } catch (SQLException ex) {
             Logger.getLogger(ListaImpiegati.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("cazzi");
         this.setVisible(true);
+        this.setAlwaysOnTop(true);
     }
 
     public void addInfoPane(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello, ImageIcon propic) {
@@ -97,7 +97,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     public void getFromInfoBox(String matricola) {
         switch (funzione) {
             case "ConsultaStipendi":
-                OSC.sendSelectionSalary(matricola);
+                OSC.sendSelectionSalary(matricola, this);
                 break;
 
             case "ConsultaOrari":
@@ -119,7 +119,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
                 RC.selectWorker(matricola, "2");
                 break;
             case "ConsultaRitardi":
-                OSC.sendSelectionDelay(matricola);
+                OSC.sendSelectionDelay(matricola, this);
                 break;
 
         }
@@ -338,6 +338,10 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchFieldActionPerformed
+
+    public JTextField getSearchField() {
+        return searchField;
+    }
 
     @Override
     public void changedUpdate(DocumentEvent e) {

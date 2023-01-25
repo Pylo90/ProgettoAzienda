@@ -162,6 +162,11 @@ public class RichiesteControl {
         }
         if (LI != null) {
             LI.getHomeButton().setEnabled(false);
+            LI.getSearchField().setEditable(false);
+            for (int i = 0; i < LI.getImpiegati().size(); ++i) {
+                LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
+                LI.setAlwaysOnTop(false);
+            }
         }
         if (RF != null) {
             Enumeration<AbstractButton> buttons = RF.getButtonGroup1().getElements();
@@ -203,6 +208,11 @@ public class RichiesteControl {
         }
         if (LI != null) {
             LI.getHomeButton().setEnabled(true);
+            LI.getSearchField().setEditable(true);
+            for (int i = 0; i < LI.getImpiegati().size(); ++i) {
+                LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(true);
+                LI.setAlwaysOnTop(true);
+            }
         }
         if (RF != null) {
             Enumeration<AbstractButton> buttons = RF.getButtonGroup1().getElements();
@@ -435,6 +445,14 @@ public class RichiesteControl {
                 buttons.nextElement().setEnabled(true);
             }
         }
+        if (LI != null) {
+            LI.getHomeButton().setEnabled(true);
+            LI.getSearchField().setEditable(true);
+            for (int i = 0; i < LI.getImpiegati().size(); ++i) {
+                LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(true);
+                LI.setAlwaysOnTop(true);
+            }
+        }
 
     }
 
@@ -460,10 +478,10 @@ public class RichiesteControl {
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(false);
             }
-            ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
-            LI = new ListaImpiegati(this, rs, "ScambiaOrari");
 
         }
+        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
+        LI = new ListaImpiegati(this, rs, "ScambiaOrari");
     }
 
     public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String idRichiesta, String motivazione) {
@@ -610,12 +628,26 @@ public class RichiesteControl {
             case "1":
                 matScambio1 = matricola;
                 CI = new CalendarioInterattivo(this, "ScambiaOrari");
-
+                if (LI != null) {
+                    LI.getHomeButton().setEnabled(false);
+                    LI.getSearchField().setEditable(false);
+                    for (int i = 0; i < LI.getImpiegati().size(); ++i) {
+                        LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
+                        LI.setAlwaysOnTop(false);
+                    }
+                }
                 break;
             case "2":
                 matScambio2 = matricola;
                 CI = new CalendarioInterattivo(this, "ScambiaOrari2");
-
+                if (LI != null) {
+                    LI.getHomeButton().setEnabled(false);
+                    LI.getSearchField().setEditable(false);
+                    for (int i = 0; i < LI.getImpiegati().size(); ++i) {
+                        LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
+                        LI.setAlwaysOnTop(false);
+                    }
+                }
                 break;
         }
 
@@ -638,7 +670,8 @@ public class RichiesteControl {
                         LI = new ListaImpiegati(this, rs, "ScambiaOrari2");
 
                     } else {
-                        MostraErrore("Impossibile torvare un turno lavorativo nel giorno selezionato");
+                        LI.getHomeButton().setEnabled(false);
+                        MostraErrore("Nessun turno lavorativo nel giorno selezionato");
                     }
                 } catch (SQLException sQLException) {
                 }
@@ -668,7 +701,8 @@ public class RichiesteControl {
                         DisposeWindow(this.LI);
 
                     } else {
-                        MostraErrore("Impossibile torvare un turno lavorativo nel giorno selezionato");
+                        LI.getHomeButton().setEnabled(false);
+                        MostraErrore("Nessun turno lavorativo nel giorno selezionato");
                     }
                 } catch (SQLException sQLException) {
                 }
