@@ -14,10 +14,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import model.Utente;
 
-/**
- *
- * @author Davide
- */
 public class HomepageAmministratore extends javax.swing.JFrame {
 
     public ButtonGroup getButtonGroup1() {

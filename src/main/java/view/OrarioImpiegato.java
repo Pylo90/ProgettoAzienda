@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import controller.AreaPersonale.OrariStipendiControl;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 
-/**
- *
- * @author dario
- */
 public class OrarioImpiegato extends javax.swing.JFrame {
 
     /**

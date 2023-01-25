@@ -18,10 +18,6 @@ import view.HomepageImpiegato;
 import view.LoginForm;
 import view.Notifica;
 
-/**
- *
- * @author davide
- */
 public class LoginControl {
 
     public LoginControl() {

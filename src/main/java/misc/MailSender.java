@@ -10,10 +10,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
-/**
- *
- * @author Davide
- */
 public class MailSender {
 
     public static void main(String[] args) {

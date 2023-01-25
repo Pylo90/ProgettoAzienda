@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import controller.GestionePersonale.AssumiLicenziaControl;
@@ -17,10 +13,6 @@ import javax.swing.ImageIcon;
 import model.Utente;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
-/**
- *
- * @author Utente
- */
 public class HomepageDatore extends javax.swing.JFrame {
     public ButtonGroup getButtonGroup1() {
         return buttonGroup1;

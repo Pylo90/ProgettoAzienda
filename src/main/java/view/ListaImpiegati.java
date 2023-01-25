@@ -24,10 +24,6 @@ import javax.swing.event.DocumentListener;
 import model.DBMSBoundary;
 import view.style.ScrollBarCustom;
 
-/**
- *
- * @author Davide
- */
 public class ListaImpiegati extends javax.swing.JFrame implements DocumentListener {
 
     OrariStipendiControl OSC;

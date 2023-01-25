@@ -13,14 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import view.style.ScrollBarCustom;
 
-/*
-* PER VERIFICARE IL FUNZIONAMENTO DELLA PAGINA PREMERE IL TASTO HOME
-* VERRANNO AGGIUNTE DELLE CARD RICHIESTA ALLA LISTA
- */
-/**
- *
- * @author Davide
- */
 public class RichiestaList extends javax.swing.JFrame {
 
     int cardCount;

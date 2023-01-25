@@ -3,14 +3,6 @@ package view;
 import controller.AreaPersonale.RichiesteControl;
 import javax.swing.ButtonGroup;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-/**
- *
- * @author Monica Salluzzo
- */
 public class CongedoForm extends javax.swing.JFrame {
 
     /**

@@ -8,14 +8,6 @@ import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import model.DBMSBoundary;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-/**
- *
- * @author Monica Salluzzo
- */
 public class RichiestaForm extends javax.swing.JFrame {
     public ButtonGroup getButtonGroup1() {
         return buttonGroup1;

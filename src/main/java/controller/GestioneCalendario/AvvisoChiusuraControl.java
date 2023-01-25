@@ -7,10 +7,6 @@ import misc.MailSender;
 import model.DBMSBoundary;
 import model.Utente;
 
-/**
- *
- * @author Davide
- */
 public class AvvisoChiusuraControl implements Runnable {
     
     @Override
