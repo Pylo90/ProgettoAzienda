@@ -416,77 +416,79 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void BankButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BankButtonActionPerformed
         // TODO add your handling code here:
-            OSC = new OrariStipendiControl();
-            OSC.ConsultaStipendioButtonPressed(this);
+        OSC = new OrariStipendiControl();
+        OSC.ConsultaStipendioButtonPressed(this);
     }//GEN-LAST:event_BankButtonActionPerformed
 
     private void ScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleButtonActionPerformed
         // TODO add your handling code here:
-            OSC = new OrariStipendiControl();
-            OSC.ConsultaOrarioButtonPressed(this);
+        OSC = new OrariStipendiControl();
+        OSC.ConsultaOrarioButtonPressed(this);
     }//GEN-LAST:event_ScheduleButtonActionPerformed
 
     private void PasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordButtonActionPerformed
         // TODO add your handling code here:
-            CPC = new CambiaPasswordControl();
-            CPC.CPButtonPressed(this);
+        CPC = new CambiaPasswordControl();
+        CPC.CPButtonPressed(this);
 
     }//GEN-LAST:event_PasswordButtonActionPerformed
 
     private void NotificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotificationButtonActionPerformed
         // TODO add your handling code here:
-            RicC = new RichiesteControl();
-            RicC.ConsultazioneListaRichiesteButtonPressed(this);
+        RicC = new RichiesteControl();
+        RicC.ConsultazioneListaRichiesteButtonPressed(this);
     }//GEN-LAST:event_NotificationButtonActionPerformed
 
     private void RequestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButtonActionPerformed
         // TODO add your handling code here:
-            RicC = new RichiesteControl();
-            RicC.MostraRichiesteButtonPressed(this);
+        RicC = new RichiesteControl();
+        RicC.MostraRichiesteButtonPressed(this);
     }//GEN-LAST:event_RequestButtonActionPerformed
 
     private void RequestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton1ActionPerformed
         // TODO add your handling code here:
-            FirC = new FirmaControl();
-            FirC.firmaRitardoButtonPressed(this);
+        FirC = new FirmaControl();
+        FirC.firmaRitardoButtonPressed(this);
 
     }//GEN-LAST:event_RequestButton1ActionPerformed
 
     private void PermessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PermessoActionPerformed
         // TODO add your handling code here:
-            RicC = new RichiesteControl();
-            RicC.RichiestaPermessoButtonPressed(this);
+        RicC = new RichiesteControl();
+        RicC.RichiestaPermessoButtonPressed(this);
     }//GEN-LAST:event_PermessoActionPerformed
 
     private void FerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FerieActionPerformed
         // TODO add your handling code here:
-            RicC = new RichiesteControl();
-            RicC.RichiestaFerieButtonPressed(this);
+        RicC = new RichiesteControl();
+        RicC.RichiestaFerieButtonPressed(this);
     }//GEN-LAST:event_FerieActionPerformed
 
     private void CongedoParentaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CongedoParentaleActionPerformed
         // TODO add your handling code here:
-            RicC = new RichiesteControl();
-            RicC.RichiestaCongedoParentaleButtonPressed(this);
+        RicC = new RichiesteControl();
+        RicC.RichiestaCongedoParentaleButtonPressed(this);
     }//GEN-LAST:event_CongedoParentaleActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-            if (LC != null) {
-                LC.DisposeWindow(this);
-            } else {
-                this.dispose();
-            }
+        LC = new LoginControl();
+
+        if (LC != null) {
+            LC.DisposeWindow(this);
+        } else {
+            this.dispose();
+        }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void ComunicazioneMalattiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComunicazioneMalattiaActionPerformed
-            RicC = new RichiesteControl();
-            RicC.ComunicazioneMalattiaButtonPressed(this);
+        RicC = new RichiesteControl();
+        RicC.ComunicazioneMalattiaButtonPressed(this);
     }//GEN-LAST:event_ComunicazioneMalattiaActionPerformed
 
     private void requestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton1ActionPerformed
         // TODO add your handling code here:
-            OSC = new OrariStipendiControl();
-            OSC.consultazioneRitardiButtonPressed(this);
+        OSC = new OrariStipendiControl();
+        OSC.consultazioneRitardiButtonPressed(this);
     }//GEN-LAST:event_requestButton1ActionPerformed
 
     /**
@@ -526,8 +528,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 //    private CambiaPasswordControl CPC = new CambiaPasswordControl();
-
-
     public JButton getCongedoParentale() {
         return CongedoParentale;
     }
@@ -551,7 +551,5 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     public ButtonGroup getButtonGroup1() {
         return buttonGroup1;
     }
-
-    
 
 }

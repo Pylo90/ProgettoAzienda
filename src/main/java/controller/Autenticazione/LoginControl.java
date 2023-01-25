@@ -43,17 +43,7 @@ public class LoginControl {
         String mat = matricola;
         String psw = password;
 
-        /*imp = DBMSBoundary.getQuery("SELECT nome, cognome, matricola,email,tel,propic,livello FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "' AND psw = '" + psw + "';");
-
-        try {
-            if (imp.next()) {
-                correctData(imp, LF);
-            } else {
-                wrongData();
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }*/
+        
         imp = DBMSBoundary.getQuery("SELECT COUNT(matricola), psw, nome, cognome, matricola, email, tel, propic, livello FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "'");
 
         try {
@@ -128,9 +118,9 @@ public class LoginControl {
                 break;
         } //DEBUG
         Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
-            while (buttons.hasMoreElements()) {
-                buttons.nextElement().setEnabled(false);
-            }
+        while (buttons.hasMoreElements()) {
+            buttons.nextElement().setEnabled(false);
+        }
     }
 
     /**
@@ -138,7 +128,7 @@ public class LoginControl {
      */
     private void wrongData() {
         MostraErrore("Dati errati");
-        
+
     }
 
     /* TODO */
@@ -146,9 +136,9 @@ public class LoginControl {
         new RecuperaPasswordControl().showRecuperaPassword();
         LF.setAlwaysOnTop(false);
         Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
-            while (buttons.hasMoreElements()) {
-                buttons.nextElement().setEnabled(false);
-            }
+        while (buttons.hasMoreElements()) {
+            buttons.nextElement().setEnabled(false);
+        }
     }
 
     /* Debug main */
@@ -181,7 +171,7 @@ public class LoginControl {
             LF.getMatricolaField().setEditable(false);
             LF.getPasswordField().setEditable(false);
             LF.setAlwaysOnTop(false);
-            
+
             Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(false);
@@ -203,15 +193,17 @@ public class LoginControl {
 
     }
 
-    public void SubmitNotice(JFrame finestra) {
-        DisposeWindow(finestra);
-        Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
+    public void SubmitNotice(Notifica finestra) {
+
+        if (LF != null) {
+            Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(true);
             }
-        LF.getEmailField().setEditable(true);
-        LF.getMatricolaField().setEditable(true);
-        LF.getPasswordField().setEditable(true);
+            LF.getEmailField().setEditable(true);
+            LF.getMatricolaField().setEditable(true);
+            LF.getPasswordField().setEditable(true);
+        }
         switch (livello) {
             case 0:
                 HomepageDatore HPD = new HomepageDatore(nome, cognome, matricola, tel, mail, proPicToSend, this);
@@ -238,15 +230,24 @@ public class LoginControl {
                 HPI.setVisible(true);
                 DisposeWindow(LF);
                 break;
+            case 5:
+                finestra.dispose();
+            
 
         } //DEBUG
+        finestra.dispose();
     }
 
     public void DisposeWindow(JFrame window) {
         if (window instanceof HomepageImpiegato || window instanceof HomepageDatore || window instanceof HomepageAmministratore) {
+            
             createLogin();
+            window.dispose();
+            MostraNotifica("Logout effettuato correttamente");
+            livello = 5;
 
+        } else {
+            window.dispose();
         }
-        window.dispose();
     }
 }

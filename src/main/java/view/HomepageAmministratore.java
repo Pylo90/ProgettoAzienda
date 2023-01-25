@@ -594,12 +594,14 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
         // TODO add your handling code here:
-        // TODO add your handling code here:
+        ALC = new AssumiLicenziaControl();
         ALC.assumiImpiegatoButtonPressed(this);
     }//GEN-LAST:event_assumiButtonActionPerformed
 
     private void licenziaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licenziaButtonActionPerformed
         // TODO add your handling code here:
+        ALC = new AssumiLicenziaControl();
+
         ALC.licenziaImpiegatoButtonPressed(this);
     }//GEN-LAST:event_licenziaButtonActionPerformed
 
@@ -636,6 +638,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         // TODO add your handling code here:
+        LC = new LoginControl();
         LC.DisposeWindow(this);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 

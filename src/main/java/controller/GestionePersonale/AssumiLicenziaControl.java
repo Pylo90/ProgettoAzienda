@@ -148,6 +148,17 @@ public class AssumiLicenziaControl {
 
     public void sendData(String name, String surname, String mail, String cf, ImageIcon foto, String numero, int livello, String path) {
         int number = 0;
+        
+        ResultSet r = DBMSBoundary.getQuery("select count(matricola) from impiegato;");
+        try {
+            if(r.next()){
+                number = r.getInt(1);
+            }else {
+                number = 0;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AssumiLicenziaControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         String matricola = this.generateMatricola(livello, number);
         String plainPW = generatePlainPassword(12);
@@ -156,7 +167,7 @@ public class AssumiLicenziaControl {
         long PINtemporaneo = this.generatePin(); //deve essere di 6 cifre e randomico
         //entrambi i metodi diventano campi del fantoccio
 
-        MailSender.sendMail(mail, "Password e Pin", "Password: " + plainPW + "   , Pin: " + PINtemporaneo);
+        MailSender.sendMail("darioromano212@gmail.com", "Password e Pin impiegato "+name+" "+surname+"", "Password: " + plainPW + "      Pin: " + PINtemporaneo+ "      Matricola: "+matricola+"");
         DBMSBoundary.updateQuery("insert into impiegato values('"
                 + matricola + "','"
                 + surname + "','"
