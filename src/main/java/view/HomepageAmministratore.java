@@ -2,6 +2,7 @@ package view;
 
 import controller.GestionePersonale.AssumiLicenziaControl;
 import controller.AreaPersonale.CambiaPasswordControl;
+import controller.AreaPersonale.FirmaControl;
 import controller.Autenticazione.LoginControl;
 //import controller.MalattiaControl;
 import controller.AreaPersonale.OrariStipendiControl;
@@ -29,8 +30,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private OrariStipendiControl OSC;
     private CambiaPasswordControl CPC;
     private RichiesteControl RicC;
-    //private MalattiaControl MC;
-    //private StraordinariControl SC;
+    private FirmaControl FirC;
     private AssumiLicenziaControl ALC;
     private LoginControl LC;
 
@@ -658,6 +658,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void requestButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton2ActionPerformed
         // TODO add your handling code here:
+        FirC = new FirmaControl();
+        FirC.firmaRitardoButtonPressed(this);
     }//GEN-LAST:event_requestButton2ActionPerformed
 
     private void ComunicaScioperoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComunicaScioperoActionPerformed
