@@ -225,7 +225,9 @@ public class AssumiLicenziaControl {
     public void disposeProfiloPopup(ProfiloPopup pp) {
         pp.dispose();
         for (int i = 0; i < LI.getImpiegati().size(); ++i) {
-            LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
+            LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(true);
+            LI.getSearchField().setEditable(true);
+            LI.getHomeButton().setEnabled(true);
         }
     }
 
@@ -305,6 +307,7 @@ public class AssumiLicenziaControl {
         rs = DBMSBoundary.getQuery("select * from impiegato where impiegato.matricola = " + matricola + " ;");
         JFrame ProfiloPopup = new ProfiloPopup(this, rs);
         LI.getHomeButton().setEnabled(false);
+        LI.getSearchField().setEditable(false);
         LI.setAlwaysOnTop(false);
         for (int i = 0; i < LI.getImpiegati().size(); ++i) {
             LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);

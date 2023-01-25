@@ -368,8 +368,8 @@ public class OrariStipendiControl {
 
     public void consultazioneRitardiImpiegatiButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageDatore) {
-            this.HPI = (HomepageImpiegato) homepage;
-            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            this.HPD = (HomepageDatore) homepage;
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(false);
             }
