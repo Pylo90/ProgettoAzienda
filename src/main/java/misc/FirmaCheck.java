@@ -30,7 +30,7 @@ public class FirmaCheck implements Runnable {
     @Override
     public void run() {
         ResultSet rs;
-        while (true) {
+        while (Utente.getMatricola() != null) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
