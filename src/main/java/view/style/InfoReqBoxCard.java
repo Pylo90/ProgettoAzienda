@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
 /**
@@ -27,20 +28,15 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     String idRichiesta;
     String testo;
 
-    private boolean clickable;
-
-    public boolean isClickable() {
-        return clickable;
+    public JButton getSelectButton() {
+        return selectButton;
     }
 
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
+    
 
     public InfoReqBoxCard(RichiesteControl RC, String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String id, String motivazione) {
         initComponents();
 
-        setClickable(true);
         nome = nomeMittente;
         cognome = cognomeMittente;
         switch (tipoRichiesta) {
@@ -173,9 +169,7 @@ public class InfoReqBoxCard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        if (isClickable()) {
             RC.showRichiesta(nome, cognome, tipo, data, dati, idRichiesta, testo);
-        }
     }//GEN-LAST:event_selectButtonActionPerformed
 
     private void typeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeFieldActionPerformed

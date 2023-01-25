@@ -11,6 +11,7 @@ import controller.Autenticazione.LoginControl;
 //import controller.MalattiaControl;
 import controller.AreaPersonale.OrariStipendiControl;
 import controller.AreaPersonale.RichiesteControl;
+import javax.swing.ButtonGroup;
 //import controller.StraordinariControl;
 import javax.swing.ImageIcon;
 import model.Utente;
@@ -21,7 +22,9 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
  * @author Utente
  */
 public class HomepageDatore extends javax.swing.JFrame {
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     /**
      * Creates new form HomepageDatore
      */
@@ -31,7 +34,6 @@ public class HomepageDatore extends javax.swing.JFrame {
     public HomepageDatore(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
         Utente.setMatricola(matricola);
         initComponents();
-        setClickable(true);
         nameText.setText(nome + " " + cognome);
         idText.setText(matricola);
         mailText.setText(mail);
@@ -51,6 +53,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
         ImpScheduleButton = new javax.swing.JButton();
@@ -92,6 +95,8 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         ImpScheduleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrariImpiegatoButton.png"))); // NOI18N
         ImpScheduleButton.setBorder(null);
+        ImpScheduleButton.setBorderPainted(false);
+        buttonGroup1.add(ImpScheduleButton);
         ImpScheduleButton.setContentAreaFilled(false);
         ImpScheduleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ImpScheduleButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +109,8 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         ImpSalaryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SalaryImpiegatoIcon.png"))); // NOI18N
         ImpSalaryButton.setBorder(null);
+        ImpSalaryButton.setBorderPainted(false);
+        buttonGroup1.add(ImpSalaryButton);
         ImpSalaryButton.setContentAreaFilled(false);
         ImpSalaryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ImpSalaryButton.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +123,8 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         switchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SwitchButton.png"))); // NOI18N
         switchButton.setBorder(null);
+        switchButton.setBorderPainted(false);
+        buttonGroup1.add(switchButton);
         switchButton.setContentAreaFilled(false);
         switchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         switchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +137,8 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         straordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EditButton.png"))); // NOI18N
         straordButton.setBorder(null);
+        straordButton.setBorderPainted(false);
+        buttonGroup1.add(straordButton);
         straordButton.setContentAreaFilled(false);
         straordButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         straordButton.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +152,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         passwordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PasswordButton.png"))); // NOI18N
         passwordButton.setBorder(null);
         passwordButton.setBorderPainted(false);
+        buttonGroup1.add(passwordButton);
         passwordButton.setContentAreaFilled(false);
         passwordButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         passwordButton.setFocusable(false);
@@ -154,6 +166,8 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         straordButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardiImpiegatoButton.png"))); // NOI18N
         straordButton1.setBorder(null);
+        straordButton1.setBorderPainted(false);
+        buttonGroup1.add(straordButton1);
         straordButton1.setContentAreaFilled(false);
         straordButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         straordButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +181,7 @@ public class HomepageDatore extends javax.swing.JFrame {
         notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/NotificationButton.png"))); // NOI18N
         notificationButton.setBorder(null);
         notificationButton.setBorderPainted(false);
+        buttonGroup1.add(notificationButton);
         notificationButton.setContentAreaFilled(false);
         notificationButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         notificationButton.setFocusable(false);
@@ -180,6 +195,8 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         assumiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AssumiButton.png"))); // NOI18N
         assumiButton.setBorder(null);
+        assumiButton.setBorderPainted(false);
+        buttonGroup1.add(assumiButton);
         assumiButton.setContentAreaFilled(false);
         assumiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         assumiButton.setIconTextGap(0);
@@ -193,6 +210,8 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         licenziaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LicenziaButton.png"))); // NOI18N
         licenziaButton.setBorder(null);
+        licenziaButton.setBorderPainted(false);
+        buttonGroup1.add(licenziaButton);
         licenziaButton.setContentAreaFilled(false);
         licenziaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         licenziaButton.setIconTextGap(0);
@@ -206,6 +225,8 @@ public class HomepageDatore extends javax.swing.JFrame {
 
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
         LogoutButton.setBorder(null);
+        LogoutButton.setBorderPainted(false);
+        buttonGroup1.add(LogoutButton);
         LogoutButton.setContentAreaFilled(false);
         LogoutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -317,70 +338,50 @@ public class HomepageDatore extends javax.swing.JFrame {
 
     private void ImpSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpSalaryButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             OSC.ConsultaStipendiImpiegatiButtonPressed(this);
-        }
     }//GEN-LAST:event_ImpSalaryButtonActionPerformed
     
     private void ImpScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpScheduleButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             OSC.ConsultaOrariImpiegatiButtonPressed(this);
-        }
     }//GEN-LAST:event_ImpScheduleButtonActionPerformed
     
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RC.ScambiaOrariButtonPressed(this);
-        }
     }//GEN-LAST:event_switchButtonActionPerformed
 
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             ALC.assumiImpiegatoButtonPressed(this);
-        }
     }//GEN-LAST:event_assumiButtonActionPerformed
     
     private void licenziaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licenziaButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             ALC.licenziaImpiegatoButtonPressed(this);
-        }
     }//GEN-LAST:event_licenziaButtonActionPerformed
     
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        if (isClickable()) {
             LC.DisposeWindow(this);
-        }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void passwordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             CPC = new CambiaPasswordControl();
             CPC.CPButtonPressed(this);
-        }
     }//GEN-LAST:event_passwordButtonActionPerformed
 
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
-        if (isClickable()) {
             RC.ConsultazioneListaRichiesteButtonPressed(this);
-        }
     }//GEN-LAST:event_notificationButtonActionPerformed
 
     private void straordButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButton1ActionPerformed
-        if (isClickable()) {
             OSC.consultazioneRitardiImpiegatiButtonPressed(this);
-        }
     }//GEN-LAST:event_straordButton1ActionPerformed
 
     private void straordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_straordButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             ALC.ModificaInfoImpiegatoButtonPressed(this);
-        }
     }//GEN-LAST:event_straordButtonActionPerformed
 
     /**
@@ -433,6 +434,7 @@ public class HomepageDatore extends javax.swing.JFrame {
     private javax.swing.JButton ImpScheduleButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton assumiButton;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField idText;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -458,13 +460,5 @@ public class HomepageDatore extends javax.swing.JFrame {
     private AssumiLicenziaControl ALC = new AssumiLicenziaControl();
     private OrariStipendiControl OSC = new OrariStipendiControl();
     private RichiesteControl RC = new RichiesteControl();
-    private boolean clickable;
 
-    public boolean isClickable() {
-        return clickable;
-    }
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 }

@@ -10,9 +10,11 @@ import java.io.InputStream;
 import java.security.SecureRandom;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import javax.swing.JFrame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import view.HomepageDatore;
 import view.HomepageAmministratore;
@@ -57,10 +59,16 @@ public class AssumiLicenziaControl {
         ResultSet rs = DBMSBoundary.getQuery("select * from impiegato;");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ModificaImpiegato");
         if (HPD != null) {
-            HPD.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (HPA != null) {
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
@@ -71,17 +79,23 @@ public class AssumiLicenziaControl {
         this.LI = LI;
         rs = DBMSBoundary.getQuery("select * from impiegato where impiegato.matricola = " + matricola + " ;");
         JFrame ModificaInfoImpiegato = new ModificaInfoImpiegato(this, rs);
-        LI.setClickable(false);
+        LI.getHomeButton().setEnabled(false);
 
     }
 
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
-        if (HPA != null) {
-            HPA.setClickable(true);
-        }
         if (HPD != null) {
-            HPD.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
+        }
+        if (HPA != null) {
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
 
     }
@@ -95,10 +109,16 @@ public class AssumiLicenziaControl {
         }
         JFrame AssumiImpiegatoBoundary = new AssumiImpiegatoBoundary(this);
         if (HPD != null) {
-            HPD.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (HPA != null) {
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
 
     }
@@ -113,10 +133,16 @@ public class AssumiLicenziaControl {
         ResultSet rs = DBMSBoundary.getQuery("select * from impiegato;");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "LicenziaImpiegato");
         if (HPD != null) {
-            HPD.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (HPA != null) {
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
 
     }
@@ -182,17 +208,23 @@ public class AssumiLicenziaControl {
         }
         finestra.dispose();
         if (HPD != null) {
-            HPD.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if (HPA != null) {
-            HPA.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
     }
 
     public void disposeProfiloPopup(ProfiloPopup pp) {
         pp.dispose();
         for (int i = 0; i < LI.getImpiegati().size(); ++i) {
-            LI.getImpiegati().get(i).setClickable(true);
+            LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
         }
     }
 
@@ -271,10 +303,10 @@ public class AssumiLicenziaControl {
         this.LI = LI;
         rs = DBMSBoundary.getQuery("select * from impiegato where impiegato.matricola = " + matricola + " ;");
         JFrame ProfiloPopup = new ProfiloPopup(this, rs);
-        LI.setClickable(false);
+        LI.getHomeButton().setEnabled(false);
         LI.setAlwaysOnTop(false);
         for (int i = 0; i < LI.getImpiegati().size(); ++i) {
-            LI.getImpiegati().get(i).setClickable(false);
+            LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
         }
 
     }
@@ -299,27 +331,38 @@ public class AssumiLicenziaControl {
 
     public void MostraErrore(String messaggio) {
         if (LI!= null){
-            LI.setClickable(false);
+            LI.getHomeButton().setEnabled(false);
         }
         if(MII!= null){
-            MII.setClickable(false);
+            Enumeration<AbstractButton> buttons = MII.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if(AIB!= null){
-            AIB.setClickable(false);
+            Enumeration<AbstractButton> buttons = AIB.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         new Errore(messaggio, this);
     }
 
     public void SubmitError(JFrame finestra) {
-        finestra.dispose();
         if (LI!= null){
-            LI.setClickable(true);
+            LI.getHomeButton().setEnabled(true);
         }
         if(MII!= null){
-            MII.setClickable(true);
+            Enumeration<AbstractButton> buttons = MII.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if(AIB!= null){
-            AIB.setClickable(true);
+            Enumeration<AbstractButton> buttons = AIB.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
     }
 

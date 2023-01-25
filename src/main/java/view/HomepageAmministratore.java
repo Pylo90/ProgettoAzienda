@@ -8,6 +8,7 @@ import controller.AreaPersonale.OrariStipendiControl;
 import controller.AreaPersonale.RichiesteControl;
 //import controller.StraordinariControl;
 import java.awt.Dimension;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,9 +19,11 @@ import model.Utente;
  * @author Davide
  */
 public class HomepageAmministratore extends javax.swing.JFrame {
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     LoginControl lc;
-    private boolean clickable;
+    
     private OrariStipendiControl OSC;
     private CambiaPasswordControl CPC;
     private RichiesteControl RicC;
@@ -36,7 +39,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         permessoButton.setVisible(false);
         ferieButton.setVisible(false);
         congedoButton.setVisible(false);
-        setClickable(true);
         nameText.setText(nome + " " + cognome);
         idText.setText(matricola);
         mailText.setText(mail);
@@ -54,6 +56,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         mainPanel = new javax.swing.JPanel();
         permessoButton = new javax.swing.JButton();
         ferieButton = new javax.swing.JButton();
@@ -108,6 +111,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         permessoButton.setText("Permesso");
         permessoButton.setBorder(null);
         permessoButton.setBorderPainted(false);
+        buttonGroup1.add(permessoButton);
         permessoButton.setContentAreaFilled(false);
         permessoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         permessoButton.setFocusPainted(false);
@@ -126,6 +130,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         ferieButton.setText("Ferie");
         ferieButton.setBorder(null);
         ferieButton.setBorderPainted(false);
+        buttonGroup1.add(ferieButton);
         ferieButton.setContentAreaFilled(false);
         ferieButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ferieButton.setFocusable(false);
@@ -143,6 +148,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         MalattiaButton.setText("Comunica Malattia");
         MalattiaButton.setBorder(null);
         MalattiaButton.setBorderPainted(false);
+        buttonGroup1.add(MalattiaButton);
         MalattiaButton.setContentAreaFilled(false);
         MalattiaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MalattiaButton.setFocusable(false);
@@ -161,6 +167,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         congedoButton.setText("Congedo parentale");
         congedoButton.setBorder(null);
         congedoButton.setBorderPainted(false);
+        buttonGroup1.add(congedoButton);
         congedoButton.setContentAreaFilled(false);
         congedoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         congedoButton.setFocusable(false);
@@ -176,6 +183,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         assumiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AssumiButton.png"))); // NOI18N
         assumiButton.setBorder(null);
+        assumiButton.setBorderPainted(false);
+        buttonGroup1.add(assumiButton);
         assumiButton.setContentAreaFilled(false);
         assumiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         assumiButton.setIconTextGap(0);
@@ -189,6 +198,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         licenziaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LicenziaButton.png"))); // NOI18N
         licenziaButton.setBorder(null);
+        licenziaButton.setBorderPainted(false);
+        buttonGroup1.add(licenziaButton);
         licenziaButton.setContentAreaFilled(false);
         licenziaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         licenziaButton.setIconTextGap(0);
@@ -231,6 +242,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         passwordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PasswordButton.png"))); // NOI18N
         passwordButton.setBorder(null);
         passwordButton.setBorderPainted(false);
+        buttonGroup1.add(passwordButton);
         passwordButton.setContentAreaFilled(false);
         passwordButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         passwordButton.setFocusable(false);
@@ -245,6 +257,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         salaryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BankButton.png"))); // NOI18N
         salaryButton.setBorder(null);
         salaryButton.setBorderPainted(false);
+        buttonGroup1.add(salaryButton);
         salaryButton.setContentAreaFilled(false);
         salaryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         salaryButton.setFocusable(false);
@@ -259,6 +272,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/NotificationButton.png"))); // NOI18N
         notificationButton.setBorder(null);
         notificationButton.setBorderPainted(false);
+        buttonGroup1.add(notificationButton);
         notificationButton.setContentAreaFilled(false);
         notificationButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         notificationButton.setFocusable(false);
@@ -273,6 +287,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         requestButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RequestIcon.png"))); // NOI18N
         requestButton.setBorder(null);
         requestButton.setBorderPainted(false);
+        buttonGroup1.add(requestButton);
         requestButton.setContentAreaFilled(false);
         requestButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         requestButton.setFocusable(false);
@@ -287,6 +302,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         scheduleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ScheduleButton.png"))); // NOI18N
         scheduleButton.setBorder(null);
         scheduleButton.setBorderPainted(false);
+        buttonGroup1.add(scheduleButton);
         scheduleButton.setContentAreaFilled(false);
         scheduleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         scheduleButton.setFocusable(false);
@@ -301,6 +317,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         requestButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardiButton.png"))); // NOI18N
         requestButton1.setBorder(null);
         requestButton1.setBorderPainted(false);
+        buttonGroup1.add(requestButton1);
         requestButton1.setContentAreaFilled(false);
         requestButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         requestButton1.setFocusable(false);
@@ -341,6 +358,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         impSalaryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SalaryImpiegatoIcon.png"))); // NOI18N
         impSalaryButton.setBorder(null);
+        impSalaryButton.setBorderPainted(false);
+        buttonGroup1.add(impSalaryButton);
         impSalaryButton.setContentAreaFilled(false);
         impSalaryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         impSalaryButton.addActionListener(new java.awt.event.ActionListener() {
@@ -353,6 +372,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         impScheduleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrariImpiegatoButton.png"))); // NOI18N
         impScheduleButton.setBorder(null);
+        impScheduleButton.setBorderPainted(false);
+        buttonGroup1.add(impScheduleButton);
         impScheduleButton.setContentAreaFilled(false);
         impScheduleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         impScheduleButton.addActionListener(new java.awt.event.ActionListener() {
@@ -365,6 +386,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         switchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SwitchButton.png"))); // NOI18N
         switchButton.setBorder(null);
+        switchButton.setBorderPainted(false);
+        buttonGroup1.add(switchButton);
         switchButton.setContentAreaFilled(false);
         switchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         switchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -377,6 +400,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EditButton.png"))); // NOI18N
         editButton.setBorder(null);
+        editButton.setBorderPainted(false);
+        buttonGroup1.add(editButton);
         editButton.setContentAreaFilled(false);
         editButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -389,6 +414,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         editButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardiImpiegatoButton.png"))); // NOI18N
         editButton1.setBorder(null);
+        editButton1.setBorderPainted(false);
+        buttonGroup1.add(editButton1);
         editButton1.setContentAreaFilled(false);
         editButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -464,6 +491,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
         LogoutButton.setBorder(null);
+        LogoutButton.setBorderPainted(false);
+        buttonGroup1.add(LogoutButton);
         LogoutButton.setContentAreaFilled(false);
         LogoutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -510,99 +539,76 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void ferieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ferieButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.RichiestaFerieButtonPressed(this);
-        }
     }//GEN-LAST:event_ferieButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             ALC = new AssumiLicenziaControl();
             ALC.ModificaInfoImpiegatoButtonPressed(this);
-        }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void salaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             OSC = new OrariStipendiControl();
             OSC.ConsultaStipendioButtonPressed(this);
-        }
 
     }//GEN-LAST:event_salaryButtonActionPerformed
 
     private void scheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheduleButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             OSC = new OrariStipendiControl();
             OSC.ConsultaOrarioButtonPressed(this);
-        }
     }//GEN-LAST:event_scheduleButtonActionPerformed
 
     private void passwordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             CPC = new CambiaPasswordControl();
             CPC.CPButtonPressed(this);
-        }
     }//GEN-LAST:event_passwordButtonActionPerformed
 
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.ConsultazioneListaRichiesteButtonPressed(this);
-        }
     }//GEN-LAST:event_notificationButtonActionPerformed
 
     private void requestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.RichiesteButtonPressed(this);
-        }
     }//GEN-LAST:event_requestButtonActionPerformed
 
     private void assumiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assumiButtonActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
-        if (isClickable()) {
             ALC.assumiImpiegatoButtonPressed(this);
-        }
     }//GEN-LAST:event_assumiButtonActionPerformed
 
     private void licenziaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licenziaButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             ALC.licenziaImpiegatoButtonPressed(this);
-        }
     }//GEN-LAST:event_licenziaButtonActionPerformed
 
     private void impSalaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impSalaryButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             OSC = new OrariStipendiControl();
             OSC.ConsultaStipendiImpiegatiButtonPressed(this);
-        }
     }//GEN-LAST:event_impSalaryButtonActionPerformed
 
     private void impScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impScheduleButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             OSC = new OrariStipendiControl();
             OSC.ConsultaOrariImpiegatiButtonPressed(this);
-        }
     }//GEN-LAST:event_impScheduleButtonActionPerformed
 
     private void switchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.ScambiaOrariButtonPressed(this);
     }//GEN-LAST:event_switchButtonActionPerformed
-    }
+    
 
     private void ritardoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ritardoLabelMouseClicked
         // TODO add your handling code here:
@@ -610,54 +616,42 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     private void scioperoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scioperoLabelMouseClicked
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.ComunicazioneScioperoButtonPressed(this);
-        }
     }//GEN-LAST:event_scioperoLabelMouseClicked
 
     private void permessoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permessoButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.RichiestaPermessoButtonPressed(this);
-        }
     }//GEN-LAST:event_permessoButtonActionPerformed
 
     private void congedoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_congedoButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.RichiestaCongedoParentaleButtonPressed(this);
-        }
     }//GEN-LAST:event_congedoButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             LC.DisposeWindow(this);
-        }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void MalattiaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MalattiaButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.ComunicazioneMalattiaButtonPressed(this);
-        }
     }//GEN-LAST:event_MalattiaButtonActionPerformed
 
     private void requestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton1ActionPerformed
-        if (isClickable()) {
             OSC = new OrariStipendiControl();
             OSC.consultazioneRitardiButtonPressed(this);
-        }
     }//GEN-LAST:event_requestButton1ActionPerformed
 
     private void editButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButton1ActionPerformed
-        if (isClickable()) {
+
             OSC.consultazioneRitardiImpiegatiButtonPressed(this);
-        }
+
     }//GEN-LAST:event_editButton1ActionPerformed
 
     /**
@@ -677,6 +671,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private javax.swing.JButton MalattiaButton;
     private javax.swing.JLabel Propic;
     private javax.swing.JButton assumiButton;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton congedoButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton editButton1;
@@ -711,13 +706,6 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private javax.swing.JButton switchButton;
     // End of variables declaration//GEN-END:variables
 
-    public boolean isClickable() {
-        return clickable;
-    }
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
     public JButton getCongedoParentale() {
         return congedoButton;

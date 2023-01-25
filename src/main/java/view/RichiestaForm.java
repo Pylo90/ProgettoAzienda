@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
 import model.DBMSBoundary;
 
 /*
@@ -16,7 +17,9 @@ import model.DBMSBoundary;
  * @author Monica Salluzzo
  */
 public class RichiestaForm extends javax.swing.JFrame {
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     /**
      * Creates new form RichiestaFrom
      */
@@ -24,7 +27,6 @@ public class RichiestaForm extends javax.swing.JFrame {
     String tipoRichiesta;
     String dati;
     String idRichiesta;
-    private boolean clickable;
 
     public RichiestaForm(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, RichiesteControl RC, String idRichiesta, String testo) {
         this.RC = RC;
@@ -128,6 +130,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
+        buttonGroup1.add(jButton1);
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +153,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         jButton2.setAlignmentY(0.0F);
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
+        buttonGroup1.add(jButton2);
         jButton2.setContentAreaFilled(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setIconTextGap(0);
@@ -167,6 +171,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         jButton4.setAlignmentY(0.0F);
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
+        buttonGroup1.add(jButton4);
         jButton4.setContentAreaFilled(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setIconTextGap(0);
@@ -259,25 +264,19 @@ public class RichiestaForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RC.accettaRichiesta(idRichiesta);
             RC.DisposeForm(this);
             System.out.println(idRichiesta);
-        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (isClickable()) {
             RC.rifiutaRichiesta(idRichiesta);
             RC.DisposeForm(this);
-        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (isClickable()) {
             RC.DisposeForm(this);
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -316,13 +315,7 @@ public class RichiestaForm extends javax.swing.JFrame {
         });*/
     }
 
-    public boolean isClickable() {
-        return clickable;
-    }
 
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

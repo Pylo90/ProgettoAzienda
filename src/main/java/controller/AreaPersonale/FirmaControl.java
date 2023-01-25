@@ -6,8 +6,10 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Calendar;
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
 import view.Errore;
@@ -46,36 +48,59 @@ public class FirmaControl {
     public void firmaRitardoButtonPressed(JFrame HP) {
         if (HP instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) HP;
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (HP instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) HP;
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
-        HPI.setClickable(false);
+        
         JFrame RitardoBoundary = new RitardoBoundary(this);
 
     }
 
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
-        HPI.setClickable(true);
+        Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
     }
 
     public void MostraErrore(String messaggio) {
         if (FF != null) {
-            FF.setClickable(false);
+            Enumeration<AbstractButton> buttons = FF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (RB != null) {
-            RB.setClickable(false);
+            Enumeration<AbstractButton> buttons = RB.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         new Errore(messaggio, this);
     }
 
     public void MostraNotifica(String messaggio) {
         if (FF != null) {
-            FF.setClickable(false);
+            Enumeration<AbstractButton> buttons = FF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (RB != null) {
-            RB.setClickable(false);
+            Enumeration<AbstractButton> buttons = RB.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         new Notifica(messaggio, this);
     }
@@ -83,20 +108,32 @@ public class FirmaControl {
     public void SubmitError(JFrame finestra) {
         finestra.dispose();
         if (FF != null) {
-            FF.setClickable(true);
+            Enumeration<AbstractButton> buttons = FF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if (RB != null) {
-            RB.setClickable(true);
+            Enumeration<AbstractButton> buttons = RB.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
     }
 
     public void SubmitNotice(JFrame finestra) {
         finestra.dispose();
         if (FF != null) {
-            FF.setClickable(true);
+            Enumeration<AbstractButton> buttons = FF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if (RB != null) {
-            RB.setClickable(true);
+            Enumeration<AbstractButton> buttons = RB.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
     }
 

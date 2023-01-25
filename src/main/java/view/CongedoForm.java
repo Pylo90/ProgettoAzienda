@@ -1,6 +1,7 @@
 package view;
 
 import controller.AreaPersonale.RichiesteControl;
+import javax.swing.ButtonGroup;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,8 +16,10 @@ public class CongedoForm extends javax.swing.JFrame {
     /**
      * Creates new form CongedoForm
      */
-    private boolean clickable;
-
+   
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     public CongedoForm(RichiesteControl RC) {
         this.RC = RC;
 
@@ -34,10 +37,10 @@ public class CongedoForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -58,8 +61,6 @@ public class CongedoForm extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBorder(null);
-
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ConfirmButton.png"))); // NOI18N
@@ -67,6 +68,7 @@ public class CongedoForm extends javax.swing.JFrame {
         jButton3.setAlignmentY(0.0F);
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
+        buttonGroup1.add(jButton3);
         jButton3.setContentAreaFilled(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setIconTextGap(0);
@@ -78,7 +80,10 @@ public class CongedoForm extends javax.swing.JFrame {
         });
 
         jButton32.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
-        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
+        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
+        jButton32.setBorder(null);
+        jButton32.setBorderPainted(false);
+        buttonGroup1.add(jButton32);
         jButton32.setContentAreaFilled(false);
         jButton32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton32.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -122,9 +127,7 @@ public class CongedoForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
+                .addComponent(jButton3)
                 .addGap(203, 203, 203))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(234, 234, 234)
@@ -147,11 +150,9 @@ public class CongedoForm extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(8, 8, 8)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(jButton2)
-                        .addContainerGap(34, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 84, Short.MAX_VALUE)
                         .addComponent(jButton3)
                         .addGap(30, 30, 30))))
         );
@@ -176,17 +177,17 @@ public class CongedoForm extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
+       
             RC.sendSelection(Integer.parseInt(jTextField1.getText()));
 
-        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
+        
             RC.DisposeWindow(this);
-        }
+        
     }//GEN-LAST:event_jButton32ActionPerformed
 
     /**
@@ -225,7 +226,7 @@ public class CongedoForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton32;
     private javax.swing.JLabel jLabel1;
@@ -237,12 +238,5 @@ public class CongedoForm extends javax.swing.JFrame {
 
     RichiesteControl RC;
 
-    public boolean isClickable() {
-        return clickable;
-    }
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
 }

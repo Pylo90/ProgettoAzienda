@@ -1,6 +1,7 @@
 package view.style;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import view.ListaImpiegati;
@@ -17,10 +18,8 @@ public class InfoBoxCard extends javax.swing.JPanel {
     String matricola;
     ListaImpiegati li;
 
-    private boolean clickable;
 
     public InfoBoxCard(String matricolaImpiegato, String nomeImpiegato, String cognomeImpiegato, String livello, ImageIcon proPic, ListaImpiegati li) {
-        setClickable(true);
         initComponents();
         this.matricola = matricolaImpiegato;
         this.li = li;
@@ -49,8 +48,8 @@ public class InfoBoxCard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        useThisToHandleClick = new javax.swing.JButton();
         Cornice = new javax.swing.JLabel();
-        useThisToHandleClick = new javax.swing.JLabel();
         surnameField = new javax.swing.JTextField();
         levelField = new javax.swing.JTextField();
         nameField = new javax.swing.JTextField();
@@ -65,18 +64,18 @@ public class InfoBoxCard extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1201, 113));
         setLayout(null);
 
-        Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice105x105.png"))); // NOI18N
-        add(Cornice);
-        Cornice.setBounds(1090, 3, 105, 105);
-
-        useThisToHandleClick.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        useThisToHandleClick.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                useThisToHandleClick(evt);
+        useThisToHandleClick.setContentAreaFilled(false);
+        useThisToHandleClick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                useThisToHandleClickActionPerformed(evt);
             }
         });
         add(useThisToHandleClick);
         useThisToHandleClick.setBounds(0, 0, 1200, 110);
+
+        Cornice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cornice105x105.png"))); // NOI18N
+        add(Cornice);
+        Cornice.setBounds(1090, 3, 105, 105);
 
         surnameField.setBackground(new java.awt.Color(219, 213, 205));
         surnameField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -135,13 +134,6 @@ public class InfoBoxCard extends javax.swing.JPanel {
         jLabel1.setBounds(0, 0, 1200, 110);
     }// </editor-fold>//GEN-END:initComponents
 
-    /*UTILIZZARE QUESTO METODO PER GESTIRE IL CLICK SULL'IMPIEGATO DALLA LISTA*/
-    private void useThisToHandleClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_useThisToHandleClick
-        if (isClickable()) {
-            li.getFromInfoBox(matricola);
-        }
-    }//GEN-LAST:event_useThisToHandleClick
-
     private void levelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_levelFieldActionPerformed
@@ -149,6 +141,11 @@ public class InfoBoxCard extends javax.swing.JPanel {
     private void surnameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_surnameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_surnameFieldActionPerformed
+
+    private void useThisToHandleClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useThisToHandleClickActionPerformed
+        // TODO add your handling code here:
+        li.getFromInfoBox(matricola);
+    }//GEN-LAST:event_useThisToHandleClickActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -159,7 +156,7 @@ public class InfoBoxCard extends javax.swing.JPanel {
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel propic;
     private javax.swing.JTextField surnameField;
-    private javax.swing.JLabel useThisToHandleClick;
+    private javax.swing.JButton useThisToHandleClick;
     // End of variables declaration//GEN-END:variables
 
     public JTextField getLevelField() {
@@ -178,12 +175,9 @@ public class InfoBoxCard extends javax.swing.JPanel {
         return surnameField;
     }
 
-    public boolean isClickable() {
-        return clickable;
+    public JButton getUseThisToHandleClick() {
+        return useThisToHandleClick;
     }
 
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
 }

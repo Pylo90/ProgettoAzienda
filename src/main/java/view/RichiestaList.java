@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import view.style.ScrollBarCustom;
 
@@ -25,16 +26,13 @@ public class RichiestaList extends javax.swing.JFrame {
     int cardCount;
     RichiesteControl RC;
     ResultSet rs;
-    private boolean clickable;
     private ArrayList<InfoReqBoxCard> richieste = new ArrayList<InfoReqBoxCard>();
 
-    public boolean isClickable() {
-        return clickable;
+    public JButton getHomeButton() {
+        return homeButton;
     }
 
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
+   
 
     public ArrayList<InfoReqBoxCard> getRichieste() {
         return richieste;
@@ -44,7 +42,6 @@ public class RichiestaList extends javax.swing.JFrame {
 
         this.RC = RiC;
         this.rs = rst;
-        setClickable(true);
         initComponents();
         cardCount = 0;
         listScrollPane.setVerticalScrollBar(new ScrollBarCustom());
@@ -203,9 +200,7 @@ public class RichiestaList extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        if (RC != null && isClickable()) {
             RC.DisposeWindow(this);
-        }
     }//GEN-LAST:event_homeButtonActionPerformed
 
     /**

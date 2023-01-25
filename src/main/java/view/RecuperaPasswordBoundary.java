@@ -15,7 +15,9 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         initComponents();
         this.rc = rc;
     }
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -314,9 +316,6 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
         return surnameField;
     }
 
-    public ButtonGroup getButtonGroup1() {
-        return buttonGroup1;
-    }
 
     
 }

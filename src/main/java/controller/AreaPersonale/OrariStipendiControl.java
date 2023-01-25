@@ -6,8 +6,10 @@ package controller.AreaPersonale;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
 import model.Utente;
@@ -38,11 +40,17 @@ public class OrariStipendiControl {
     public void ConsultaOrarioButtonPressed(JFrame HP) {
         if (HP instanceof HomepageImpiegato) {
             HPI = (HomepageImpiegato) HP;
-            HPI.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (HP instanceof HomepageAmministratore) {
             HPA = (HomepageAmministratore) HP;
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
 
         OrarioImpiegato OrarioImpiegati = new OrarioImpiegato(this);
@@ -112,11 +120,17 @@ public class OrariStipendiControl {
     public void ConsultaStipendioButtonPressed(JFrame HP) {
         if (HP instanceof HomepageImpiegato) {
             HPI = (HomepageImpiegato) HP;
-            HPI.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (HP instanceof HomepageAmministratore) {
             HPA = (HomepageAmministratore) HP;
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         ResultSet rs = DBMSBoundary.getQuery(
                 "SELECT matricola, nome, cognome, anno, mese, base, bonus, straord, malattia, congedo "
@@ -132,14 +146,15 @@ public class OrariStipendiControl {
     
     public void MostraErrore(String messaggio){
         if(LI != null){
-            LI.setClickable(false);
+            LI.getHomeButton().setEnabled(false);
+            
         }
         new Errore(messaggio, this);
     }
     
     public void SubmitError(JFrame finestra) {
         if(LI != null){
-            LI.setClickable(true);
+            LI.getHomeButton().setEnabled(false);
         }
         finestra.dispose();
     }
@@ -147,18 +162,27 @@ public class OrariStipendiControl {
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
         if (HPI != null) {
-            HPI.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if (HPA != null) {
-            HPA.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if (HPD != null) {
-            HPD.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if (LI != null) {
-            LI.setClickable(true);
+            LI.getHomeButton().setEnabled(true);
             for (int i = 0; i < LI.getImpiegati().size(); ++i) {
-                LI.getImpiegati().get(i).setClickable(true);
+                LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(true);
             }
         }
     }
@@ -166,11 +190,17 @@ public class OrariStipendiControl {
     public void ConsultaStipendiImpiegatiButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageDatore) {
             this.HPD = (HomepageDatore) homepage;
-            HPD.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola!='0';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaStipendi");
@@ -180,11 +210,17 @@ public class OrariStipendiControl {
     public void ConsultaOrariImpiegatiButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageDatore) {
             this.HPD = (HomepageDatore) homepage;
-            HPD.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaOrari");
@@ -207,14 +243,14 @@ public class OrariStipendiControl {
                 + "ORDER BY anno DESC, mese;");
         
         StipendioImpiegato = new StipendioImpiegato(this, rs);
-        LI.setClickable(false);
+        LI.getHomeButton().setEnabled(false);
         
     }
 
     public void sendSelectionTimeTables(String matricola, ListaImpiegati LI) {
         this.LI = LI;
         OrarioImpiegato OrarioImpiegati = new OrarioImpiegato(this);
-        LI.setClickable(false);
+        LI.getHomeButton().setEnabled(false);
         
         ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(data_) "
                 + "from impiegato I, turno T, assegnazione_turno AT "
@@ -281,11 +317,17 @@ public class OrariStipendiControl {
     public void consultazioneRitardiButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageDatore) {
             this.HPI = (HomepageImpiegato) homepage;
-            HPI.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         ResultSet rs = DBMSBoundary.getQuery(
                 "SELECT I.nome, I.cognome, R.data_, R.motivo "
@@ -300,11 +342,17 @@ public class OrariStipendiControl {
     public void consultazioneRitardiImpiegatiButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageDatore) {
             this.HPI = (HomepageImpiegato) homepage;
-            HPI.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaRitardi");
@@ -313,10 +361,16 @@ public class OrariStipendiControl {
 
     public void sendSelectionDelay(String matricola) {
         if (HPD != null) {
-            HPD.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (HPA != null) {
-            HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         ResultSet rs = DBMSBoundary.getQuery(
                 "SELECT I.nome, I.cognome, R.data_, R.motivo "
@@ -324,9 +378,9 @@ public class OrariStipendiControl {
                 + "WHERE R.impiegato = I.matricola AND I.matricola = '" + matricola + "';"
         );
         RitardoForm RT = new RitardoForm(rs, this);
-        LI.setClickable(false);
+        LI.getHomeButton().setEnabled(false);
         for (int i = 0; i < LI.getImpiegati().size(); ++i) {
-            LI.getImpiegati().get(i).setClickable(false);
+            LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
         }
         
     }

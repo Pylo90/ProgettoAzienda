@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
@@ -27,7 +28,9 @@ import model.Utente;
  * @author Utente
  */
 public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     /**
      * Creates new form AssumiImpiegatoBoundary
      */
@@ -54,6 +57,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         ConfirmButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
@@ -89,6 +93,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         ConfirmButton.setAlignmentY(0.0F);
         ConfirmButton.setBorder(null);
         ConfirmButton.setBorderPainted(false);
+        buttonGroup1.add(ConfirmButton);
         ConfirmButton.setContentAreaFilled(false);
         ConfirmButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ConfirmButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -105,6 +110,7 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
         homeButton.setBorder(null);
         homeButton.setBorderPainted(false);
+        buttonGroup1.add(homeButton);
         homeButton.setContentAreaFilled(false);
         homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         homeButton.setFocusPainted(false);
@@ -253,6 +259,9 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
         NomeTextField.setBounds(320, 450, 500, 65);
 
         FotoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Propic400x400.png"))); // NOI18N
+        FotoButton.setBorder(null);
+        FotoButton.setBorderPainted(false);
+        buttonGroup1.add(FotoButton);
         FotoButton.setContentAreaFilled(false);
         FotoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -436,20 +445,14 @@ public class AssumiImpiegatoBoundary extends javax.swing.JFrame {
     private javax.swing.JTextField NTelefonicoTextField;
     private javax.swing.JLabel NomeLabel;
     private javax.swing.JTextField NomeTextField;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton homeButton;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     AssumiLicenziaControl ALC;
 
-    private boolean clickable;
 
-    public boolean isClickable() {
-        return clickable;
-    }
 
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
 }

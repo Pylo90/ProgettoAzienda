@@ -9,8 +9,10 @@ import java.sql.SQLException;
 import java.time.Year;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
 import model.Utente;
@@ -139,65 +141,101 @@ public class RichiesteControl {
         DBMSBoundary.updateQuery("delete from richiesta where id ='" + idRichiesta + "';");
     }
 
-    public void MostraErrore(String messaggio){
-        if(CF != null){
-            CF.setClickable(false);
+    public void MostraErrore(String messaggio) {
+        if (CF != null) {
+            Enumeration<AbstractButton> buttons = CF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
-        if(CI != null){
-            CI.setClickable(false);
+        if (CI != null) {
+            Enumeration<AbstractButton> buttons = CI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
-        if(CIM != null){
-            CIM.setClickable(false);
+        if (CIM != null) {
+            Enumeration<AbstractButton> buttons = CIM.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
-        if(LI != null){
-            LI.setClickable(false);
+        if (LI != null) {
+            LI.getHomeButton().setEnabled(false);
         }
-        if(RF != null){
-            RF.setClickable(false);
+        if (RF != null) {
+            Enumeration<AbstractButton> buttons = RF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
-        if(RL != null){
-            RL.setClickable(false);
+        if (RL != null) {
+            RL.getHomeButton().setEnabled(false);
         }
-        if(SF != null){
-            SF.setClickable(false);
+        if (SF != null) {
+            Enumeration<AbstractButton> buttons = SF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
-        
-        new Errore(messaggio,this);
+
+        new Errore(messaggio, this);
     }
-    
+
     public void SubmitError(JFrame finestra) {
-        if(CF != null){
-            CF.setClickable(true);
+        if (CF != null) {
+            Enumeration<AbstractButton> buttons = CF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
-        if(CI != null){
-            CI.setClickable(true);
+        if (CI != null) {
+            Enumeration<AbstractButton> buttons = CI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
-        if(CIM != null){
-            CIM.setClickable(true);
+        if (CIM != null) {
+            Enumeration<AbstractButton> buttons = CIM.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
-        if(LI != null){
-            LI.setClickable(true);
+        if (LI != null) {
+            LI.getHomeButton().setEnabled(true);
         }
-        if(RF != null){
-            RF.setClickable(true);
+        if (RF != null) {
+            Enumeration<AbstractButton> buttons = RF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
-        if(RL != null){
-            RL.setClickable(true);
+        if (RL != null) {
+            RL.getHomeButton().setEnabled(true);
         }
-        if(SF != null){
-            SF.setClickable(true);
+        if (SF != null) {
+            Enumeration<AbstractButton> buttons = SF.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         finestra.dispose();
     }
-    
+
     public void RichiestaPermessoButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageImpiegato) {
-            this.HPI = (HomepageImpiegato) homepage;
-            this.HPI.setClickable(false);
+            HPI = (HomepageImpiegato) homepage;
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageAmministratore) {
-            this.HPA = (HomepageAmministratore) homepage;
-            this.HPA.setClickable(false);
+            HPA = (HomepageAmministratore) homepage;
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         funzione = "RichiestaPermesso";
         CI = new CalendarioInterattivo(this, funzione);
@@ -206,12 +244,18 @@ public class RichiesteControl {
 
     public void RichiestaFerieButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageImpiegato) {
-            this.HPI = (HomepageImpiegato) homepage;
-            this.HPI.setClickable(false);
+            HPI = (HomepageImpiegato) homepage;
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageAmministratore) {
-            this.HPA = (HomepageAmministratore) homepage;
-            this.HPA.setClickable(false);
+            HPA = (HomepageAmministratore) homepage;
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         funzione = "RichiestaFerie";
         CI = new CalendarioInterattivo(this, funzione);
@@ -220,12 +264,18 @@ public class RichiesteControl {
 
     public void ComunicazioneMalattiaButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageImpiegato) {
-            this.HPI = (HomepageImpiegato) homepage;
-            this.HPI.setClickable(false);
+            HPI = (HomepageImpiegato) homepage;
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageAmministratore) {
-            this.HPA = (HomepageAmministratore) homepage;
-            this.HPA.setClickable(false);
+            HPA = (HomepageAmministratore) homepage;
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         funzione = "ComunicazioneMalattia";
 
@@ -235,12 +285,18 @@ public class RichiesteControl {
 
     public void RichiestaCongedoParentaleButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageImpiegato) {
-            this.HPI = (HomepageImpiegato) homepage;
-            this.HPI.setClickable(false);
+            HPI = (HomepageImpiegato) homepage;
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageAmministratore) {
-            this.HPA = (HomepageAmministratore) homepage;
-            this.HPA.setClickable(false);
+            HPA = (HomepageAmministratore) homepage;
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         CF = new CongedoForm(this);
 
@@ -249,7 +305,10 @@ public class RichiesteControl {
     public void ComunicazioneScioperoButtonPressed(HomepageAmministratore HPA) {
 
         this.HPA = HPA;
-        this.HPA.setClickable(false);
+        Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+        while (buttons.hasMoreElements()) {
+            buttons.nextElement().setEnabled(false);
+        }
 
         funzione = "ComunicazioneSciopero";
         SF = new ScioperoForm(this);
@@ -279,7 +338,7 @@ public class RichiesteControl {
                 while (rs.next()) {
                     String idTurno = rs.getString("id");
                     DBMSBoundary.updateQuery("delete from assegnazione_turno AT where AT.turno = '" + idTurno + "' AND AT.impiegato = '" + Utente.getMatricola() + "';");
-                    
+
                 }
 
             } else {
@@ -293,15 +352,24 @@ public class RichiesteControl {
     public void ConsultazioneListaRichiesteButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageImpiegato) {
             this.HPI = (HomepageImpiegato) homepage;
-            this.HPI.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
-            this.HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageDatore) {
             this.HPD = (HomepageDatore) homepage;
-            this.HPD.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         ResultSet rs = DBMSBoundary.getQuery("select * "
                 + "from richiesta R, impiegato MITT "
@@ -346,44 +414,59 @@ public class RichiesteControl {
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
         if (HPI != null) {
-            HPI.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if (HPA != null) {
-            HPA.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if (HPD != null) {
-            HPD.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
 
     }
 
     public void DisposeForm(JFrame form) {
         form.dispose();
-        RL.setClickable(true);
+        RL.getHomeButton().setEnabled(true);
         for (int i = 0; i < RL.getRichieste().size(); ++i) {
-            RL.getRichieste().get(i).setClickable(true);
+            RL.getRichieste().get(i).getSelectButton().setEnabled(true);
         }
     }
 
     public void ScambiaOrariButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
-            this.HPA.setClickable(false);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
         }
         if (homepage instanceof HomepageDatore) {
             this.HPD = (HomepageDatore) homepage;
-            this.HPD.setClickable(false);
-        }
-        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
-        LI = new ListaImpiegati(this, rs, "ScambiaOrari");
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(false);
+            }
+            ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
+            LI = new ListaImpiegati(this, rs, "ScambiaOrari");
 
+        }
     }
 
     public void showRichiesta(String nomeMittente, String cognomeMittente, String tipoRichiesta, String dataScadenza, String dati, String idRichiesta, String motivazione) {
         RL.setAlwaysOnTop(false);
-        RL.setClickable(false);
+        RL.getHomeButton().setEnabled(false);
         for (int i = 0; i < RL.getRichieste().size(); ++i) {
-            RL.getRichieste().get(i).setClickable(false);
+            RL.getRichieste().get(i).getSelectButton().setEnabled(false);
         }
         RF = new RichiestaForm(nomeMittente, cognomeMittente, tipoRichiesta, dataScadenza, dati, this, idRichiesta, motivazione);
 
@@ -412,10 +495,16 @@ public class RichiesteControl {
             firstG = String.format("%02d", giorno);
             firstM = String.format("%02d", mese);
             if (HPI != null) {
-                this.HPI.setClickable(false);
+                Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+                while (buttons.hasMoreElements()) {
+                    buttons.nextElement().setEnabled(false);
+                }
             }
             if (HPA != null) {
-                this.HPA.setClickable(false);
+                Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+                while (buttons.hasMoreElements()) {
+                    buttons.nextElement().setEnabled(false);
+                }
             }
             funzione = "RichiestaFerie";
             CIM = new CalendarioInterattivoMotivazione(this, funzione);

@@ -1,6 +1,7 @@
 package view;
 
 import controller.AreaPersonale.CambiaPasswordControl;
+import javax.swing.ButtonGroup;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,7 +12,9 @@ import controller.AreaPersonale.CambiaPasswordControl;
  * @author Monica Salluzzo
  */
 public class CambiaPasswordBoundary extends javax.swing.JFrame {
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     /**
      * Creates new form ModificaPassword
      */
@@ -19,7 +22,6 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
         this.CPC = CPC;
         this.setVisible(true);
         this.setAlwaysOnTop(true);
-        this.setClickable (true);
         initComponents();
     }
 
@@ -32,6 +34,7 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         homeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -55,7 +58,9 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
+        homeButton.setBorder(null);
         homeButton.setBorderPainted(false);
+        buttonGroup1.add(homeButton);
         homeButton.setContentAreaFilled(false);
         homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         homeButton.setFocusable(false);
@@ -65,7 +70,7 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
             }
         });
         jPanel1.add(homeButton);
-        homeButton.setBounds(50, 33, 100, 107);
+        homeButton.setBounds(50, 33, 100, 100);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 65)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -122,6 +127,7 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
         jButton2.setAlignmentY(0.0F);
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
+        buttonGroup1.add(jButton2);
         jButton2.setContentAreaFilled(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setIconTextGap(0);
@@ -169,16 +175,16 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
+      
         CPC.DisposeWindow(this);
-        }
+      
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
+        
             CPC.submitForm(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()), String.valueOf(jPasswordField2.getPassword()));
-        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -224,6 +230,7 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -239,15 +246,6 @@ public class CambiaPasswordBoundary extends javax.swing.JFrame {
 
     CambiaPasswordControl CPC;
 
-    private boolean clickable;
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
-
-    public boolean isClickable() {
-        return clickable;
-    }
     
 
 }

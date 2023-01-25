@@ -2,13 +2,16 @@ package view;
 
 import controller.AreaPersonale.FirmaControl;
 import java.awt.Color;
+import javax.swing.ButtonGroup;
 
 /**
  *
  * @author Davide
  */
 public class FirmaForm extends javax.swing.JFrame {
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     boolean nameFieldPlaceHolder;
     boolean surnameFieldPlaceHolder;
     boolean matFieldPlaceHolder;
@@ -34,6 +37,7 @@ public class FirmaForm extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         mainPanel = new javax.swing.JPanel();
         nameField = new javax.swing.JTextField();
         surnameField = new javax.swing.JTextField();
@@ -120,6 +124,8 @@ public class FirmaForm extends javax.swing.JFrame {
 
         confirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InvioButton.png"))); // NOI18N
         confirmButton.setBorder(null);
+        confirmButton.setBorderPainted(false);
+        buttonGroup1.add(confirmButton);
         confirmButton.setContentAreaFilled(false);
         confirmButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +141,8 @@ public class FirmaForm extends javax.swing.JFrame {
 
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InvioButton-flipped.png"))); // NOI18N
         backButton.setBorder(null);
+        backButton.setBorderPainted(false);
+        buttonGroup1.add(backButton);
         backButton.setContentAreaFilled(false);
         backButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backButton.setFocusPainted(false);
@@ -236,6 +244,7 @@ public class FirmaForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton confirmButton;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField matField;
@@ -245,14 +254,5 @@ public class FirmaForm extends javax.swing.JFrame {
 
     FirmaControl FC;
 
-    private boolean clickable;
-
-    public boolean isClickable() {
-        return clickable;
-    }
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
 }

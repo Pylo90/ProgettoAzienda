@@ -5,6 +5,8 @@
 package controller.AreaPersonale;
 
 import java.sql.ResultSet;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
 import view.HomepageDatore;
@@ -33,13 +35,21 @@ public class StraordinariControl {
     public void AffidaStraordinariButtonPressed(JFrame homepage) {
         if (homepage instanceof HomepageDatore) {
             this.HPD = (HomepageDatore) homepage;
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+                while (buttons.hasMoreElements()) {
+                    buttons.nextElement().setEnabled(false);
+                }
         }
         if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+                while (buttons.hasMoreElements()) {
+                    buttons.nextElement().setEnabled(false);
+                }
         }
         ResultSet rs = DBMSBoundary.getQuery("select nome , cognome , propic , livello from impiegato;");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "AffidaStraordinari");
-        HPD.setClickable(false);
+        
         ListaImpiegati.setVisible(true);
         ListaImpiegati.setAlwaysOnTop(true);
     }
@@ -74,10 +84,16 @@ public class StraordinariControl {
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
         if (HPA != null) {
-            HPA.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPA.getButtonGroup1().getElements();
+            while (buttons.hasMoreElements()) {
+                buttons.nextElement().setEnabled(true);
+            }
         }
         if (HPD != null) {
-            HPD.setClickable(true);
+            Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
+                while (buttons.hasMoreElements()) {
+                    buttons.nextElement().setEnabled(true);
+                }
         }
 
     }

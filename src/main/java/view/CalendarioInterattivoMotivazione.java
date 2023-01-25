@@ -5,6 +5,7 @@
 package view;
 
 import controller.AreaPersonale.RichiesteControl;
+import javax.swing.ButtonGroup;
 //import controller.StraordinariControl;
 import model.Utente;
 import javax.swing.JButton;
@@ -14,7 +15,9 @@ import javax.swing.JButton;
  * @author dario
  */
 public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     /**
      * Creates new form CalendarioInterattivo
      */
@@ -44,6 +47,7 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -101,9 +105,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton1.setText("1");
         jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        buttonGroup1.add(jButton1);
         jButton1.setContentAreaFilled(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -117,9 +122,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton2.setText("2");
         jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        buttonGroup1.add(jButton2);
         jButton2.setContentAreaFilled(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -133,9 +139,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton3.setText("3");
         jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        buttonGroup1.add(jButton3);
         jButton3.setContentAreaFilled(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -149,9 +156,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton4.setText("4");
         jButton4.setBorder(null);
+        jButton4.setBorderPainted(false);
+        buttonGroup1.add(jButton4);
         jButton4.setContentAreaFilled(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -165,9 +173,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton5.setText("5");
         jButton5.setBorder(null);
+        jButton5.setBorderPainted(false);
+        buttonGroup1.add(jButton5);
         jButton5.setContentAreaFilled(false);
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -181,9 +190,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton6.setText("6");
         jButton6.setBorder(null);
+        jButton6.setBorderPainted(false);
+        buttonGroup1.add(jButton6);
         jButton6.setContentAreaFilled(false);
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -197,9 +207,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton7.setText("7");
         jButton7.setBorder(null);
+        jButton7.setBorderPainted(false);
+        buttonGroup1.add(jButton7);
         jButton7.setContentAreaFilled(false);
         jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -213,9 +224,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton8.setText("8");
         jButton8.setBorder(null);
+        jButton8.setBorderPainted(false);
+        buttonGroup1.add(jButton8);
         jButton8.setContentAreaFilled(false);
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton8.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -229,9 +241,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton9.setText("9");
         jButton9.setBorder(null);
+        jButton9.setBorderPainted(false);
+        buttonGroup1.add(jButton9);
         jButton9.setContentAreaFilled(false);
         jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton9.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -245,9 +258,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton10.setText("10");
         jButton10.setBorder(null);
+        jButton10.setBorderPainted(false);
+        buttonGroup1.add(jButton10);
         jButton10.setContentAreaFilled(false);
         jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton10.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -261,9 +275,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton11.setText("11");
         jButton11.setBorder(null);
+        jButton11.setBorderPainted(false);
+        buttonGroup1.add(jButton11);
         jButton11.setContentAreaFilled(false);
         jButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton11.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -277,9 +292,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton12.setText("12");
         jButton12.setBorder(null);
+        jButton12.setBorderPainted(false);
+        buttonGroup1.add(jButton12);
         jButton12.setContentAreaFilled(false);
         jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton12.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -293,9 +309,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton13.setText("13");
         jButton13.setBorder(null);
+        jButton13.setBorderPainted(false);
+        buttonGroup1.add(jButton13);
         jButton13.setContentAreaFilled(false);
         jButton13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton13.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
@@ -309,9 +326,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton14.setText("14");
         jButton14.setBorder(null);
+        jButton14.setBorderPainted(false);
+        buttonGroup1.add(jButton14);
         jButton14.setContentAreaFilled(false);
         jButton14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton14.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
@@ -325,9 +343,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton15.setText("15");
         jButton15.setBorder(null);
+        jButton15.setBorderPainted(false);
+        buttonGroup1.add(jButton15);
         jButton15.setContentAreaFilled(false);
         jButton15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton15.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton15ActionPerformed(evt);
@@ -341,9 +360,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton16.setText("16");
         jButton16.setBorder(null);
+        jButton16.setBorderPainted(false);
+        buttonGroup1.add(jButton16);
         jButton16.setContentAreaFilled(false);
         jButton16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton16.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton16ActionPerformed(evt);
@@ -357,9 +377,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton17.setText("17");
         jButton17.setBorder(null);
+        jButton17.setBorderPainted(false);
+        buttonGroup1.add(jButton17);
         jButton17.setContentAreaFilled(false);
         jButton17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton17.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton17ActionPerformed(evt);
@@ -373,9 +394,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton18.setText("18");
         jButton18.setBorder(null);
+        jButton18.setBorderPainted(false);
+        buttonGroup1.add(jButton18);
         jButton18.setContentAreaFilled(false);
         jButton18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton18.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton18ActionPerformed(evt);
@@ -389,9 +411,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton19.setText("19");
         jButton19.setBorder(null);
+        jButton19.setBorderPainted(false);
+        buttonGroup1.add(jButton19);
         jButton19.setContentAreaFilled(false);
         jButton19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton19.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton19ActionPerformed(evt);
@@ -405,9 +428,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton20.setText("20");
         jButton20.setBorder(null);
+        jButton20.setBorderPainted(false);
+        buttonGroup1.add(jButton20);
         jButton20.setContentAreaFilled(false);
         jButton20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton20.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton20ActionPerformed(evt);
@@ -421,9 +445,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton21.setText("21");
         jButton21.setBorder(null);
+        jButton21.setBorderPainted(false);
+        buttonGroup1.add(jButton21);
         jButton21.setContentAreaFilled(false);
         jButton21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton21.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton21ActionPerformed(evt);
@@ -437,9 +462,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton22.setText("22");
         jButton22.setBorder(null);
+        jButton22.setBorderPainted(false);
+        buttonGroup1.add(jButton22);
         jButton22.setContentAreaFilled(false);
         jButton22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton22.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton22ActionPerformed(evt);
@@ -453,9 +479,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton23.setText("23");
         jButton23.setBorder(null);
+        jButton23.setBorderPainted(false);
+        buttonGroup1.add(jButton23);
         jButton23.setContentAreaFilled(false);
         jButton23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton23.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton23ActionPerformed(evt);
@@ -469,9 +496,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton24.setText("24");
         jButton24.setBorder(null);
+        jButton24.setBorderPainted(false);
+        buttonGroup1.add(jButton24);
         jButton24.setContentAreaFilled(false);
         jButton24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton24.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton24ActionPerformed(evt);
@@ -485,9 +513,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton25.setText("25");
         jButton25.setBorder(null);
+        jButton25.setBorderPainted(false);
+        buttonGroup1.add(jButton25);
         jButton25.setContentAreaFilled(false);
         jButton25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton25.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton25ActionPerformed(evt);
@@ -501,9 +530,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton26.setText("26");
         jButton26.setBorder(null);
+        jButton26.setBorderPainted(false);
+        buttonGroup1.add(jButton26);
         jButton26.setContentAreaFilled(false);
         jButton26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton26.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton26ActionPerformed(evt);
@@ -517,9 +547,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton27.setText("27");
         jButton27.setBorder(null);
+        jButton27.setBorderPainted(false);
+        buttonGroup1.add(jButton27);
         jButton27.setContentAreaFilled(false);
         jButton27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton27.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton27ActionPerformed(evt);
@@ -533,9 +564,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton28.setText("28");
         jButton28.setBorder(null);
+        jButton28.setBorderPainted(false);
+        buttonGroup1.add(jButton28);
         jButton28.setContentAreaFilled(false);
         jButton28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton28.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton28ActionPerformed(evt);
@@ -549,9 +581,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton29.setText("29");
         jButton29.setBorder(null);
+        jButton29.setBorderPainted(false);
+        buttonGroup1.add(jButton29);
         jButton29.setContentAreaFilled(false);
         jButton29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton29.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton29ActionPerformed(evt);
@@ -565,9 +598,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton30.setText("30");
         jButton30.setBorder(null);
+        jButton30.setBorderPainted(false);
+        buttonGroup1.add(jButton30);
         jButton30.setContentAreaFilled(false);
         jButton30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton30.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton30ActionPerformed(evt);
@@ -581,9 +615,10 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/65x65ButtonBeige.png"))); // NOI18N
         jButton31.setText("31");
         jButton31.setBorder(null);
+        jButton31.setBorderPainted(false);
+        buttonGroup1.add(jButton31);
         jButton31.setContentAreaFilled(false);
         jButton31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton31.setPreferredSize(new java.awt.Dimension(65, 65));
         jButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton31ActionPerformed(evt);
@@ -630,6 +665,7 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         nextMonthButton.setAlignmentY(0.0F);
         nextMonthButton.setBorder(null);
         nextMonthButton.setBorderPainted(false);
+        buttonGroup1.add(nextMonthButton);
         nextMonthButton.setContentAreaFilled(false);
         nextMonthButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nextMonthButton.setDisplayedMnemonicIndex(0);
@@ -652,6 +688,7 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         prevMonthButton.setAlignmentY(0.0F);
         prevMonthButton.setBorder(null);
         prevMonthButton.setBorderPainted(false);
+        buttonGroup1.add(prevMonthButton);
         prevMonthButton.setContentAreaFilled(false);
         prevMonthButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         prevMonthButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -673,6 +710,7 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         ConfirmButton.setAlignmentY(0.0F);
         ConfirmButton.setBorder(null);
         ConfirmButton.setBorderPainted(false);
+        buttonGroup1.add(ConfirmButton);
         ConfirmButton.setContentAreaFilled(false);
         ConfirmButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ConfirmButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -689,6 +727,8 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
         jButton32.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIcon.png"))); // NOI18N
         jButton32.setBorder(null);
+        jButton32.setBorderPainted(false);
+        buttonGroup1.add(jButton32);
         jButton32.setContentAreaFilled(false);
         jButton32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton32.setPreferredSize(new java.awt.Dimension(65, 65));
@@ -978,6 +1018,7 @@ public class CalendarioInterattivoMotivazione extends javax.swing.JFrame {
     private javax.swing.JButton ConfirmButton;
     private javax.swing.JLabel MonthLabel;
     private javax.swing.JTextArea MotivazioneSciopero;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -1042,14 +1083,5 @@ private javax.swing.JButton selectedButton;
     RichiesteControl RC;
     //StraordinariControl SC;
 
-    private boolean clickable;
-
-    public boolean isClickable() {
-        return clickable;
-    }
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
 }

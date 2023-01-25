@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -41,7 +42,6 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         Ferie.setVisible(false);
         CongedoParentale.setVisible(false);
         ComunicazioneMalattia.setVisible(false);
-        setClickable(true);
         nameText.setText(nome + " " + cognome);
         idText.setText(matricola);
         mailText.setText(mail);
@@ -60,6 +60,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         BankButton = new javax.swing.JButton();
         ScheduleButton = new javax.swing.JButton();
@@ -99,6 +100,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         BankButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         BankButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BankButton.png"))); // NOI18N
         BankButton.setBorder(null);
+        BankButton.setBorderPainted(false);
+        buttonGroup1.add(BankButton);
         BankButton.setContentAreaFilled(false);
         BankButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BankButton.setIconTextGap(0);
@@ -114,6 +117,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         ScheduleButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         ScheduleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ScheduleButton.png"))); // NOI18N
         ScheduleButton.setBorder(null);
+        ScheduleButton.setBorderPainted(false);
+        buttonGroup1.add(ScheduleButton);
         ScheduleButton.setContentAreaFilled(false);
         ScheduleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ScheduleButton.setIconTextGap(0);
@@ -129,6 +134,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         PasswordButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         PasswordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PasswordButton.png"))); // NOI18N
         PasswordButton.setBorder(null);
+        PasswordButton.setBorderPainted(false);
+        buttonGroup1.add(PasswordButton);
         PasswordButton.setContentAreaFilled(false);
         PasswordButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PasswordButton.setIconTextGap(0);
@@ -144,6 +151,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         NotificationButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         NotificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/NotificationButton.png"))); // NOI18N
         NotificationButton.setBorder(null);
+        NotificationButton.setBorderPainted(false);
+        buttonGroup1.add(NotificationButton);
         NotificationButton.setContentAreaFilled(false);
         NotificationButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         NotificationButton.setIconTextGap(0);
@@ -159,6 +168,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         RequestButton.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         RequestButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RequestIcon.png"))); // NOI18N
         RequestButton.setBorder(null);
+        RequestButton.setBorderPainted(false);
+        buttonGroup1.add(RequestButton);
         RequestButton.setContentAreaFilled(false);
         RequestButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         RequestButton.setIconTextGap(0);
@@ -177,6 +188,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         Permesso.setAlignmentY(0.0F);
         Permesso.setBorder(null);
         Permesso.setBorderPainted(false);
+        buttonGroup1.add(Permesso);
         Permesso.setContentAreaFilled(false);
         Permesso.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Permesso.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -199,6 +211,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         Ferie.setAlignmentY(0.0F);
         Ferie.setBorder(null);
         Ferie.setBorderPainted(false);
+        buttonGroup1.add(Ferie);
         Ferie.setContentAreaFilled(false);
         Ferie.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Ferie.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -221,6 +234,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         ComunicazioneMalattia.setAlignmentY(0.0F);
         ComunicazioneMalattia.setBorder(null);
         ComunicazioneMalattia.setBorderPainted(false);
+        buttonGroup1.add(ComunicazioneMalattia);
         ComunicazioneMalattia.setContentAreaFilled(false);
         ComunicazioneMalattia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ComunicazioneMalattia.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -243,6 +257,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         CongedoParentale.setAlignmentY(0.0F);
         CongedoParentale.setBorder(null);
         CongedoParentale.setBorderPainted(false);
+        buttonGroup1.add(CongedoParentale);
         CongedoParentale.setContentAreaFilled(false);
         CongedoParentale.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         CongedoParentale.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -268,6 +283,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         RequestButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardoCostina.png"))); // NOI18N
         RequestButton1.setText("FIRMA RITARDO");
         RequestButton1.setBorder(null);
+        RequestButton1.setBorderPainted(false);
+        buttonGroup1.add(RequestButton1);
         RequestButton1.setContentAreaFilled(false);
         RequestButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         RequestButton1.setIconTextGap(0);
@@ -330,6 +347,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
         LogoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutIcon.png"))); // NOI18N
         LogoutButton.setBorder(null);
+        LogoutButton.setBorderPainted(false);
+        buttonGroup1.add(LogoutButton);
         LogoutButton.setContentAreaFilled(false);
         LogoutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -363,6 +382,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         requestButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RitardiButton.png"))); // NOI18N
         requestButton1.setBorder(null);
         requestButton1.setBorderPainted(false);
+        buttonGroup1.add(requestButton1);
         requestButton1.setContentAreaFilled(false);
         requestButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         requestButton1.setFocusable(false);
@@ -402,101 +422,77 @@ public class HomepageImpiegato extends javax.swing.JFrame {
 
     private void BankButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BankButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             OSC = new OrariStipendiControl();
             OSC.ConsultaStipendioButtonPressed(this);
-        }
     }//GEN-LAST:event_BankButtonActionPerformed
 
     private void ScheduleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScheduleButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             OSC = new OrariStipendiControl();
             OSC.ConsultaOrarioButtonPressed(this);
-        }
     }//GEN-LAST:event_ScheduleButtonActionPerformed
 
     private void PasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             CPC = new CambiaPasswordControl();
             CPC.CPButtonPressed(this);
-        }
 
     }//GEN-LAST:event_PasswordButtonActionPerformed
 
     private void NotificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotificationButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.ConsultazioneListaRichiesteButtonPressed(this);
-        }
     }//GEN-LAST:event_NotificationButtonActionPerformed
 
     private void RequestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButtonActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.MostraRichiesteButtonPressed(this);
-        }
     }//GEN-LAST:event_RequestButtonActionPerformed
 
     private void RequestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestButton1ActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             FirC = new FirmaControl();
             FirC.firmaRitardoButtonPressed(this);
-        }
 
     }//GEN-LAST:event_RequestButton1ActionPerformed
 
     private void PermessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PermessoActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.RichiestaPermessoButtonPressed(this);
-        }
     }//GEN-LAST:event_PermessoActionPerformed
 
     private void FerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FerieActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.RichiestaFerieButtonPressed(this);
-        }
     }//GEN-LAST:event_FerieActionPerformed
 
     private void CongedoParentaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CongedoParentaleActionPerformed
         // TODO add your handling code here:
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.RichiestaCongedoParentaleButtonPressed(this);
-        }
     }//GEN-LAST:event_CongedoParentaleActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        if (isClickable()) {
             if (LC != null) {
                 LC.DisposeWindow(this);
             } else {
                 this.dispose();
             }
-        }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void ComunicazioneMalattiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComunicazioneMalattiaActionPerformed
-        if (isClickable()) {
             RicC = new RichiesteControl();
             RicC.ComunicazioneMalattiaButtonPressed(this);
-        }
     }//GEN-LAST:event_ComunicazioneMalattiaActionPerformed
 
     private void requestButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButton1ActionPerformed
         // TODO add your handling code here:
-        if(isClickable()){
             OSC = new OrariStipendiControl();
             OSC.consultazioneRitardiButtonPressed(this);
-        }
     }//GEN-LAST:event_requestButton1ActionPerformed
 
     /**
@@ -519,6 +515,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private javax.swing.JButton RequestButton;
     private javax.swing.JButton RequestButton1;
     private javax.swing.JButton ScheduleButton;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField idText;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -535,15 +532,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 //    private CambiaPasswordControl CPC = new CambiaPasswordControl();
-    private boolean clickable;
 
-    public boolean isClickable() {
-        return clickable;
-    }
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
     public JButton getCongedoParentale() {
         return CongedoParentale;
@@ -564,6 +553,12 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     public JButton getComunicazioneMalattia() {
         return ComunicazioneMalattia;
     }
+
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
+
+    
 
 }
 

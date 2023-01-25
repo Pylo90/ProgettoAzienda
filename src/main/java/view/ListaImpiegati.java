@@ -17,6 +17,7 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import model.DBMSBoundary;
@@ -31,7 +32,6 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     OrariStipendiControl OSC;
     RichiesteControl RC;
     AssumiLicenziaControl ALC;
-    //StraordinariControl SC;
     String funzione = null;
     int cardCount;
     boolean searchFieldPlaceholder;
@@ -79,7 +79,6 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
         } catch (SQLException ex) {
             Logger.getLogger(ListaImpiegati.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setClickable(true);
         this.setVisible(true);
     }
 
@@ -125,6 +124,10 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
 
         }
 
+    }
+
+    public JButton getHomeButton() {
+        return homeButton;
     }
 
     private void adaptListPanel() {
@@ -302,13 +305,13 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        if (isClickable() && (this.OSC != null)) {
+        if ( (this.OSC != null)) {
             OSC.DisposeWindow(this);
         }
-        if (isClickable() && (this.RC != null)) {
+        if ( (this.RC != null)) {
             RC.DisposeWindow(this);
         }
-        if (isClickable() && (this.ALC != null)) {
+        if ( (this.ALC != null)) {
             ALC.DisposeWindow(this);
         }
         /*if (isClickable() && (this.SC != null)) {
@@ -387,15 +390,7 @@ public class ListaImpiegati extends javax.swing.JFrame implements DocumentListen
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
 
-    private boolean clickable;
 
-    public boolean isClickable() {
-        return clickable;
-    }
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
     public ArrayList<InfoBoxCard> getImpiegati() {
         return impiegati;

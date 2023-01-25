@@ -1,6 +1,7 @@
 package view;
 
 import controller.AreaPersonale.FirmaControl;
+import javax.swing.ButtonGroup;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,7 +14,9 @@ import controller.AreaPersonale.FirmaControl;
 public class RitardoBoundary extends javax.swing.JFrame {
 
     FirmaControl FC;
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     /**
      * Creates new form FirmaRitardo
      */
@@ -33,6 +36,7 @@ public class RitardoBoundary extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -63,6 +67,7 @@ public class RitardoBoundary extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
+        buttonGroup1.add(jButton2);
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +78,8 @@ public class RitardoBoundary extends javax.swing.JFrame {
         jButton2.setBounds(50, 50, 100, 100);
 
         jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        buttonGroup1.add(jButton3);
         jPanel1.add(jButton3);
         jButton3.setBounds(0, 0, 0, 195);
 
@@ -158,6 +165,7 @@ public class RitardoBoundary extends javax.swing.JFrame {
         jButton1.setAlignmentY(0.0F);
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
+        buttonGroup1.add(jButton1);
         jButton1.setContentAreaFilled(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setIconTextGap(0);
@@ -234,6 +242,7 @@ public class RitardoBoundary extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -250,13 +259,4 @@ public class RitardoBoundary extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
-    private boolean clickable;
-
-    public boolean isClickable() {
-        return clickable;
-    }
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 }

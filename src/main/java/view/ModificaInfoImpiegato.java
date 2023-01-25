@@ -22,6 +22,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
@@ -33,7 +34,9 @@ import model.Utente;
  * @author Utente
  */
 public class ModificaInfoImpiegato extends javax.swing.JFrame {
-
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
     /**
      * Creates new form ModificaInfoImpiegato
      */
@@ -88,6 +91,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         Cornice = new javax.swing.JLabel();
@@ -261,6 +265,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         ConfirmButton.setAlignmentY(0.0F);
         ConfirmButton.setBorder(null);
         ConfirmButton.setBorderPainted(false);
+        buttonGroup1.add(ConfirmButton);
         ConfirmButton.setContentAreaFilled(false);
         ConfirmButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ConfirmButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -277,6 +282,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomeButton.png"))); // NOI18N
         homeButton.setBorder(null);
         homeButton.setBorderPainted(false);
+        buttonGroup1.add(homeButton);
         homeButton.setContentAreaFilled(false);
         homeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         homeButton.setFocusPainted(false);
@@ -290,6 +296,9 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
         homeButton.setBounds(40, 40, 100, 100);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FotoButton.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        buttonGroup1.add(jButton2);
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -474,6 +483,7 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConfirmButton;
     private javax.swing.JLabel Cornice;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -496,15 +506,5 @@ public class ModificaInfoImpiegato extends javax.swing.JFrame {
 
     Utente UT;
     AssumiLicenziaControl ALC = new AssumiLicenziaControl();
-
-    private boolean clickable;
-
-    public boolean isClickable() {
-        return clickable;
-    }
-
-    public void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
 
 }
