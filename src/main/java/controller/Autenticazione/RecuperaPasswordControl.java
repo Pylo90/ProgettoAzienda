@@ -16,38 +16,45 @@ import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import view.Errore;
+import view.LoginForm;
 import view.Notifica;
 import view.RecuperaPasswordBoundary;
 
 public class RecuperaPasswordControl {
 
     RecuperaPasswordBoundary recuperaForm;
+    LoginForm LF;
 
-    public RecuperaPasswordControl() {
+    public RecuperaPasswordControl(LoginForm LF) {
         super();
-    }
-
-    public void showRecuperaPassword() {
         recuperaForm = new RecuperaPasswordBoundary(this);
-        recuperaForm.setVisible(true);
         recuperaForm.setAlwaysOnTop(true);
+        LF.setAlwaysOnTop(false);
+        Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
+        while (buttons.hasMoreElements()) {
+            buttons.nextElement().setEnabled(false);
+        }
+        this.LF = LF;
+        recuperaForm.setVisible(true);
+
     }
 
-    public void submitForm() {
+    public void submitForm(String nome, String cognome, String pin, String matricola) {
+
+        ResultSet rs = DBMSBoundary.getQuery("SELECT COUNT(*) FROM impiegato WHERE nome = '" + nome + "' AND cognome = '" + cognome + "' AND matricola = '" + matricola
+                + "' AND pin = '" + pin + "'");
         try {
-            ResultSet rs = DBMSBoundary.getQuery("SELECT COUNT(*) FROM impiegato WHERE nome = '" + recuperaForm.getNameField() + "' AND cognome = '" + recuperaForm.getSurnameField() + "' AND matricola = '" + recuperaForm.getMatField()
-                    + "' AND pin = '" + recuperaForm.getPinField() + "'");
             rs.next();
             if (rs.getInt(1) == 0) {
                 MostraErrore("Credenziali errate");
             } else {
                 String psw = generatePlainPassword(12);
                 String hash = hashPassword(psw);
-                rs = DBMSBoundary.getQuery("SELECT email FROM impiegato WHERE matricola = '" + recuperaForm.getMatField() + "'");
+                rs = DBMSBoundary.getQuery("SELECT email FROM impiegato WHERE matricola = '" + matricola + "'");
                 rs.next();
-                DBMSBoundary.updateQuery("UPDATE impiegato SET psw = '" + hash + "' WHERE matricola = '" + recuperaForm.getMatField() + "'");
+                DBMSBoundary.updateQuery("UPDATE impiegato SET psw = '" + hash + "' WHERE matricola = '" + matricola + "'");
                 MailSender.sendMail(rs.getString(1), "Recupero password", "Nuova password: " + psw);
-                MostraNotifica("Password modificata correttamente");
+                MostraNotifica("Nuova password inviata");
 
             }
         } catch (SQLException ex) {
@@ -57,6 +64,7 @@ public class RecuperaPasswordControl {
 
     public void showLoginForm() {
         recuperaForm.dispose();
+
     }
 
     public void MostraErrore(String messaggio) {
@@ -90,12 +98,11 @@ public class RecuperaPasswordControl {
 
     public void SubmitError(JFrame finestra) {
         finestra.dispose();
+        recuperaForm.setAlwaysOnTop(true);
         recuperaForm.getNameField().setEditable(true);
         recuperaForm.getSurnameField().setEditable(true);
         recuperaForm.getMatField().setEditable(true);
         recuperaForm.getPinField().setEditable(true);
-        recuperaForm.setAlwaysOnTop(true);
-
         Enumeration<AbstractButton> buttons = recuperaForm.getButtonGroup1().getElements();
         while (buttons.hasMoreElements()) {
             buttons.nextElement().setEnabled(true);
@@ -105,13 +112,9 @@ public class RecuperaPasswordControl {
 
     public void SubmitNotice(JFrame finestra) {
         finestra.dispose();
-        recuperaForm.getNameField().setEditable(true);
-        recuperaForm.getSurnameField().setEditable(true);
-        recuperaForm.getMatField().setEditable(true);
-        recuperaForm.getPinField().setEditable(true);
-        recuperaForm.setAlwaysOnTop(true);
-
-        Enumeration<AbstractButton> buttons = recuperaForm.getButtonGroup1().getElements();
+        disposeWindow(recuperaForm);
+        LF.setAlwaysOnTop(true);
+        Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
         while (buttons.hasMoreElements()) {
             buttons.nextElement().setEnabled(true);
         }

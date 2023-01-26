@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import controller.Autenticazione.LoginControl;
+import controller.Autenticazione.RecuperaPasswordControl;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.util.HashMap;
@@ -176,8 +177,7 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_confermaButtonActionPerformed
 
     private void forgotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotButtonActionPerformed
-
-        LC.RPButtonPressed();
+        new RecuperaPasswordControl(this);
     }//GEN-LAST:event_forgotButtonActionPerformed
 
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed

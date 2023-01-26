@@ -256,7 +256,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        rc.submitForm();
+        rc.submitForm(nameField.getText(),surnameField.getText(),pinField.getText(),matField.getText());
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
@@ -268,7 +268,7 @@ public class RecuperaPasswordBoundary extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        new RecuperaPasswordControl().showRecuperaPassword();
+        //new RecuperaPasswordControl().showRecuperaPassword();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

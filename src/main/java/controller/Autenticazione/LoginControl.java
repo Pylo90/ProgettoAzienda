@@ -128,15 +128,7 @@ public class LoginControl {
 
     }
 
-    /* TODO */
-    public void RPButtonPressed() {
-        new RecuperaPasswordControl().showRecuperaPassword();
-        LF.setAlwaysOnTop(false);
-        Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
-        while (buttons.hasMoreElements()) {
-            buttons.nextElement().setEnabled(false);
-        }
-    }
+    
 
     /* Debug main */
     public static void main(String[] args) {

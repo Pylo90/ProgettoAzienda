@@ -25,6 +25,7 @@ public class OrariStipendiControl {
     HomepageDatore HPD;
     ListaImpiegati LI;
     JFrame StipendioImpiegato;
+    boolean found = false;
 
     public OrariStipendiControl() {
     }
@@ -52,54 +53,57 @@ public class OrariStipendiControl {
         int giorno = 0;
         try {
             if (OI.next()) {
-                turno = ((OI.getInt(1) / 8) + 1);
-                giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
                 OrarioImpiegato OrarioImpiegati = new OrarioImpiegato(this);
-                switch (turno * 10 + giorno) {
-                    case 10 ->
-                        OrarioImpiegati.getLabel10().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 11 ->
-                        OrarioImpiegati.getLabel11().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 12 ->
-                        OrarioImpiegati.getLabel12().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 13 ->
-                        OrarioImpiegati.getLabel13().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 14 ->
-                        OrarioImpiegati.getLabel14().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 15 ->
-                        OrarioImpiegati.getLabel15().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 16 ->
-                        OrarioImpiegati.getLabel16().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 20 ->
-                        OrarioImpiegati.getLabel20().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 21 ->
-                        OrarioImpiegati.getLabel21().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 22 ->
-                        OrarioImpiegati.getLabel22().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 23 ->
-                        OrarioImpiegati.getLabel23().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 24 ->
-                        OrarioImpiegati.getLabel24().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 25 ->
-                        OrarioImpiegati.getLabel25().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 26 ->
-                        OrarioImpiegati.getLabel26().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 30 ->
-                        OrarioImpiegati.getLabel30().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 31 ->
-                        OrarioImpiegati.getLabel31().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 32 ->
-                        OrarioImpiegati.getLabel32().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 33 ->
-                        OrarioImpiegati.getLabel33().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 34 ->
-                        OrarioImpiegati.getLabel34().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 35 ->
-                        OrarioImpiegati.getLabel35().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 36 ->
-                        OrarioImpiegati.getLabel36().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                while (OI.next()) {
+                    turno = ((OI.getInt(1) / 8) + 1);
+                    giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
+                    switch (turno * 10 + giorno) {
+                        case 10 ->
+                            OrarioImpiegati.getLabel10().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 11 ->
+                            OrarioImpiegati.getLabel11().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 12 ->
+                            OrarioImpiegati.getLabel12().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 13 ->
+                            OrarioImpiegati.getLabel13().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 14 ->
+                            OrarioImpiegati.getLabel14().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 15 ->
+                            OrarioImpiegati.getLabel15().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 16 ->
+                            OrarioImpiegati.getLabel16().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 20 ->
+                            OrarioImpiegati.getLabel20().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 21 ->
+                            OrarioImpiegati.getLabel21().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 22 ->
+                            OrarioImpiegati.getLabel22().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 23 ->
+                            OrarioImpiegati.getLabel23().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 24 ->
+                            OrarioImpiegati.getLabel24().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 25 ->
+                            OrarioImpiegati.getLabel25().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 26 ->
+                            OrarioImpiegati.getLabel26().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 30 ->
+                            OrarioImpiegati.getLabel30().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 31 ->
+                            OrarioImpiegati.getLabel31().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 32 ->
+                            OrarioImpiegati.getLabel32().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 33 ->
+                            OrarioImpiegati.getLabel33().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 34 ->
+                            OrarioImpiegati.getLabel34().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 35 ->
+                            OrarioImpiegati.getLabel35().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 36 ->
+                            OrarioImpiegati.getLabel36().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
 
+                    }
                 }
+
             } else {
                 MostraErrore("Turni non trovati");
             }
@@ -277,54 +281,57 @@ public class OrariStipendiControl {
         int giorno = 0;
         try {
             if (OI.next()) {
-                turno = ((OI.getInt(1) / 8) + 1);
-                giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
                 OrarioImpiegato OrarioImpiegati = new OrarioImpiegato(this);
-                switch (turno * 10 + giorno) {
-                    case 10 ->
-                        OrarioImpiegati.getLabel10().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 11 ->
-                        OrarioImpiegati.getLabel11().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 12 ->
-                        OrarioImpiegati.getLabel12().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 13 ->
-                        OrarioImpiegati.getLabel13().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 14 ->
-                        OrarioImpiegati.getLabel14().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 15 ->
-                        OrarioImpiegati.getLabel15().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 16 ->
-                        OrarioImpiegati.getLabel16().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 20 ->
-                        OrarioImpiegati.getLabel20().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 21 ->
-                        OrarioImpiegati.getLabel21().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 22 ->
-                        OrarioImpiegati.getLabel22().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 23 ->
-                        OrarioImpiegati.getLabel23().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 24 ->
-                        OrarioImpiegati.getLabel24().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 25 ->
-                        OrarioImpiegati.getLabel25().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 26 ->
-                        OrarioImpiegati.getLabel26().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 30 ->
-                        OrarioImpiegati.getLabel30().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 31 ->
-                        OrarioImpiegati.getLabel31().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 32 ->
-                        OrarioImpiegati.getLabel32().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 33 ->
-                        OrarioImpiegati.getLabel33().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 34 ->
-                        OrarioImpiegati.getLabel34().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 35 ->
-                        OrarioImpiegati.getLabel35().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
-                    case 36 ->
-                        OrarioImpiegati.getLabel36().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                while (OI.next()) {
+                    turno = ((OI.getInt(1) / 8) + 1);
+                    giorno = (((OI.getInt(2) - 2) % 7) + 7) % 7;
+                    switch (turno * 10 + giorno) {
+                        case 10 ->
+                            OrarioImpiegati.getLabel10().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 11 ->
+                            OrarioImpiegati.getLabel11().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 12 ->
+                            OrarioImpiegati.getLabel12().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 13 ->
+                            OrarioImpiegati.getLabel13().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 14 ->
+                            OrarioImpiegati.getLabel14().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 15 ->
+                            OrarioImpiegati.getLabel15().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 16 ->
+                            OrarioImpiegati.getLabel16().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 20 ->
+                            OrarioImpiegati.getLabel20().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 21 ->
+                            OrarioImpiegati.getLabel21().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 22 ->
+                            OrarioImpiegati.getLabel22().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 23 ->
+                            OrarioImpiegati.getLabel23().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 24 ->
+                            OrarioImpiegati.getLabel24().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 25 ->
+                            OrarioImpiegati.getLabel25().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 26 ->
+                            OrarioImpiegati.getLabel26().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 30 ->
+                            OrarioImpiegati.getLabel30().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 31 ->
+                            OrarioImpiegati.getLabel31().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 32 ->
+                            OrarioImpiegati.getLabel32().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 33 ->
+                            OrarioImpiegati.getLabel33().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 34 ->
+                            OrarioImpiegati.getLabel34().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 35 ->
+                            OrarioImpiegati.getLabel35().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
+                        case 36 ->
+                            OrarioImpiegati.getLabel36().setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCellSelezionata.png")));
 
+                    }
                 }
+
             } else {
                 MostraErrore("Turni non trovati");
             }
