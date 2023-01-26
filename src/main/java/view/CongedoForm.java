@@ -2,6 +2,7 @@ package view;
 
 import controller.AreaPersonale.RichiesteControl;
 import javax.swing.ButtonGroup;
+import javax.swing.JTextField;
 
 public class CongedoForm extends javax.swing.JFrame {
 
@@ -99,7 +100,6 @@ public class CongedoForm extends javax.swing.JFrame {
         jTextArea2.setBackground(new java.awt.Color(255, 248, 238));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea2.setRows(5);
         jTextArea2.setText("Per quanti mesi vuoi\nrichiedere il congedo\nparentale?");
         jTextArea2.setBorder(null);
@@ -160,7 +160,7 @@ public class CongedoForm extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(668, 50, 600, 365);
+        setBounds(660, 50, 600, 365);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -229,6 +229,10 @@ public class CongedoForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     RichiesteControl RC;
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
 
 
 }

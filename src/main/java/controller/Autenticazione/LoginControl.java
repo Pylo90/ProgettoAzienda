@@ -39,7 +39,6 @@ public class LoginControl {
         String mat = matricola;
         String psw = password;
 
-        
         imp = DBMSBoundary.getQuery("SELECT COUNT(matricola), psw, nome, cognome, matricola, email, tel, propic, livello FROM Impiegato WHERE matricola = '" + mat + "' AND email = '" + email + "'");
 
         try {
@@ -97,11 +96,11 @@ public class LoginControl {
                 MostraNotifica("Login effettuato correttamente");
                 break;
             case 1:
-                HomepageAmministratore HPA = new HomepageAmministratore(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                HomepageImpiegato HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
                 MostraNotifica("Login effettuato correttamente");
                 break;
             case 2:
-                HomepageImpiegato HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
                 MostraNotifica("Login effettuato correttamente");
                 break;
             case 3:
@@ -109,7 +108,8 @@ public class LoginControl {
                 MostraNotifica("Login effettuato correttamente");
                 break;
             case 4:
-                HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
+
+                HomepageAmministratore HPA = new HomepageAmministratore(nome, cognome, matricola, tel, mail, proPicToSend, this);
                 MostraNotifica("Login effettuato correttamente");
                 break;
         } //DEBUG
@@ -228,7 +228,6 @@ public class LoginControl {
                 break;
             case 5:
                 finestra.dispose();
-            
 
         } //DEBUG
         finestra.dispose();
@@ -236,7 +235,7 @@ public class LoginControl {
 
     public void DisposeWindow(JFrame window) {
         if (window instanceof HomepageImpiegato || window instanceof HomepageDatore || window instanceof HomepageAmministratore) {
-            
+
             createLogin();
             window.dispose();
             MostraNotifica("Logout effettuato correttamente");

@@ -139,6 +139,7 @@ public class RichiesteControl {
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(false);
             }
+            CF.getjTextField1().setEditable(false);
         }
         if (CI != null) {
             Enumeration<AbstractButton> buttons = CI.getButtonGroup1().getElements();
@@ -185,6 +186,8 @@ public class RichiesteControl {
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(true);
             }
+            CF.getjTextField1().setEditable(true);
+
         }
         if (CI != null) {
             Enumeration<AbstractButton> buttons = CI.getButtonGroup1().getElements();
@@ -319,35 +322,39 @@ public class RichiesteControl {
 
     public void sendSelection(int mesi) {
         //congedo parentale
-        String giorno1 = String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-        String mese1 = String.format("%02d", Calendar.getInstance().get(Calendar.MONTH));
+        if (mesi <= 10) {
+            String giorno1 = String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+            String mese1 = String.format("%02d", Calendar.getInstance().get(Calendar.MONTH));
 
-        String giorno2 = String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-        String mese2 = String.format("%02d", Calendar.getInstance().get(Calendar.MONTH) + mesi);
+            String giorno2 = String.format("%02d", Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+            String mese2 = String.format("%02d", Calendar.getInstance().get(Calendar.MONTH) + mesi);
 
-        ResultSet rs = DBMSBoundary.getQuery("SELECT data_, matricola,T.id from turno T, assegnazione_turno AT where "
-                + "AT.impiegato = '" + Utente.getMatricola() + "' AND T.data_ >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T.data_ <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 + "';");
-        try {
-            if (rs.next()) {
-                rs.first();
-                String primaData = rs.getString("data_");
-                rs.last();
-                String ultimaData = rs.getString("data_");
+            ResultSet rs = DBMSBoundary.getQuery("SELECT data_, impiegato,T.id from turno T, assegnazione_turno AT where "
+                    + "AT.impiegato = '" + Utente.getMatricola() + "' AND T.data_ >= ' " + Year.now().getValue() + "-" + mese1 + "-" + giorno1 + "'AND T.data_ <= ' " + Year.now().getValue() + "-" + mese2 + "-" + giorno2 + "';");
+            try {
+                if (rs.next()) {
+                    rs.first();
+                    String primaData = rs.getString("data_");
+                    rs.last();
+                    String ultimaData = rs.getString("data_");
 
-                DBMSBoundary.updateQuery("INSERT INTO assenza values ("
-                        + "'" + primaData + "','" + ultimaData + "','malattia','" + Utente.getMatricola() + "');");
-                rs.beforeFirst();
-                while (rs.next()) {
-                    String idTurno = rs.getString("id");
-                    DBMSBoundary.updateQuery("delete from assegnazione_turno AT where AT.turno = '" + idTurno + "' AND AT.impiegato = '" + Utente.getMatricola() + "';");
+                    DBMSBoundary.updateQuery("INSERT INTO assenza values ("
+                            + "'" + primaData + "','" + ultimaData + "','malattia','" + Utente.getMatricola() + "');");
+                    rs.beforeFirst();
+                    while (rs.next()) {
+                        String idTurno = rs.getString("id");
+                        DBMSBoundary.updateQuery("delete from assegnazione_turno AT where AT.turno = '" + idTurno + "' AND AT.impiegato = '" + Utente.getMatricola() + "';");
 
+                    }
+
+                } else {
+                    MostraErrore("Impossibile trovare turni lavorativi nell'intervallo selezionato");
                 }
-
-            } else {
-                MostraErrore("Non sono stati trovati turni lavorativi nell'intervallo selezionato");
+            } catch (SQLException ex) {
+                Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(RichiesteControl.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+            MostraErrore("Selezionati più di 10 mesi");
         }
     }
 
