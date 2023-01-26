@@ -253,7 +253,7 @@ public class OrariStipendiControl {
     public void sendSelectionSalary(String matricola, ListaImpiegati LI) {
         //ricarica Lista
         this.LI = LI;
-
+        this.LI.setAlwaysOnTop(false);
         if (StipendioImpiegato != null) {
             this.DisposeWindow(StipendioImpiegato);
         }
@@ -265,14 +265,20 @@ public class OrariStipendiControl {
                 + "ORDER BY anno DESC, mese;");
 
         StipendioImpiegato = new StipendioImpiegato(this, rs);
-        LI.getHomeButton().setEnabled(false);
+        this.LI.getHomeButton().setEnabled(false);
+        for (int i = 0; i < LI.getImpiegati().size(); ++i) {
+            LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
+        }
 
     }
 
     public void sendSelectionTimeTables(String matricola, ListaImpiegati LI) {
         this.LI = LI;
-
-        LI.getHomeButton().setEnabled(false);
+        this.LI.setAlwaysOnTop(false);
+        this.LI.getHomeButton().setEnabled(false);
+        for (int i = 0; i < LI.getImpiegati().size(); ++i) {
+            LI.getImpiegati().get(i).getUseThisToHandleClick().setEnabled(false);
+        }
 
         ResultSet OI = DBMSBoundary.getQuery("select T.ora, dayofweek(data_) "
                 + "from impiegato I, turno T, assegnazione_turno AT "

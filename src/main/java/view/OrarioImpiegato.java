@@ -79,7 +79,7 @@ public class OrarioImpiegato extends javax.swing.JFrame {
         Label37.setBackground(new java.awt.Color(255, 248, 238));
         Label37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Label37.setFocusable(false);
-        Label37.setPreferredSize(new java.awt.Dimension(1440, 810));
+        Label37.setPreferredSize(new java.awt.Dimension(1440, 650));
 
         jButton32.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIcon.png"))); // NOI18N
@@ -94,59 +94,50 @@ public class OrarioImpiegato extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Impiegato Selezionato: ");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Matricola:");
 
         jLabel3.setText("jLabel2");
 
         LUNLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        LUNLabel.setForeground(new java.awt.Color(0, 0, 0));
         LUNLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LUNLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         LUNLabel.setText("LUN");
         LUNLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         MARLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        MARLabel.setForeground(new java.awt.Color(0, 0, 0));
         MARLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MARLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         MARLabel.setText("MAR");
         MARLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         MERLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        MERLabel.setForeground(new java.awt.Color(0, 0, 0));
         MERLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MERLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         MERLabel.setText("MER");
         MERLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         GIOLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        GIOLabel.setForeground(new java.awt.Color(0, 0, 0));
         GIOLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         GIOLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         GIOLabel.setText("GIO");
         GIOLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         VENLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        VENLabel.setForeground(new java.awt.Color(0, 0, 0));
         VENLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         VENLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         VENLabel.setText("VEN");
         VENLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         SABLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        SABLabel.setForeground(new java.awt.Color(0, 0, 0));
         SABLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         SABLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         SABLabel.setText("SAB");
         SABLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         DOMLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        DOMLabel.setForeground(new java.awt.Color(0, 0, 0));
         DOMLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         DOMLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OrarioCell.png"))); // NOI18N
         DOMLabel.setText("DOM");
@@ -390,7 +381,7 @@ public class OrarioImpiegato extends javax.swing.JFrame {
                         .addComponent(Label26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Label36)))
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
