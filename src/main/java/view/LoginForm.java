@@ -96,7 +96,6 @@ public class LoginForm extends javax.swing.JFrame {
 
         forgotButton.setBackground(new java.awt.Color(255, 248, 238));
         forgotButton.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
-        forgotButton.setForeground(new java.awt.Color(0, 0, 0));
         forgotButton.setText("Hai dimenticato la password?");
         forgotButton.setBorder(null);
         forgotButton.setBorderPainted(false);

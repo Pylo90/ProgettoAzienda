@@ -16,7 +16,6 @@ import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import view.Errore;
-import view.LoginForm;
 import view.Notifica;
 import view.RecuperaPasswordBoundary;
 
