@@ -221,7 +221,7 @@ public class OrariStipendiControl {
                 buttons.nextElement().setEnabled(false);
             }
         }
-        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola!='0';");
+        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola!='000000';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaStipendi");
 
     }
@@ -241,7 +241,7 @@ public class OrariStipendiControl {
                 buttons.nextElement().setEnabled(false);
             }
         }
-        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
+        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '000000';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ConsultaOrari");
 
     }

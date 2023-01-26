@@ -160,7 +160,7 @@ public class FirmaControl {
             }
 
         } else {
-            MostraErrore("sono passati i primi 10 minuti dall'inizio del turno, firma in ritardo");
+            MostraErrore("Sono passati i primi 10 minuti dall'inizio del turno, firma in ritardo");
         }
     }
 

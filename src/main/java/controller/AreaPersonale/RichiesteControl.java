@@ -472,7 +472,7 @@ public class RichiesteControl {
             }
 
         }
-        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0';");
+        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '000000';");
         LI = new ListaImpiegati(this, rs, "ScambiaOrari");
     }
 
@@ -658,7 +658,7 @@ public class RichiesteControl {
                 try {
                     if (orarioScambio1.next()) {
                         DisposeWindow(this.LI);
-                        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '0' AND matricola != '" + matScambio1 + "';");
+                        ResultSet rs = DBMSBoundary.getQuery("select matricola, nome , cognome , propic , livello from impiegato where matricola != '000000' AND matricola != '" + matScambio1 + "';");
                         LI = new ListaImpiegati(this, rs, "ScambiaOrari2");
 
                     } else {

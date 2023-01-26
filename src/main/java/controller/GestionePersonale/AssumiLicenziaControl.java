@@ -47,7 +47,7 @@ public class AssumiLicenziaControl {
         if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
         }
-        ResultSet rs = DBMSBoundary.getQuery("select * from impiegato;");
+        ResultSet rs = DBMSBoundary.getQuery("select * from impiegato where matricola != '000000';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "ModificaImpiegato");
         if (HPD != null) {
             Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
@@ -121,7 +121,7 @@ public class AssumiLicenziaControl {
         if (homepage instanceof HomepageAmministratore) {
             this.HPA = (HomepageAmministratore) homepage;
         }
-        ResultSet rs = DBMSBoundary.getQuery("select * from impiegato;");
+        ResultSet rs = DBMSBoundary.getQuery("select * from impiegato where matricola != '000000';");
         JFrame ListaImpiegati = new ListaImpiegati(this, rs, "LicenziaImpiegato");
         if (HPD != null) {
             Enumeration<AbstractButton> buttons = HPD.getButtonGroup1().getElements();
