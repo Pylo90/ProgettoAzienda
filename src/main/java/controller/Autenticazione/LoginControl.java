@@ -10,6 +10,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import model.DBMSBoundary;
+import model.Utente;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import view.Errore;
 import view.HomepageAmministratore;
@@ -75,6 +76,7 @@ public class LoginControl {
             nome = imp.getString("nome");
             cognome = imp.getString("cognome");
             matricola = imp.getString("matricola");
+            Utente.setMatricola(matricola);
             mail = imp.getString("email");
             tel = imp.getString("tel");
             livello = imp.getInt("livello");
@@ -229,9 +231,11 @@ public class LoginControl {
 
     public void DisposeWindow(JFrame window) {
         if (window instanceof HomepageImpiegato || window instanceof HomepageDatore || window instanceof HomepageAmministratore) {
-
+            
+            
             createLogin();
             window.dispose();
+            Utente.setMatricola(null);
             MostraNotifica("Logout effettuato correttamente");
             livello = 5;
 

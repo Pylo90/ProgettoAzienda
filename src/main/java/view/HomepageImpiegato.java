@@ -19,6 +19,7 @@ public class HomepageImpiegato extends javax.swing.JFrame {
     private OrariStipendiControl OSC;
     private LoginControl LC;
     private CambiaPasswordControl CPC;
+    private Thread firmaThread;
 
     public HomepageImpiegato(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
         Utente.setMatricola(matricola);
@@ -34,7 +35,8 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         phoneText.setText(tel);
         this.Propic.setIcon(propic);
         this.LC = logC;
-        new Thread(new FirmaCheck(RequestButton1)).start();
+        firmaThread = new Thread(new FirmaCheck(RequestButton1));
+        firmaThread.start();
     }
 
     /**
@@ -544,4 +546,9 @@ public class HomepageImpiegato extends javax.swing.JFrame {
         return buttonGroup1;
     }
 
+    public Thread getFirmaThread() {
+        return firmaThread;
+    }
+
+    
 }

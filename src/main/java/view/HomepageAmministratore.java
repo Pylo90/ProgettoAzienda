@@ -29,6 +29,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     private FirmaControl FirC;
     private AssumiLicenziaControl ALC;
     private LoginControl LC;
+    private Thread firmaThread;
 
     public HomepageAmministratore(String nome, String cognome, String matricola, String tel, String mail, ImageIcon propic, LoginControl logC) {
         initComponents();
@@ -44,7 +45,8 @@ public class HomepageAmministratore extends javax.swing.JFrame {
         phoneText.setText(tel);
         this.Propic.setIcon(propic);
         LC = logC;
-        new Thread(new FirmaCheck(requestButton2)).start();
+        firmaThread = new Thread(new FirmaCheck(requestButton2));
+        firmaThread.start();
     }
 
     /**
@@ -737,6 +739,10 @@ public class HomepageAmministratore extends javax.swing.JFrame {
 
     public JButton getMalattiaButton() {
         return MalattiaButton;
+    }
+    
+    public Thread getFirmaThread() {
+        return firmaThread;
     }
 
 }
