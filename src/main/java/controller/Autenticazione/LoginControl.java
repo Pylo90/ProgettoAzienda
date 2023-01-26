@@ -89,6 +89,7 @@ public class LoginControl {
         } catch (SQLException ex) {
             Logger.getLogger(LoginControl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println(livello);
 
         switch (livello) {
             case 0:
@@ -207,12 +208,13 @@ public class LoginControl {
                 DisposeWindow(LF);
                 break;
             case 1:
-                HomepageAmministratore HPA = new HomepageAmministratore(nome, cognome, matricola, tel, mail, proPicToSend, this);
-                HPA.setVisible(true);
+                HomepageImpiegato HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                HPI.setVisible(true);
                 DisposeWindow(LF);
                 break;
+
             case 2:
-                HomepageImpiegato HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
                 HPI.setVisible(true);
                 DisposeWindow(LF);
                 break;
@@ -222,8 +224,8 @@ public class LoginControl {
                 DisposeWindow(LF);
                 break;
             case 4:
-                HPI = new HomepageImpiegato(nome, cognome, matricola, tel, mail, proPicToSend, this);
-                HPI.setVisible(true);
+                HomepageAmministratore HPA = new HomepageAmministratore(nome, cognome, matricola, tel, mail, proPicToSend, this);
+                HPA.setVisible(true);
                 DisposeWindow(LF);
                 break;
             case 5:

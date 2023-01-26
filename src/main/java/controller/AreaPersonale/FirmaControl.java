@@ -60,17 +60,19 @@ public class FirmaControl {
                 buttons.nextElement().setEnabled(false);
             }
         }
-        
+
         JFrame RitardoBoundary = new RitardoBoundary(this);
 
     }
 
     public void DisposeWindow(JFrame finestra) {
         finestra.dispose();
-        Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
+        if (HPI != null) {
+            Enumeration<AbstractButton> buttons = HPI.getButtonGroup1().getElements();
             while (buttons.hasMoreElements()) {
                 buttons.nextElement().setEnabled(true);
             }
+        }
     }
 
     public void MostraErrore(String messaggio) {

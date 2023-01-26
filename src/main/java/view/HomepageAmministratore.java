@@ -673,7 +673,7 @@ public class HomepageAmministratore extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageAmministratore(null, null, "100000", null, null, null, null).setVisible(true);
+                new HomepageAmministratore(null, null, null, null, null, null, null).setVisible(true);
             }
         });
     }
