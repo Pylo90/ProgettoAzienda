@@ -79,7 +79,7 @@ public class CambiaPasswordControl {
         //invio modifica password
         this.CPB = CPB;
         ResultSet pwSet;
-        pwSet = DBMSBoundary.getQuery("select (psw) from impiegato where matricola=" + Utente.getMatricola() + ";");
+        pwSet = DBMSBoundary.getQuery("select psw from impiegato where matricola='" + Utente.getMatricola() + "';");
         try {
             if (pwSet.next()) {
 
@@ -94,7 +94,7 @@ public class CambiaPasswordControl {
                     return;
                 }
                 String passw = BCrypt.hashpw(np, BCrypt.gensalt());
-                DBMSBoundary.updateQuery("update impiegato set psw ='" + passw + "' where matricola=" + Utente.getMatricola() + ";");
+                DBMSBoundary.updateQuery("update impiegato set psw ='" + passw + "' where matricola='" + Utente.getMatricola() + "';");
 
                 MostraNotifica("Password cambiata correttamente");
             }
