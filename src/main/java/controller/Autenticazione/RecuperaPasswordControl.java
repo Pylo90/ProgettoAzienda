@@ -29,12 +29,13 @@ public class RecuperaPasswordControl {
         super();
         recuperaForm = new RecuperaPasswordBoundary(this);
         recuperaForm.setAlwaysOnTop(true);
-        LF.setAlwaysOnTop(false);
+        this.LF = LF;
+
+        this.LF.setAlwaysOnTop(false);
         Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
         while (buttons.hasMoreElements()) {
             buttons.nextElement().setEnabled(false);
         }
-        this.LF = LF;
         recuperaForm.setVisible(true);
 
     }
@@ -123,6 +124,11 @@ public class RecuperaPasswordControl {
 
     public void disposeWindow(JFrame finestra) {
         finestra.dispose();
+        LF.setAlwaysOnTop(true);
+        Enumeration<AbstractButton> buttons = LF.getButtonGroup1().getElements();
+        while (buttons.hasMoreElements()) {
+            buttons.nextElement().setEnabled(true);
+        }
 
     }
 
